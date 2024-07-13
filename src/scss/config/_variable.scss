@@ -1,0 +1,80 @@
+
+$primary:       #215154 !default;
+$secondary:     #5CB9BF !default;
+$success:       #42D494 !default;
+$warning:       #FFC107 !default;
+$danger:        #EB445A !default;
+$info:          #F7F7F9 !default;
+$light:         #F9F9F9 !default;
+$dark:          #181A1C !default;
+
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+) !default;
+
+$white:    #ffffff !default;
+$gray-100: #F9F9F9 !default;
+$gray-200: #EBEBF1 !default;
+$gray-300: #E2E2E2 !default;
+$gray-400: #DCDCDC !default;
+$gray-500: #CACACA !default;
+$gray-600: #929597 !default;
+$gray-700: #464A4B !default;
+$gray-800: #2F3436 !default;
+$gray-900: #181A1C !default;
+$gray-1000: #EFEDE9 !default;
+$black:    #000000 !default;
+
+$grays: (
+  "100": $gray-100,
+  "200": $gray-200,
+  "300": $gray-300,
+  "400": $gray-400,
+  "500": $gray-500,
+  "600": $gray-600,
+  "700": $gray-700,
+  "800": $gray-800,
+  "900": $gray-900,
+  "1000": $gray-1000
+) !default;
+
+$blue:    #367C90 !default;
+$red:     #E00000 !default;
+$orange:  #D8856B !default;
+$yellow:  #FFCB77 !default;
+$green:   #5F9A80 !default;
+$seagreen:   #156064 !default;
+$lightgreen:  #C1D3C0 !default;
+$lightgrey:#f9fafd !default;
+
+
+$colors: (
+    "blue":       $blue,
+    "red":        $red,
+    "orange":     $orange,
+    "yellow":     $yellow,
+    "green":      $green,
+    "seagreen":      $seagreen,
+    "lightgreen":      $lightgreen,
+    "black":      $black,
+  "white":      $white,
+) !default;
+$deepgreengradient: linear-gradient(180deg, #215154 0%, #2B8489 100%) !default;
+// fontFamily
+$fontPoppins: 'Poppins', sans-serif;
+
+// breakpoints
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1367px;
+
+
+

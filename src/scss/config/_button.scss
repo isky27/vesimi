@@ -1,0 +1,60 @@
+@import "./variable.scss";
+@import "./mixin.scss";
+
+.btn-deepgreen {
+    @include btn-deepgreen;
+}
+.btn-deepgreenLg {
+    @include btn-deepgreen;
+    min-width:240px;
+}
+.outlineBtn-deepgreen{
+    background-color: transparent;
+    border: 1px solid $primary;
+    color: $primary;
+    border-radius: 4px;
+    white-space: nowrap;
+
+}
+
+.dangerBtn {
+    @include dangerBtn;
+}
+.dangerBtn-outline{
+    @include dangerBtn;
+    background-color: $gray-100;
+    border: 1px solid $orange;
+    color: $orange;
+    &:hover {
+        background-color: $gray-100;
+        border: 1px solid $orange;
+        color: $orange;
+    }
+}
+
+.gray-btn {
+    background-color: $gray-200;
+    border: 1px solid $gray-200;
+    color: $gray-700;
+    padding: 10px 12px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.advanced-btn {
+    background: transparent;
+    border: none;
+    color: $gray-900;
+    text-decoration: underline;
+    font-weight: 500;
+}
+.disabled-button{
+    background: $gray-600;
+    border: 1px solid $gray-600;
+    border-radius: 4px;
+    color: $gray-800;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px 8px;
+}    

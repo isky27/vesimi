@@ -1,0 +1,172 @@
+@import "./variable.scss";
+@import "./mixin";
+
+.static-table {
+    table {
+        border-collapse: collapse;
+        table-layout: fixed;
+        width: 100%;
+        background-color: rgba(237, 237, 246, .1);
+        thead{
+            tr{
+                th{
+                    span{
+                        img{
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    th,
+    td {
+        border-bottom: 1px solid rgb(193 211 192 / 35%);
+        padding: 16px 0px;
+        text-align: left;
+        text-overflow: ellipsis;
+        font-size: 14px;
+        color: $gray-700;
+    }
+    th:first-child,td:first-child{
+        padding-left: 1rem;
+        @media (max-width:$xxl){
+            padding-left: 0.5rem;
+        }
+    }
+
+    th:last-child,
+    td:last-child {
+        width: 60px;
+    }
+
+    th {
+
+        font-size: 12px;
+        vertical-align: baseline;
+    }
+
+    table tr:first-child td {
+        border-top: none;
+    }
+
+    .tWrap {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        @media (max-width: $xl) {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: auto;
+        }
+    }
+
+    .tWrap__head {
+        overflow-y: scroll;
+
+        @media (max-width: $xl) {
+            max-width: 1200px;
+            width: 1000px;
+        }
+
+        @media (max-width: $lg) {
+            width: 898px
+        }
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    .tWrap__body {
+
+        tr {
+            cursor: pointer;
+
+            &:hover {
+                background: rgba(193, 211, 192, 0.4);
+            }
+            &:nth-child(odd){
+                background-color: $gray-100;
+                &:hover {
+                    background: rgba(193, 211, 192, 0.4);
+                }
+            }
+        }
+
+        @media (max-width: $xl) {
+            max-width: 1200px;
+            width: 1000px;
+        }
+
+        @media (max-width: $lg) {
+            width: 898px
+        }
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}
+
+.regionFacility {
+    .static-table {
+        th {
+            @media (max-width:1300px) {
+                font-size: 10px;
+            }
+        }
+
+        td {
+            @media (max-width:1300px) {
+                font-size: 12px;
+            }
+        }
+
+        th:last-child,
+        td:last-child {
+            width: auto;
+
+        }
+
+        .fs-10 {
+            @media (max-width:1300px) {
+                font-size: 9px;
+            }
+        }
+
+        span {
+            img {
+                padding-right: 0px !important;
+                width: 18px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+.table{
+    thead{
+        tr{
+            vertical-align: baseline;
+            th{
+                color: $gray-700;
+                font-size: 16px;
+                padding: 0.5rem 1rem;
+            }
+        }
+    }
+   tbody{
+    tr{
+        td{
+            padding: 1rem ;
+        }
+        .logo-icon-name {
+            @include dFlex;
+            width: 30px;
+            height: 30px;
+            background: $primary;
+            color: $white;
+            border-radius: 50%;
+        }
+    }
+   }
+}

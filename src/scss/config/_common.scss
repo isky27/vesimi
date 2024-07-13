@@ -1,0 +1,728 @@
+@import "./variable.scss";
+
+.spinner-border {
+  --bs-spinner-border-width: 0.15em;
+  --bs-spinner-animation-speed: 0.95s;
+  --bs-spinner-width: 1.5rem;
+  --bs-spinner-height: 1.5rem;
+  border: var(--bs-spinner-border-width) solid #215154;
+  border-right-color: transparent;
+}
+
+.DashboardWrapper {
+  width: calc(100% - 250px);
+
+  @media (max-width: $xxl) {
+    width: calc(100% - 190px);
+  }
+}
+
+.whiteSpace{
+  white-space: nowrap;
+}    
+
+.cursor {
+  cursor: pointer;
+}
+
+// date time show css
+.lates-update {
+  p {
+    span {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1px solid $black;
+    }
+  }
+}
+
+.logo-icon-name {
+  text-transform: uppercase;
+}
+
+// glec text
+.data-sources {
+  display: inline-block;
+
+  a {
+    color: $dark;
+  }
+
+  .glec-txt {
+    font-size: 9px;
+    color: $white;
+    background-color: $primary;
+    padding: 4px;
+    text-decoration: underline;
+  }
+}
+
+.form-control {
+  &:focus {
+    border-color: $gray-200;
+    outline: 0;
+    box-shadow: none;
+  }
+}
+
+// colored divs
+.lightgreen-div {
+  @include coloredBox($lightgreen);
+}
+
+.green-div {
+  @include coloredBox($green);
+}
+
+.primary-div {
+  @include coloredBox($primary);
+}
+
+.orange-div {
+  @include coloredBox($orange);
+}
+
+.white-div {
+  @include coloredBox($gray-600);
+}
+
+.gray-div {
+  @include coloredBox($gray-700);
+}
+
+// border bottom css
+.borderBottom {
+  border-bottom: 1px solid $gray-200;
+}
+
+.graph-loader {
+  height: 50vh;
+}
+
+.graph-loaderPie {
+  height: 30vh;
+}
+
+.opacitylight {
+  opacity: 0.05;
+}
+
+.custom-form {
+  .form-switch {
+    padding-left: 0px;
+  }
+}
+
+// toogle switch css
+.form-switch {
+  padding-left: 10px;
+
+  .form-check-input {
+    width: 38px;
+    height: 19px;
+    margin-top: 0;
+    margin-left: auto;
+    background-position: left center;
+    border-radius: 2em;
+    transition: background-position 0.15s ease-in-out;
+    margin-right: 3px;
+
+    &:focus {
+      border-color: $primary;
+      outline: 0;
+      box-shadow: none;
+    }
+
+    &:checked {
+      background-color: $primary;
+      border-color: $primary;
+    }
+  }
+}
+
+.highcharts-background {
+  fill: $info;
+}
+
+// back button
+.backBtn {
+  .btn-deepgreen {
+    span {
+      img {
+        transition: all 0.5s ease-out;
+      }
+    }
+
+    &:hover {
+      span {
+        img {
+          filter: invert(0%) sepia(3%) saturate(7500%) hue-rotate(217deg) brightness(0%) contrast(100%);
+        }
+      }
+    }
+  }
+
+  &:hover {
+    span {
+      img {
+        filter: invert(0%) sepia(3%) saturate(7500%) hue-rotate(217deg) brightness(0%) contrast(100%);
+      }
+    }
+  }
+}
+
+// select dropdown
+.select-box {
+  .css-b62m3t-container,
+  .css-3iigni-container {
+    min-width: 137px;
+
+    .css-13cymwt-control,
+    .css-16xfy0z-control {
+      min-height: 45px;
+      .css-1dimb5e-singleValue {
+        text-overflow: inherit !important; 
+        text-transform: capitalize;
+    }
+    }
+
+    .css-1u9des2-indicatorSeparator,
+    .css-894a34-indicatorSeparator {
+      display: none;
+    }
+  }
+
+  .css-t3ipsp-control {
+    min-height: 45px;
+    border-color: $lightgreen !important;
+    box-shadow: none;
+
+    &:hover {
+      border-color: $lightgreen !important;
+      box-shadow: none !important;
+    }
+  }
+
+  .paginationDropdown {
+    max-width: 70px;
+    min-width: 78px;
+
+    div {
+      text-align: left;
+    }
+
+    #react-select-5-listbox,
+    #react-select-2-listbox {
+      div {
+        text-align: left;
+      }
+    }
+
+    .css-13cymwt-control,
+    .css-16xfy0z-control {
+      min-height: 35px !important;
+    }
+
+    .css-t3ipsp-control {
+      min-height: 35px !important;
+    }
+  }
+
+  .yearDropdown,
+  .quarterDropdown {
+    min-width: 90px;
+  }
+}
+
+.css-t3ipsp-control {
+  min-height: 45px;
+  border-color: $lightgreen !important;
+  box-shadow: none;
+
+  &:hover {
+    border-color: $lightgreen !important;
+    box-shadow: none !important;
+  }
+}
+
+.yearDropdown,
+.quarterDropdown {
+  min-width: 90px;
+}
+
+.custom-select {
+  @media (max-width: $md) {
+    margin-top: 6px;
+  }
+
+  .css-13cymwt-control {
+    min-height: 45px;
+  }
+
+  .css-f85sjx-option:hover {
+    background-color: $lightgreen !important;
+    color: $primary !important;
+  }
+
+  .css-tr4s17-option {
+    background-color: $primary !important;
+    color: hsl(0, 0%, 100%) !important;
+    padding: 8px 12px;
+    box-sizing: border-box;
+  }
+
+  .css-d7l1ni-option {
+    background-color: $lightgreen !important;
+    color: $primary !important;
+  }
+}
+
+.form-select {
+  font-size: 14px;
+  background-color: $gray-100;
+  border: 1px solid $gray-500;
+  padding: 11px 12px;
+  min-width: 107px;
+  width: auto;
+
+  @media (max-width: $xxl) {
+    padding: 6px 12px;
+  }
+}
+
+.regionDropdown {
+  width: 155px;
+}
+
+// form css
+form {
+  .form-label {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .form-control {
+    border-radius: 8px;
+    border: 1px solid $gray-400;
+    background: $white;
+    padding: 12px 10px;
+  }
+}
+
+.headingSection {
+  background-color: $gray-200;
+  border-radius: 8px;
+}
+
+a[href^="http://maps.google.com/maps"] {
+  display: none !important;
+}
+
+a[href^="https://maps.google.com/maps"] {
+  display: none !important;
+}
+
+.gmnoprint,
+.gmnoprint a,
+.gmnoprint span,
+.gm-style-cc {
+  display: none !important;
+}
+
+.intencity-outer {
+  .highcharts-background {
+    fill: $info;
+  }
+}
+
+.linesbefore {
+  border-bottom: 0.125rem solid $gray-200;
+  height: 0.1875rem;
+  width: 13.5625rem;
+}
+
+.verticaldata {
+  position: absolute;
+  left: -9.4375rem;
+  transform: rotate(360deg);
+  top: 47%;
+  overflow-y: auto;
+
+  .linesbefore {
+    width: 4.1875rem;
+  }
+}
+
+.top-hstrips {
+  @include dpFlex;
+  margin: 0.625rem 0rem 1.5rem;
+
+  h3 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 0;
+
+    @media (max-width: $xxl) {
+      font-size: 1.375rem;
+    }
+  }
+
+  a {
+    background-color: $primary;
+    font-size: 1.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: $white;
+    padding: 0.6875rem 1.5rem 0.625rem 1.5rem;
+    border-radius: 0.3125rem;
+  }
+}
+
+.table-bg {
+  .table {
+    --bs-table-hover-color: rgba(193, 211, 192, 0.4);
+    --bs-table-hover-bg: rgba(193, 211, 192, 0.4);
+  }
+}
+
+.filter-list {
+  ul {
+    padding: 0;
+    margin-bottom: 0;
+
+    li {
+      list-style: none;
+      display: inline-block;
+      margin-right: 0.75rem;
+
+      @media (max-width: $xxl) {
+        margin-right: 5px;
+      }
+
+      b {
+        font-size: 1rem;
+        font-weight: 500;
+        color: $gray-800;
+
+        @media (max-width: $xxl) {
+          font-size: 0.6875rem;
+        }
+      }
+
+      .filter-innerlist {
+        @include disFlex;
+
+        .form-check-input {
+          margin-top: 0.25rem;
+        }
+
+        label {
+          font-size: 0.875rem;
+          font-weight: 500;
+          color: $gray-800;
+          padding-left: 0;
+
+          @media (max-width: $xxl) {
+            font-size: 0.625rem;
+          }
+        }
+      }
+    }
+  }
+
+  .form-check-input {
+    &:checked {
+      background-color: $primary;
+      border-color: $primary;
+    }
+  }
+
+  .filter-active {
+    .filter-innerlist {
+      label {
+        color: $primary;
+      }
+    }
+  }
+}
+
+.no-data {
+  p {
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 0.8125rem;
+    padding: 2.5rem;
+  }
+}
+
+.table-nodata {
+  p {
+    justify-content: center;
+  }
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+// carrier screen carrier logo tooltip css
+
+.carrierLogoTooltip {
+  position: relative;
+
+  .carrierLogoTooltip_text {
+    display: none;
+  }
+
+  &:hover {
+    .carrierLogoTooltip_text {
+      .arrowDiv {
+        width: 10px;
+        height: 10px;
+        background: $white;
+        position: absolute;
+        top: 13%;
+        left: -4px;
+        transform: rotate(45deg);
+      }
+
+      h4 {
+        border-bottom: 1px solid $gray-400;
+      }
+
+      .linebefore {
+        position: relative;
+
+        &:after {
+          position: absolute;
+          background-color: $gray-500;
+          width: 1.5px;
+          height: 16px;
+          content: "";
+          right: 1px;
+        }
+      }
+
+      .dataRank {
+        padding-left: 18px;
+
+        .rankingLine {
+          border-bottom: 1px solid $gray-200;
+          margin-bottom: 10px;
+          padding-bottom: 10px;
+
+          &:last-child {
+            border-bottom: none;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+          }
+        }
+      }
+
+      display: block;
+      min-width: 247px;
+      max-width: 200px;
+      background: $white;
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.08);
+      position: absolute;
+      top: -4px;
+      left: 126px;
+      border-radius: 8px;
+      z-index: 99;
+
+      h5 {
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+table {
+  tbody {
+
+    tr:last-child:not(:first-child),
+    tr:nth-last-child(2):not(:first-child) {
+      td {
+        .carrierLogoTooltip {
+          &:hover {
+            .carrierLogoTooltip_text {
+              .arrowDiv {
+                bottom: 13%;
+                top: auto;
+              }
+
+              bottom: -4px;
+              top: auto;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// progress bar css
+.progress {
+  --bs-progress-height: 0.7rem;
+  --bs-progress-font-size: 0.75rem;
+  --bs-progress-bg: #fff !important;
+  --bs-progress-border-radius: 0.375rem;
+  --bs-progress-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+  --bs-progress-bar-bg: #d8856b !important;
+  display: flex;
+  height: var(--bs-progress-height);
+  overflow: hidden;
+  font-size: var(--bs-progress-font-size);
+  background-color: var(--bs-progress-bg);
+  border: 1px solid $orange;
+  border-radius: var(--bs-progress-border-radius);
+  &.medium_priority{
+    border: 1px solid $gray-600;
+    --bs-progress-bar-bg: #929597!important;
+  }
+  &.low_priority{
+    border: 1px solid $primary;
+    --bs-progress-bar-bg: #215154 !important;
+  }
+}
+
+
+.rgpGraph {
+  button {
+    &:hover {
+      background-color: $primary;
+      color: $white;
+      border: 1px solid $primary;
+      cursor: auto;
+    }
+  }
+}
+
+.form-check-input {
+  &:checked {
+    background-color: $primary;
+    border-color: $primary;
+  }
+
+  border: 1.3px solid $primary;
+
+  &:focus {
+    border-color: $primary;
+    outline: 0;
+    box-shadow: none;
+  }
+}
+
+// full page loader css
+.overlayLoader {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(0 0 0 / 20%);
+  position: absolute;
+  top: 0;
+  z-index: 99;
+  left: 0;
+
+  .spinner-border {
+    --bs-spinner-border-width: 0.35em;
+    --bs-spinner-width: 3.5rem;
+    --bs-spinner-height: 3.5rem;
+    border: var(--bs-spinner-border-width) solid $green;
+    border-right-color: transparent;
+  }
+}
+.verticalLine {
+  height: 60px;
+  width: 1px;
+  background: #cacaca;
+  margin-inline: 24px;
+}
+.manager-img-default {
+  img {
+    max-width: 60px;
+  }
+}
+.boxSize {
+  width: 17px;
+  height: 17px;
+  border-radius: 2px;
+}
+.low {
+  .color {
+    background-color: $orange;
+  }
+}
+.high {
+  .color {
+    background-color: #d8d8d8;
+  }
+}
+.medium {
+  .color {
+    background-color: #b1c2c3;
+  }
+}
+.primaryCard {
+  height: 164px;
+  padding: 0;
+}
+.titleMain {
+  font-size: 50px !important;
+  font-weight: 600;
+  text-align: center;
+  color: #b4c3b1;
+  @media (max-width: 1600px) {
+    font-size: 50px !important;
+  }
+  @media (max-width: 1400px) {
+    font-size: 40px !important;
+  }
+  @media (max-width: 1300px) {
+    font-size: 30px !important;
+  }
+  @media (max-width: 1200px){
+    font-size: 20px !important;
+  }
+  span {
+    img {
+      margin-bottom: 5px;
+
+      @media (max-width: 1300px) {
+        width: 29px;
+        margin-bottom: 9px;
+      }
+
+    }
+  }
+}
+.reagionCards {
+  background-color: $primary;
+  border-radius: 8px;
+  padding: 24px 28px;
+}
+
+.card-loader{
+  height: auto;
+    .spinner-border {
+    --bs-spinner-border-width: 0.15em;
+    --bs-spinner-animation-speed: 0.95s;
+    --bs-spinner-width: 1.5rem;
+    --bs-spinner-height: 1.5rem;
+    border: var(--bs-spinner-border-width) solid #fff;
+    border-right-color: transparent;
+}
+}
+.leftTitle{
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  @media screen and (max-width: $xxl) {
+      font-size: 14px !important;
+  }
+}
+.pagination .page-link {
+  font-size: 12px !important;
+}

@@ -1,0 +1,77 @@
+@import "./variable.scss";
+
+@mixin circle($size) {
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+}
+
+@mixin btn-deepgreen {
+    background-color: $primary;
+    border: 1px solid $primary;
+    color: $white;
+    padding: 11px 15px;
+    font-size: 20px;
+    font-weight: 500;
+    transition: all .5s ease-out;
+    white-space: nowrap;
+    border-radius: 4px;
+    @media(max-width: $sm){
+        font-size: 18px;
+    }
+
+    &:hover {
+        background-color: $lightgreen;
+        border: 1px solid $lightgreen;
+        color: $gray-900;
+        transition: all .5s ease-out;
+        img{
+            filter: invert(0%) sepia(3%) saturate(7500%) hue-rotate(217deg) brightness(0%) contrast(100%);
+            transition: all .5s ease-out;
+        }
+    }
+}
+@mixin dangerBtn {
+    background-color: $orange;
+    border: 1px solid $orange;
+    color: $white;
+    padding: 7px 22px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 14px;
+    border-radius: 4px;
+
+    &:hover {
+        background-color: $orange;
+        border: 1px solid $orange;
+        color: $white;
+    }
+}
+@mixin mainSectionBg{
+    background-color: $white;
+    border-radius: 8px;
+}
+@mixin dFlex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin coloredBox($bgColor){
+    width: 17px;
+    height: 17px;
+    border-radius: 2px;
+    background-color: $bgColor;
+}
+@mixin dpFlex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width: $lg) {
+        display: inherit;
+      }
+}
+@mixin disFlex{
+    display: flex;
+    align-items: center;
+}

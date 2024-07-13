@@ -1,0 +1,159 @@
+@import "./variable.scss";
+
+// top primary cards
+.primaryCard {
+    border: 1px solid rgba(255, 255, 255, 0.40);
+    padding: 16px 0px;
+    .primaryCardInnerWprpper {
+        color: $white;
+
+        .co-txt {
+            color: $white;
+
+            .green-div {
+                background: $lightgreen;
+                width: 20px;
+                height: 20px;
+                border-radius: 4px;
+            }
+
+            .orange-div {
+                background: $orange;
+                width: 20px;
+                height: 20px;
+                border-radius: 4px;
+            }
+        }
+
+        h6 {
+            font-size: 14px;
+        }
+
+        h3 {
+            font-size: 20px;
+
+            @media (max-width: $xxl) {
+                font-size: 18px;
+            }
+            min-height: 43px;
+        }
+
+        .by-date {
+            font-size: 14px;
+            color: $gray-200;
+        }
+    }
+}
+.primaryCard.lastBoxcard{
+    h3{
+        min-height: auto;
+    }
+}
+
+// mainGrayCards
+.mainGrayCards {
+    background: $info;
+    border-radius: 8px;
+
+    .left-arrow-slider {
+        position: absolute;
+        left: -8px;
+        top: 34%;
+        z-index: 2;
+
+        button {
+            background: transparent;
+            border: none;
+        }
+    }
+
+    .right-arrow-slider {
+        position: absolute;
+        right: 0px;
+        top: 34%;
+        z-index: 2;
+
+        button {
+            background: transparent;
+            border: none;
+        }
+    }
+    .quartely-wrapper{
+        border-top: 1px solid $lightgreen;
+        .quartely{
+            h4{
+                height: 50px;
+            }
+            h3{
+                span{
+                    margin-bottom: 2px;
+                    img{
+                        padding-right: 0px !important;
+                    }
+                }
+            }
+        }
+    }
+
+    h6 {
+        font-size: 14px;
+    }
+
+    h3 {
+        font-size: 20px;
+        @media(max-width:$xxl){
+            font-size: 18px;
+        }
+    }
+
+    span {
+        font-size: 12px;
+    }
+
+    .select-box {
+        .perTonDropdown {
+            min-width: 156px;
+        }
+    }
+
+    .model-overview-down {
+        background: $gray-200;
+        border-left: 10px solid $orange;
+        color: $orange;
+        font-size: 14px;
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+    }
+
+    .model-overview-up {
+        background: $lightgreen ;
+        border-left: 10px solid $primary;
+        color: $primary;
+        font-size: 14px;
+        min-height: 50px;
+    }
+}
+
+//top bar overview screen cards 
+
+.topBarOverview {
+    background: $gray-200;
+    border-radius: 8px;
+
+    .datafrom-txt {
+        font-size: 12px;
+    }
+
+    .emission {
+        .manager-img-default {
+            img {
+                width: 50px;
+            }
+        }
+
+        h6 {
+            font-size: 14px;
+        }
+    }
+}
