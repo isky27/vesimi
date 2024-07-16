@@ -3,6 +3,16 @@ import { useAppDispatch, useAppSelector } from '../../store/redux.hooks';
 import { useParams, useSearchParams } from 'react-router-dom';
 import { getCategoryProducts, getSubCategories } from 'store/category/category.slice';
 
+interface Filters {
+  colors: string[];
+  category: string[];
+  designer: string[];
+  price: number[];
+  size: string[];
+  shippingTime: string[];
+  occasion: string[];
+}
+
 /**
  * 
  * @returns all controllers for login page.
@@ -14,7 +24,15 @@ const CategoryController = () => {
 
     const [searchParams, setSearchParams] = useSearchParams();
 
-    const [filters, setFilters] = useState({ colors: [], category: [], designer: [], price: [0, 5000], size: [], shippingTime: "", occasion: [] })
+    const [filters, setFilters] = useState<Filters>({
+      colors: [],
+      category: [],
+      designer: [],
+      price: [0, 5000],
+      size: [],
+      shippingTime: [],
+      occasion: [],
+    });
 
     const [checkedItems, setCheckedItems] = useState<any>(new Set());
     const [filterDesigner, setFilterDesigner] = useState<any>(new Set());
@@ -22,15 +40,35 @@ const CategoryController = () => {
     const [filterColor, setFilterColor] = useState<any>(new Set())
     const [filterShipping, setFilterShipping] = useState<any>(new Set());
     const [filterOccasion, setFilterOccasion] = useState<any>(new Set())
-    const [filterPrice, setFilterPrice] = useState<any>([0,100000])
+    const [filterPrice, setFilterPrice] = useState<
+    any>([0,100000])
     const [currentPage, setCurrentPage] = useState<any>(1)
 
     // Import data from auth selector
     const dispatch = useAppDispatch()
     const { isLoadingSubCategories, subCategoryData,  categoryProductData, isLoadingCategoryProduct} = useAppSelector((state:any) => state.category);
 
-    console.log(categoryProductData, "categoryProductData");
 
+
+useEffect(() => {
+  setFilters({
+    colors: Array.from(filterColor),
+    category: Array.from(checkedItems),
+    designer: Array.from(filterDesigner),
+    price: filterPrice,
+    size: Array.from(filterSize),
+    shippingTime: Array.from(filterShipping),
+    occasion: Array.from(filterOccasion),
+  });
+}, [
+  checkedItems,
+  filterDesigner,
+  filterSize,
+  filterColor,
+  filterShipping,
+  filterOccasion,
+  filterPrice,
+]);
 
     useEffect(()=>{
         dispatch(getSubCategories({categoryId}))
@@ -41,7 +79,26 @@ const CategoryController = () => {
 		setFilterPrice(newRange);
 	};
 
-    // All the state and function return to LoginView
+  const generateUrlWithFilters = (baseUrl: string, filters: Filters) => {
+    const params = new URLSearchParams();
+
+    Object.keys(filters).forEach((key) => {
+      const value = filters[key as keyof Filters];
+      if (Array.isArray(value) && value.length > 0) {
+        params.append(key, value.join("%"));
+      }
+    });
+
+    return `${baseUrl}?${params.toString()}`;
+  };
+  useEffect(() => {
+    const baseUrl = "https://typicalUrl.com";
+    const generatedUrl = generateUrlWithFilters(baseUrl, filters);
+    console.log(generatedUrl, "__________________generatedUrl");
+  }, [filters]);
+
+  
+// All the state and function return to LoginView
     return {
         checkedItems,
         setCheckedItems,
