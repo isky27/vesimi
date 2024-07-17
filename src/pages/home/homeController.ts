@@ -1,6 +1,16 @@
 import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/redux.hooks';
-import { homeTopCategory, homeMainSlider, featureCagtegory, featureProduct, bestSellerProduct, searchProduct } from 'store/home/home.slice';
+import {
+  homeTopCategory,
+  homeMainSlider,
+  featureCagtegory,
+  featureProduct,
+  bestSellerProduct,
+  searchProduct,
+  lovedCollectionProduct,
+  ownDesignerProduct,
+  exclusiveCollectionProduct,
+} from "store/home/home.slice";
 
 /**
  * 
@@ -17,7 +27,7 @@ const HomeController = () => {
     const { isLoadingMainSlider, mainSliderData, isLoadingTopCategory, topCategoryData,  isLoadingFeatureCategory,
       featureCategoryData,  isLoadingFeatureProduct,
       featureProductData, isLoadingBestSellerProduct,
-      bestSellerProductData } = useAppSelector((state:any) => state.home);
+      bestSellerProductData, ownDesignerData, lovedCollectionData, exclusiveCollectionData } = useAppSelector((state:any) => state.home);
 
     useEffect(()=>{
       dispatch(homeMainSlider())
@@ -25,22 +35,25 @@ const HomeController = () => {
       dispatch(featureCagtegory())
       // dispatch(featureProduct())
       dispatch(bestSellerProduct())
+      dispatch(ownDesignerProduct())
+      dispatch(lovedCollectionProduct())
+      dispatch(exclusiveCollectionProduct());
     },[dispatch])
-
-    console.log(isLoadingFeatureCategory,
-      featureCategoryData, "isLoadingFeatureCategory featureCategoryData");
 
     // All the state and function return to LoginView
     return {
-      isLoadingMainSlider, 
+      isLoadingMainSlider,
       mainSliderData,
-      isLoadingTopCategory, 
+      isLoadingTopCategory,
       topCategoryData,
       isLoadingFeatureCategory,
       featureCategoryData,
       isLoadingBestSellerProduct,
-      bestSellerProductData 
-    }
+      bestSellerProductData,
+      ownDesignerData,
+      lovedCollectionData,
+      exclusiveCollectionData
+    };
 
 }
 

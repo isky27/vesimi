@@ -147,9 +147,7 @@ const CategoryView = () => {
 			level: 0
 		}
 	]
-
-	console.log(subCategoryData?.filters, subCategoryData?.filters?.filter((item: any) => { return item?.name === "Size" })?.[0]?.values, "fefjerfjfkfer");
-
+	
 	return (
 		<>
 		<Header/>

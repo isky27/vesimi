@@ -17,6 +17,9 @@ const initialState: HomeInterface = {
     topCategoryData: null,
     isLoadingFeatureCategory: false,
     featureCategoryData: null,
+    ownDesignerData:null,
+    exclusiveCollectionData:null,
+    lovedCollectionData: null,
     isLoadingFeatureProduct: false,
     featureProductData: null,
     isLoadingBestSellerProduct: false,
@@ -97,6 +100,43 @@ export const searchProduct = createAsyncThunk("get/search/product", async (useDa
     }
 });
 
+export const ownDesignerProduct = createAsyncThunk("get/ownDesigner/data",async (_, thunkApi: any) => {
+    try {
+      const response = await homeService.ownDesignersApi();
+      return response;
+    } catch (error: any) {
+      const message: any = getErrorMessage(error);
+      return thunkApi.rejectWithValue(message);
+    }
+  }
+);
+
+export const lovedCollectionProduct = createAsyncThunk(
+  "get/lovedCollection/data",
+  async (_, thunkApi: any) => {
+    try {
+      const response = await homeService.lovedCollectionApi();
+      return response;
+    } catch (error: any) {
+      const message: any = getErrorMessage(error);
+      return thunkApi.rejectWithValue(message);
+    }
+  }
+);
+
+export const exclusiveCollectionProduct = createAsyncThunk(
+  "get/exclusiveCollection/data",
+  async (_, thunkApi: any) => {
+    try {
+      const response = await homeService.exclusiveCollectionApi();
+      return response;
+    } catch (error: any) {
+      const message: any = getErrorMessage(error);
+      return thunkApi.rejectWithValue(message);
+    }
+  }
+);
+
 
 // Home Reducer
 export const homeReducer = createSlice({
@@ -107,84 +147,129 @@ export const homeReducer = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(getHeaderMenu.pending, (state: any, _: any) => {
-                state.isLoadingMenuBar = true;
-                state.isSuccess = false;
-            })
-            .addCase(getHeaderMenu.fulfilled, (state: any, action: any) => {
-                state.isLoadingMenuBar = false;
-                state.isSuccess = true;
-                state.headerMenuData = action.payload;
-            })
-            .addCase(getHeaderMenu.rejected, (state: any) => {
-                state.isLoadingMenuBar = false;
-                state.isSuccess = false;
-            })
-            .addCase(homeMainSlider.pending, (state: any, _: any) => {
-                state.isLoadingMainSlider = true;
-                state.isSuccess = false;
-            })
-            .addCase(homeMainSlider.fulfilled, (state: any, action: any) => {
-                state.isLoadingMainSlider = false;
-                state.isSuccess = true;
-                state.mainSliderData = action.payload;
-            })
-            .addCase(homeMainSlider.rejected, (state: any) => {
-                state.isAuthLoginLoading = false;
-                state.isSuccess = false;
-            })
-            .addCase(homeTopCategory.pending, (state: any, _: any) => {
-                state.isLoadingTopCategory = true;
-                state.isSuccess = false;
-            })
-            .addCase(homeTopCategory.fulfilled, (state: any, action: any) => {
-                state.isLoadingTopCategory = false;
-                state.isSuccess = true;
-                state.topCategoryData = action.payload;
-            })
-            .addCase(homeTopCategory.rejected, (state: any) => {
-                state.isLoadingTopCategory = false;
-                state.isSuccess = false;
-            })
-            .addCase(featureCagtegory.pending, (state: any, _: any) => {
-                state.isLoadingFeatureCategory = true;
-                state.isSuccess = false;
-            })
-            .addCase(featureCagtegory.fulfilled, (state: any, action: any) => {
-                state.isLoadingFeatureCategory = false;
-                state.isSuccess = true;
-                state.featureCategoryData = action.payload;
-            })
-            .addCase(featureCagtegory.rejected, (state: any) => {
-                state.isLoadingFeatureCategory = false;
-                state.isSuccess = false;
-            })
-            .addCase(featureProduct.pending, (state: any, _: any) => {
-                state.isLoadingFeatureProduct = true;
-                state.isSuccess = false;
-            })
-            .addCase(featureProduct.fulfilled, (state: any, action: any) => {
-                state.isLoadingFeatureProduct = false;
-                state.isSuccess = true;
-                state.featureProductData = action.payload;
-            })
-            .addCase(featureProduct.rejected, (state: any) => {
-                state.isLoadingFeatureProduct = false;
-                state.isSuccess = false;
-            })
-            .addCase(bestSellerProduct.pending, (state: any, _: any) => {
-                state.isLoadingBestSellerProduct = true;
-                state.isSuccess = false;
-            })
-            .addCase(bestSellerProduct.fulfilled, (state: any, action: any) => {
-                state.isLoadingBestSellerProduct = false;
-                state.isSuccess = true;
-                state.bestSellerProductData = action.payload;
-            })
-            .addCase(bestSellerProduct.rejected, (state: any) => {
-                state.isLoadingBestSellerProduct = false;
-                state.isSuccess = false;
-            })
+          .addCase(getHeaderMenu.pending, (state: any, _: any) => {
+            state.isLoadingMenuBar = true;
+            state.isSuccess = false;
+          })
+          .addCase(getHeaderMenu.fulfilled, (state: any, action: any) => {
+            state.isLoadingMenuBar = false;
+            state.isSuccess = true;
+            state.headerMenuData = action.payload;
+          })
+          .addCase(getHeaderMenu.rejected, (state: any) => {
+            state.isLoadingMenuBar = false;
+            state.isSuccess = false;
+          })
+          .addCase(homeMainSlider.pending, (state: any, _: any) => {
+            state.isLoadingMainSlider = true;
+            state.isSuccess = false;
+          })
+          .addCase(homeMainSlider.fulfilled, (state: any, action: any) => {
+            state.isLoadingMainSlider = false;
+            state.isSuccess = true;
+            state.mainSliderData = action.payload;
+          })
+          .addCase(homeMainSlider.rejected, (state: any) => {
+            state.isAuthLoginLoading = false;
+            state.isSuccess = false;
+          })
+          .addCase(homeTopCategory.pending, (state: any, _: any) => {
+            state.isLoadingTopCategory = true;
+            state.isSuccess = false;
+          })
+          .addCase(homeTopCategory.fulfilled, (state: any, action: any) => {
+            state.isLoadingTopCategory = false;
+            state.isSuccess = true;
+            state.topCategoryData = action.payload;
+          })
+          .addCase(homeTopCategory.rejected, (state: any) => {
+            state.isLoadingTopCategory = false;
+            state.isSuccess = false;
+          })
+          .addCase(featureCagtegory.pending, (state: any, _: any) => {
+            state.isLoadingFeatureCategory = true;
+            state.isSuccess = false;
+          })
+          .addCase(featureCagtegory.fulfilled, (state: any, action: any) => {
+            state.isLoadingFeatureCategory = false;
+            state.isSuccess = true;
+            state.featureCategoryData = action.payload;
+          })
+          .addCase(featureCagtegory.rejected, (state: any) => {
+            state.isLoadingFeatureCategory = false;
+            state.isSuccess = false;
+          })
+          .addCase(featureProduct.pending, (state: any, _: any) => {
+            state.isLoadingFeatureProduct = true;
+            state.isSuccess = false;
+          })
+          .addCase(featureProduct.fulfilled, (state: any, action: any) => {
+            state.isLoadingFeatureProduct = false;
+            state.isSuccess = true;
+            state.featureProductData = action.payload;
+          })
+          .addCase(featureProduct.rejected, (state: any) => {
+            state.isLoadingFeatureProduct = false;
+            state.isSuccess = false;
+          })
+          .addCase(bestSellerProduct.pending, (state: any, _: any) => {
+            state.isLoadingBestSellerProduct = true;
+            state.isSuccess = false;
+          })
+          .addCase(bestSellerProduct.fulfilled, (state: any, action: any) => {
+            state.isLoadingBestSellerProduct = false;
+            state.isSuccess = true;
+            state.bestSellerProductData = action.payload;
+          })
+          .addCase(bestSellerProduct.rejected, (state: any) => {
+            state.isLoadingBestSellerProduct = false;
+            state.isSuccess = false;
+          })
+          .addCase(ownDesignerProduct.pending, (state: any, _: any) => {
+            state.isLoadingBestSellerProduct = true;
+            state.isSuccess = false;
+          })
+          .addCase(ownDesignerProduct.fulfilled, (state: any, action: any) => {
+            state.isLoadingBestSellerProduct = false;
+            state.isSuccess = true;
+            state.ownDesignerData = action.payload;
+          })
+          .addCase(ownDesignerProduct.rejected, (state: any) => {
+            state.isLoadingBestSellerProduct = false;
+            state.isSuccess = false;
+          })
+          .addCase(lovedCollectionProduct.pending, (state: any, _: any) => {
+            state.isLoadingBestSellerProduct = true;
+            state.isSuccess = false;
+          })
+          .addCase(
+            lovedCollectionProduct.fulfilled,
+            (state: any, action: any) => {
+              state.isLoadingBestSellerProduct = false;
+              state.isSuccess = true;
+              state.lovedCollectionData = action.payload;
+            }
+          )
+          .addCase(lovedCollectionProduct.rejected, (state: any) => {
+            state.isLoadingBestSellerProduct = false;
+            state.isSuccess = false;
+          })
+          .addCase(exclusiveCollectionProduct.pending, (state: any, _: any) => {
+            state.isLoadingBestSellerProduct = true;
+            state.isSuccess = false;
+          })
+          .addCase(
+            exclusiveCollectionProduct.fulfilled,
+            (state: any, action: any) => {
+              state.isLoadingBestSellerProduct = false;
+              state.isSuccess = true;
+              state.exclusiveCollectionData = action.payload;
+            }
+          )
+          .addCase(exclusiveCollectionProduct.rejected, (state: any) => {
+            state.isLoadingBestSellerProduct = false;
+            state.isSuccess = false;
+          });
     }
 });
 

@@ -21,6 +21,9 @@ const HomeView = () => {
     featureCategoryData,
     isLoadingBestSellerProduct,
     bestSellerProductData,
+    ownDesignerData,
+    lovedCollectionData,
+    exclusiveCollectionData,
   } = HomeController();
 
   return (
@@ -291,11 +294,60 @@ const HomeView = () => {
               </div>
             </section>
 
-            {bestSellerProductData?.length > 0 && (
+            {exclusiveCollectionData?.length > 0 && (
+              <section className="productSection py-3 py-md-4">
+                <div className="container">
+                  <div className="productHead d-flex align-items-center justify-content-between mb-3 mb-md-4">
+                    <h2 className="Playfair">Exclusive Collections</h2>
+                    <a href="#" className="text-uparcase">
+                      VIEW ALL
+                    </a>
+                  </div>
+
+                  <div className="productSliderWrap">
+                    <OwlCarousel
+                      className="owl-theme productSlider"
+                      loop
+                      margin={10}
+                      nav
+                      responsive={{
+                        0: {
+                          items: 1,
+                        },
+                        600: {
+                          items: 3,
+                        },
+                        1000: {
+                          items: 4,
+                        },
+                      }}
+                    >
+                      {ownDesignerData?.map((item: any) => {
+                        return (
+                          <div className="item">
+                            <CategeryCard
+                              imageName={item?.banner}
+                              isPath={true}
+                              tag={item?.name}
+                              link={`/category/${item?.id}`}
+                            />
+                          </div>
+                        );
+                      })}
+                    </OwlCarousel>
+                  </div>
+                </div>
+              </section>
+            )}
+
+            {lovedCollectionData?.length > 0 && (
               <section className="productSection py-3 py-md-4">
                 <div className="container">
                   <div className="productHead d-flex align-items-center justify-content-between mb-3 mb-md-4">
                     <h2 className="Playfair">Most Loved Collections</h2>
+                    <a href="#" className="text-uparcase">
+                      VIEW ALL
+                    </a>
                   </div>
                   <div className="productSliderWrap">
                     <OwlCarousel
@@ -315,14 +367,14 @@ const HomeView = () => {
                         },
                       }}
                     >
-                      {bestSellerProductData?.map((item: any) => {
+                      {lovedCollectionData?.map((item: any) => {
                         return (
                           <div className="item" key={item?.id}>
                             <CategeryCard
-                              imageName={item?.thumbnail_image}
+                              imageName={item?.banner}
                               isPath={true}
                               tag={item?.name}
-                              link={`/products/${item?.id}`}
+                              link={`/category/${item?.id}`}
                             />
                           </div>
                         );
@@ -332,108 +384,51 @@ const HomeView = () => {
                 </div>
               </section>
             )}
+            {ownDesignerData?.length > 0 && (
+              <section className="productSection py-3 py-md-4">
+                <div className="container">
+                  <div className="productHead d-flex align-items-center justify-content-between mb-3 mb-md-4">
+                    <h2 className="Playfair">Must Own Designers</h2>
+                    <a href="#" className="text-uparcase">
+                      VIEW ALL
+                    </a>
+                  </div>
 
-            <section className="productSection py-3 py-md-4">
-              <div className="container">
-                <div className="productHead d-flex align-items-center justify-content-between mb-3 mb-md-4">
-                  <h2 className="Playfair">Must Own Designers</h2>
+                  <div className="productSliderWrap">
+                    <OwlCarousel
+                      className="owl-theme productSlider"
+                      loop
+                      margin={10}
+                      nav
+                      responsive={{
+                        0: {
+                          items: 1,
+                        },
+                        600: {
+                          items: 3,
+                        },
+                        1000: {
+                          items: 4,
+                        },
+                      }}
+                    >
+                      {ownDesignerData?.map((item: any) => {
+                        return (
+                          <div className="item">
+                            <CategeryCard
+                              imageName={item?.banner}
+                              isPath={true}
+                              tag={item?.name}
+                              link={`/category/${item?.id}`}
+                            />
+                          </div>
+                        );
+                      })}
+                    </OwlCarousel>
+                  </div>
                 </div>
-
-                <div className="productSliderWrap">
-                  <OwlCarousel
-                    className="owl-theme productSlider"
-                    loop
-                    margin={10}
-                    nav
-                    responsive={{
-                      0: {
-                        items: 1,
-                      },
-                      600: {
-                        items: 3,
-                      },
-                      1000: {
-                        items: 4,
-                      },
-                    }}
-                  >
-                    <div className="item">
-                      <CategeryCard
-                        imageName="Drops4.avif"
-                        isPath={false}
-                        tag={"Be chic"}
-                        bottomText={true}
-                      />
-                    </div>
-                    <div className="item">
-                      <CategeryCard
-                        imageName="Drops4.avif"
-                        isPath={false}
-                        tag={"Be chic"}
-                        bottomText={true}
-                      />
-                    </div>{" "}
-                    <div className="item">
-                      <CategeryCard
-                        imageName="Drops4.avif"
-                        isPath={false}
-                        tag={"Be chic"}
-                        bottomText={true}
-                      />
-                    </div>{" "}
-                    <div className="item">
-                      <CategeryCard
-                        imageName="Drops4.avif"
-                        isPath={false}
-                        tag={"Be chic"}
-                        bottomText={true}
-                      />
-                    </div>{" "}
-                    <div className="item">
-                      <CategeryCard
-                        imageName="Drops4.avif"
-                        isPath={false}
-                        tag={"Be chic"}
-                        bottomText={true}
-                      />
-                    </div>{" "}
-                    <div className="item">
-                      <CategeryCard
-                        imageName="Drops4.avif"
-                        isPath={false}
-                        tag={"Be chic"}
-                        bottomText={true}
-                      />
-                    </div>{" "}
-                    <div className="item">
-                      <CategeryCard
-                        imageName="Drops4.avif"
-                        isPath={false}
-                        tag={"Be chic"}
-                        bottomText={true}
-                      />
-                    </div>{" "}
-                    <div className="item">
-                      <CategeryCard
-                        imageName="Drops4.avif"
-                        isPath={false}
-                        tag={"Be chic"}
-                        bottomText={true}
-                      />
-                    </div>{" "}
-                    <div className="item">
-                      <CategeryCard
-                        imageName="Drops4.avif"
-                        isPath={false}
-                        tag={"Be chic"}
-                        bottomText={true}
-                      />
-                    </div>
-                  </OwlCarousel>
-                </div>
-              </div>
-            </section>
-
+              </section>
+            )}
             <section className="productSection py-3 py-md-4">
               <div className="container">
                 <picture>

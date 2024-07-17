@@ -9,8 +9,6 @@ const ProductDetail = () => {
     isLoadingProductDetail, 
     productDetailData } = ProductDetailController()
 
-    console.log(productDetailData, "fhjdhjfhejfjrjedr");
-
   return (
     <>
     <Header/>
