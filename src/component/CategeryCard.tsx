@@ -8,7 +8,7 @@ const CategeryCard = ({ imageName, isPath, tag, link, subTag, bottomText }: any)
     return (
       <div
         className="productCols position-relative"
-        onClick={() => navigate(link ?? "#")}
+        onClick={() => navigate(link ?? "/")}
       >
           <picture>
             <img
