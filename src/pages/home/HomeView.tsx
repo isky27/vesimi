@@ -322,7 +322,7 @@ const HomeView = () => {
                         },
                       }}
                     >
-                      {ownDesignerData?.map((item: any) => {
+                      {exclusiveCollectionData?.map((item: any) => {
                         return (
                           <div className="item">
                             <CategeryCard

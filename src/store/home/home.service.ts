@@ -65,9 +65,7 @@ const searchProductApi = async (useData:any): Promise<ApiResponse> => {
 
 const ownDesignersApi = async (): Promise<ApiResponse> => {
   try {
-    const response: ApiResponse = (
-      await axios.get("categories/own_designers")
-    ).data;
+    const response: ApiResponse = (await axios.get("categories/own_designers")).data;
     return response;
 
   } catch (error: any) {
@@ -77,9 +75,7 @@ const ownDesignersApi = async (): Promise<ApiResponse> => {
 
 const exclusiveCollectionApi = async (): Promise<ApiResponse> => {
   try {
-    const response: ApiResponse = (
-      await axios.get("categories/exclusive_collections")
-    ).data;
+    const response: ApiResponse = (await axios.get("categories/exclusive_collections")).data;
     return response;
   } catch (error: any) {
     throw error;
@@ -88,9 +84,7 @@ const exclusiveCollectionApi = async (): Promise<ApiResponse> => {
 
 const lovedCollectionApi = async (): Promise<ApiResponse> => {
   try {
-    const response: ApiResponse = (
-      await axios.get("categories/loved_collections")
-    ).data;
+    const response: ApiResponse = (await axios.get("categories/loved_collections")).data;
     return response;
   } catch (error: any) {
     throw error;

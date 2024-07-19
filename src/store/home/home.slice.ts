@@ -111,9 +111,7 @@ export const ownDesignerProduct = createAsyncThunk("get/ownDesigner/data",async 
   }
 );
 
-export const lovedCollectionProduct = createAsyncThunk(
-  "get/lovedCollection/data",
-  async (_, thunkApi: any) => {
+export const lovedCollectionProduct = createAsyncThunk("get/lovedCollection/data", async (_, thunkApi: any) => {
     try {
       const response = await homeService.lovedCollectionApi();
       return response;
@@ -124,9 +122,7 @@ export const lovedCollectionProduct = createAsyncThunk(
   }
 );
 
-export const exclusiveCollectionProduct = createAsyncThunk(
-  "get/exclusiveCollection/data",
-  async (_, thunkApi: any) => {
+export const exclusiveCollectionProduct = createAsyncThunk("get/exclusiveCollection/data", async (_, thunkApi: any) => {
     try {
       const response = await homeService.exclusiveCollectionApi();
       return response;
@@ -242,14 +238,11 @@ export const homeReducer = createSlice({
             state.isLoadingBestSellerProduct = true;
             state.isSuccess = false;
           })
-          .addCase(
-            lovedCollectionProduct.fulfilled,
-            (state: any, action: any) => {
+          .addCase(lovedCollectionProduct.fulfilled, (state: any, action: any) => {
               state.isLoadingBestSellerProduct = false;
               state.isSuccess = true;
               state.lovedCollectionData = action.payload;
-            }
-          )
+          })
           .addCase(lovedCollectionProduct.rejected, (state: any) => {
             state.isLoadingBestSellerProduct = false;
             state.isSuccess = false;
@@ -258,14 +251,11 @@ export const homeReducer = createSlice({
             state.isLoadingBestSellerProduct = true;
             state.isSuccess = false;
           })
-          .addCase(
-            exclusiveCollectionProduct.fulfilled,
-            (state: any, action: any) => {
+          .addCase(exclusiveCollectionProduct.fulfilled, (state: any, action: any) => {
               state.isLoadingBestSellerProduct = false;
               state.isSuccess = true;
               state.exclusiveCollectionData = action.payload;
-            }
-          )
+          })
           .addCase(exclusiveCollectionProduct.rejected, (state: any) => {
             state.isLoadingBestSellerProduct = false;
             state.isSuccess = false;
