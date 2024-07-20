@@ -91,6 +91,15 @@ const lovedCollectionApi = async (): Promise<ApiResponse> => {
   }
 };
 
+const celebrityStyleApi = async (): Promise<ApiResponse> => {
+  try {
+    const response: ApiResponse = (await axios.get("categories/celebrity_style")).data;
+    return response;
+  } catch (error: any) {
+    throw error;
+  }
+};
+
 
 const homeService = {
   headerMenuApi,
@@ -103,6 +112,7 @@ const homeService = {
   ownDesignersApi,
   exclusiveCollectionApi,
   lovedCollectionApi,
+  celebrityStyleApi
 };
 
 export default homeService;

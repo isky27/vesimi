@@ -23,5 +23,7 @@ export interface HomeInterface {
   bestSellerProductData: any;
   isLoadingMenuBar: boolean;
   headerMenuData: any;
+  isLoadingCelebrityProduct: boolean,
+  celebrityProductData :any
 }
 

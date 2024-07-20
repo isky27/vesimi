@@ -25,7 +25,9 @@ const initialState: HomeInterface = {
     isLoadingBestSellerProduct: false,
     bestSellerProductData: null,
     isLoadingMenuBar: false,
-    headerMenuData:null
+    headerMenuData:null,
+    isLoadingCelebrityProduct: false,
+    celebrityProductData :null
 }
 
 // Async Thunks
@@ -133,6 +135,16 @@ export const exclusiveCollectionProduct = createAsyncThunk("get/exclusiveCollect
   }
 );
 
+export const celebrityStyleProduct = createAsyncThunk("get/celebrity/style/data", async (_, thunkApi: any) => {
+  try {
+    const response = await homeService.celebrityStyleApi();
+    return response;
+  } catch (error: any) {
+    const message: any = getErrorMessage(error);
+    return thunkApi.rejectWithValue(message);
+  }
+}
+);
 
 // Home Reducer
 export const homeReducer = createSlice({
@@ -258,6 +270,19 @@ export const homeReducer = createSlice({
           })
           .addCase(exclusiveCollectionProduct.rejected, (state: any) => {
             state.isLoadingBestSellerProduct = false;
+            state.isSuccess = false;
+          })
+          .addCase(celebrityStyleProduct.pending, (state: any, _: any) => {
+            state.isLoadingCelebrityProduct = true;
+            state.isSuccess = false;
+          })
+          .addCase(celebrityStyleProduct.fulfilled, (state: any, action: any) => {
+              state.isLoadingCelebrityProduct = false;
+              state.isSuccess = true;
+              state.celebrityProductData = action.payload;
+          })
+          .addCase(celebrityStyleProduct.rejected, (state: any) => {
+            state.isLoadingCelebrityProduct = false;
             state.isSuccess = false;
           });
     }

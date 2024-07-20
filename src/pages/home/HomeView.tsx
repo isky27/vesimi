@@ -10,6 +10,10 @@ import Header from "component/headerLayout";
 import CelebritySection from "component/CelebritySection";
 import BlogSection from "component/BlogSection";
 import ServiceSection from "component/ServiceSection";
+import twitterBack from '../../assets/images/twitterBack.png';
+import facebookBack from '../../assets/images/facebookBack.png'
+import instagramBack from '../../assets/images/instagramBack.png';
+import pinterestBack from '../../assets/images/pinterestBack.png'
 
 const HomeView = () => {
   const {
@@ -24,7 +28,11 @@ const HomeView = () => {
     ownDesignerData,
     lovedCollectionData,
     exclusiveCollectionData,
+    isLoadingCelebrityProduct,
+    celebrityProductData
   } = HomeController();
+
+  console.log(celebrityProductData, "celebrityProductData");
 
   return (
     <>
@@ -36,6 +44,7 @@ const HomeView = () => {
             isLoadingTopCategory,
             isLoadingFeatureCategory,
             isLoadingBestSellerProduct,
+            isLoadingCelebrityProduct
           ]}
         />
 
@@ -43,15 +52,15 @@ const HomeView = () => {
           {/*slider main banner */}
           <div className="Mainslider">
             {/* Carousal */}
-            <div className="container mainSlider">
+           {mainSliderData?.length>0 && <div className="container mainSlider">
               <Carousel
                 images={mainSliderData?.map((item: any) => item?.photo)}
                 isPath={true}
               />
-            </div>
+            </div>}
 
             {/* categoery section */}
-            <section className="CTGCols mt-4">
+            {topCategoryData?.length > 0 && <section className="CTGCols mt-4">
               <div className="container">
                 <div className="row">
                   {topCategoryData?.map((item: any, index: number) => (
@@ -66,7 +75,7 @@ const HomeView = () => {
                   ))}
                 </div>
               </div>
-            </section>
+            </section>}
             {/* END categoery section */}
 
             {/* <!-- product section --> */}
@@ -116,7 +125,7 @@ const HomeView = () => {
               <div className="container">
                 <div className="productHead d-flex align-items-center justify-content-between mb-3 mb-md-4">
                   <h2 className="Playfair">Popular Styles </h2>
-                  <a href="#" className="text-uparcase">
+                  <a href="/" className="text-uparcase">
                     VIEW ALL
                   </a>
                 </div>
@@ -216,9 +225,8 @@ const HomeView = () => {
                     ].map((item: any, index: number) => (
                       <div
                         key={item.id}
-                        className={`tab-pane fade ${
-                          index === 0 ? "show active" : ""
-                        }`}
+                        className={`tab-pane fade ${index === 0 ? "show active" : ""
+                          }`}
                         id={item.id}
                         role="tabpanel"
                         aria-labelledby={item.ariaLabel}
@@ -299,7 +307,7 @@ const HomeView = () => {
                 <div className="container">
                   <div className="productHead d-flex align-items-center justify-content-between mb-3 mb-md-4">
                     <h2 className="Playfair">Exclusive Collections</h2>
-                    <a href="#" className="text-uparcase">
+                    <a href="/" className="text-uparcase">
                       VIEW ALL
                     </a>
                   </div>
@@ -324,7 +332,7 @@ const HomeView = () => {
                     >
                       {exclusiveCollectionData?.map((item: any) => {
                         return (
-                          <div className="item">
+                          <div key={item?.id} className="item">
                             <CategeryCard
                               imageName={item?.banner}
                               isPath={true}
@@ -345,7 +353,7 @@ const HomeView = () => {
                 <div className="container">
                   <div className="productHead d-flex align-items-center justify-content-between mb-3 mb-md-4">
                     <h2 className="Playfair">Most Loved Collections</h2>
-                    <a href="#" className="text-uparcase">
+                    <a href="/" className="text-uparcase">
                       VIEW ALL
                     </a>
                   </div>
@@ -389,7 +397,7 @@ const HomeView = () => {
                 <div className="container">
                   <div className="productHead d-flex align-items-center justify-content-between mb-3 mb-md-4">
                     <h2 className="Playfair">Must Own Designers</h2>
-                    <a href="#" className="text-uparcase">
+                    <a href="/" className="text-uparcase">
                       VIEW ALL
                     </a>
                   </div>
@@ -414,7 +422,7 @@ const HomeView = () => {
                     >
                       {ownDesignerData?.map((item: any) => {
                         return (
-                          <div className="item">
+                          <div key={item?.id} className="item">
                             <CategeryCard
                               imageName={item?.banner}
                               isPath={true}
@@ -432,7 +440,7 @@ const HomeView = () => {
             <section className="productSection py-3 py-md-4">
               <div className="container">
                 <picture>
-                  <a href="#">
+                  <a href="/">
                     <img
                       src={require("assets/images/bannerShape.avif")}
                       alt=""
@@ -448,7 +456,35 @@ const HomeView = () => {
           <BlogSection />
           {/* <!-- product section --> */}
 
+          <section className="productSection py-3 py-md-4">
+            <div className="container">
+              <div className="fullscreen fullwidth clearfix">
+                <div style={{ width: "25%", float: "left", position: "relative" }}>
+                  <a target="_blank" rel="noreferrer" title="twitter" href="https://twitter.com/_VESIMI/"><img className="img img-responsive" style={{ width: "100%" }} title="twitter" src={twitterBack} alt="twitter" />
+                    <div style={{ position: "absolute", left: "0", right: "0", top: "50%", textAlign: "center", background: "#00B3CE", color: "#ffffff", fontVariant: "small-caps", transform: "translateY(-50%)", padding: "10px 0", opacity: ".8", fontSize: "20px" }}>Twitter</div>
+                  </a>
+                </div>
+                <div style={{ width: "25%", float: "left", position: "relative" }}>
+                  <a target="_blank" rel="noreferrer" title="facebook" href="https://www.facebook.com/VESIMI/"><img className="img img-responsive" style={{ width: "100%" }} title="facebook" src={facebookBack} alt="facebook" />
+                    <div style={{ position: "absolute", left: "0", right: "0", top: "50%", textAlign: "center", background: "#0D3B6B", color: "#ffffff", fontVariant: "small-caps", transform: "translateY(-50%)", padding: "10px 0", opacity: ".8", fontSize: "20px" }}>Facebook</div>
+                  </a>
+                </div>
+                <div style={{ width: "25%", float: "left", position: "relative" }}>
+                  <a target="_blank" rel="noreferrer" title="instagram" href="https://www.instagram.com/vesimi/?hl=en"><img className="img img-responsive" style={{ width: "100%" }} title="instagram" src={instagramBack} alt="instagram" />
+                    <div style={{ position: "absolute", left: "0", right: "0", top: "50%", textAlign: "center", background: "#E3488C", color: "#ffffff", fontVariant: "small-caps", transform: "translateY(-50%)", padding: "10px 0", opacity: ".8", fontSize: "20px" }}>Instagram</div>
+                  </a>
+                </div>
+                <div style={{ width: "25%", float: "left", position: "relative" }}>
+                  <a target="_blank" rel="noreferrer" title="pinterest" href="https://www.pinterest.com/VESIMII/"><img className="img img-responsive" style={{ width: "100%" }} title="pinterest" src={pinterestBack} alt="pinterest" />
+                    <div style={{ position: "absolute", left: "0", right: "0", top: "50%", textAlign: "center", background: "#bd081c", color: "#ffffff", fontVariant: "small-caps", transform: "translateY(-50%)", padding: "10px 0", opacity: ".8", fontSize: "20px" }}>Pinterest</div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+
           <ServiceSection />
+
           <ServiceInfo />
         </main>
       </section>

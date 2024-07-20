@@ -11,7 +11,7 @@ const ProductDetailController = ()=>{
 
     useEffect(()=>{
         dispatch(getProductDetails({productId:productId}))
-    },[productId])
+    },[dispatch, productId])
 
 return {
     isLoadingProductDetail, productDetailData

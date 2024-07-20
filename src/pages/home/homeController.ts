@@ -10,6 +10,7 @@ import {
   lovedCollectionProduct,
   ownDesignerProduct,
   exclusiveCollectionProduct,
+  celebrityStyleProduct,
 } from "store/home/home.slice";
 
 /**
@@ -25,9 +26,9 @@ const HomeController = () => {
 
     const dispatch = useAppDispatch()
     const { isLoadingMainSlider, mainSliderData, isLoadingTopCategory, topCategoryData,  isLoadingFeatureCategory,
-      featureCategoryData,  isLoadingFeatureProduct,
-      featureProductData, isLoadingBestSellerProduct,
-      bestSellerProductData, ownDesignerData, lovedCollectionData, exclusiveCollectionData } = useAppSelector((state:any) => state.home);
+      featureCategoryData,  isLoadingFeatureProduct, featureProductData, isLoadingBestSellerProduct,
+      bestSellerProductData, ownDesignerData, lovedCollectionData, exclusiveCollectionData, isLoadingCelebrityProduct,
+      celebrityProductData } = useAppSelector((state:any) => state.home);
 
     useEffect(()=>{
       dispatch(homeMainSlider())
@@ -38,6 +39,7 @@ const HomeController = () => {
       dispatch(ownDesignerProduct())
       dispatch(lovedCollectionProduct())
       dispatch(exclusiveCollectionProduct());
+      dispatch(celebrityStyleProduct())
     },[dispatch])
 
     // All the state and function return to LoginView
@@ -52,7 +54,9 @@ const HomeController = () => {
       bestSellerProductData,
       ownDesignerData,
       lovedCollectionData,
-      exclusiveCollectionData
+      exclusiveCollectionData,
+      isLoadingCelebrityProduct,
+      celebrityProductData
     };
 
 }
