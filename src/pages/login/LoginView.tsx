@@ -1,4 +1,4 @@
-import LoginFormController from "./loginFormController";
+// import LoginFormController from "./loginFormController";
 
 /**
  * 
@@ -7,7 +7,7 @@ import LoginFormController from "./loginFormController";
 const LoginView: React.FC = () => {
 
     // imported functions and variables from LoginController
-    const { } = LoginFormController();
+    // const { } = LoginFormController();
     return (
         <>
             {/* login page start */}
