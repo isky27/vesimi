@@ -31,7 +31,7 @@ const ProductDetail = () => {
         <div className="row">
           <div className="col-lg-5">
             <div className="imageContainer pe-0 pe-xl-5">{productDetailData?.data[0]?.photos?.map((image:any, index:number)=>{
-              <img key={index} src={image?.path} className="w-100"
+              return <img key={index} src={image?.path} className="w-100"
               alt="slider1" />
             })}</div>
           </div>
