@@ -47,7 +47,7 @@ const BlogSection = () => {
                       Explore Now on Vesimi Fashions.{" "}
                     </p>
                     <a
-                      href="#"
+                      href="/"
                       className="font-semibold text-md-dark fs-7 fw-light text-decoration-none"
                     >
                       Read More
@@ -71,7 +71,7 @@ const BlogSection = () => {
                       Explore Now on Vesimi Fashions.{" "}
                     </p>
                     <a
-                      href="#"
+                      href="/"
                       className="font-semibold text-md-dark fs-7 fw-light text-decoration-none"
                     >
                       Read More
@@ -95,7 +95,7 @@ const BlogSection = () => {
                       Explore Now on Vesimi Fashions.{" "}
                     </p>
                     <a
-                      href="#"
+                      href="/"
                       className="font-semibold text-md-dark fs-7 fw-light text-decoration-none"
                     >
                       Read More
@@ -119,7 +119,7 @@ const BlogSection = () => {
                       Explore Now on Vesimi Fashions.{" "}
                     </p>
                     <a
-                      href="#"
+                      href="/"
                       className="font-semibold text-md-dark fs-7 fw-light text-decoration-none"
                     >
                       Read More
@@ -135,7 +135,7 @@ const BlogSection = () => {
       <div className="text-center pt-4">
         {" "}
         <a
-          href="#"
+          href="/"
           className="bg-themered px-5 py-2 text-decoration-none text-white"
           style={{ fontSize: "12px" }}
         >

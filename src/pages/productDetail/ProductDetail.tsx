@@ -20,7 +20,7 @@ const ProductDetail = () => {
         <div className="pageHead">
           <nav aria-label="breadcrumb" className=" ">
             <ol className="breadcrumb">
-              <li className="breadcrumb-item"><a href="#">Home</a></li>
+              <li className="breadcrumb-item"><a href="/">Home</a></li>
               <li className="breadcrumb-item active" aria-current="page">Designer Menswear</li>
             </ol>
           </nav>
@@ -41,7 +41,7 @@ const ProductDetail = () => {
                 <h1 className="innerPageTitle" style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}>{productDetailData?.data[0]?.name}<span className="ms-2"
                     style={{ color: "#bc3d19", fontSize: "16px", margin: "0 15px", verticalAlign: "middle", display: "inline-block" }}><i
                       className="fas fa-chevron-right"></i></span></h1>
-                <a href="#"  style={{ marginLeft: "20px", display: "inline-block", border: "1px solid #bc3d19", padding: "8px 15px", borderRadius: "6px", color: "#bc3d19", textDecoration: "none" }}><i
+                <a href="/"  style={{ marginLeft: "20px", display: "inline-block", border: "1px solid #bc3d19", padding: "8px 15px", borderRadius: "6px", color: "#bc3d19", textDecoration: "none" }}><i
                     className="fas fa-user-plus"></i>Follow</a>
               </div>
               <button className="my-2"
@@ -73,7 +73,7 @@ const ProductDetail = () => {
                           (10
                           loyalty points = 1 currency unit)</li>
                       </ul>
-                      <a href="#">tearm & condition</a>
+                      <a href="/">tearm & condition</a>
 
                     </div>
                   </li>
@@ -88,7 +88,7 @@ const ProductDetail = () => {
                           (10
                           loyalty points = 1 currency unit)</li>
                       </ul>
-                      <a href="#">tearm & condition</a>
+                      <a href="/">tearm & condition</a>
                     </div>
                   </li>
                 </ul>
@@ -96,7 +96,7 @@ const ProductDetail = () => {
 
               <div className="appFix">
                 APP15<span className="appOnly">App Only</span>
-                <div className="offersSec"><span>Add ₹1600 worth products to get 15% off.</span><a href="#">6
+                <div className="offersSec"><span>Add ₹1600 worth products to get 15% off.</span><a href="/">6
                   Offers</a>
                 </div>
                 <div className="appCoupon">Use Coupon: APP15</div>
@@ -165,7 +165,7 @@ const ProductDetail = () => {
                           made to
                           order designer styles,
                           hence expect a slight variation from the image displayed</p>
-                        <a href="#">View Supplier Information</a>
+                        <a href="/">View Supplier Information</a>
                       </div>
                     </div>
                   </div>
@@ -178,7 +178,7 @@ const ProductDetail = () => {
                     <h4>SHIPPING & RETURNS</h4>
                     <p>Product will be shipped by 28 June 2024 </p>
                     <p>For customizations & early delivery, reach out to us on WhatsApp at <a
-                      href="#">+91 8291990059 </a></p>
+                      href="/">+91 8291990059 </a></p>
                     <p>Return Policy </p>
                     <p>Returnable within 3 days of delivery (7 days for Diamond tier members).
                       Custom-made orders are not returnable.
@@ -188,7 +188,7 @@ const ProductDetail = () => {
                       product-selling-price, whichever is lower, will be applicable on return requests
                       of
                       those users whose frequency of returns on Aza is greater than the average
-                      return-rate <a href="#">More Details</a>
+                      return-rate <a href="/">More Details</a>
                     </p>
                   </div>
                 </div>
@@ -229,12 +229,12 @@ const ProductDetail = () => {
 
       <div className="relatedTabs support">
         <h4>CUSTOMER SUPPORT </h4>
-        <a href="#" className="" style={{ textDecoration: "none" }}><i className="bg-image"
+        <a href="/" className="" style={{ textDecoration: "none" }}><i className="bg-image"
           style={{ backgroundPosition: "-375px -199px", width: "24px", height: "24px" }}></i>Chat With
           Us</a>
-        <a href="#" className="" style={{ textDecoration: "none" }}><i className="bg-image"
+        <a href="/" className="" style={{ textDecoration: "none" }}><i className="bg-image"
           style={{ backgroundPosition: "-342px -199px", width: "24px", height: "24px" }}></i>022-42792123</a>
-        <a href="#" className="" style={{ textDecoration: "none" }}><i className="bg-image"
+        <a href="/" className="" style={{ textDecoration: "none" }}><i className="bg-image"
           style={{ backgroundPosition: "-407px -199px", width: "24px", height: "24px" }}></i>Mail us</a>
       </div>
 
@@ -242,12 +242,12 @@ const ProductDetail = () => {
       <div className=" socialTabs">
         <h4>SHARE</h4>
         <div className="d-flex pt-2">
-          <a href="#" className="" style={{ textDecoration: "none" }}><i className="fab fa-whatsapp"></i></a>
-          <a href="#" className="" style={{ textDecoration: "none" }}><i className="fab fa-facebook-f"></i></a>
-          <a href="#" className="" style={{ textDecoration: "none" }}><i className="fab fa-twitter"></i></a>
-          <a href="#" className="" style={{ textDecoration: "none" }}><i
+          <a href="/" className="" style={{ textDecoration: "none" }}><i className="fab fa-whatsapp"></i></a>
+          <a href="/" className="" style={{ textDecoration: "none" }}><i className="fab fa-facebook-f"></i></a>
+          <a href="/" className="" style={{ textDecoration: "none" }}><i className="fab fa-twitter"></i></a>
+          <a href="/" className="" style={{ textDecoration: "none" }}><i
             className="far fa-envelope-open"></i></a>
-          <a href="#" className="" style={{ textDecoration: "none" }}><i className="fab fa-pinterest"></i></a>
+          <a href="/" className="" style={{ textDecoration: "none" }}><i className="fab fa-pinterest"></i></a>
         </div>
 
       </div>
