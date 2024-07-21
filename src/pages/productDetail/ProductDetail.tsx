@@ -30,8 +30,8 @@ const ProductDetail = () => {
 
         <div className="row">
           <div className="col-lg-5">
-            <div className="imageContainer pe-0 pe-xl-5">{productDetailData?.data[0]?.photos?.map((image:any)=>{
-              <img src={image?.path} className="w-100"
+            <div className="imageContainer pe-0 pe-xl-5">{productDetailData?.data[0]?.photos?.map((image:any, index:number)=>{
+              <img key={index} src={image?.path} className="w-100"
               alt="slider1" />
             })}</div>
           </div>
@@ -109,7 +109,7 @@ const ProductDetail = () => {
                 <div className="sizePartTabs">
                   <ul>
                     {productDetailData?.data[0]?.choice_options[0]?.options?.map((elem: string)=>{
-                    return(<li>
+                    return(<li key={elem}>
                       <div>
                         <i className="bg-image"
                           style={{ backgroundPosition: "-267px -184px", width: "8px", height: "13px" }}></i>{elem}

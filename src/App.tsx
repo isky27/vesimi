@@ -1,6 +1,5 @@
 import CustomRoute from './routes/routs';
 
-
 const App = () => {
   return (
     <div data-testid="app-component">

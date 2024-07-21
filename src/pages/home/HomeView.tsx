@@ -14,6 +14,7 @@ import twitterBack from '../../assets/images/twitterBack.png';
 import facebookBack from '../../assets/images/facebookBack.png'
 import instagramBack from '../../assets/images/instagramBack.png';
 import pinterestBack from '../../assets/images/pinterestBack.png'
+import BookAppointment from "component/BookAppointment";
 
 const HomeView = () => {
   const {
@@ -29,10 +30,9 @@ const HomeView = () => {
     lovedCollectionData,
     exclusiveCollectionData,
     isLoadingCelebrityProduct,
-    celebrityProductData
+    celebrityProductData,
+    navigate,
   } = HomeController();
-
-  console.log(celebrityProductData, "celebrityProductData");
 
   return (
     <>
@@ -44,7 +44,7 @@ const HomeView = () => {
             isLoadingTopCategory,
             isLoadingFeatureCategory,
             isLoadingBestSellerProduct,
-            isLoadingCelebrityProduct
+            isLoadingCelebrityProduct,
           ]}
         />
 
@@ -52,30 +52,34 @@ const HomeView = () => {
           {/*slider main banner */}
           <div className="Mainslider">
             {/* Carousal */}
-           {mainSliderData?.length>0 && <div className="container mainSlider">
-              <Carousel
-                images={mainSliderData?.map((item: any) => item?.photo)}
-                isPath={true}
-              />
-            </div>}
+            {mainSliderData?.length > 0 && (
+              <div className="container mainSlider">
+                <Carousel
+                  images={mainSliderData?.map((item: any) => item?.photo)}
+                  isPath={true}
+                />
+              </div>
+            )}
 
             {/* categoery section */}
-            {topCategoryData?.length > 0 && <section className="CTGCols mt-4">
-              <div className="container">
-                <div className="row">
-                  {topCategoryData?.map((item: any, index: number) => (
-                    <div key={item?.icon} className="col-sm-6 col-lg-3">
-                      <CategeryCard
-                        imageName={item?.icon}
-                        isPath={true}
-                        tag={item?.name}
-                        link={`/category/${item?.id}`}
-                      />
-                    </div>
-                  ))}
+            {topCategoryData?.length > 0 && (
+              <section className="CTGCols mt-4">
+                <div className="container">
+                  <div className="row">
+                    {topCategoryData?.map((item: any, index: number) => (
+                      <div key={item?.icon} className="col-sm-6 col-lg-3">
+                        <CategeryCard
+                          imageName={item?.icon}
+                          isPath={true}
+                          tag={item?.name}
+                          link={`/category/${item?.id}`}
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </section>}
+              </section>
+            )}
             {/* END categoery section */}
 
             {/* <!-- product section --> */}
@@ -225,8 +229,9 @@ const HomeView = () => {
                     ].map((item: any, index: number) => (
                       <div
                         key={item.id}
-                        className={`tab-pane fade ${index === 0 ? "show active" : ""
-                          }`}
+                        className={`tab-pane fade ${
+                          index === 0 ? "show active" : ""
+                        }`}
                         id={item.id}
                         role="tabpanel"
                         aria-labelledby={item.ariaLabel}
@@ -451,7 +456,10 @@ const HomeView = () => {
             </section>
           </div>
           {/* --------Celebrity Section */}
-          <CelebritySection />
+          <CelebritySection navigate={navigate} celebrityProductData={celebrityProductData}
+          />
+
+          <BookAppointment />
 
           <BlogSection />
           {/* <!-- product section --> */}
@@ -459,24 +467,148 @@ const HomeView = () => {
           <section className="productSection py-3 py-md-4">
             <div className="container">
               <div className="fullscreen fullwidth clearfix">
-                <div style={{ width: "25%", float: "left", position: "relative" }}>
-                  <a target="_blank" rel="noreferrer" title="twitter" href="https://twitter.com/_VESIMI/"><img className="img img-responsive" style={{ width: "100%" }} title="twitter" src={twitterBack} alt="twitter" />
-                    <div style={{ position: "absolute", left: "0", right: "0", top: "50%", textAlign: "center", background: "#00B3CE", color: "#ffffff", fontVariant: "small-caps", transform: "translateY(-50%)", padding: "10px 0", opacity: ".8", fontSize: "20px" }}>Twitter</div>
+                <div
+                  style={{ width: "25%", float: "left", position: "relative" }}
+                >
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    title="twitter"
+                    href="https://twitter.com/_VESIMI/"
+                  >
+                    <img
+                      className="img img-responsive"
+                      style={{ width: "100%" }}
+                      title="twitter"
+                      src={twitterBack}
+                      alt="twitter"
+                    />
+                    <div
+                      style={{
+                        position: "absolute",
+                        left: "0",
+                        right: "0",
+                        top: "50%",
+                        textAlign: "center",
+                        background: "#00B3CE",
+                        color: "#ffffff",
+                        fontVariant: "small-caps",
+                        transform: "translateY(-50%)",
+                        padding: "10px 0",
+                        opacity: ".8",
+                        fontSize: "20px",
+                      }}
+                    >
+                      Twitter
+                    </div>
                   </a>
                 </div>
-                <div style={{ width: "25%", float: "left", position: "relative" }}>
-                  <a target="_blank" rel="noreferrer" title="facebook" href="https://www.facebook.com/VESIMI/"><img className="img img-responsive" style={{ width: "100%" }} title="facebook" src={facebookBack} alt="facebook" />
-                    <div style={{ position: "absolute", left: "0", right: "0", top: "50%", textAlign: "center", background: "#0D3B6B", color: "#ffffff", fontVariant: "small-caps", transform: "translateY(-50%)", padding: "10px 0", opacity: ".8", fontSize: "20px" }}>Facebook</div>
+                <div
+                  style={{ width: "25%", float: "left", position: "relative" }}
+                >
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    title="facebook"
+                    href="https://www.facebook.com/VESIMI/"
+                  >
+                    <img
+                      className="img img-responsive"
+                      style={{ width: "100%" }}
+                      title="facebook"
+                      src={facebookBack}
+                      alt="facebook"
+                    />
+                    <div
+                      style={{
+                        position: "absolute",
+                        left: "0",
+                        right: "0",
+                        top: "50%",
+                        textAlign: "center",
+                        background: "#0D3B6B",
+                        color: "#ffffff",
+                        fontVariant: "small-caps",
+                        transform: "translateY(-50%)",
+                        padding: "10px 0",
+                        opacity: ".8",
+                        fontSize: "20px",
+                      }}
+                    >
+                      Facebook
+                    </div>
                   </a>
                 </div>
-                <div style={{ width: "25%", float: "left", position: "relative" }}>
-                  <a target="_blank" rel="noreferrer" title="instagram" href="https://www.instagram.com/vesimi/?hl=en"><img className="img img-responsive" style={{ width: "100%" }} title="instagram" src={instagramBack} alt="instagram" />
-                    <div style={{ position: "absolute", left: "0", right: "0", top: "50%", textAlign: "center", background: "#E3488C", color: "#ffffff", fontVariant: "small-caps", transform: "translateY(-50%)", padding: "10px 0", opacity: ".8", fontSize: "20px" }}>Instagram</div>
+                <div
+                  style={{ width: "25%", float: "left", position: "relative" }}
+                >
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    title="instagram"
+                    href="https://www.instagram.com/vesimi/?hl=en"
+                  >
+                    <img
+                      className="img img-responsive"
+                      style={{ width: "100%" }}
+                      title="instagram"
+                      src={instagramBack}
+                      alt="instagram"
+                    />
+                    <div
+                      style={{
+                        position: "absolute",
+                        left: "0",
+                        right: "0",
+                        top: "50%",
+                        textAlign: "center",
+                        background: "#E3488C",
+                        color: "#ffffff",
+                        fontVariant: "small-caps",
+                        transform: "translateY(-50%)",
+                        padding: "10px 0",
+                        opacity: ".8",
+                        fontSize: "20px",
+                      }}
+                    >
+                      Instagram
+                    </div>
                   </a>
                 </div>
-                <div style={{ width: "25%", float: "left", position: "relative" }}>
-                  <a target="_blank" rel="noreferrer" title="pinterest" href="https://www.pinterest.com/VESIMII/"><img className="img img-responsive" style={{ width: "100%" }} title="pinterest" src={pinterestBack} alt="pinterest" />
-                    <div style={{ position: "absolute", left: "0", right: "0", top: "50%", textAlign: "center", background: "#bd081c", color: "#ffffff", fontVariant: "small-caps", transform: "translateY(-50%)", padding: "10px 0", opacity: ".8", fontSize: "20px" }}>Pinterest</div>
+                <div
+                  style={{ width: "25%", float: "left", position: "relative" }}
+                >
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    title="pinterest"
+                    href="https://www.pinterest.com/VESIMII/"
+                  >
+                    <img
+                      className="img img-responsive"
+                      style={{ width: "100%" }}
+                      title="pinterest"
+                      src={pinterestBack}
+                      alt="pinterest"
+                    />
+                    <div
+                      style={{
+                        position: "absolute",
+                        left: "0",
+                        right: "0",
+                        top: "50%",
+                        textAlign: "center",
+                        background: "#bd081c",
+                        color: "#ffffff",
+                        fontVariant: "small-caps",
+                        transform: "translateY(-50%)",
+                        padding: "10px 0",
+                        opacity: ".8",
+                        fontSize: "20px",
+                      }}
+                    >
+                      Pinterest
+                    </div>
                   </a>
                 </div>
               </div>

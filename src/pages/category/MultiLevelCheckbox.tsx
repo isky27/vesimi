@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const MultiLevelCheckbox = ({ isSearchBox=false, searchboxPlaceholder="", data, checkedItems, setCheckedItems, singleSelect, nameKey = "label" }: any) => {
+const MultiLevelCheckbox = ({category, isSearchBox=false, searchboxPlaceholder="", data, checkedItems, setCheckedItems, singleSelect, nameKey = "label" }: any) => {
 
     const [expandedItems, setExpandedItems] = useState<any>({});
     const [searchTerm, setSearchTerm] = useState<string>('');
@@ -25,7 +25,7 @@ const MultiLevelCheckbox = ({ isSearchBox=false, searchboxPlaceholder="", data, 
     }, [data, searchTerm, nameKey]);
 
     const handleCheckboxChange = (id: any, checked: any) => {
-        setCheckedItems((prevSelectedItems: any) => {
+        setCheckedItems({category : (prevSelectedItems: any) => {
             let newSelectedItems;
 
             if (singleSelect) {
@@ -40,7 +40,7 @@ const MultiLevelCheckbox = ({ isSearchBox=false, searchboxPlaceholder="", data, 
                 updateChildren(data, id, checked, newSelectedItems);
             }
             return newSelectedItems;
-        });
+        }});
     };
 
     const updateChildren = (items: any, id: any, checked: any, newSelectedItems: any) => {

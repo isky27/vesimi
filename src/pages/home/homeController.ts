@@ -12,6 +12,7 @@ import {
   exclusiveCollectionProduct,
   celebrityStyleProduct,
 } from "store/home/home.slice";
+import { useNavigate } from 'react-router-dom';
 
 /**
  * 
@@ -23,6 +24,8 @@ const HomeController = () => {
     // Import data from auth selector
 
     const [searchKey, setSearchKey] = useState("")
+
+    const navigate = useNavigate()
 
     const dispatch = useAppDispatch()
     const { isLoadingMainSlider, mainSliderData, isLoadingTopCategory, topCategoryData,  isLoadingFeatureCategory,
@@ -56,7 +59,8 @@ const HomeController = () => {
       lovedCollectionData,
       exclusiveCollectionData,
       isLoadingCelebrityProduct,
-      celebrityProductData
+      celebrityProductData,
+      navigate,
     };
 
 }

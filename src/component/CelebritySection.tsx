@@ -5,14 +5,13 @@ import Drop4 from '../assets/images/Drops4.avif'
 import OwlCarousel from "react-owl-carousel";
 
 
-const CelebritySection = () => {
-
+const CelebritySection = ({ celebrityProductData, navigate }: any) => {
   return (
     <section className="productSection py-3 py-md-4 bg-light-yellow">
       <div className="container">
         <div className="productHead d-flex align-items-center justify-content-between mb-3 mb-md-4">
           <h2 className="Playfair fs-2 fw-bold text-black">Celebrity Style </h2>
-          <a href="#" className="text-uparcase">
+          <a href="/" className="text-uparcase">
             VIEW ALL
           </a>
         </div>
@@ -35,114 +34,30 @@ const CelebritySection = () => {
               },
             }}
           >
-            <div className="item">
-              <div className="productCols position-relative">
-                <span
-                  className="bg-image d-inline-block position-absolute top-0 end-0 m-3"
-                  style={{
-                    backgroundPosition: "-147px -158px",
-                    width: "24px",
-                    height: "24px",
-                  }}
-                ></span>
-                <a href="#" className="text-decoration-none text-md-dark">
-                  <picture>
-                    <img src={Drop4} alt="ankita lokhande" />
-                  </picture>
-                  <div className="text-center captionOverlay">
-                    <h3 className="text-uparcase fs-7 text-black Playfair">
-                      Ankita Lokhande
-                    </h3>
-                    <small className="font-semibold fs-7 text-black">
-                      <small>in</small>Mandira Wirk
-                    </small>
-                  </div>
-                </a>
+            {celebrityProductData?.map((item: any) => (
+              <div className="item" key={item?.id}>
+                <div className="productCols">
+                  <button
+                    onClick={() => navigate(`/category/${item?.id}`)}
+                    className="text-decoration-none text-md-dark border-0 p-0 m-0"
+                  >
+                    <picture>
+                      <img src={item?.icon} alt="ankita lokhande" />
+                    </picture>
+                    <div className="text-center captionOverlay">
+                      <h3 className="text-uparcase fs-7 text-black Playfair">
+                        {item?.name}
+                      </h3>
+                    </div>
+                  </button>
+                </div>
               </div>
-            </div>
-
-            <div className="item">
-              <div className="productCols position-relative">
-                <span
-                  className="bg-image d-inline-block position-absolute top-0 end-0 m-3"
-                  style={{
-                    backgroundPosition: "-147px -158px",
-                    width: "24px",
-                    height: "24px",
-                  }}
-                ></span>
-                <a href="#" className="text-decoration-none text-md-dark">
-                  <picture>
-                    <img src={Drop3} alt="" />
-                  </picture>
-                  <div className="text-center captionOverlay">
-                    <h3 className="text-uparcase fs-7 text-black Playfair">
-                      Ankita Lokhande
-                    </h3>
-                    <small className="font-semibold fs-7 text-black">
-                      <small>in</small>Mandira Wirk
-                    </small>
-                  </div>
-                </a>
-              </div>
-            </div>
-
-            <div className="item">
-              <div className="productCols position-relative">
-                <span
-                  className="bg-image d-inline-block position-absolute top-0 end-0 m-3"
-                  style={{
-                    backgroundPosition: "-147px -158px",
-                    width: "24px",
-                    height: "24px",
-                  }}
-                ></span>
-                <a href="#" className="text-decoration-none text-md-dark">
-                  <picture>
-                    <img src={Drop2} alt="" />
-                  </picture>
-                  <div className="text-center captionOverlay">
-                    <h3 className="text-uparcase fs-7 text-black Playfair">
-                      Ankita Lokhande
-                    </h3>
-                    <small className="font-semibold fs-7 text-black">
-                      <small>in</small>Mandira Wirk
-                    </small>
-                  </div>
-                </a>
-              </div>
-            </div>
-
-            <div className="item">
-              <div className="productCols position-relative">
-                <span
-                  className="bg-image d-inline-block position-absolute top-0 end-0 m-3"
-                  style={{
-                    backgroundPosition: "-147px -158px",
-                    width: "24px",
-                    height: "24px",
-                  }}
-                ></span>
-                <a href="#" className="text-decoration-none text-md-dark">
-                  <picture>
-                    <img src={Drop1} alt="" />
-                  </picture>
-                  <div className="text-center captionOverlay">
-                    <h3 className="text-uparcase fs-7 text-black Playfair">
-                      Ankita Lokhande
-                    </h3>
-                    <small className="font-semibold fs-7 text-black">
-                      <small>in</small>Mandira Wirk
-                    </small>
-                  </div>
-                </a>
-              </div>
-            </div>
+            ))}
           </OwlCarousel>
         </div>
       </div>
     </section>
   );
-}
+};
 
 export default CelebritySection

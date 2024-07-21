@@ -440,7 +440,7 @@ h6 {
   border-bottom: 1px solid #d1d5db;
 }
 
-.Nav-bar>ul>li {
+.Nav-bar>ul>li>a {
   padding: 15px 18px;
   text-decoration: none;
   color: #333;
@@ -467,18 +467,6 @@ header {
 }
 
 .textred{color:#bc3d19!important;}
-
-.Nav-bar>ul>li>span:hover{
-  cursor: pointer;
-}
-
-.Nav-bar>ul>li:hover .subNavPart {
-    display: block;
-    height: auto;
-    visibility: visible;
-    transform: translateY(0);
-    cursor: pointer;
-}
 
 .subNavPart {
   background: #fff;
@@ -511,7 +499,7 @@ header {
   font-weight: 500;
 }
 
-.SubNavGrid li {
+.SubNavGrid li a {
   font-size: 12px;
   text-decoration: none;
   color: #333;
@@ -519,7 +507,7 @@ header {
   display: block;
 }
 
-.viewmore {
+.viewmore a {
   text-decoration: none;
   color: #333;
   font-size: 12px;
@@ -537,11 +525,19 @@ header {
   margin-bottom: 5px;
 }
 
-.SubNavGrid.ProductDemoGrid{
+.SubNavGrid.ProductDemoGrid a {
   text-decoration: none;
   color: #333;
   line-height: 1.5;
 }
+
+.Nav-bar>ul>li:hover .subNavPart {
+    display: block;
+    height: auto;
+    visibility: visible;
+    transform: translateY(0);
+}
+
 .owl-theme .owl-dots .owl-dot span {
   width: 5px;
   height: 5px;
