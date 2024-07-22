@@ -229,9 +229,7 @@ const HomeView = () => {
                     ].map((item: any, index: number) => (
                       <div
                         key={item.id}
-                        className={`tab-pane fade ${
-                          index === 0 ? "show active" : ""
-                        }`}
+                        className={`tab-pane fade ${index === 0 ? "show active" : ""}`}
                         id={item.id}
                         role="tabpanel"
                         aria-labelledby={item.ariaLabel}
@@ -397,6 +395,7 @@ const HomeView = () => {
                 </div>
               </section>
             )}
+
             {ownDesignerData?.length > 0 && (
               <section className="productSection py-3 py-md-4">
                 <div className="container">
@@ -442,6 +441,7 @@ const HomeView = () => {
                 </div>
               </section>
             )}
+
             <section className="productSection py-3 py-md-4">
               <div className="container">
                 <picture>
@@ -456,10 +456,10 @@ const HomeView = () => {
             </section>
           </div>
           {/* --------Celebrity Section */}
-          <CelebritySection navigate={navigate} celebrityProductData={celebrityProductData}
+          <CelebritySection
+            navigate={navigate}
+            celebrityProductData={celebrityProductData}
           />
-
-          <BookAppointment />
 
           <BlogSection />
           {/* <!-- product section --> */}
@@ -616,6 +616,8 @@ const HomeView = () => {
           </section>
 
           <ServiceSection />
+
+          <BookAppointment />
 
           <ServiceInfo />
         </main>
