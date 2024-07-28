@@ -440,11 +440,12 @@ h6 {
   border-bottom: 1px solid #d1d5db;
 }
 
-.Nav-bar>ul>li>a {
+.Nav-bar>ul>li {
   padding: 15px 18px;
   text-decoration: none;
   color: #333;
   display: inline-block;
+  cursor: pointer;
 }
 
 header {
@@ -499,7 +500,7 @@ header {
   font-weight: 500;
 }
 
-.SubNavGrid li a {
+.SubNavGrid li {
   font-size: 12px;
   text-decoration: none;
   color: #333;
@@ -536,6 +537,7 @@ header {
     height: auto;
     visibility: visible;
     transform: translateY(0);
+    cursor: pointer;
 }
 
 .owl-theme .owl-dots .owl-dot span {

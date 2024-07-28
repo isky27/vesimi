@@ -11,7 +11,7 @@ const subcategoryApi = async (userData: any): Promise<ApiResponse> => {
 
 const categoryProductApi = async (userData: any): Promise<ApiResponse> => {
   try {
-    const response: ApiResponse = (await axios.get(`products/category/${userData?.categoryId}`));
+    const response: ApiResponse = (await axios.get(`products/category/${userData?.categoryId}?page_size=${14}`));
     return response;
   } catch (error: any) {
     throw error;

@@ -5,6 +5,27 @@ import { getHeaderMenu } from "store/home/home.slice";
 import Loader from "component/Loader";
 import Drops from "../../assets/images/Drops1.avif";
 import { useNavigate } from "react-router-dom";
+import MasabaImg from "../../assets/images/msb23608.jpg";
+import RidhimaImg from "../../assets/images/rr025-saj.png";
+import Kalighata from "../../assets/images/avyanna.jpg";
+import MoleradoImg from "../../assets/images/Moledro.jpg"
+import WaverImg from "../../assets/images/WeaverStory.jpg";
+import OneKnot from "../../assets/images/one.jpg";
+import KupkImg from "../../assets/images/kupk-hans.jpg";
+import MsbImg from "../../assets/images/msb23016.jpg";
+import AhiiImg from "../../assets/images/ahii123013.jpg";
+import Man1Img from "../../assets/images/snbs22mtr04.jpg"
+import Man2Img from "../../assets/images/maaya25-2.jpg";
+import Man3Img from "../../assets/images/jm-ss22.png";
+import Kids1Img from "../../assets/images/fk2708-fs23.jpg";
+import Kids2Img from "../../assets/images/lc-bdh.jpg";
+import Kids3Img from "../../assets/images/lb3-aw-kpj.jpg";
+import ToraniImg from "../../assets/images/torani0004.jpg";
+import PlodImg from "../../assets/images/bucket_black.jpg";
+import AmrtiImg from "../../assets/images/gdm-ad010.jpg";
+import Jewellery1Img from "../../assets/images/bipc-pcbn.jpg"
+import Jewellery2Img from "../../assets/images/07_3.jpg";
+import Jewellery3Img from "../../assets/images/jm_ss22.png";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -184,10 +205,8 @@ const Header = () => {
         <div className="container">
           <nav className="Nav-bar">
             <ul>
-              <li>
-                <a href="/">
-                  <span>Home</span>
-                </a>{" "}
+              <li onClick={() => navigate("/")}>
+                <span>Home</span>
               </li>
               {/* <!-- what's new  --> */}
               <li onClick={() => navigate("/category/5")}>
@@ -204,96 +223,70 @@ const Header = () => {
                           <li onClick={() => navigate("/category/1342")}>
                             Men
                           </li>
-                          <li onClick={() => navigate("/category/5")}>
+                          <li onClick={() => navigate("/category/1424")}>
                             Jewellery
                           </li>
-                          <li onClick={() => navigate("/category/5")}>
+                          <li onClick={() => navigate("/category/1407")}>
                             Accessories
                           </li>
-                          <li onClick={() => navigate("/category/5")}>
+                          <li onClick={() => navigate("/category/1389")}>
                             Kids
                           </li>
                         </ul>
-                        <div className="viewmore">
-                          <a href="/">VIEW ALL</a>
-                        </div>
+                        <div className="viewmore">VIEW ALL</div>
                       </div>
 
                       <div className="SubNavGrid">
-                        <h4>DESIGNERS</h4>
+                        <h4 onClick={() => navigate("/category/1389")}>
+                          DESIGNERS
+                        </h4>
                         <ul>
-                          <li>
-                            <a href="/">Masaba</a>
+                          <li onClick={() => navigate("/category/1389")}>
+                            Masaba
                           </li>
-                          <li>
-                            <a href="/">Vvani by Vani Vats</a>
-                          </li>
-                          <li>
-                            <a href="/">Vannikaa Malik</a>
-                          </li>
-                          <li>
-                            <a href="/">Krisha Sunny Ramani</a>
-                          </li>
-                          <li>
-                            <a href="/">Redpine Designs</a>
-                          </li>
-                          <li>
-                            <a href="/">Kudi Pataka</a>
-                          </li>
-                          <li>
-                            <a href="/">RoohbyRidhimaa</a>
-                          </li>
-                          <li>
-                            <a href="/">Deme by Gabriella</a>
-                          </li>
-                          <li>
-                            <a href="/">Tyohar</a>
-                          </li>
-                          <li>
-                            <a href="/">Moledro</a>
-                          </li>
+                          <li>Vvani by Vani Vats</li>
+                          <li>Vannikaa Malik</li>
+                          <li>Krisha Sunny Ramani</li>
+                          <li>Redpine Designs</li>
+                          <li>Kudi Pataka</li>
+                          <li>RoohbyRidhimaa</li>
+                          <li>Deme by Gabriella</li>
+                          <li>Tyohar</li>
+                          <li>Moledro</li>
                         </ul>
-                        <div className="viewmore">
-                          <a href="/">VIEW ALL</a>
-                        </div>
+                        <div className="viewmore">VIEW ALL</div>
                       </div>
 
                       <div className="SubNavGrid ProductDemoGrid"></div>
 
                       <div className="SubNavGrid ProductDemoGrid">
-                        <a href="/">
-                          <figure>
-                            <img src="images/msb23608.jpg" />
-                          </figure>
-                          <figcaption className="text-center">
-                            <strong className="d-block">Masaba</strong>
-                            <small>Shop Now</small>
-                          </figcaption>
-                        </a>
+                        <figure>
+                          <img src={MasabaImg} />
+                        </figure>
+                        <figcaption className="text-center">
+                          <strong className="d-block">Masaba</strong>
+                          <small>Shop Now</small>
+                        </figcaption>
                       </div>
 
                       <div className="SubNavGrid ProductDemoGrid">
-                        <a href="/">
-                          <figure>
-                            <img src="images/rr025-saj.png" />
-                          </figure>
-                          <figcaption className="text-center">
-                            <strong className="d-block">Ridhimaa Gupta</strong>
-                            <small>Shop Now</small>
-                          </figcaption>
-                        </a>
+                        <figure>
+                          <img src={RidhimaImg} />
+                        </figure>
+                        <figcaption className="text-center">
+                          <strong className="d-block">Ridhimaa Gupta</strong>
+                          <small>Shop Now</small>
+                        </figcaption>
                       </div>
 
                       <div className="SubNavGrid ProductDemoGrid">
-                        <a href="/">
-                          <figure>
-                            <img src="images/avyanna.jpg" />
-                          </figure>
-                          <figcaption className="text-center">
-                            <strong className="d-block">kalighata</strong>
-                            <small>Shop Now</small>
-                          </figcaption>
-                        </a>
+                        <figure>
+                          <img src={Kalighata} />
+                        </figure>
+                        <figcaption className="text-center">
+                          <strong className="d-block">Kalighata</strong>
+                          <small>Shop Now</small>
+                        </figcaption>
                       </div>
                     </div>
                   </div>
@@ -301,140 +294,82 @@ const Header = () => {
               </li>
 
               {/* <!-- Designers --> */}
-              <li>
-                <a href="/">
-                  <span>Designers</span>
-                </a>
+              <li onClick={() => navigate("/category/6")}>
+                <span>Designers</span>
                 <div className="subNavPart">
                   <div className="container">
                     <div className="SubNavRow">
                       <div className="SubNavGrid">
                         <h4>SALE</h4>
                         <ul>
-                          <li>
-                            <a href="/">Kovet</a>
-                          </li>
-                          <li>
-                            <a href="/">Khushboo & Pankaj</a>
-                          </li>
-                          <li>
-                            <a href="/">Lil Drama</a>
-                          </li>
+                          <li>Kovet</li>
+                          <li>Khushboo & Pankaj</li>
+                          <li>Lil Drama</li>
                         </ul>
                       </div>
 
                       <div className="SubNavGrid">
                         <h4>FEATURED</h4>
                         <ul>
-                          <li>
-                            <a href="/">Amka India</a>
-                          </li>
-                          <li>
-                            <a href="/">Amrit Dawani</a>
-                          </li>
-                          <li>
-                            <a href="/">Ease</a>
-                          </li>
-                          <li>
-                            <a href="/">Inder Clothing Studio</a>
-                          </li>
-                          <li>
-                            <a href="/">Masumi Mewawalla</a>
-                          </li>
-                          <li>
-                            <a href="/">Monisha Jaising</a>
-                          </li>
-                          <li>
-                            <a href="/">Nikita Vishakha</a>
-                          </li>
-                          <li>
-                            <a href="/">Pink City by Sarika</a>
-                          </li>
-                          <li>
-                            <a href="/">Neeta Lulla</a>
-                          </li>
-                          <li>
-                            <a href="/">Mala And Kinnary</a>
-                          </li>
+                          <li>Amka India</li>
+                          <li>Amrit Dawani</li>
+                          <li>Ease</li>
+                          <li>Inder Clothing Studio</li>
+                          <li>Masumi Mewawalla</li>
+                          <li>Monisha Jaising</li>
+                          <li>Nikita Vishakha</li>
+                          <li>Pink City by Sarika</li>
+                          <li>Neeta Lulla</li>
+                          <li>Mala And Kinnary</li>
                         </ul>
-                        <div className="viewmore">
-                          <a href="/">VIEW ALL</a>
-                        </div>
+                        <div className="viewmore">VIEW ALL</div>
                       </div>
 
                       <div className="SubNavGrid">
                         <h4>TRENDING</h4>
                         <ul>
-                          <li>
-                            <a href="/">Ahi Clothing</a>
-                          </li>
-                          <li>
-                            <a href="/">Vvani by Vani Vats</a>
-                          </li>
-                          <li>
-                            <a href="/">Vannikaa Malik</a>
-                          </li>
-                          <li>
-                            <a href="/">Krisha Sunny Ramani</a>
-                          </li>
-                          <li>
-                            <a href="/">Bhanuni by Jyoti</a>
-                          </li>
-                          <li>
-                            <a href="/">Enness Studio</a>
-                          </li>
-                          <li>
-                            <a href="/">Deme By Gabriella</a>
-                          </li>
-                          <li>
-                            <a href="/">Mona & Vishu</a>
-                          </li>
-                          <li>
-                            <a href="/">Jigar & Nikita</a>
-                          </li>
-                          <li>
-                            <a href="/">Masaba </a>
-                          </li>
+                          <li>Ahi Clothing</li>
+                          <li>Vvani by Vani Vats</li>
+                          <li>Vannikaa Malik</li>
+                          <li>Krisha Sunny Ramani</li>
+                          <li>Bhanuni by Jyoti</li>
+                          <li>Enness Studio</li>
+                          <li>Deme By Gabriella</li>
+                          <li>Mona & Vishu</li>
+                          <li>Jigar & Nikita</li>
+                          <li>Masaba</li>
                         </ul>
-                        <div className="viewmore">
-                          <a href="/">VIEW ALL</a>
-                        </div>
+                        <div className="viewmore">VIEW ALL</div>
                       </div>
 
                       <div className="SubNavGrid ProductDemoGrid">
-                        <a href="/">
-                          <figure>
-                            <img src="images/Moledro.jpg" />
-                          </figure>
-                          <figcaption className="text-center">
-                            <strong className="d-block">Moledro</strong>
-                            <small>Shop Now</small>
-                          </figcaption>
-                        </a>
+                        <figure>
+                          <img src={MoleradoImg} />
+                        </figure>
+                        <figcaption className="text-center">
+                          <strong className="d-block">Moledro</strong>
+                          <small>Shop Now</small>
+                        </figcaption>
                       </div>
 
                       <div className="SubNavGrid ProductDemoGrid">
-                        <a href="/">
-                          <figure>
-                            <img src="images/WeaverStory.jpg" />
-                          </figure>
-                          <figcaption className="text-center">
-                            <strong className="d-block">Weaver Story</strong>
-                            <small>Shop Now</small>
-                          </figcaption>
-                        </a>
+                        <figure>
+                          <img src={WaverImg} />
+                        </figure>
+                        <figcaption className="text-center">
+                          <strong className="d-block">Weaver Story</strong>
+                          <small>Shop Now</small>
+                        </figcaption>
                       </div>
 
                       <div className="SubNavGrid ProductDemoGrid">
-                        <a href="/">
-                          <figure>
-                            <img src="images/one.jpg" />
-                          </figure>
-                          <figcaption className="text-center">
-                            <strong className="d-block">One Knot One</strong>
-                            <small>Shop Now</small>
-                          </figcaption>
-                        </a>
+                        <figure>
+                          <img src={OneKnot} />
+                        </figure>
+                        <figcaption className="text-center">
+                          <strong className="d-block">One Knot One</strong>
+                          <small>Shop Now</small>
+                        </figcaption>
                       </div>
                     </div>
                   </div>
@@ -442,163 +377,89 @@ const Header = () => {
               </li>
               {/* <!-- WOMEN --> */}
               <li>
-                <a href="/">
-                  <span>Woman</span>
-                </a>
+                <span>Woman</span>
                 <div className="subNavPart">
                   <div className="container">
                     <div className="SubNavRow">
                       <div className="SubNavGrid">
                         <h4>CATEGORIES</h4>
                         <ul>
-                          <li>
-                            <a href="/">Lehengas</a>
-                          </li>
-                          <li>
-                            <a href="/">Dresses</a>
-                          </li>
-                          <li>
-                            <a href="/">Gowns</a>
-                          </li>
-                          <li>
-                            <a href="/">Blouses </a>
-                          </li>
-                          <li>
-                            <a href="/">Dupattas</a>
-                          </li>
-                          <li>
-                            <a href="/">Sarees</a>
-                          </li>
-                          <li>
-                            <a href="/">Crop Tops</a>
-                          </li>
-                          <li>
-                            <a href="/">Anarkali Set</a>
-                          </li>
-                          <li>
-                            <a href="/">Sharara Set</a>
-                          </li>
-                          <li>
-                            <a href="/">Lehenga Set</a>
-                          </li>
+                          <li>Lehengas</li>
+                          <li>Dresses</li>
+                          <li>Gowns</li>
+                          <li>Blouses</li>
+                          <li>Dupattas</li>
+                          <li>Sarees</li>
+                          <li>Crop Tops</li>
+                          <li>Anarkali Set</li>
+                          <li>Sharara Set</li>
+                          <li>Lehenga Set</li>
                         </ul>
                       </div>
 
                       <div className="SubNavGrid">
                         <h4>CATEGORIES</h4>
                         <ul>
-                          <li>
-                            <a href="/">Kurta Sets</a>
-                          </li>
-                          <li>
-                            <a href="/">Palazzo Set</a>
-                          </li>
-                          <li>
-                            <a href="/">Skirt Sets</a>
-                          </li>
-                          <li>
-                            <a href="/">Pant Sets</a>
-                          </li>
-                          <li>
-                            <a href="/">Blazer Set</a>
-                          </li>
-                          <li>
-                            <a href="/">Jackets</a>
-                          </li>
-                          <li>
-                            <a href="/">Jumpsuits</a>
-                          </li>
-                          <li>
-                            <a href="/">Trousers</a>
-                          </li>
-                          <li>
-                            <a href="/">Kaftans</a>
-                          </li>
-                          <li>
-                            <a href="/">Tops</a>
-                          </li>
-                          <li>
-                            <a href="/">Co-Ord Set</a>
-                          </li>
+                          <li>Kurta Sets</li>
+                          <li>Palazzo Set</li>
+                          <li>Skirt Sets</li>
+                          <li>Pant Sets</li>
+                          <li>Blazer Set</li>
+                          <li>Jackets</li>
+                          <li>Jumpsuits</li>
+                          <li>Trousers</li>
+                          <li>Kaftans</li>
+                          <li>Tops</li>
+                          <li>Co-Ord Set</li>
                         </ul>
-                        <div className="viewmore">
-                          <a href="/">VIEW ALL</a>
-                        </div>
+                        <div className="viewmore">VIEW ALL</div>
                       </div>
 
                       <div className="SubNavGrid">
                         <h4>DESIGNERS</h4>
                         <ul>
-                          <li>
-                            <a href="/">Ahi Clothing</a>
-                          </li>
-                          <li>
-                            <a href="/">Vvani by Vani Vats</a>
-                          </li>
-                          <li>
-                            <a href="/">Vannikaa Malik</a>
-                          </li>
-                          <li>
-                            <a href="/">Krisha Sunny Ramani</a>
-                          </li>
-                          <li>
-                            <a href="/">Bhanuni by Jyoti</a>
-                          </li>
-                          <li>
-                            <a href="/">Enness Studio</a>
-                          </li>
-                          <li>
-                            <a href="/">Deme By Gabriella</a>
-                          </li>
-                          <li>
-                            <a href="/">Moledro</a>
-                          </li>
-                          <li>
-                            <a href="/">Jigar & Nikita</a>
-                          </li>
-                          <li>
-                            <a href="/">Masaba </a>
-                          </li>
+                          <li>Ahi Clothing</li>
+                          <li>Vvani by Vani Vats</li>
+                          <li>Vannikaa Malik</li>
+                          <li>Krisha Sunny Ramani</li>
+                          <li>Bhanuni by Jyoti</li>
+                          <li>Enness Studio</li>
+                          <li>Deme By Gabriella</li>
+                          <li>Moledro</li>
+                          <li>Jigar & Nikita</li>
+                          <li>Masaba</li>
                         </ul>
-                        <div className="viewmore">
-                          <a href="/">VIEW ALL</a>
-                        </div>
+                        <div className="viewmore">VIEW ALL</div>
                       </div>
 
                       <div className="SubNavGrid ProductDemoGrid">
-                        <a href="/">
-                          <figure>
-                            <img src="images/ahii123013.jpg" />
-                          </figure>
-                          <figcaption className="text-center">
-                            <strong className="d-block">Ahi Clothing</strong>
-                            <small>Shop Now</small>
-                          </figcaption>
-                        </a>
+                        <figure>
+                          <img src={AhiiImg} />
+                        </figure>
+                        <figcaption className="text-center">
+                          <strong className="d-block">Ahi Clothing</strong>
+                          <small>Shop Now</small>
+                        </figcaption>
                       </div>
 
                       <div className="SubNavGrid ProductDemoGrid">
-                        <a href="/">
-                          <figure>
-                            <img src="images/kupk-hans.jpg" />
-                          </figure>
-                          <figcaption className="text-center">
-                            <strong className="d-block">Kudi Pataka</strong>
-                            <small>Shop Now</small>
-                          </figcaption>
-                        </a>
+                        <figure>
+                          <img src={KupkImg} />
+                        </figure>
+                        <figcaption className="text-center">
+                          <strong className="d-block">Kudi Pataka</strong>
+                          <small>Shop Now</small>
+                        </figcaption>
                       </div>
 
                       <div className="SubNavGrid ProductDemoGrid">
-                        <a href="/">
-                          <figure>
-                            <img src="images/msb23016.jpg" />
-                          </figure>
-                          <figcaption className="text-center">
-                            <strong className="d-block">Masaba</strong>
-                            <small>Shop Now</small>
-                          </figcaption>
-                        </a>
+                        <figure>
+                          <img src={MsbImg} />
+                        </figure>
+                        <figcaption className="text-center">
+                          <strong className="d-block">Masaba</strong>
+                          <small>Shop Now</small>
+                        </figcaption>
                       </div>
                     </div>
                   </div>
@@ -606,166 +467,93 @@ const Header = () => {
               </li>
               {/* <!-- Man --> */}
               <li>
-                <a href="/">
-                  <span>Man</span>
-                </a>
+                <span>Man</span>
+
                 <div className="subNavPart">
                   <div className="container">
                     <div className="SubNavRow">
                       <div className="SubNavGrid">
                         <h4>CATEGORIES</h4>
                         <ul>
-                          <li>
-                            <a href="/">Kurta Sets</a>
-                          </li>
-                          <li>
-                            <a href="/">Kurtas</a>
-                          </li>
-                          <li>
-                            <a href="/">kurta Pyjamas</a>
-                          </li>
-                          <li>
-                            <a href="/">Sherwanis</a>
-                          </li>
-                          <li>
-                            <a href="/">Nehru Jacket & Sets</a>
-                          </li>
-                          <li>
-                            <a href="/">Bandhgalas</a>
-                          </li>
-                          <li>
-                            <a href="/">Shirts</a>
-                          </li>
-                          <li>
-                            <a href="/">Footwear</a>
-                          </li>
-                          <li>
-                            <a href="/">Bottoms</a>
-                          </li>
-                          <li>
-                            <a href="/">Jackets</a>
-                          </li>
+                          <li>Kurta Sets</li>
+                          <li>Kurtas</li>
+                          <li>kurta Pyjamas</li>
+                          <li>Sherwanis</li>
+                          <li>Nehru Jacket & Sets</li>
+                          <li>Bandhgalas</li>
+                          <li>Shirts</li>
+                          <li>Footwear</li>
+                          <li>Bottoms</li>
+                          <li>Jackets</li>
                         </ul>
                       </div>
 
                       <div className="SubNavGrid">
                         <h4>CATEGORIES</h4>
                         <ul>
-                          <li>
-                            <a href="/">Tuxedo Set</a>
-                          </li>
-                          <li>
-                            <a href="/">Shorts</a>
-                          </li>
-                          <li>
-                            <a href="/">Tuxedo</a>
-                          </li>
-                          <li>
-                            <a href="/">Ethinic Wear</a>
-                          </li>
-                          <li>
-                            <a href="/">Trousers</a>
-                          </li>
-                          <li>
-                            <a href="/">Waistcoat</a>
-                          </li>
-                          <li>
-                            <a href="/">Shrug Set</a>
-                          </li>
-                          <li>
-                            <a href="/">Pashmina Shawl</a>
-                          </li>
-                          <li>
-                            <a href="/">Jodhpuris</a>
-                          </li>
-                          <li>
-                            <a href="/">Bandi Set</a>
-                          </li>
+                          <li>Tuxedo Set</li>
+                          <li>Shorts</li>
+                          <li>Tuxedo</li>
+                          <li>Ethinic Wear</li>
+                          <li>Trousers</li>
+                          <li>Waistcoat</li>
+                          <li>Shrug Set</li>
+                          <li>Pashmina Shawl</li>
+                          <li>Jodhpuris</li>
+                          <li>Bandi Set</li>
                         </ul>
-                        <div className="viewmore">
-                          <a href="/">VIEW ALL</a>
-                        </div>
+                        <div className="viewmore">VIEW ALL</div>
                       </div>
 
                       <div className="SubNavGrid">
                         <h4>DESIGNERS</h4>
                         <ul>
-                          <li>
-                            <a href="/">Inder Clothing Studio</a>
-                          </li>
-                          <li>
-                            <a href="/">Jenjum Gadi</a>
-                          </li>
-                          <li>
-                            <a href="/">Kalista</a>
-                          </li>
-                          <li>
-                            <a href="/">Krisha Sunny Ramani</a>
-                          </li>
-                          <li>
-                            <a href="/">Masaba</a>
-                          </li>
-                          <li>
-                            <a href="/">S&N by Shantnu Nikhil</a>
-                          </li>
-                          <li>
-                            <a href="/">Jatin Malik Couture</a>
-                          </li>
-                          <li>
-                            <a href="/">Khushboo & Pankaj</a>
-                          </li>
-                          <li>
-                            <a href="/">Jigar & Nikita</a>
-                          </li>
-                          <li>
-                            <a href="/">Rey & I</a>
-                          </li>
+                          <li>Inder Clothing Studio</li>
+                          <li>Jenjum Gadi</li>
+                          <li>Kalista</li>
+                          <li>Krisha Sunny Ramani</li>
+                          <li>Masaba</li>
+                          <li>S&N by Shantnu Nikhil</li>
+                          <li>Jatin Malik Couture</li>
+                          <li>Khushboo & Pankaj</li>
+                          <li>Jigar & Nikita</li>
+                          <li>Rey & I</li>
                         </ul>
-                        <div className="viewmore">
-                          <a href="/">VIEW ALL</a>
-                        </div>
+                        <div className="viewmore">VIEW ALL</div>
                       </div>
 
                       <div className="SubNavGrid ProductDemoGrid">
-                        <a href="/">
-                          <figure>
-                            <img src="images/snbs22mtr04.jpg" />
-                          </figure>
-                          <figcaption className="text-center">
-                            <strong className="d-block">
-                              SHANTNU & NIKHIL
-                            </strong>
-                            <small>Shop Now</small>
-                          </figcaption>
-                        </a>
+                        <figure>
+                          <img src={Man1Img} />
+                        </figure>
+                        <figcaption className="text-center">
+                          <strong className="d-block">SHANTNU & NIKHIL</strong>
+                          <small>Shop Now</small>
+                        </figcaption>
                       </div>
 
                       <div className="SubNavGrid ProductDemoGrid">
-                        <a href="/">
-                          <figure>
-                            <img src="images/maaya25-2.jpg" />
-                          </figure>
-                          <figcaption className="text-center">
-                            <strong className="d-block">
-                              KRISHA SUNNY RAMANI
-                            </strong>
-                            <small>Shop Now</small>
-                          </figcaption>
-                        </a>
+                        <figure>
+                          <img src={Man2Img} />
+                        </figure>
+                        <figcaption className="text-center">
+                          <strong className="d-block">
+                            KRISHA SUNNY RAMANI
+                          </strong>
+                          <small>Shop Now</small>
+                        </figcaption>
                       </div>
 
                       <div className="SubNavGrid ProductDemoGrid">
-                        <a href="/">
-                          <figure>
-                            <img src="images/jm-ss22.png" />
-                          </figure>
-                          <figcaption className="text-center">
-                            <strong className="d-block">
-                              JATIN MALIK COUTURE
-                            </strong>
-                            <small>Shop Now</small>
-                          </figcaption>
-                        </a>
+                        <figure>
+                          <img src={Man3Img} />
+                        </figure>
+                        <figcaption className="text-center">
+                          <strong className="d-block">
+                            JATIN MALIK COUTURE
+                          </strong>
+                          <small>Shop Now</small>
+                        </figcaption>
                       </div>
                     </div>
                   </div>
@@ -773,130 +561,79 @@ const Header = () => {
               </li>
               {/* <!-- Kids --> */}
               <li>
-                <a href="/">
-                  <span>Kids</span>
-                </a>
+                <span>Kids</span>
+
                 <div className="subNavPart">
                   <div className="container">
                     <div className="SubNavRow">
                       <div className="SubNavGrid">
                         <h4>BOYS</h4>
                         <ul>
-                          <li>
-                            <a href="/">Shorts</a>
-                          </li>
-                          <li>
-                            <a href="/">Kurta Sets</a>
-                          </li>
-                          <li>
-                            <a href="/">Kurtas</a>
-                          </li>
-                          <li>
-                            <a href="/">Jackets</a>
-                          </li>
-                          <li>
-                            <a href="/">Sherwanis</a>
-                          </li>
-                          <li>
-                            <a href="/">Suits & Tuxedos</a>
-                          </li>
+                          <li>Shorts</li>
+                          <li>Kurta Sets</li>
+                          <li>Kurtas</li>
+                          <li>Jackets</li>
+                          <li>Sherwanis</li>
+                          <li>Suits & Tuxedos</li>
                         </ul>
-                        <div className="viewmore">
-                          <a href="/">VIEW ALL</a>
-                        </div>
+                        <div className="viewmore">VIEW ALL</div>
                       </div>
 
                       <div className="SubNavGrid">
                         <h4>GIRLS</h4>
                         <ul>
-                          <li>
-                            <a href="/">Dresses</a>
-                          </li>
-                          <li>
-                            <a href="/">Kurta Sets</a>
-                          </li>
-                          <li>
-                            <a href="/">Pant Sets</a>
-                          </li>
-                          <li>
-                            <a href="/">Lehengas</a>
-                          </li>
-                          <li>
-                            <a href="/">Jumpsuits</a>
-                          </li>
-                          <li>
-                            <a href="/">Skirt Sets</a>
-                          </li>
-                          <li>
-                            <a href="/">Tunics & Kurtis </a>
-                          </li>
-                          <li>
-                            <a href="/">Gowns</a>
-                          </li>
-                          <li>
-                            <a href="/">Sarees</a>
-                          </li>
+                          <li>Dresses</li>
+                          <li>Kurta Sets</li>
+                          <li>Pant Sets</li>
+                          <li>Lehengas</li>
+                          <li>Jumpsuits</li>
+                          <li>Skirt Sets</li>
+                          <li>Tunics & Kurtis</li>
+                          <li>Gowns</li>
+                          <li>Sarees</li>
                         </ul>
-                        <div className="viewmore">
-                          <a href="/">VIEW ALL</a>
-                        </div>
+                        <div className="viewmore">VIEW ALL</div>
                       </div>
 
                       <div className="SubNavGrid">
                         <h4>DESIGNERS</h4>
                         <ul>
-                          <li>
-                            <a href="/">Rey&I</a>
-                          </li>
-                          <li>
-                            <a href="/">LittleCheer</a>
-                          </li>
-                          <li>
-                            <a href="/">Lil Drama</a>
-                          </li>
-                          <li>
-                            <a href="/">Fayyon Kids</a>
-                          </li>
+                          <li>Rey&I</li>
+                          <li>LittleCheer</li>
+                          <li>Lil Drama</li>
+                          <li>Fayyon Kids</li>
                         </ul>
-                        <div className="viewmore">
-                          <a href="/">VIEW ALL</a>
-                        </div>
+                        <div className="viewmore">VIEW ALL</div>
                       </div>
 
                       <div className="SubNavGrid ProductDemoGrid">
-                        <a href="/">
-                          <figure>
-                            <img src="images/fk2708-fs23.jpg" />
-                          </figure>
-                          <figcaption className="text-center">
-                            <strong className="d-block">FAYYON KIDS</strong>
-                            <small>Shop Now</small>
-                          </figcaption>
-                        </a>
+                        <figure>
+                          <img src={Kids1Img} />
+                        </figure>
+                        <figcaption className="text-center">
+                          <strong className="d-block">FAYYON KIDS</strong>
+                          <small>Shop Now</small>
+                        </figcaption>
                       </div>
 
                       <div className="SubNavGrid ProductDemoGrid">
-                        <a href="/">
-                          <figure>
-                            <img src="images/lc-bdh.jpg" />
-                          </figure>
-                          <figcaption className="text-center">
-                            <strong className="d-block">LITTLECHEER</strong>
-                            <small>Shop Now</small>
-                          </figcaption>
-                        </a>
+                        <figure>
+                          <img src={Kids2Img} />
+                        </figure>
+                        <figcaption className="text-center">
+                          <strong className="d-block">LITTLECHEER</strong>
+                          <small>Shop Now</small>
+                        </figcaption>
                       </div>
 
                       <div className="SubNavGrid ProductDemoGrid">
-                        <a href="/">
-                          <figure>
-                            <img src="images/lb3-aw-kpj.jpg" />
-                          </figure>
-                          <figcaption className="text-center">
-                            <strong className="d-block">LIL DRAMA</strong>
-                            <small>Shop Now</small>
-                          </figcaption>
-                        </a>
+                        <figure>
+                          <img src={Kids3Img} />
+                        </figure>
+                        <figcaption className="text-center">
+                          <strong className="d-block">LIL DRAMA</strong>
+                          <small>Shop Now</small>
+                        </figcaption>
                       </div>
                     </div>
                   </div>
@@ -904,123 +641,74 @@ const Header = () => {
               </li>
               {/* <!-- Accessories --> */}
               <li>
-                <a href="/">
-                  <span>Accessories</span>
-                </a>
+                <span>Accessories</span>
+
                 <div className="subNavPart">
                   <div className="container">
                     <div className="SubNavRow">
                       <div className="SubNavGrid">
                         <h4>CATEGORIES</h4>
                         <ul>
-                          <li>
-                            <a href="/">Bags</a>
-                          </li>
-                          <li>
-                            <a href="/">Belts</a>
-                          </li>
-                          <li>
-                            <a href="/">Gloves</a>
-                          </li>
-                          <li>
-                            <a href="/">Brooches</a>
-                          </li>
-                          <li>
-                            <a href="/">Clutch</a>
-                          </li>
-                          <li>
-                            <a href="/">Potli</a>
-                          </li>
-                          <li>
-                            <a href="/">Purse</a>
-                          </li>
-                          <li>
-                            <a href="/">Pocket Squares</a>
-                          </li>
-                          <li>
-                            <a href="/">Mens Footwear</a>
-                          </li>
-                          <li>
-                            <a href="/">Womens Footwear</a>
-                          </li>
+                          <li>Bags</li>
+                          <li>Belts</li>
+                          <li>Gloves</li>
+                          <li>Brooches</li>
+                          <li>Clutch</li>
+                          <li>Potli</li>
+                          <li>Purse</li>
+                          <li>Pocket Squares</li>
+                          <li>Mens Footwear</li>
+                          <li>Womens Footwear</li>
                         </ul>
-                        <div className="viewmore">
-                          <a href="/">VIEW ALL</a>
-                        </div>
+                        <div className="viewmore">VIEW ALL</div>
                       </div>
 
                       <div className="SubNavGrid">
                         <h4>DESIGNERS</h4>
                         <ul>
-                          <li>
-                            <a href="/">Clutch'D</a>
-                          </li>
-                          <li>
-                            <a href="/">Devina juneja</a>
-                          </li>
-                          <li>
-                            <a href="/">Torani</a>
-                          </li>
-                          <li>
-                            <a href="/">Veruschka</a>
-                          </li>
-                          <li>
-                            <a href="/">S&N by Shantnu Nikhil</a>
-                          </li>
-                          <li>
-                            <a href="/">Jatin Malik Couture</a>
-                          </li>
-                          <li>
-                            <a href="/">Plode</a>
-                          </li>
-                          <li>
-                            <a href="/">Amrit Dawani</a>
-                          </li>
-                          <li>
-                            <a href="/">Bijoux by Priya Chandna</a>
-                          </li>
+                          <li>Clutch'D</li>
+                          <li>Devina juneja</li>
+                          <li>Torani</li>
+                          <li>Veruschka</li>
+                          <li>S&N by Shantnu Nikhil</li>
+                          <li>Jatin Malik Couture</li>
+                          <li>Plode</li>
+                          <li>Amrit Dawani</li>
+                          <li>Bijoux by Priya Chandna</li>
                         </ul>
-                        <div className="viewmore">
-                          <a href="/">VIEW ALL</a>
-                        </div>
+                        <div className="viewmore">VIEW ALL</div>
                       </div>
 
                       <div className="SubNavGrid ProductDemoGrid"></div>
 
                       <div className="SubNavGrid ProductDemoGrid">
-                        <a href="/">
-                          <figure>
-                            <img src="images/torani0004.jpg" />
-                          </figure>
-                          <figcaption className="text-center">
-                            <strong className="d-block">TORANI</strong>
-                            <small>Shop Now</small>
-                          </figcaption>
-                        </a>
+                        <figure>
+                          <img src={ToraniImg} />
+                        </figure>
+                        <figcaption className="text-center">
+                          <strong className="d-block">TORANI</strong>
+                          <small>Shop Now</small>
+                        </figcaption>
                       </div>
 
                       <div className="SubNavGrid ProductDemoGrid">
-                        <a href="/">
-                          <figure>
-                            <img src="images/bucket_black.jpg" />
-                          </figure>
-                          <figcaption className="text-center">
-                            <strong className="d-block">PLODE</strong>
-                            <small>Shop Now</small>
-                          </figcaption>
-                        </a>
+                        <figure>
+                          <img src={PlodImg} />
+                        </figure>
+                        <figcaption className="text-center">
+                          <strong className="d-block">PLODE</strong>
+                          <small>Shop Now</small>
+                        </figcaption>
                       </div>
 
                       <div className="SubNavGrid ProductDemoGrid">
-                        <a href="/">
-                          <figure>
-                            <img src="images/gdm-ad010.jpg" />
-                          </figure>
-                          <figcaption className="text-center">
-                            <strong className="d-block">AMRIT DAWANI</strong>
-                            <small>Shop Now</small>
-                          </figcaption>
-                        </a>
+                        <figure>
+                          <img src={AmrtiImg} />
+                        </figure>
+                        <figcaption className="text-center">
+                          <strong className="d-block">AMRIT DAWANI</strong>
+                          <small>Shop Now</small>
+                        </figcaption>
                       </div>
                     </div>
                   </div>
@@ -1028,121 +716,76 @@ const Header = () => {
               </li>
               {/* <!-- Jewellery --> */}
               <li>
-                <a href="/">
-                  <span>Jewellery</span>
-                </a>
+                <span>Jewellery</span>
+
                 <div className="subNavPart">
                   <div className="container">
                     <div className="SubNavRow">
                       <div className="SubNavGrid">
                         <h4>CATEGORIES</h4>
                         <ul>
-                          <li>
-                            <a href="/">Earrings</a>
-                          </li>
-                          <li>
-                            <a href="/">Bracelet</a>
-                          </li>
-                          <li>
-                            <a href="/">Bangle</a>
-                          </li>
-                          <li>
-                            <a href="/">Neckpiece</a>
-                          </li>
-                          <li>
-                            <a href="/">Mala</a>
-                          </li>
-                          <li>
-                            <a href="/">Kalgi</a>
-                          </li>
-                          <li>
-                            <a href="/">Rings</a>
-                          </li>
-                          <li>
-                            <a href="/">Necklaces</a>
-                          </li>
-                          <li>
-                            <a href="/">Pendants</a>
-                          </li>
-                          <li>
-                            <a href="/">Hair Accessories</a>
-                          </li>
-                          <li>
-                            <a href="/">Chains</a>
-                          </li>
+                          <li>Earrings</li>
+                          <li>Bracelet</li>
+                          <li>Bangle</li>
+                          <li>Neckpiece</li>
+                          <li>Mala</li>
+                          <li>Kalgi</li>
+                          <li>Rings</li>
+                          <li>Necklaces</li>
+                          <li>Pendants</li>
+                          <li>Hair Accessories</li>
+                          <li>Chains</li>
                         </ul>
-                        <div className="viewmore">
-                          <a href="/">VIEW ALL</a>
-                        </div>
+                        <div className="viewmore">VIEW ALL</div>
                       </div>
 
                       <div className="SubNavGrid">
                         <h4>DESIGNERS</h4>
                         <ul>
-                          <li>
-                            <a href="/">Juwelen</a>
-                          </li>
-                          <li>
-                            <a href="/">Jatin Malik Couture</a>
-                          </li>
-                          <li>
-                            <a href="/">Mozaati</a>
-                          </li>
-                          <li>
-                            <a href="/">Tesoro by Bhavika</a>
-                          </li>
-                          <li>
-                            <a href="/">Twyla Treasures</a>
-                          </li>
-                          <li>
-                            <a href="/">Bijoux by Priya Chandna</a>
-                          </li>
+                          <li>Juwelen</li>
+                          <li>Jatin Malik Couture</li>
+                          <li>Mozaati</li>
+                          <li>Tesoro by Bhavika</li>
+                          <li>Twyla Treasures</li>
+                          <li>Bijoux by Priya Chandna</li>
                         </ul>
-                        <div className="viewmore">
-                          <a href="/">VIEW ALL</a>
-                        </div>
+                        <div className="viewmore">VIEW ALL</div>
                       </div>
 
                       <div className="SubNavGrid ProductDemoGrid"></div>
 
                       <div className="SubNavGrid ProductDemoGrid">
-                        <a href="/">
-                          <figure>
-                            <img src="images/bipc-pcbn.jpg" />
-                          </figure>
-                          <figcaption className="text-center">
-                            <strong className="d-block">
-                              BIJOUX BY PRIYA CHANDNA
-                            </strong>
-                            <small>Shop Now</small>
-                          </figcaption>
-                        </a>
+                        <figure>
+                          <img src={Jewellery1Img} />
+                        </figure>
+                        <figcaption className="text-center">
+                          <strong className="d-block">
+                            BIJOUX BY PRIYA CHANDNA
+                          </strong>
+                          <small>Shop Now</small>
+                        </figcaption>
                       </div>
 
                       <div className="SubNavGrid ProductDemoGrid">
-                        <a href="/">
-                          <figure>
-                            <img src="images/07_3.jpg" />
-                          </figure>
-                          <figcaption className="text-center">
-                            <strong className="d-block">JUWELEN</strong>
-                            <small>Shop Now</small>
-                          </figcaption>
-                        </a>
+                        <figure>
+                          <img src={Jewellery2Img} />
+                        </figure>
+                        <figcaption className="text-center">
+                          <strong className="d-block">JUWELEN</strong>
+                          <small>Shop Now</small>
+                        </figcaption>
                       </div>
 
                       <div className="SubNavGrid ProductDemoGrid">
-                        <a href="/">
-                          <figure>
-                            <img src="images/jm_ss22.png" />
-                          </figure>
-                          <figcaption className="text-center">
-                            <strong className="d-block">
-                              JATIN MALIK COUTURE
-                            </strong>
-                            <small>Shop Now</small>
-                          </figcaption>
-                        </a>
+                        <figure>
+                          <img src={Jewellery3Img} />
+                        </figure>
+                        <figcaption className="text-center">
+                          <strong className="d-block">
+                            JATIN MALIK COUTURE
+                          </strong>
+                          <small>Shop Now</small>
+                        </figcaption>
                       </div>
                     </div>
                   </div>
@@ -1150,19 +793,13 @@ const Header = () => {
               </li>
               {/* <!-- The Vesimi Voice --> */}
               <li>
-                <a href="/">
-                  <span>The Vesimi Voice</span>
-                </a>{" "}
+                <span>The Vesimi Voice</span>{" "}
               </li>
               <li>
-                <a href="/">
-                  <span>Gift card</span>
-                </a>{" "}
+                <span>Gift card</span>
               </li>
-              <li>
-                <a href="/" className="textred">
-                  <span>Sale</span>
-                </a>
+              <li className="textred">
+                <span>Sale</span>
               </li>
             </ul>
           </nav>

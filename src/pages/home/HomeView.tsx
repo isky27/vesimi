@@ -32,6 +32,9 @@ const HomeView = () => {
     isLoadingCelebrityProduct,
     celebrityProductData,
     navigate,
+    setSelectedPopularStyle,
+    isLoadingCategoryProduct,
+    categoryProductData
   } = HomeController();
 
   return (
@@ -45,6 +48,7 @@ const HomeView = () => {
             isLoadingFeatureCategory,
             isLoadingBestSellerProduct,
             isLoadingCelebrityProduct,
+            isLoadingCategoryProduct,
           ]}
         />
 
@@ -150,6 +154,7 @@ const HomeView = () => {
                         role="tab"
                         aria-controls="all"
                         aria-selected="true"
+                        onClick={() => setSelectedPopularStyle("5")}
                       >
                         All
                       </button>
@@ -164,6 +169,7 @@ const HomeView = () => {
                         role="tab"
                         aria-controls="woman"
                         aria-selected="false"
+                        onClick={() => setSelectedPopularStyle("1412")}
                       >
                         Woman
                       </button>
@@ -178,6 +184,7 @@ const HomeView = () => {
                         role="tab"
                         aria-controls="man"
                         aria-selected="false"
+                        onClick={() => setSelectedPopularStyle("1342")}
                       >
                         Man
                       </button>
@@ -192,6 +199,7 @@ const HomeView = () => {
                         role="tab"
                         aria-controls="kids"
                         aria-selected="false"
+                        onClick={() => setSelectedPopularStyle("1389")}
                       >
                         Kids
                       </button>
@@ -229,7 +237,9 @@ const HomeView = () => {
                     ].map((item: any, index: number) => (
                       <div
                         key={item.id}
-                        className={`tab-pane fade ${index === 0 ? "show active" : ""}`}
+                        className={`tab-pane fade ${
+                          index === 0 ? "show active" : ""
+                        }`}
                         id={item.id}
                         role="tabpanel"
                         aria-labelledby={item.ariaLabel}
