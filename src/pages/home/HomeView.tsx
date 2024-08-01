@@ -15,6 +15,7 @@ import facebookBack from '../../assets/images/facebookBack.png'
 import instagramBack from '../../assets/images/instagramBack.png';
 import pinterestBack from '../../assets/images/pinterestBack.png'
 import BookAppointment from "component/BookAppointment";
+import { Link } from "react-router-dom";
 
 const HomeView = () => {
   const {
@@ -34,7 +35,8 @@ const HomeView = () => {
     navigate,
     setSelectedPopularStyle,
     isLoadingCategoryProduct,
-    categoryProductData
+    categoryProductData,
+    selectedPopularStyle,
   } = HomeController();
 
   return (
@@ -48,7 +50,7 @@ const HomeView = () => {
             isLoadingFeatureCategory,
             isLoadingBestSellerProduct,
             isLoadingCelebrityProduct,
-            isLoadingCategoryProduct,
+            isLoadingCategoryProduct
           ]}
         />
 
@@ -133,9 +135,12 @@ const HomeView = () => {
               <div className="container">
                 <div className="productHead d-flex align-items-center justify-content-between mb-3 mb-md-4">
                   <h2 className="Playfair">Popular Styles </h2>
-                  <a href="/" className="text-uparcase">
+                  <Link
+                    to={`/category/${selectedPopularStyle}`}
+                    className="text-uparcase"
+                  >
                     VIEW ALL
-                  </a>
+                  </Link>
                 </div>
 
                 <div className="productSliderWrap">
@@ -214,6 +219,7 @@ const HomeView = () => {
                         role="tab"
                         aria-controls="accessories"
                         aria-selected="false"
+                        onClick={() => setSelectedPopularStyle("1407")}
                       >
                         Accessories
                       </button>
@@ -221,19 +227,11 @@ const HomeView = () => {
                   </ul>
                   <div className="tab-content" id="myTabContent">
                     {[
-                      { id: "All", ariaLabel: "all-tab", img: "Drops1.avif" },
-                      {
-                        id: "Woman",
-                        ariaLabel: "woman-tab",
-                        img: "Drops2.avif",
-                      },
-                      { id: "Mans", ariaLabel: "man-tab", img: "Drops3.avif" },
-                      { id: "Kids", ariaLabel: "kids-tab", img: "Drops4.avif" },
-                      {
-                        id: "Accessories",
-                        ariaLabel: "accessories-tab",
-                        img: "Drops1.avif",
-                      },
+                      { id: "All", ariaLabel: "all-tab" },
+                      { id: "Woman", ariaLabel: "woman-tab" },
+                      { id: "Mans", ariaLabel: "man-tab" },
+                      { id: "Kids", ariaLabel: "kids-tab" },
+                      { id: "Accessories", ariaLabel: "accessories-tab" },
                     ].map((item: any, index: number) => (
                       <div
                         key={item.id}
@@ -261,52 +259,16 @@ const HomeView = () => {
                             },
                           }}
                         >
-                          <ProductCard
-                            price={"22,400"}
-                            imageName={item.img}
-                            isPath={false}
-                            tag={"the cocktail bar'24"}
-                            subTag={"Sequin Embroidered Lehenga Set"}
-                          />
-                          <ProductCard
-                            price={"22,400"}
-                            imageName={item.img}
-                            isPath={false}
-                            tag={"the cocktail bar'24"}
-                            subTag={"Sequin Embroidered Lehenga Set"}
-                          />
-
-                          <ProductCard
-                            price={"22,400"}
-                            imageName={item.img}
-                            isPath={false}
-                            tag={"the cocktail bar'24"}
-                            subTag={"Sequin Embroidered Lehenga Set"}
-                          />
-
-                          <ProductCard
-                            price={"22,400"}
-                            imageName={item.img}
-                            isPath={false}
-                            tag={"the cocktail bar'24"}
-                            subTag={"Sequin Embroidered Lehenga Set"}
-                          />
-
-                          <ProductCard
-                            price={"22,400"}
-                            imageName={item.img}
-                            isPath={false}
-                            tag={"the cocktail bar'24"}
-                            subTag={"Sequin Embroidered Lehenga Set"}
-                          />
-
-                          <ProductCard
-                            price={"22,400"}
-                            imageName={item.img}
-                            isPath={false}
-                            tag={"the cocktail bar'24"}
-                            subTag={"Sequin Embroidered Lehenga Set"}
-                          />
+                          {categoryProductData?.data?.map((prod: any) => (
+                            <ProductCard
+                              price={prod?.main_price}
+                              imageName={prod?.thumbnail_image}
+                              isPath={true}
+                              tag={prod?.name}
+                              link={`/products/${prod?.id}`}
+                              subTag={prod?.name}
+                            />
+                          ))}
                         </OwlCarousel>
                       </div>
                     ))}

@@ -25,7 +25,7 @@ const HomeController = () => {
     // Import data from auth selector
 
     const [searchKey, setSearchKey] = useState("")
-    const [selectedPopularStyle, setSelectedPopularStyle ] = useState("6")
+    const [selectedPopularStyle, setSelectedPopularStyle ] = useState("5")
 
     const navigate = useNavigate()
 
@@ -52,7 +52,9 @@ const HomeController = () => {
     },[dispatch])
 
     useEffect(() => {
-      dispatch(getCategoryProducts({ categoryId: selectedPopularStyle }));
+      dispatch(
+        getCategoryProducts({ categoryId: selectedPopularStyle, pageSize:4 })
+      );
     }, [dispatch, selectedPopularStyle]);
 
     // All the state and function return to LoginView
@@ -74,6 +76,7 @@ const HomeController = () => {
       setSelectedPopularStyle,
       isLoadingCategoryProduct,
       categoryProductData,
+      selectedPopularStyle,
     };
 
 }

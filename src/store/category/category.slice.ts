@@ -64,6 +64,7 @@ export const categoryReducer = createSlice({
             .addCase(getCategoryProducts.pending, (state: any, _: any) => {
                 state.isLoadingCategoryProduct = true;
                 state.isSuccess = false;
+                state.categoryProductData = null;
             })
             .addCase(getCategoryProducts.fulfilled, (state: any, action: any) => {
                 state.isLoadingCategoryProduct = false;

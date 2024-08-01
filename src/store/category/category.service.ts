@@ -11,7 +11,14 @@ const subcategoryApi = async (userData: any): Promise<ApiResponse> => {
 
 const categoryProductApi = async (userData: any): Promise<ApiResponse> => {
   try {
-    const response: ApiResponse = (await axios.get(`products/category/${userData?.categoryId}?page_size=${14}`));
+    const params: Record<string, any> = {};
+    if (userData.pageSize) {
+      params.page_size = userData.pageSize;
+    }
+    const response: ApiResponse = await axios.get(
+      `products/category/${userData?.categoryId}`,
+      { params }
+    );
     return response;
   } catch (error: any) {
     throw error;

@@ -3,6 +3,7 @@ import CategoryController from './categoryController'
 import MultiLevelCheckbox from './MultiLevelCheckbox'
 import Slider from 'rc-slider';
 import Header from 'component/headerLayout';
+import { Link } from 'react-router-dom';
 
 const CategoryView = () => {
 
@@ -353,13 +354,10 @@ const CategoryView = () => {
                     return (
                       <div key={item?.id} className="col-sm-6 col-lg-4">
                         <div className="productCols position-relative mb-2 mb-md-3">
-                          <a
-                            href={`/products/${item?.id}`}
-                            className="text-dark text-decoration-none"
-                          >
+                          <Link to={`/products/${item?.id}`} className="text-dark text-decoration-none">
                             <div className="position-relative">
                               <picture>
-                                <img src={item?.thumbnail_image} alt="" />
+                                <img src={item?.thumbnail_image} alt="Img" />
                                 <svg
                                   stroke="currentColor"
                                   fill="currentColor"
@@ -405,7 +403,7 @@ const CategoryView = () => {
                                 {item?.main_price}
                               </small>
                             </div>
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     );
