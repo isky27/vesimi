@@ -4,6 +4,7 @@ import MultiLevelCheckbox from './MultiLevelCheckbox'
 import Slider from 'rc-slider';
 import Header from 'component/headerLayout';
 import { Link } from 'react-router-dom';
+import Pagination from 'component/Pagination';
 
 const CategoryView = () => {
 
@@ -29,6 +30,8 @@ const CategoryView = () => {
     isLoadingSubCategories,
     searchParams,
     setSearchParams,
+    currentPage,
+    setCurrentPage,
   } = CategoryController();
 
 	const colorData = [
@@ -272,80 +275,10 @@ const CategoryView = () => {
                   setCheckedItems={setFilterColor}
                 />
               </div>
-
-              <div className="sidebarBlock">
-                <h3 className="mb-3 mb-md-4">SHIPPING TIME </h3>
-                <MultiLevelCheckbox
-                  data={shippingData}
-                  checkedItems={filterShipping}
-                  setCheckedItems={setFilterShipping}
-                  singleSelect={true}
-                />
-              </div>
-
-              <div className="sidebarBlock">
-                <h3 className="mb-3 mb-md-4">OCCASION </h3>
-                <MultiLevelCheckbox
-                  data={occasionData}
-                  checkedItems={filterOccasion}
-                  setCheckedItems={setFilterOccasion}
-                />
-              </div>
             </div>
 
             {/* right part */}
             <div className="pageRightMain">
-              <div className="filterChecked">
-                <button className="select">
-                  <span
-                    className="bg-image"
-                    style={{
-                      backgroundPosition: "-97px -114px",
-                      width: "14px",
-                      height: "14px",
-                      display: "inline-block",
-                    }}
-                  ></span>
-                  New
-                </button>
-                <button>
-                  <span
-                    className="bg-image"
-                    style={{
-                      backgroundPosition: "-54px -114px",
-                      width: "14px",
-                      height: "14px",
-                      display: "inline-block",
-                    }}
-                  ></span>
-                  Ready to Ship
-                </button>
-                <button>
-                  <span
-                    className="bg-image"
-                    style={{
-                      backgroundPosition: "-75px -114px",
-                      width: "14px",
-                      height: "14px",
-                      display: "inline-block",
-                    }}
-                  ></span>
-                  On Sale
-                </button>
-                <button>
-                  <span
-                    className="bg-image"
-                    style={{
-                      backgroundPosition: "-124px -114px",
-                      width: "14px",
-                      height: "14px",
-                      display: "inline-block",
-                    }}
-                  ></span>
-                  Customizable
-                </button>
-              </div>
-
               {/* product Bar */}
 
               <div className="productListinfWrap">
@@ -354,7 +287,10 @@ const CategoryView = () => {
                     return (
                       <div key={item?.id} className="col-sm-6 col-lg-4">
                         <div className="productCols position-relative mb-2 mb-md-3">
-                          <Link to={`/products/${item?.id}`} className="text-dark text-decoration-none">
+                          <Link
+                            to={`/products/${item?.id}`}
+                            className="text-dark text-decoration-none"
+                          >
                             <div className="position-relative">
                               <picture>
                                 <img src={item?.thumbnail_image} alt="Img" />
@@ -409,24 +345,29 @@ const CategoryView = () => {
                     );
                   })}
                 </div>
-
+                <Pagination
+                  total={50}
+                  pageSize={10}
+                  currentPage={currentPage}
+                  handleClick={setCurrentPage}
+                />
                 <div className="themePagger text-center py-3">
                   <nav aria-label="Page navigation example">
                     <ul className="pagination justify-content-center">
                       <li className="page-item disabled">
-                        <a className="page-link" href="/" aria-disabled="true">
+                        <Link className="page-link" to="/category/6" aria-disabled="true">
                           Previous
-                        </a>
+                        </Link>
                       </li>
                       <li className="page-item">
-                        <a className="page-link text-dark" href="/">
+                        <Link className="page-link text-dark" to="/category/6">
                           1
-                        </a>
+                        </Link>
                       </li>
                       <li className="page-item">
-                        <a className="page-link text-dark" href="/">
+                        <Link className="page-link text-dark" to="/category/6">
                           2
-                        </a>
+                        </Link>
                       </li>
                       <li className="page-item">
                         <a className="page-link text-dark" href="/">

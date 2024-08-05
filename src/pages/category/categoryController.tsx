@@ -143,6 +143,8 @@ const CategoryController = () => {
     isLoadingSubCategories,
     searchParams,
     setSearchParams,
+    currentPage,
+    setCurrentPage
   };
 };
 

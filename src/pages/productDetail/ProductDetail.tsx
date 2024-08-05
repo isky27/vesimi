@@ -59,49 +59,6 @@ const ProductDetail = () => {
                 <p className="textSmallLight">(inclusive of all taxes)</p>
               </div>
 
-              <div className="featureOffers">
-                <ul>
-                  <li>Offers: 5 </li>
-                  <li><strong>2x on App</strong>Earn <b>3450</b> Loyalty Points
-                    <div className="hoverShow">
-                      <ul>
-                        <li>Earn loyalty points on your online orders with Azafashions.com</li>
-                        <li>These loyalty points will be added to your account after successful
-                          delivery of
-                          the order</li>
-                        <li>The loyalty points so accumulated can be used against subsequent orders
-                          (10
-                          loyalty points = 1 currency unit)</li>
-                      </ul>
-                      <a href="/">tearm & condition</a>
-
-                    </div>
-                  </li>
-                  <li>Price Match Guarantee
-                    <div className="hoverShow">
-                      <ul>
-                        <li>Earn loyalty points on your online orders with Azafashions.com</li>
-                        <li>These loyalty points will be added to your account after successful
-                          delivery of
-                          the order</li>
-                        <li>The loyalty points so accumulated can be used against subsequent orders
-                          (10
-                          loyalty points = 1 currency unit)</li>
-                      </ul>
-                      <a href="/">tearm & condition</a>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="appFix">
-                APP15<span className="appOnly">App Only</span>
-                <div className="offersSec"><span>Add ₹1600 worth products to get 15% off.</span><a href="/">6
-                  Offers</a>
-                </div>
-                <div className="appCoupon">Use Coupon: APP15</div>
-              </div>
-
               <div className="sizePart">
                 <div className="d-flex">
                   <h4>SELECT SIZE </h4><button>Size Guide </button>
@@ -171,33 +128,8 @@ const ProductDetail = () => {
                   </div>
                   <div className="show-more">Show More</div>
                 </div>
-
-
-                <div id="profile-description">
-                  <div className="text2 show-more-height">
-                    <h4>SHIPPING & RETURNS</h4>
-                    <p>Product will be shipped by 28 June 2024 </p>
-                    <p>For customizations & early delivery, reach out to us on WhatsApp at <a
-                      href="/">+91 8291990059 </a></p>
-                    <p>Return Policy </p>
-                    <p>Returnable within 3 days of delivery (7 days for Diamond tier members).
-                      Custom-made orders are not returnable.
-                      For international orders, a restocking or return-handling-fee of USD 50 or 20%
-                      of the product-selling value, whichever is lower will be applicable.</p>
-                    <p>For India orders, restocking or return-handling-fee of INR 200 or 5% of
-                      product-selling-price, whichever is lower, will be applicable on return requests
-                      of
-                      those users whose frequency of returns on Aza is greater than the average
-                      return-rate <a href="/">More Details</a>
-                    </p>
-                  </div>
-                </div>
-                <div className="show-more2">Show More</div>
               </div>
-
-
             </div>
-            <div className="show-more">Show More</div>
           </div>
         </div>
 
