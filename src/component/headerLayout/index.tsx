@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
 import LogoImage from "../../assets/images/VESIMI_new_logo-03.png";
-import { useAppDispatch, useAppSelector } from "store/redux.hooks";
-import { getHeaderMenu } from "store/home/home.slice";
 import Loader from "component/Loader";
-import Drops from "../../assets/images/Drops1.avif";
-import { useNavigate } from "react-router-dom";
+// import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
+
+import "../../scss/customPopup.css";
+
 import MasabaImg from "../../assets/images/msb23608.jpg";
 import RidhimaImg from "../../assets/images/rr025-saj.png";
 import Kalighata from "../../assets/images/avyanna.jpg";
@@ -26,19 +25,23 @@ import AmrtiImg from "../../assets/images/gdm-ad010.jpg";
 import Jewellery1Img from "../../assets/images/bipc-pcbn.jpg"
 import Jewellery2Img from "../../assets/images/07_3.jpg";
 import Jewellery3Img from "../../assets/images/jm_ss22.png";
+import CustomPopup from "component/modal/CustomPopup";
+import { Button, Form } from "react-bootstrap";
+import HeaderController from "./headerController";
+import InputField from "component/forms/InputField";
+import { removeSpaceOnly } from "utils";
 
 const Header = () => {
-  const navigate = useNavigate();
 
-  const dispatch = useAppDispatch();
-
-  const { isLoadingMenuBar, headerMenuData } = useAppSelector(
-    (state: any) => state.home
-  );
-
-  useEffect(() => {
-    dispatch(getHeaderMenu());
-  }, [dispatch]);
+  const {
+    isOpenLoginPopup,
+    setIsOpenLoginPopup,
+    isOpenSignupPopup,
+    setIsOpenSignupPopup,
+    isLoadingMenuBar,
+    navigate,
+    loginFormik,
+  } = HeaderController();
 
   return (
     <header>
@@ -167,8 +170,14 @@ const Header = () => {
                   ></span>
                   Profile
                   <ul className="ProfileDropDown">
-                    <li> Login </li>
-                    <li> Register </li>
+                    <li onClick={() => setIsOpenLoginPopup(!isOpenLoginPopup)}>
+                      Login
+                    </li>
+                    <li
+                      onClick={() => setIsOpenSignupPopup(!isOpenSignupPopup)}
+                    >
+                      Register
+                    </li>
                   </ul>
                 </li>
                 <li className="wishList">
@@ -805,6 +814,90 @@ const Header = () => {
           </nav>
         </div>
       </div>
+      <CustomPopup
+        modalClass="loginModal"
+        show={isOpenLoginPopup}
+        handleClose={() => setIsOpenLoginPopup(false)}
+        modalHeader="Login"
+      >
+        <Form onSubmit={loginFormik?.handleSubmit}>
+          <InputField
+            label={"Email address"}
+            onChange={loginFormik.handleChange}
+            name="email"
+            type="email"
+            placeholder="Enter email"
+            required={true}
+            onKeyDown={removeSpaceOnly}
+          />
+          <InputField
+            label={"Password"}
+            onChange={loginFormik.handleChange}
+            name="password"
+            type="password"
+            placeholder="Enter password"
+            required={true}
+            onKeyDown={removeSpaceOnly}
+          />
+          <div className="mt-3 d-flex justify-content-between">
+            <Button variant="link" onClick={() => {}}>
+              Forgot password?
+            </Button>
+            <Button
+              variant="link"
+              onClick={() => {
+                setIsOpenLoginPopup(false);
+                setIsOpenSignupPopup(true);
+              }}
+            >
+              Create an account
+            </Button>
+          </div>
+          <div className="d-flex justify-content-end gap-2 mt-3">
+            <Button
+              className="font-14 w-100"
+              onClick={() => setIsOpenLoginPopup(false)}
+            >
+              cancel
+            </Button>
+            <Button className="font-14 w-100" type="submit">
+              Login
+            </Button>
+          </div>
+        </Form>
+      </CustomPopup>
+      <CustomPopup
+        primaryButtonText="Register"
+        secondaryButtonText="Cancel"
+        show={isOpenSignupPopup}
+        handleClose={() => setIsOpenSignupPopup(false)}
+        modalHeader="Create an Account"
+        secondaryButtonClick={() => setIsOpenSignupPopup(false)}
+      >
+        <Form onSubmit={() => {}}>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" placeholder="Enter email" required />
+          </Form.Group>
+
+          <Form.Group controlId="formBasicPassword" className="mt-3">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" placeholder="Password" required />
+          </Form.Group>
+          <div className="mt-3">
+            <a href="#">Forgot password?</a>
+          </div>
+        </Form>
+
+        <div className="mt-4 text-center">
+          {/* <GoogleOAuthProvider clientId="YOUR_GOOGLE_CLIENT_ID">
+            <GoogleLogin
+              onSuccess={()=>{}}
+              onError={()=>{}}
+            />
+          </GoogleOAuthProvider> */}
+        </div>
+      </CustomPopup>
     </header>
   );
 };

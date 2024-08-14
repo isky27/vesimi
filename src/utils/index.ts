@@ -57,4 +57,14 @@ export const downloadFile = async(fileUrl:string, fileName:string) => {
     }
 }
 
+// Function to prevent spaces in input for certain fields.
+export const removeSpaceOnly = (e: any) => {
+  const inputValue = e.target.value;
+  const key = e.keyCode ? e.keyCode : e.which;
+
+  // Allowing spaces only if the input value is not empty and not starting with a space
+  if (inputValue.length === 0 && key === 32) {
+    e.preventDefault();
+  }
+};
 
