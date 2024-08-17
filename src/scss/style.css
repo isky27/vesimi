@@ -342,21 +342,14 @@ h6 {
 .uploadSearchPicRight {
   position: absolute;
   right: 0;
-  display: flex;
-  align-items: center;
   top: 0;
   padding: 10px;
   background-color: #fff8f5;
   color: #bc3d19;
   font-size: 14px;
   border-left: 1px solid #ddd;
-  font-size: 12px;
-}
+  height: 100%;
 
-.uploadSearchPic {
-  vertical-align: middle;
-  position: relative;
-  top: 3px;
 }
 
 .HeaderSearchOuter input[type="text"] {

@@ -41,6 +41,7 @@ const Header = () => {
     isLoadingMenuBar,
     navigate,
     loginFormik,
+    signupFormik
   } = HeaderController();
 
   return (
@@ -152,12 +153,7 @@ const Header = () => {
                 placeholder="Search for products, brand and more"
               />
               <div className="uploadSearchPicRight">
-                {" "}
-                <span
-                  className="uploadSearchPic bg-image w-5 h-5 d-inline-block me-1"
-                  style={{ backgroundPosition: "-633px -59px" }}
-                ></span>{" "}
-                <span>Search</span>{" "}
+                <span>Search</span>
               </div>
             </div>
 
@@ -840,7 +836,7 @@ const Header = () => {
             onKeyDown={removeSpaceOnly}
           />
           <div className="mt-3 d-flex justify-content-between">
-            <Button variant="link" onClick={() => {}}>
+            <Button variant="link" onClick={() => { }}>
               Forgot password?
             </Button>
             <Button
@@ -858,7 +854,7 @@ const Header = () => {
               className="font-14 w-100"
               onClick={() => setIsOpenLoginPopup(false)}
             >
-              cancel
+              Cancel
             </Button>
             <Button className="font-14 w-100" type="submit">
               Login
@@ -867,25 +863,69 @@ const Header = () => {
         </Form>
       </CustomPopup>
       <CustomPopup
-        primaryButtonText="Register"
-        secondaryButtonText="Cancel"
+        modalClass="loginModal"
         show={isOpenSignupPopup}
-        handleClose={() => setIsOpenSignupPopup(false)}
         modalHeader="Create an Account"
-        secondaryButtonClick={() => setIsOpenSignupPopup(false)}
+        handleClose={() => setIsOpenSignupPopup(false)}
       >
-        <Form onSubmit={() => {}}>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" required />
-          </Form.Group>
-
-          <Form.Group controlId="formBasicPassword" className="mt-3">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" required />
-          </Form.Group>
-          <div className="mt-3">
-            <a href="#">Forgot password?</a>
+        <Form onSubmit={signupFormik.handleSubmit}>
+          <InputField
+            label={"Name"}
+            onChange={loginFormik.handleChange}
+            name="name"
+            type="name"
+            placeholder="Enter name"
+            required={true}
+            onKeyDown={removeSpaceOnly}
+          />
+          <InputField
+            label={"Email"}
+            onChange={loginFormik.handleChange}
+            name="email"
+            type="email"
+            placeholder="Enter email"
+            required={true}
+            onKeyDown={removeSpaceOnly}
+          />
+          <InputField
+            label={"Password"}
+            onChange={loginFormik.handleChange}
+            name="password"
+            type="password"
+            placeholder="Enter password"
+            required={true}
+            onKeyDown={removeSpaceOnly}
+          />
+          <InputField
+            label={"Confirm Password"}
+            onChange={loginFormik.handleChange}
+            name="passowrd_confirmation"
+            type="passowrd_confirmation"
+            placeholder="Enter confirm password"
+            required={true}
+            onKeyDown={removeSpaceOnly}
+          />
+          <div className="mt-3 d-flex justify-content-between">
+            <Button
+              variant="link"
+              onClick={() => {
+                setIsOpenLoginPopup(true);
+                setIsOpenSignupPopup(false);
+              }}
+            >
+              Already have an account
+            </Button>
+          </div>
+           <div className="d-flex justify-content-end gap-2 mt-3">
+            <Button
+              className="font-14 w-100"
+              onClick={() => setIsOpenSignupPopup(false)}
+            >
+              Cancel
+            </Button>
+            <Button className="font-14 w-100" type="submit">
+              SignUp
+            </Button>
           </div>
         </Form>
 

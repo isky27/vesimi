@@ -28,6 +28,16 @@ export const loginPost = createAsyncThunk("post/login", async (userData: any, th
     }
 });
 
+export const signUpPost = createAsyncThunk("post/signup", async (userData: any, thunkApi: any) => {
+    try {
+        const response = await authService.authSignUpPost(userData);
+        return response;
+    } catch (error: any) {
+        const message: any = getErrorMessage(error)
+        return thunkApi.rejectWithValue(message);
+    }
+});
+
 // Logout slice
 export const logoutPost = createAsyncThunk("post/logout", async (_, thunkApi) => {
     try {
@@ -59,6 +69,20 @@ export const authDataReducer = createSlice({
                 state.loginDetails = action.payload;
             })
             .addCase(loginPost.rejected, (state: any) => {
+                state.isAuthLoginLoading = false;
+                state.isSuccess = false;
+            })
+            .addCase(signUpPost.pending, (state: any, _: any) => {
+                state.isAuthLoginLoading = true;
+                state.isSuccess = false;
+            })
+            .addCase(signUpPost.fulfilled, (state: any, action: any) => {
+                state.isAuthLoginLoading = false;
+                state.isSuccess = true;
+                state.isOtp = action?.payload?.data?.otp || false;
+                state.loginDetails = action.payload;
+            })
+            .addCase(signUpPost.rejected, (state: any) => {
                 state.isAuthLoginLoading = false;
                 state.isSuccess = false;
             })
