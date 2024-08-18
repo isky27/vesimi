@@ -2,6 +2,7 @@
 import moment from "moment";
 import { AxiosError } from "axios";
 import { imageURL } from "./InterceptorApi";
+import { toast } from "react-toastify";
 
 //Get value from local storage or default to an empty string
 export const getLocalStorage = (key: string) => {
@@ -20,6 +21,7 @@ export const getErrorMessage = (error: AxiosError): any => {
   const errorMessage = errorData?.message
     ? errorData.message.toString()
     : "Something went wrong!";
+    errorData && toast.error(errorMessage);
   return { code: error?.code, message: errorMessage };
 };
 

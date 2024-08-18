@@ -72,87 +72,6 @@ const CategoryView = () => {
 			color: 'rgb(243, 234, 179)'
 		}
 	]
-
-	const shippingData = [
-		{
-			id: '1',
-			label: '24 Hours',
-			level: 0
-		},
-		{
-			id: '2',
-			label: '1 Week',
-			level: 0,
-		},
-		{
-			id: '3',
-			label: '2 Weeks',
-			level: 0
-		},
-		{
-			id: '4',
-			label: '3 Weeks',
-			level: 0,
-		},
-		{
-			id: '5',
-			label: '4 Weeks',
-			level: 0
-		},
-		{
-			id: '6',
-			label: '5 Weeks',
-			level: 0,
-		},
-		{
-			id: '7',
-			label: '6 Weeks',
-			level: 0
-		}
-	]
-
-	const occasionData = [
-		{
-			id: '1',
-			label: 'Sangeet',
-			level: 0
-		},
-		{
-			id: '2',
-			label: 'Party',
-			level: 0,
-		},
-		{
-			id: '3',
-			label: 'Mehendi & Haldi',
-			level: 0
-		},
-		{
-			id: '4',
-			label: 'Puja',
-			level: 0,
-		},
-		{
-			id: '5',
-			label: 'Work',
-			level: 0
-		},
-		{
-			id: '6',
-			label: 'Work',
-			level: 0,
-		},
-		{
-			id: '7',
-			label: 'Resort',
-			level: 0
-		},
-		{
-			id: '8',
-			label: 'Destination Wedding',
-			level: 0
-		}
-	]
 	
 	return (
     <>
@@ -351,7 +270,8 @@ const CategoryView = () => {
                   currentPage={currentPage}
                   handleClick={setCurrentPage}
                 />
-                <div className="themePagger text-center py-3">
+
+                {/* <div className="themePagger text-center py-3">
                   <nav aria-label="Page navigation example">
                     <ul className="pagination justify-content-center">
                       <li className="page-item disabled">
@@ -381,7 +301,7 @@ const CategoryView = () => {
                       </li>
                     </ul>
                   </nav>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

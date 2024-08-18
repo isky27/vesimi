@@ -3,7 +3,7 @@ import axios from 'axios'
 // Login API Call
 const authLoginPost = async (userData: any): Promise<ApiResponse> => {
   try {
-    const response: ApiResponse = (await axios.post("auth/login", userData)).data;
+    const response: ApiResponse = await axios.post("auth/login", userData);
     // If login is successful, save login details and set token in axios headers
     if (response?.status) {
       localStorage.setItem("loginDetails", JSON.stringify(response?.data));
@@ -17,7 +17,7 @@ const authLoginPost = async (userData: any): Promise<ApiResponse> => {
 
 const authSignUpPost = async (userData: any): Promise<ApiResponse> => {
   try {
-    const response: ApiResponse = (await axios.post("auth/signup", userData)).data;
+    const response: ApiResponse = await axios.post("auth/signup", userData);
     // If login is successful, save login details and set token in axios headers
     if (response?.status) {
       localStorage.setItem("loginDetails", JSON.stringify(response?.data));
