@@ -5,7 +5,6 @@ import ProtectedRoute, { AuthRouteCheck, HomeRoute } from "../auth/ProtectedRout
 import ProductDetail from "pages/productDetail/ProductDetail";
 
 
-const LoginView = lazy(() => import("../pages/login/LoginView"));
 const ErrorPage = lazy(() => import("../pages/error/ErrorView"));
 const HomePage = lazy(() => import("../pages/home/HomeView"));
 const CategoryView = lazy(() => import("../pages/category/CategoryView"));
@@ -17,31 +16,9 @@ const AboutUs = lazy(() => import("../pages/staticPages/About"));
  */
 const CustomRoute = () => {
 
-  const { loginDetails } = useAppSelector((state: any) => state.auth);
-
-
   return (
     <Router basename="/">
       <Routes>
-        {/* LoginView route */}
-        <Route
-          path="/login"
-          element={
-            <AuthRouteCheck userDetails={loginDetails}>
-              <Suspense
-                fallback={
-                  <div className="graph-loader  d-flex justify-content-center align-items-center">
-                    <div className="spinner-border  spinner-ui d-flex justify-content-center align-items-center">
-                      <span className="visually-hidden"></span>
-                    </div>
-                  </div>
-                }
-              >
-                <LoginView />
-              </Suspense>
-            </AuthRouteCheck>
-          }
-        />
         <Route element={<HomeRoute/>}>
         <Route
           path="/"

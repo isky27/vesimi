@@ -51,6 +51,7 @@ export const productReducer = createSlice({
             .addCase(getProductDetails.pending, (state: any, _: any) => {
                 state.isLoadingProductDetail = true;
                 state.isSuccess = false;
+                state.productDetailData = null;
             })
             .addCase(getProductDetails.fulfilled, (state: any, action: any) => {
                 state.isLoadingProductDetail = false;
@@ -64,6 +65,7 @@ export const productReducer = createSlice({
             .addCase(getRealtedProducts.pending, (state: any, _: any) => {
                 state.isLoadingRelatedProducts = true;
                 state.isSuccess = false;
+                state.relatedProductsData=null;
             })
             .addCase(getRealtedProducts.fulfilled, (state: any, action: any) => {
                 state.isLoadingRelatedProducts = false;
@@ -73,6 +75,7 @@ export const productReducer = createSlice({
             .addCase(getRealtedProducts.rejected, (state: any) => {
                 state.isLoadingRelatedProducts = false;
                 state.isSuccess = false;
+                state.relatedProductsData = null;
             })
     }
 

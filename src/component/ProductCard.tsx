@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const ProductCard = ({imageName, isPath, tag, link, price, subTag}:any) => {
+const ProductCard = ({imageName, isPath, tag, link, price, subTag, arg}:any) => {
     return (
-        <div className="item">
+        <div {...arg} className="item">
             <div className="productCols position-relative">
                 <Link to={link ?? "/"} className="text-dark text-decoration-none">
                     <picture><img src={isPath ? imageName : require(`assets/images/${imageName}`)} alt={imageName}/></picture>

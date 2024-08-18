@@ -2,8 +2,8 @@ import React from 'react'
 import ProductDetailController from './productDetailController'
 import Loader from 'component/Loader'
 import Header from 'component/headerLayout'
-import OwlCarousel from "react-owl-carousel";
 import ProductCard from 'component/ProductCard';
+import ProductCarousal from 'component/ProductCarousal';
 
 const ProductDetail = () => {
 
@@ -13,9 +13,6 @@ const ProductDetail = () => {
     isLoadingRelatedProducts,
     relatedProductsData } = ProductDetailController()
 
-
-
-console.log(relatedProductsData, "relatedProductsDatarelatedProductsData");
   return (
     <>
       <Header />
@@ -103,8 +100,7 @@ console.log(relatedProductsData, "relatedProductsDatarelatedProductsData");
                       <p dangerouslySetInnerHTML={{ __html: productDetailData?.data[0]?.description }}></p>
                       <ul>
                         {productDetailData?.data[0]?.other_attribute && Object.entries(productDetailData?.data[0]?.other_attribute)?.map((atr: any) => {
-                          console.log(atr, "atratr");
-                          return <li>{atr[0]} : {atr[1]} </li>
+                          return <li key={atr[0]}>{atr[0]} : {atr[1]} </li>
                         })}
                       </ul>
                     </div>
@@ -116,40 +112,25 @@ console.log(relatedProductsData, "relatedProductsDatarelatedProductsData");
           </div>
 
 
-          <div className="relatedTabs">
+         {relatedProductsData?.data.length > 0 && <div className="relatedTabs">
             <h4>RELATED PRODUCTS</h4>
 
             <div className="productSliderWrap">
-              <OwlCarousel
-                className="owl-theme productSlider"
-                loop
-                margin={10}
-                nav
-                responsive={{
-                  0: {
-                    items: 1,
-                  },
-                  600: {
-                    items: 3,
-                  },
-                  1000: {
-                    items: 4,
-                  },
-                }}
-              >
-                {relatedProductsData?.data?.map((prod: any) => (
-                  <ProductCard
-                    price={prod?.main_price}
-                    imageName={prod?.thumbnail_image}
-                    isPath={true}
-                    tag={prod?.designer}
-                    link={`/products/${prod?.id}`}
-                    subTag={prod?.name}
-                  />
-                ))}
-              </OwlCarousel>
+            <ProductCarousal>
+              {relatedProductsData?.data?.map((prod: any) => (
+                <ProductCard
+                  key={prod.id}
+                  price={prod?.main_price}
+                  imageName={prod?.thumbnail_image}
+                  isPath={true}
+                  tag={prod?.designer}
+                  link={`/products/${prod?.id}`}
+                  subTag={prod?.name}
+                />
+              ))}
+            </ProductCarousal>;
             </div>
-          </div>
+          </div>}
 
           <div className="relatedTabs support">
             <h4>CUSTOMER SUPPORT </h4>

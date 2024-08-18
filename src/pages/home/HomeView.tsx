@@ -16,6 +16,7 @@ import pinterestBack from '../../assets/images/pinterestBack.png'
 import BookAppointment from "component/BookAppointment";
 import { Link } from "react-router-dom";
 import ProductCard from "component/ProductCard";
+import ProductCarousal from "component/ProductCarousal";
 
 const HomeView = () => {
   const {
@@ -242,26 +243,12 @@ const HomeView = () => {
                         id={item.id}
                         role="tabpanel"
                         aria-labelledby={item.ariaLabel}
-                      >
-                        <OwlCarousel
-                          className="owl-theme productSlider"
-                          loop
-                          margin={10}
-                          nav
-                          responsive={{
-                            0: {
-                              items: 1,
-                            },
-                            600: {
-                              items: 3,
-                            },
-                            1000: {
-                              items: 4,
-                            },
-                          }}
-                        >
+                      >  
+                       <div className="relatedTabs">
+                        {categoryProductData?.data.length > 0 && <ProductCarousal>
                           {categoryProductData?.data?.map((prod: any) => (
                             <ProductCard
+                              key={prod.id}
                               price={prod?.main_price}
                               imageName={prod?.thumbnail_image}
                               isPath={true}
@@ -270,7 +257,8 @@ const HomeView = () => {
                               subTag={prod?.name}
                             />
                           ))}
-                        </OwlCarousel>
+                          </ProductCarousal>}
+                          </div>
                       </div>
                     ))}
                   </div>

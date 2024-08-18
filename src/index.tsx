@@ -4,6 +4,7 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import "../node_modules/bootstrap/scss/bootstrap.scss";
 import 'owl.carousel/dist/assets/owl.carousel.css'; // Import Owl Carousel CSS
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+import 'react-multi-carousel/lib/styles.css';
 import 'rc-slider/assets/index.css';
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
