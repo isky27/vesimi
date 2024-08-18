@@ -13,6 +13,8 @@ const initialState: ProductInterface = {
     message: null,
     isLoadingProductDetail: false,
     productDetailData :null,
+    isLoadingRelatedProducts: false,
+    relatedProductsData : null
 }
 
 // Async Thunks
@@ -20,6 +22,16 @@ const initialState: ProductInterface = {
 export const getProductDetails = createAsyncThunk("get/product/details", async (userData:any,thunkApi: any) => {
     try {
         const response = await productService.productDetailApi(userData);
+        return response;
+    } catch (error: any) {
+        const message: any = getErrorMessage(error)
+        return thunkApi.rejectWithValue(message);
+    }
+});
+
+export const getRealtedProducts = createAsyncThunk("get/product/related", async (userData:any,thunkApi: any) => {
+    try {
+        const response = await productService.relatedProductApi(userData);
         return response;
     } catch (error: any) {
         const message: any = getErrorMessage(error)
@@ -47,6 +59,19 @@ export const productReducer = createSlice({
             })
             .addCase(getProductDetails.rejected, (state: any) => {
                 state.isLoadingProductDetail = false;
+                state.isSuccess = false;
+            })
+            .addCase(getRealtedProducts.pending, (state: any, _: any) => {
+                state.isLoadingRelatedProducts = true;
+                state.isSuccess = false;
+            })
+            .addCase(getRealtedProducts.fulfilled, (state: any, action: any) => {
+                state.isLoadingRelatedProducts = false;
+                state.isSuccess = true;
+                state.relatedProductsData = action.payload;
+            })
+            .addCase(getRealtedProducts.rejected, (state: any) => {
+                state.isLoadingRelatedProducts = false;
                 state.isSuccess = false;
             })
     }

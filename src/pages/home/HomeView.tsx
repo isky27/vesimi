@@ -3,7 +3,6 @@ import Carousel from "component/carousel";
 import ServiceInfo from "./ServiceInfo";
 import HomeController from "./homeController";
 import OwlCarousel from "react-owl-carousel";
-import ProductCard from "component/ProductCard";
 import ShopNowCard from "component/ShopNowCard";
 import Loader from "component/Loader";
 import Header from "component/headerLayout";
@@ -16,6 +15,7 @@ import instagramBack from '../../assets/images/instagramBack.png';
 import pinterestBack from '../../assets/images/pinterestBack.png'
 import BookAppointment from "component/BookAppointment";
 import { Link } from "react-router-dom";
+import ProductCard from "component/ProductCard";
 
 const HomeView = () => {
   const {
@@ -37,6 +37,7 @@ const HomeView = () => {
     isLoadingCategoryProduct,
     categoryProductData,
     selectedPopularStyle,
+    featureProductData
   } = HomeController();
 
   return (
@@ -75,6 +76,7 @@ const HomeView = () => {
                     {topCategoryData?.map((item: any, index: number) => (
                       <div key={item?.icon} className="col-sm-6 col-lg-3">
                         <CategeryCard
+                          bottomText={true}
                           imageName={item?.icon}
                           isPath={true}
                           tag={item?.name}
@@ -117,6 +119,7 @@ const HomeView = () => {
                         return (
                           <div key={item?.icon} className="item">
                             <CategeryCard
+                              bottomText={true}
                               imageName={item?.icon}
                               isPath={true}
                               tag={item?.name}
@@ -235,9 +238,7 @@ const HomeView = () => {
                     ].map((item: any, index: number) => (
                       <div
                         key={item.id}
-                        className={`tab-pane fade ${
-                          index === 0 ? "show active" : ""
-                        }`}
+                        className={`tab-pane fade ${index === 0 ? "show active" : ""}`}
                         id={item.id}
                         role="tabpanel"
                         aria-labelledby={item.ariaLabel}
@@ -264,7 +265,7 @@ const HomeView = () => {
                               price={prod?.main_price}
                               imageName={prod?.thumbnail_image}
                               isPath={true}
-                              tag={prod?.name}
+                              tag={prod?.designer}
                               link={`/products/${prod?.id}`}
                               subTag={prod?.name}
                             />
@@ -309,6 +310,7 @@ const HomeView = () => {
                         return (
                           <div key={item?.id} className="item">
                             <CategeryCard
+                              bottomText={true}
                               imageName={item?.banner}
                               isPath={true}
                               tag={item?.name}
@@ -354,6 +356,7 @@ const HomeView = () => {
                         return (
                           <div className="item" key={item?.id}>
                             <CategeryCard
+                              bottomText={true}
                               imageName={item?.banner}
                               isPath={true}
                               tag={item?.name}
@@ -400,6 +403,7 @@ const HomeView = () => {
                         return (
                           <div key={item?.id} className="item">
                             <CategeryCard
+                              bottomText={true}
                               imageName={item?.banner}
                               isPath={true}
                               tag={item?.name}
@@ -427,10 +431,11 @@ const HomeView = () => {
               </div>
             </section>
           </div>
+
           {/* --------Celebrity Section */}
           <CelebritySection
             navigate={navigate}
-            celebrityProductData={celebrityProductData}
+            productData={featureProductData}
           />
 
           <BlogSection />

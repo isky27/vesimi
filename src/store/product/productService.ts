@@ -9,8 +9,19 @@ const productDetailApi = async (userData: any): Promise<ApiResponse> => {
   }
 };
 
+
+const relatedProductApi = async (userData: any): Promise<ApiResponse> => {
+  try {
+    const response: ApiResponse = (await axios.get(`products/related/${userData?.productId}`));
+    return response;
+  } catch (error: any) {
+    throw error;
+  }
+};
+
 const productService = {
-  productDetailApi
+  productDetailApi,
+  relatedProductApi
 };
 
 export default productService;

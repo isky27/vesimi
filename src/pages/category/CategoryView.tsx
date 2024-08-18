@@ -216,7 +216,7 @@ const CategoryView = () => {
                                 <svg
                                   stroke="currentColor"
                                   fill="currentColor"
-                                  stroke-width="0"
+                                  strokeWidth="0"
                                   viewBox="0 0 1024 1024"
                                   height="1em"
                                   width="1em"
@@ -226,18 +226,6 @@ const CategoryView = () => {
                                 </svg>
                               </picture>
                               <div className="QuickView">
-                                <strong>Quick View</strong>
-                                <div className="addTags">
-                                  <span>XXS</span>
-                                  <span>XS</span>
-                                  <span>S</span>
-                                  <span>M</span>
-                                  <span>L</span>
-                                  <span>XL</span>
-                                  <span>XXL</span>
-                                  <span>3XL</span>
-                                </div>
-
                                 <div className="AddProductAction">
                                   <button style={{ color: "#bb3d1f" }}>
                                     ADD TO CART
@@ -252,7 +240,7 @@ const CategoryView = () => {
                               </div>
                             </div>
                             <div className="py-2">
-                              <h3 className="text-uparcase">{item?.name}</h3>
+                              <h3 className="text-uparcase">{item?.designer}</h3>
                               <p className="text-gray ">{item?.name}</p>
                               <small className="font-semibold">
                                 {item?.main_price}

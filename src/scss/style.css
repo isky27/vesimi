@@ -977,13 +977,6 @@ footer {
 }
 
 .productCols:hover .QuickView{display:block;} 
- 
-.QuickView strong {
-  font-weight: normal!important;
-  font-size: 13px;
-  margin-bottom: 6px;
-  display: block;
-}
 
 .addTags span {
   display: inline-block;
@@ -997,7 +990,7 @@ footer {
 
 .AddProductAction {
   background: #fff;
-  margin: 0 -10px;
+  margin: 0 0px;
   padding: 5px;
   border: 1px solid #dddd;
   display: flex;
@@ -1144,8 +1137,8 @@ input[type="range"]::-moz-range-thumb {
   margin-top: 50px;
   position:relative;
 }
-#profile-description .text,#profile-description .text2 {/*   width: 660px;  */margin-bottom: 5px;color: #666666;position:relative;font-family: Arial;font-size: 14px;display: block;}
-#profile-description .show-more,#profile-description .show-more2 {/*   width: 690px;  */color: #bb3d1f;position:relative;font-size: 14px;padding-top: 5px;cursor: pointer;}
+#profile-description .text {/*   width: 660px;  */margin-bottom: 5px;color: #666666;position:relative;font-family: Arial;font-size: 14px;display: block;}
+#profile-description .show-more {/*   width: 690px;  */color: #bb3d1f;position:relative;font-size: 14px;padding-top: 5px;cursor: pointer;}
 #profile-description .show-more:hover { 
     color: #1779dd;
 }
@@ -1153,8 +1146,13 @@ input[type="range"]::-moz-range-thumb {
   height: 140px;
   overflow:hidden;
 }
+
 .detailPrice {margin:15px 0;}
 
+.textBigLight{
+  font-size:22px;
+   color:#666666;
+}
 .textSmallLight{font-size:12px; color:#666666;}
 .detailPrice span{font-size:24px; line-height:1;}
 

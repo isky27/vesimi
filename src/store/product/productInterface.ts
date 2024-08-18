@@ -5,5 +5,7 @@ export interface ProductInterface {
     message: string | null;
     isLoadingProductDetail: boolean;
     productDetailData :null;
+    isLoadingRelatedProducts: boolean;
+    relatedProductsData: any | null;
 }
 

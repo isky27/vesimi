@@ -43,7 +43,7 @@ const HomeController = () => {
       dispatch(homeMainSlider())
       dispatch(homeTopCategory())
       dispatch(featureCagtegory())
-      // dispatch(featureProduct())
+      dispatch(featureProduct())
       dispatch(bestSellerProduct())
       dispatch(ownDesignerProduct())
       dispatch(lovedCollectionProduct())
@@ -77,6 +77,7 @@ const HomeController = () => {
       isLoadingCategoryProduct,
       categoryProductData,
       selectedPopularStyle,
+      featureProductData
     };
 
 }
