@@ -7,7 +7,7 @@ import 'owl.carousel/dist/assets/owl.theme.default.css';
 import 'rc-slider/assets/index.css';
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-// import "./scss/index.scss";
+import "./scss/index.scss";
 import "./scss/style.css"
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
@@ -16,7 +16,7 @@ import { Provider } from "react-redux";
 import InterceptorApi from "./utils/InterceptorApi";
 import { PersistGate } from 'redux-persist/integration/react';
 
-InterceptorApi();
+InterceptorApi(store);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

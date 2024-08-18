@@ -41,7 +41,9 @@ const Header = () => {
     isLoadingMenuBar,
     navigate,
     loginFormik,
-    signupFormik
+    signupFormik,
+    loginDetails,
+    handleLogout
   } = HeaderController();
 
   return (
@@ -165,6 +167,11 @@ const Header = () => {
                     style={{ backgroundPosition: "-258px -132px" }}
                   ></span>
                   Profile
+                  {loginDetails ? <ul className="ProfileDropDown">
+                    <li>Your Account</li>
+                    <li onClick={handleLogout}>Logout</li>
+                  </ul> : 
+                  
                   <ul className="ProfileDropDown">
                     <li onClick={() => setIsOpenLoginPopup(!isOpenLoginPopup)}>
                       Login
@@ -174,7 +181,7 @@ const Header = () => {
                     >
                       Register
                     </li>
-                  </ul>
+                  </ul>}
                 </li>
                 <li className="wishList">
                   <span
@@ -818,11 +825,11 @@ const Header = () => {
       >
         <Form onSubmit={loginFormik?.handleSubmit}>
           <InputField
-            label={"Email address"}
+            label={"Email or Phone"}
             onChange={loginFormik.handleChange}
             name="email"
-            type="email"
-            placeholder="Enter email"
+            type="name"
+            placeholder="Enter email or phone number"
             required={true}
             onKeyDown={removeSpaceOnly}
           />
@@ -871,7 +878,7 @@ const Header = () => {
         <Form onSubmit={signupFormik.handleSubmit}>
           <InputField
             label={"Name"}
-            onChange={loginFormik.handleChange}
+            onChange={signupFormik.handleChange}
             name="name"
             type="name"
             placeholder="Enter name"
@@ -879,17 +886,17 @@ const Header = () => {
             onKeyDown={removeSpaceOnly}
           />
           <InputField
-            label={"Email"}
-            onChange={loginFormik.handleChange}
-            name="email"
-            type="email"
-            placeholder="Enter email"
+            label={"Email or Phone"}
+            onChange={signupFormik.handleChange}
+            name="email_or_phone"
+            type="name"
+            placeholder="Enter email or Contact number"
             required={true}
             onKeyDown={removeSpaceOnly}
           />
           <InputField
             label={"Password"}
-            onChange={loginFormik.handleChange}
+            onChange={signupFormik.handleChange}
             name="password"
             type="password"
             placeholder="Enter password"
@@ -898,9 +905,9 @@ const Header = () => {
           />
           <InputField
             label={"Confirm Password"}
-            onChange={loginFormik.handleChange}
+            onChange={signupFormik.handleChange}
             name="passowrd_confirmation"
-            type="passowrd_confirmation"
+            type="passowrd"
             placeholder="Enter confirm password"
             required={true}
             onKeyDown={removeSpaceOnly}

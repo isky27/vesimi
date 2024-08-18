@@ -187,18 +187,6 @@ q {
   quotes: none;
 }
 
-.overlayLoader {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgb(0 0 0 / 20%);
-  position: absolute;
-  top: 0;
-  z-index: 99;
-  left: 0;
-}
 .loader {
   --c:no-repeat linear-gradient(orange 0 0);
   background: 

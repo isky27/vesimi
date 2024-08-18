@@ -624,7 +624,7 @@ table {
   background: rgb(0 0 0 / 20%);
   position: absolute;
   top: 0;
-  z-index: 99;
+  z-index: 2000;
   left: 0;
 
   .spinner-border {
@@ -635,6 +635,7 @@ table {
     border-right-color: transparent;
   }
 }
+
 .verticalLine {
   height: 60px;
   width: 1px;

@@ -45,6 +45,10 @@ export const formatDate = (date: any) => {
   return moment(date).format("DD MMM YYYY");
 }
 
+export const isCancelRequest = (res: any) => {
+  return res?.code === "ERR_CANCELED" || res === "canceled";
+}
+
 // Function to download a file with fileUrl
 export const downloadFile = async(fileUrl:string, fileName:string) => {
   try {   

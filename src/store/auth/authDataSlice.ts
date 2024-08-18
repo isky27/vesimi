@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import authService from "./authService";
 import { AuthDataInterface } from "./authDataInterface";
 import { getErrorMessage } from "utils";
+import { toast } from "react-toastify";
 
 /**
  * Initial state for the authentication
@@ -20,7 +21,15 @@ const initialState: AuthDataInterface = {
 // Login slice
 export const loginPost = createAsyncThunk("post/login", async (userData: any, thunkApi: any) => {
     try {
-        const response = await authService.authLoginPost(userData);
+        const response: any = await authService.authLoginPost(userData?.payload);
+        if (response?.result) {
+            userData?.closePopup(false)
+            localStorage.setItem("loginDetails", JSON.stringify(response));
+            toast.success("User is successfully logged in")
+        } else {
+            toast.error(response.message[0])
+            throw new Error(response)
+        }
         return response;
     } catch (error: any) {
         const message: any = getErrorMessage(error)
@@ -30,7 +39,15 @@ export const loginPost = createAsyncThunk("post/login", async (userData: any, th
 
 export const signUpPost = createAsyncThunk("post/signup", async (userData: any, thunkApi: any) => {
     try {
-        const response = await authService.authSignUpPost(userData);
+        const response: any = await authService.authSignUpPost(userData?.payload);
+        if (response?.result) {
+            userData?.closePopup(false)
+            localStorage.setItem("loginDetails", JSON.stringify(response));
+            toast.success("User is successfully registered")
+        } else {
+            toast.error(response.message[0])
+            throw new Error(response)
+        }
         return response;
     } catch (error: any) {
         const message: any = getErrorMessage(error)
@@ -86,7 +103,7 @@ export const authDataReducer = createSlice({
                 state.isAuthLoginLoading = false;
                 state.isSuccess = false;
             })
-            .addCase(logoutPost.fulfilled,(state: any) => {
+            .addCase(logoutPost.fulfilled, (state: any) => {
                 state.loginDetails = null;
             })
     }

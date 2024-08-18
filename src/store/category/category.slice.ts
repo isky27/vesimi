@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { getErrorMessage } from "utils";
+import { getErrorMessage, isCancelRequest } from "utils";
 import { CategoryInterface } from "./categoryInterface";
 import categoryService from "./category.service";
 
@@ -71,9 +71,10 @@ export const categoryReducer = createSlice({
                 state.isSuccess = true;
                 state.categoryProductData = action.payload;
             })
-            .addCase(getCategoryProducts.rejected, (state: any) => {
-                state.isLoadingCategoryProduct = false;
+            .addCase(getCategoryProducts.rejected, (state: any, action:any) => {
+                state.isLoadingCategoryProduct = isCancelRequest(action?.payload);
                 state.isSuccess = false;
+                state.categoryProductData = null;
             })
     }
 
