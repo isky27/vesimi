@@ -162,6 +162,10 @@ body {
   margin: 0px;
 }
 
+.loading{
+  overflow: auto !important;
+}
+
 .text-md-dark{color:#555!important;}
 .fs-7{font-size:14px!important;}
 
@@ -188,25 +192,17 @@ q {
 }
 
 .overlayLoader {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background: rgb(0 0 0 / 20%);
-  position: absolute;
+  position: fixed;
   top: 0;
   z-index: 2000;
   left: 0;
 }
-
-/* .overlayLoader .spinner-border {
-    --bs-spinner-border-width: 0.35em;
-    --bs-spinner-width: 3.5rem;
-    --bs-spinner-height: 3.5rem;
-    border: var(--bs-spinner-border-width) solid $green;
-    border-right-color: transparent;
-} */
 
 .loader {
   --c:no-repeat linear-gradient(orange 0 0);

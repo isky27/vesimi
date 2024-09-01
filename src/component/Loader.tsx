@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const Loader = ({isLoading}:any) => {
 
@@ -8,6 +8,21 @@ const Loader = ({isLoading}:any) => {
             loader= elem
         }
     })
+
+    useEffect(() => {
+        if (loader) {
+          document.body.classList.add('loading');
+        } else {
+          document.body.classList.remove('loading');
+        }
+    
+        // Cleanup function to remove the class when the component is unmounted or condition changes
+        return () => {
+          document.body.classList.remove('loading');
+        };
+      }, [loader]);
+
+
 if(loader){
   return (
      <div className='overlayLoader'>
