@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getHeaderMenu } from "store/home/home.slice";
 import { useAppDispatch, useAppSelector } from "store/redux.hooks";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -13,10 +12,6 @@ const HeaderController = () => {
   const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
-
-  const { isLoadingMenuBar, headerMenuData } = useAppSelector(
-    (state: any) => state.home
-  );
 
   const { loginDetails } = useAppSelector((state: any) => state.auth);
 
@@ -118,16 +113,11 @@ const HeaderController = () => {
     dispatch(logoutPost())
   }
 
-  useEffect(() => {
-    dispatch(getHeaderMenu());
-  }, [dispatch]);
-
   return {
     isOpenLoginPopup,
     setIsOpenLoginPopup,
     isOpenSignupPopup,
     setIsOpenSignupPopup,
-    isLoadingMenuBar,
     navigate,
     loginFormik,
     signupFormik,

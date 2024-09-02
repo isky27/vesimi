@@ -31,7 +31,7 @@ export const getSubCategories = createAsyncThunk("get/sub/categories", async (us
 
 export const getCategoryProducts = createAsyncThunk("get/category/product", async (userData:any,thunkApi: any) => {
     try {
-        const response = await categoryService.categoryProductApi(userData);
+        const response = await categoryService.searchProductApi(userData);
         return response;
     } catch (error: any) {
         const message: any = getErrorMessage(error)

@@ -6,16 +6,6 @@ import {
   getSubCategories,
 } from "store/category/category.slice";
 
-interface Filters {
-  colors: string[];
-  category: string[];
-  designer: string[];
-  price: number[];
-  size: string[];
-  shippingTime: string[];
-  occasion: string[];
-}
-
 /**
  *
  * @returns all controllers for login page.
@@ -34,24 +24,12 @@ const CategoryController = () => {
   // searchParams.get("shippingTime"),
   // searchParams.get("occasion"), '________________params');
 
-  console.log(searchParams.get("designer"), "_________________designer");
+  console.log(searchParams.get("designer"), "_________________designer")
 
-  const [filters, setFilters] = useState<Filters>({
-    colors: [],
-    category: [],
-    designer: [],
-    price: [0, 5000],
-    size: [],
-    shippingTime: [],
-    occasion: [],
-  });
-
-  const [checkedItems, setCheckedItems] = useState<any>(new Set());
-  const [filterDesigner, setFilterDesigner] = useState<any>(new Set());
-  const [filterSize, setFilterSize] = useState<any>(new Set());
-  const [filterColor, setFilterColor] = useState<any>(new Set());
-  const [filterShipping, setFilterShipping] = useState<any>(new Set());
-  const [filterOccasion, setFilterOccasion] = useState<any>(new Set());
+  const [filterCategory, setFilterCategory] = useState<any>(new Set([searchParams.get("sub-category") ?? categoryId]));
+  const [filterDesigner, setFilterDesigner] = useState<any>(new Set([searchParams.get("designer")]));
+  const [filterSize, setFilterSize] = useState<any>(new Set([searchParams.get("size")]));
+  const [filterColor, setFilterColor] = useState<any>(new Set([searchParams.get("color")]));
   const [filterPrice, setFilterPrice] = useState<any>([0, 100000]);
   const [currentPage, setCurrentPage] = useState<any>(1);
 
@@ -65,75 +43,74 @@ const CategoryController = () => {
   } = useAppSelector((state: any) => state.category);
 
   useEffect(() => {
-    // setSearchParams(`/category/6?designer=${filterDesigner}`)
-    setFilters({
-      colors: Array.from(filterColor),
-      category: Array.from(checkedItems),
-      designer: Array.from(filterDesigner),
-      price: filterPrice,
-      size: Array.from(filterSize),
-      shippingTime: Array.from(filterShipping),
-      occasion: Array.from(filterOccasion),
-    });
-  }, [
-    checkedItems,
-    filterDesigner,
-    filterSize,
-    filterColor,
-    filterShipping,
-    filterOccasion,
-    filterPrice,
-  ]);
+
+    let newSearchParams: any = { ...searchParams };
+
+    // Helper function to set or remove parameters
+    const updateSearchParams = (param: string, value: any) => {
+      if (value) {
+        newSearchParams[param] = value;
+      } else {
+        delete newSearchParams[param];
+      }
+    };
+
+    let selectedColor = filterColor.values().next().value;
+    let selectedSize = filterSize.values().next().value;
+    let selectedDesigner = filterDesigner.values().next().value;
+    let selectedCategory = filterCategory.values().next().value;
+
+    //    // Update 'color' and 'designer' parameters using the helper function
+    updateSearchParams('size', selectedSize);
+    updateSearchParams('color', selectedColor);
+    updateSearchParams('designer', selectedDesigner);
+    updateSearchParams('sub-category', selectedCategory);
+    setCurrentPage(1)
+    // Check if newSearchParams has any keys
+    const hasParams = Object.keys(newSearchParams).length > 0;
+
+    // Update searchParams state
+    setSearchParams(hasParams ? newSearchParams : {});
+  }, [filterSize, filterColor, filterDesigner, filterCategory]);
 
   useEffect(() => {
     dispatch(getSubCategories({ categoryId }));
-    dispatch(getCategoryProducts({ categoryId }));
   }, [dispatch, categoryId]);
+
+  useEffect(() => {
+    dispatch(getCategoryProducts({
+      color: searchParams.get("color"),
+      category: searchParams.get("sub-category"),
+      size: searchParams.get("size"),
+      designer: searchParams.get("designer"),
+      price: filterPrice,
+      page: currentPage
+    }));
+  }, [categoryId, currentPage, searchParams])
 
   const handlePriceChange = (newRange: any) => {
     setFilterPrice(newRange);
   };
 
-  const generateUrlWithFilters = (baseUrl: string, filters: Filters) => {
-    const params = new URLSearchParams();
-    Object.keys(filters).forEach((key) => {
-      const value = filters[key as keyof Filters];
-      if (Array.isArray(value) && value.length > 0) {
-        params.append(key, value.join("%"));
-      }
-    });
-    return `${baseUrl}?${params.toString()}`;
-  };
-
-  useEffect(() => {
-    const baseUrl = "/";
-    setSearchParams(generateUrlWithFilters(baseUrl, filters));
-  }, [filters]);
-
-  const setSearchFilter = (params: any, values: any) => {
-    setSearchParams({
-      params: values
-        ?.map((elem: any) => {
-          return `${elem}`;
-        })
-        .toString(),
-    });
-  };
+  const handelClearFilter = () => {
+    setFilterCategory(new Set(categoryId))
+    setFilterDesigner(new Set());
+    setFilterSize(new Set());
+    setFilterColor(new Set());
+    setFilterPrice([0, 100000]);
+    setCurrentPage(1)
+  }
 
   // All the state and function return to LoginView
   return {
-    checkedItems,
-    setCheckedItems,
+    filterCategory,
+    setFilterCategory,
     filterDesigner,
     setFilterDesigner,
     filterSize,
     setFilterSize,
     filterColor,
     setFilterColor,
-    filterShipping,
-    setFilterShipping,
-    filterOccasion,
-    setFilterOccasion,
     filterPrice,
     setFilterPrice,
     handlePriceChange,
@@ -141,10 +118,9 @@ const CategoryController = () => {
     categoryProductData,
     isLoadingCategoryProduct,
     isLoadingSubCategories,
-    searchParams,
-    setSearchParams,
     currentPage,
-    setCurrentPage
+    setCurrentPage,
+    handelClearFilter
   };
 };
 

@@ -1,9 +1,5 @@
 import LogoImage from "../../assets/images/VESIMI_new_logo-03.png";
-import Loader from "component/Loader";
-// import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
-
 import "../../scss/customPopup.css";
-
 import MasabaImg from "../../assets/images/msb23608.jpg";
 import RidhimaImg from "../../assets/images/rr025-saj.png";
 import Kalighata from "../../assets/images/avyanna.jpg";
@@ -38,7 +34,6 @@ const Header = () => {
     setIsOpenLoginPopup,
     isOpenSignupPopup,
     setIsOpenSignupPopup,
-    isLoadingMenuBar,
     navigate,
     loginFormik,
     signupFormik,
@@ -48,8 +43,6 @@ const Header = () => {
 
   return (
     <header>
-      <Loader isLoading={[isLoadingMenuBar]} />
-
       <div className="headerTopRow">
         <div className="container">
           <div className="headerTop">

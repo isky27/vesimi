@@ -1,7 +1,6 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { useAppSelector } from "../store/redux.hooks";
-import ProtectedRoute, { AuthRouteCheck, HomeRoute } from "../auth/ProtectedRoute";
+import ProtectedRoute, { HomeRoute } from "../auth/ProtectedRoute";
 import ProductDetail from "pages/productDetail/ProductDetail";
 
 

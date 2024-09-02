@@ -5,7 +5,6 @@ import HomeController from "./homeController";
 import OwlCarousel from "react-owl-carousel";
 import ShopNowCard from "component/ShopNowCard";
 import Loader from "component/Loader";
-import Header from "component/headerLayout";
 import CelebritySection from "component/CelebritySection";
 import BlogSection from "component/BlogSection";
 import ServiceSection from "component/ServiceSection";
@@ -42,8 +41,6 @@ const HomeView = () => {
   } = HomeController();
 
   return (
-    <>
-      <Header />
       <section>
         <Loader
           isLoading={[
@@ -587,7 +584,6 @@ const HomeView = () => {
           <ServiceInfo />
         </main>
       </section>
-    </>
   );
 };
 

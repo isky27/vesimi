@@ -1,12 +1,9 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row, Col, Card } from 'react-bootstrap';
-import Header from 'component/headerLayout';
 
 const AboutUs = () => {
     return (
-        <>
-            <Header />
             <section className="pageMain ">
                 <Row className="container mx-auto w-100 d-flex justify-content-center">
                     <Col md={10} className="pt-3 pb-5 ">
@@ -34,7 +31,6 @@ const AboutUs = () => {
                     </Col>
                 </Row>
             </section>
-        </>
 
     );
 };

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const MultiLevelCheckbox = ({category, isSearchBox=false, searchboxPlaceholder="", data, checkedItems, setCheckedItems, singleSelect, nameKey = "label" }: any) => {
+const MultiLevelCheckbox = ({selectedValueKey="id", isSearchBox=false, searchboxPlaceholder="", data, checkedItems, setCheckedItems, singleSelect, nameKey = "label" }: any) => {
 
     const [expandedItems, setExpandedItems] = useState<any>({});
     const [searchTerm, setSearchTerm] = useState<string>('');
@@ -25,7 +25,7 @@ const MultiLevelCheckbox = ({category, isSearchBox=false, searchboxPlaceholder="
     }, [data, searchTerm, nameKey]);
 
     const handleCheckboxChange = (id: any, checked: any) => {
-        setCheckedItems({category : (prevSelectedItems: any) => {
+        setCheckedItems((prevSelectedItems: any) => {
             let newSelectedItems;
 
             if (singleSelect) {
@@ -40,12 +40,12 @@ const MultiLevelCheckbox = ({category, isSearchBox=false, searchboxPlaceholder="
                 updateChildren(data, id, checked, newSelectedItems);
             }
             return newSelectedItems;
-        }});
+        });
     };
 
     const updateChildren = (items: any, id: any, checked: any, newSelectedItems: any) => {
         items.forEach((item: any) => {
-            if (item.id === id) {
+            if (item.id == id) {
                 item?.children?.forEach((child: any) => {
                     if (checked) {
                         newSelectedItems.add(child.id);
@@ -73,8 +73,8 @@ const MultiLevelCheckbox = ({category, isSearchBox=false, searchboxPlaceholder="
                 <label className="filterList">
                     <input
                         type="checkbox"
-                        checked={checkedItems?.has(item.id)}
-                        onChange={(e) => handleCheckboxChange(item.id, e.target.checked)}
+                        checked={checkedItems?.has(item[selectedValueKey].toString())}
+                        onChange={(e) => handleCheckboxChange(item[selectedValueKey].toString(), e.target.checked)}
                     />
                     {item?.color && <span className="colorCircle" style={{ backgroundColor: item.color }}></span>}
                     {item?.[nameKey]}

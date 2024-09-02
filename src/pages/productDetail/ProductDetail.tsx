@@ -1,7 +1,6 @@
 import React from 'react'
 import ProductDetailController from './productDetailController'
 import Loader from 'component/Loader'
-import Header from 'component/headerLayout'
 import ProductCard from 'component/ProductCard';
 import ProductCarousal from 'component/ProductCarousal';
 
@@ -14,8 +13,6 @@ const ProductDetail = () => {
     relatedProductsData } = ProductDetailController()
 
   return (
-    <>
-      <Header />
       <section className="pageMain">
         <Loader isLoading={[isLoadingProductDetail, isLoadingRelatedProducts]} />
 
@@ -158,7 +155,6 @@ const ProductDetail = () => {
           </div>
         </div>
       </section>
-    </>
   )
 }
 

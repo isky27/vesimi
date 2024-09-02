@@ -37,6 +37,7 @@ export const HomeRoute = () => {
 
   return <section>
     <div>
+      <Header />
       <Outlet />
       <Footer />
     </div>

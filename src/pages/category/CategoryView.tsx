@@ -2,25 +2,20 @@ import Loader from 'component/Loader';
 import CategoryController from './categoryController'
 import MultiLevelCheckbox from './MultiLevelCheckbox'
 import Slider from 'rc-slider';
-import Header from 'component/headerLayout';
 import { Link } from 'react-router-dom';
 import Pagination from 'component/Pagination';
 
 const CategoryView = () => {
 
 	const {
-    checkedItems,
-    setCheckedItems,
+    filterCategory, 
+    setFilterCategory,
     filterDesigner,
     setFilterDesigner,
     filterSize,
     setFilterSize,
     filterColor,
     setFilterColor,
-    filterShipping,
-    setFilterShipping,
-    filterOccasion,
-    setFilterOccasion,
     filterPrice,
     setFilterPrice,
     handlePriceChange,
@@ -28,54 +23,51 @@ const CategoryView = () => {
     categoryProductData,
     isLoadingCategoryProduct,
     isLoadingSubCategories,
-    searchParams,
-    setSearchParams,
     currentPage,
     setCurrentPage,
+    handelClearFilter
   } = CategoryController();
 
 	const colorData = [
 		{
-			id: '1',
+			id: 1,
 			label: 'Beige',
 			level: 0,
 			color: 'rgb(212, 186, 151)'
 		},
 		{
-			id: '2',
+			id: 2,
 			label: 'Black',
 			level: 0,
 			color: 'rgb(0, 0, 0)'
 		},
 		{
-			id: '3',
+			id: 3,
 			label: 'Blue',
 			level: 0,
 			color: 'rgb(0, 99, 177)'
 		},
 		{
-			id: '4',
+			id: 4,
 			label: 'Brown',
 			level: 0,
 			color: 'rgb(120, 66, 44)',
 		},
 		{
-			id: '5',
+			id: 5,
 			label: 'Coral',
 			level: 0,
 			color: 'rgb(255, 80, 87)'
 		},
 		{
-			id: '6',
+			id: 6,
 			label: 'Cream',
 			level: 0,
 			color: 'rgb(243, 234, 179)'
 		}
 	]
-	
+
 	return (
-    <>
-      <Header />
       <section className="pageMain">
         <Loader
           isLoading={[isLoadingCategoryProduct, isLoadingSubCategories]}
@@ -101,7 +93,7 @@ const CategoryView = () => {
             <div className="Listing_sidebar pt-3 pt-md-4">
               <div className="d-sm-flex justify-content-between py-2 py-md-3">
                 <span className="StyleCount">Showing 43,964 Styles </span>
-                <button className="AsLink">CLEAR ALL</button>
+                <button className="AsLink" onClick={handelClearFilter}>CLEAR ALL</button>
               </div>
               <div className="sidebarBlock">
                 <h3>CATEGORIES</h3>
@@ -110,8 +102,9 @@ const CategoryView = () => {
                   searchboxPlaceholder="Search for categories"
                   data={subCategoryData?.data}
                   nameKey="name"
-                  checkedItems={checkedItems}
-                  setCheckedItems={setCheckedItems}
+                  checkedItems={filterCategory}
+                  setCheckedItems={setFilterCategory}
+                  singleSelect={true}
                 />
               </div>
 
@@ -126,9 +119,10 @@ const CategoryView = () => {
                     })?.[0]?.values
                   }
                   nameKey="value"
-                  checkedItems={searchParams.get("designer")}
-                  categoery="designer"
-                  setCheckedItems={setSearchParams}
+                  checkedItems={filterDesigner}
+                  selectedValueKey="value"
+                  singleSelect={true}
+                  setCheckedItems={setFilterDesigner}
                 />
               </div>
 
@@ -181,6 +175,8 @@ const CategoryView = () => {
                     }
                     checkedItems={filterSize}
                     nameKey="value"
+                    selectedValueKey="value"
+                    singleSelect={true}
                     setCheckedItems={setFilterSize}
                   />
                 </div>
@@ -191,7 +187,9 @@ const CategoryView = () => {
                 <MultiLevelCheckbox
                   data={colorData}
                   checkedItems={filterColor}
+                  selectedValueKey="label"
                   setCheckedItems={setFilterColor}
+                  singleSelect={true}
                 />
               </div>
             </div>
@@ -252,50 +250,17 @@ const CategoryView = () => {
                     );
                   })}
                 </div>
-                <Pagination
-                  total={50}
-                  pageSize={10}
+                {categoryProductData?.meta?.total && <Pagination
+                  total={categoryProductData?.meta?.total}
+                  pageSize={categoryProductData?.meta?.per_page}
                   currentPage={currentPage}
                   handleClick={setCurrentPage}
-                />
-
-                {/* <div className="themePagger text-center py-3">
-                  <nav aria-label="Page navigation example">
-                    <ul className="pagination justify-content-center">
-                      <li className="page-item disabled">
-                        <Link className="page-link" to="/category/6" aria-disabled="true">
-                          Previous
-                        </Link>
-                      </li>
-                      <li className="page-item">
-                        <Link className="page-link text-dark" to="/category/6">
-                          1
-                        </Link>
-                      </li>
-                      <li className="page-item">
-                        <Link className="page-link text-dark" to="/category/6">
-                          2
-                        </Link>
-                      </li>
-                      <li className="page-item">
-                        <a className="page-link text-dark" href="/">
-                          3
-                        </a>
-                      </li>
-                      <li className="page-item">
-                        <a className="page-link text-dark" href="/">
-                          Next
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
-                </div> */}
+                />}
               </div>
             </div>
           </div>
         </div>
       </section>
-    </>
   );
 }
 
