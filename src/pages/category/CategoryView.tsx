@@ -25,7 +25,8 @@ const CategoryView = () => {
     isLoadingSubCategories,
     currentPage,
     setCurrentPage,
-    handelClearFilter
+    handelClearFilter,
+    handlePriceReset
   } = CategoryController();
 
 	const colorData = [
@@ -132,23 +133,28 @@ const CategoryView = () => {
                   range
                   min={0}
                   max={1000000}
-                  defaultValue={filterPrice}
+                  defaultValue={[Number(filterPrice[0]),Number(filterPrice[1])]}
                   onChange={handlePriceChange}
+                  value={[Number(filterPrice[0]),Number(filterPrice[1])]}
                 />
                 {/* code for range slider */}
                 <div className="priceFilter py-3 d-flex align-items-center justify-content-between">
                   <input
-                    type="text"
+                    type="number"
                     value={filterPrice[0]}
                     placeholder="To"
                     style={{ width: "90px", padding: "4px 8px" }}
-                    onChange={(e: any) =>
+                    onChange={(e: any) =>{
+                      if(e.target.value >Number(filterPrice[1])){
+                        return;
+                      }
                       setFilterPrice((prev: any) => [e.target.value, prev[1]])
+                    }
                     }
                   />
                   <span>-</span>
                   <input
-                    type="text"
+                    type="number"
                     value={filterPrice[1]}
                     placeholder="From"
                     style={{ width: "90px", padding: "4px 8px" }}
@@ -158,7 +164,7 @@ const CategoryView = () => {
                   />
                 </div>
                 <div className="text-end pt-2">
-                  <button className="AsLink ms-auto">RESET</button>
+                  <button className="AsLink ms-auto" onClick={handlePriceReset}>RESET</button>
                 </div>
               </div>
 

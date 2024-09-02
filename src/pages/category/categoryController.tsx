@@ -30,10 +30,11 @@ const CategoryController = () => {
   const [filterDesigner, setFilterDesigner] = useState<any>(new Set([searchParams.get("designer")]));
   const [filterSize, setFilterSize] = useState<any>(new Set([searchParams.get("size")]));
   const [filterColor, setFilterColor] = useState<any>(new Set([searchParams.get("color")]));
-  const [filterPrice, setFilterPrice] = useState<any>([0, 100000]);
+  const initialPrice= ["0","1000000"];
+  const [filterPrice, setFilterPrice] = useState<any>([searchParams.get("min")|| initialPrice[0],searchParams.get("max") || initialPrice[1]] );
   const [currentPage, setCurrentPage] = useState<any>(1);
 
-  // Import data from auth selector
+  // Import data from auth selectora
   const dispatch = useAppDispatch();
   const {
     isLoadingSubCategories,
@@ -59,19 +60,23 @@ const CategoryController = () => {
     let selectedSize = filterSize.values().next().value;
     let selectedDesigner = filterDesigner.values().next().value;
     let selectedCategory = filterCategory.values().next().value;
-
+    let priceLimit = filterPrice.values();
+    let minPrice = priceLimit.next().value;
+    let maxPrice = priceLimit.next().value;  
     //    // Update 'color' and 'designer' parameters using the helper function
     updateSearchParams('size', selectedSize);
     updateSearchParams('color', selectedColor);
     updateSearchParams('designer', selectedDesigner);
     updateSearchParams('sub-category', selectedCategory);
+    updateSearchParams('min', minPrice);
+    updateSearchParams('max',maxPrice);
     setCurrentPage(1)
     // Check if newSearchParams has any keys
     const hasParams = Object.keys(newSearchParams).length > 0;
 
     // Update searchParams state
     setSearchParams(hasParams ? newSearchParams : {});
-  }, [filterSize, filterColor, filterDesigner, filterCategory]);
+  }, [filterSize, filterColor, filterDesigner, filterCategory, filterPrice]);
 
   useEffect(() => {
     dispatch(getSubCategories({ categoryId }));
@@ -83,21 +88,25 @@ const CategoryController = () => {
       category: searchParams.get("sub-category"),
       size: searchParams.get("size"),
       designer: searchParams.get("designer"),
-      price: filterPrice,
+      min: searchParams.get("min"),
+      max: searchParams.get("max"),
       page: currentPage
     }));
   }, [categoryId, currentPage, searchParams])
 
   const handlePriceChange = (newRange: any) => {
-    setFilterPrice(newRange);
+    setFilterPrice([newRange[0].toString(),newRange[1].toString()]);
   };
+  const handlePriceReset=()=>{
+    setFilterPrice(initialPrice);
+  }
 
   const handelClearFilter = () => {
     setFilterCategory(new Set(categoryId))
     setFilterDesigner(new Set());
     setFilterSize(new Set());
     setFilterColor(new Set());
-    setFilterPrice([0, 100000]);
+    setFilterPrice(initialPrice);
     setCurrentPage(1)
   }
 
@@ -120,7 +129,8 @@ const CategoryController = () => {
     isLoadingSubCategories,
     currentPage,
     setCurrentPage,
-    handelClearFilter
+    handelClearFilter,
+    handlePriceReset
   };
 };
 
