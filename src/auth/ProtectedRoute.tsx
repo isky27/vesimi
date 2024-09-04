@@ -1,5 +1,4 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { Suspense } from "react";
 import { useAppSelector } from "store/redux.hooks";
 import { getLocalStorage } from "utils";
 import Header from "component/headerLayout";
@@ -47,31 +46,15 @@ export const HomeRoute = () => {
 const ProtectedRoute = () => {
   const { loginDetails } = useAppSelector((state) => state.auth);
 
-  if (!loginDetails?.data?.token) {
+  if (!loginDetails?.access_token) {
     return <Navigate to="/" />;
   }
 
-  return <section className="insight_top_wrapper">
-    <div className="mainDashboard position-relative">
-      {/* <SidebarLayout /> */}
-      <div className="DashboardWrapper">
-        {/* <HeaderLayout /> */}
-        <div className="dashboardScreen">
-          <Suspense
-            fallback={
-              <div className="graph-loader  d-flex justify-content-center align-items-center">
-                <div className="spinner-border spinner-ui d-flex justify-content-center align-items-center" >
-                  <span className="visually-hidden"></span>
-                </div>
-              </div>
-            }
-          >
-            <div className="container-fluid">
-              <Outlet />
-            </div>
-          </Suspense>
-        </div>
-      </div>
+  return <section>
+    <div>
+      <Header />
+      <Outlet />
+      <Footer />
     </div>
   </section>
 };

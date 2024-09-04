@@ -14,8 +14,6 @@ const searchProductApi = async (userData: any): Promise<ApiResponse> => {
   try {
     let searchQuery = "sort_by=price_low_to_high"
 
-    console.log(userData, "feefrefrefer");
-
     if(userData?.min){
       searchQuery += `&min=${userData?.min}`
     }else{

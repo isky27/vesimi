@@ -405,13 +405,20 @@ h6 {
   padding: 12px 0;
 }
 
-.ProfileDropDown li {
+.ProfileDropDown li,
+.ProfileDropDown li a {
+  color: black;
+  font-size: 14px;
   text-align: left;
   display: block;
+}
+
+.ProfileDropDown li {
+  margin: 10px;
+}
+
+.ProfileDropDown li a {
   text-decoration: none;
-  color: #000;
-  font-size: 14px;
-  padding: 6px 10px;
 }
 
 

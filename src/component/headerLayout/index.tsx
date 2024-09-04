@@ -26,6 +26,7 @@ import { Button, Form } from "react-bootstrap";
 import HeaderController from "./headerController";
 import InputField from "component/forms/InputField";
 import { removeSpaceOnly } from "utils";
+import { Link } from "react-router-dom";
 
 const Header = () => {
 
@@ -161,7 +162,7 @@ const Header = () => {
                   ></span>
                   Profile
                   {loginDetails ? <ul className="ProfileDropDown">
-                    <li>Your Account</li>
+                    <li><Link to={"/account"}>Your Account</Link></li>
                     <li onClick={handleLogout}>Logout</li>
                   </ul> : 
                   
@@ -169,9 +170,7 @@ const Header = () => {
                     <li onClick={() => setIsOpenLoginPopup(!isOpenLoginPopup)}>
                       Login
                     </li>
-                    <li
-                      onClick={() => setIsOpenSignupPopup(!isOpenSignupPopup)}
-                    >
+                    <li onClick={() => setIsOpenSignupPopup(!isOpenSignupPopup)}>
                       Register
                     </li>
                   </ul>}

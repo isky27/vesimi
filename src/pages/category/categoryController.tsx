@@ -13,19 +13,7 @@ import {
 
 const CategoryController = () => {
   const { categoryId } = useParams();
-
   const [searchParams, setSearchParams] = useSearchParams();
-
-  // console.log(searchParams.get("colors"),
-  // searchParams.get("category"),
-  // searchParams.get("designer"),
-  // searchParams.get("price"),
-  // searchParams.get("size"),
-  // searchParams.get("shippingTime"),
-  // searchParams.get("occasion"), '________________params');
-
-  console.log(searchParams.get("designer"), "_________________designer")
-
   const [filterCategory, setFilterCategory] = useState<any>(new Set([searchParams.get("sub-category") ?? categoryId]));
   const [filterDesigner, setFilterDesigner] = useState<any>(new Set([searchParams.get("designer")]));
   const [filterSize, setFilterSize] = useState<any>(new Set([searchParams.get("size")]));
