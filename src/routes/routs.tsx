@@ -9,6 +9,8 @@ const HomePage = lazy(() => import("../pages/home/HomeView"));
 const CategoryView = lazy(() => import("../pages/category/CategoryView"));
 const AboutUs = lazy(() => import("../pages/staticPages/About"));
 const AccountView = lazy(() => import("../pages/account/AccountView"));
+const CareerView = lazy(() => import("../pages/staticPages/CareerView"));
+
 
 /**
  * Component that defines all the routes for the website
@@ -85,11 +87,28 @@ const CustomRoute = () => {
               </Suspense>
             }
           />
+
+          <Route
+            path="/career"
+            element={
+              <Suspense
+                fallback={
+                  <div className="graph-loader  d-flex justify-content-center align-items-center">
+                    <div className="spinner-border  spinner-ui d-flex justify-content-center align-items-center">
+                      <span className="visually-hidden"></span>
+                    </div>
+                  </div>
+                }
+              >
+                <CareerView />
+              </Suspense>
+            }
+          />
         </Route>
 
         {/* Protected routes for application panel*/}
         <Route element={<ProtectedRoute />}>
-        <Route
+          <Route
             path="/account"
             element={
               <Suspense
@@ -101,7 +120,7 @@ const CustomRoute = () => {
                   </div>
                 }
               >
-                <AccountView/>
+                <AccountView />
               </Suspense>
             }
           />
