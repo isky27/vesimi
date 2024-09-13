@@ -28,46 +28,7 @@ const CategoryView = () => {
     handelClearFilter,
     handlePriceReset
   } = CategoryController();
-
-	const colorData = [
-		{
-			id: 1,
-			label: 'Beige',
-			level: 0,
-			color: 'rgb(212, 186, 151)'
-		},
-		{
-			id: 2,
-			label: 'Black',
-			level: 0,
-			color: 'rgb(0, 0, 0)'
-		},
-		{
-			id: 3,
-			label: 'Blue',
-			level: 0,
-			color: 'rgb(0, 99, 177)'
-		},
-		{
-			id: 4,
-			label: 'Brown',
-			level: 0,
-			color: 'rgb(120, 66, 44)',
-		},
-		{
-			id: 5,
-			label: 'Coral',
-			level: 0,
-			color: 'rgb(255, 80, 87)'
-		},
-		{
-			id: 6,
-			label: 'Cream',
-			level: 0,
-			color: 'rgb(243, 234, 179)'
-		}
-	]
-
+  
 	return (
       <section className="pageMain">
         <Loader
@@ -191,9 +152,15 @@ const CategoryView = () => {
               <div className="sidebarBlock">
                 <h3 className="mb-3 mb-md-4">COLOR</h3>
                 <MultiLevelCheckbox
-                  data={colorData}
+                 data={
+                  subCategoryData?.filters?.filter((item: any) => {
+                    return item?.name === "Colors";
+                  })?.[0]?.values
+                }
+                  isColor={true}
                   checkedItems={filterColor}
-                  selectedValueKey="label"
+                  nameKey="name"
+                  selectedValueKey="code"
                   setCheckedItems={setFilterColor}
                   singleSelect={true}
                 />

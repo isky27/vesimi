@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-const MultiLevelCheckbox = ({selectedValueKey="id", isSearchBox=false, searchboxPlaceholder="", data, checkedItems, setCheckedItems, singleSelect, nameKey = "label" }: any) => {
+const MultiLevelCheckbox = ({selectedValueKey="id",isColor=false, isSearchBox=false, searchboxPlaceholder="", data, checkedItems, setCheckedItems, singleSelect, nameKey = "label" }: any) => {
 
     const [expandedItems, setExpandedItems] = useState<any>({});
     const [searchTerm, setSearchTerm] = useState<string>('');
     const [filteredData, setFilteredData] = useState<any>(data);
+
+    console.log(data, "fdfbdjfjdfdf");
 
     useEffect(() => {
         const filterData = (items: any, term: string) => {
@@ -76,7 +78,7 @@ const MultiLevelCheckbox = ({selectedValueKey="id", isSearchBox=false, searchbox
                         checked={checkedItems?.has(item[selectedValueKey].toString())}
                         onChange={(e) => handleCheckboxChange(item[selectedValueKey].toString(), e.target.checked)}
                     />
-                    {item?.color && <span className="colorCircle" style={{ backgroundColor: item.color }}></span>}
+                    {isColor && item?.code && <span className="colorCircle" style={{ backgroundColor: item.code }}></span>}
                     {item?.[nameKey]}
                 </label>
                 {item?.children?.length > 0 && (
