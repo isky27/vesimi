@@ -175,7 +175,7 @@ const HomeView = () => {
                         role="tab"
                         aria-controls="woman"
                         aria-selected="false"
-                        onClick={() => setSelectedPopularStyle("1412")}
+                        onClick={() => setSelectedPopularStyle("358")}
                       >
                         Woman
                       </button>

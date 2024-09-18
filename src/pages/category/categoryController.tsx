@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/redux.hooks";
 import { useParams, useSearchParams } from "react-router-dom";
 import {
-  getCategoryProducts,
+  getSearchProducts,
   getSubCategories,
 } from "store/category/category.slice";
 
@@ -27,8 +27,8 @@ const CategoryController = () => {
   const {
     isLoadingSubCategories,
     subCategoryData,
-    categoryProductData,
-    isLoadingCategoryProduct,
+    isLoadingSearchProduct,
+    searchProductData
   } = useAppSelector((state: any) => state.category);
 
   useEffect(() => {
@@ -71,7 +71,7 @@ const CategoryController = () => {
   }, [dispatch, categoryId]);
 
   useEffect(() => {
-    dispatch(getCategoryProducts({
+    dispatch(getSearchProducts({
       color: searchParams.get("color"),
       category: searchParams.get("sub-category"),
       size: searchParams.get("size"),
@@ -112,8 +112,8 @@ const CategoryController = () => {
     setFilterPrice,
     handlePriceChange,
     subCategoryData,
-    categoryProductData,
-    isLoadingCategoryProduct,
+    isLoadingSearchProduct,
+    searchProductData,
     isLoadingSubCategories,
     currentPage,
     setCurrentPage,

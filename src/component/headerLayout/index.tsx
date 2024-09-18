@@ -78,59 +78,15 @@ const Header = () => {
 
                   <ul className="SearchedcountryList">
                     <li>
-                      <span>Australia</span>
-                      <span>A$</span>
-                    </li>
-                    <li>
-                      <span>Canada</span>
-                      <span>A$</span>
-                    </li>
-                    <li>
-                      <span>Hong Kong</span>
-                      <span>A$</span>
-                    </li>
-                    <li>
                       <span>India</span>
-                      <span>A$</span>
-                    </li>
-                    <li>
-                      <span>Nepal</span>
-                      <span>A$</span>
+                      <span>A₹</span>
                     </li>
                     <li>
                       <span>Saudi Arabia</span>
                       <span>A$</span>
                     </li>
                     <li>
-                      <span>SINGAPORE</span>
-                      <span>A$</span>
-                    </li>
-                    <li>
-                      <span>Australia</span>
-                      <span>A$</span>
-                    </li>
-                    <li>
-                      <span>Canada</span>
-                      <span>A$</span>
-                    </li>
-                    <li>
-                      <span>Hong Kong</span>
-                      <span>A$</span>
-                    </li>
-                    <li>
-                      <span>India</span>
-                      <span>A$</span>
-                    </li>
-                    <li>
-                      <span>Nepal</span>
-                      <span>A$</span>
-                    </li>
-                    <li>
-                      <span>Saudi Arabia</span>
-                      <span>A$</span>
-                    </li>
-                    <li>
-                      <span>SINGAPORE</span>
+                      <span>USA</span>
                       <span>A$</span>
                     </li>
                   </ul>
@@ -162,7 +118,7 @@ const Header = () => {
                   ></span>
                   Profile
                   {loginDetails ? <ul className="ProfileDropDown">
-                    <li><Link to={"/account"}>Your Account</Link></li>
+                    <li ><Link to={"/account"}>Your Account</Link></li>
                     <li onClick={handleLogout}>Logout</li>
                   </ul> : 
                   

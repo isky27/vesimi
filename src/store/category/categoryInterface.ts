@@ -7,5 +7,7 @@ export interface CategoryInterface {
     subCategoryData : any;
     categoryProductData:any,
     isLoadingCategoryProduct:boolean;
+    isLoadingSearchProduct: boolean,
+    searchProductData: any
 }
 

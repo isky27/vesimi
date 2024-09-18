@@ -14,7 +14,9 @@ const initialState: CategoryInterface = {
     isLoadingSubCategories: false,
     subCategoryData :null,
     categoryProductData:null,
-    isLoadingCategoryProduct:false
+    isLoadingCategoryProduct:false,
+    isLoadingSearchProduct: false,
+    searchProductData: null
 }
 
 // Async Thunks
@@ -29,7 +31,7 @@ export const getSubCategories = createAsyncThunk("get/sub/categories", async (us
     }
 });
 
-export const getCategoryProducts = createAsyncThunk("get/category/product", async (userData:any,thunkApi: any) => {
+export const getSearchProducts = createAsyncThunk("get/search/product", async (userData:any,thunkApi: any) => {
     try {
         const response = await categoryService.searchProductApi(userData);
         return response;
@@ -38,6 +40,17 @@ export const getCategoryProducts = createAsyncThunk("get/category/product", asyn
         return thunkApi.rejectWithValue(message);
     }
 });
+
+export const getCategoryProducts = createAsyncThunk("get/category/product", async (userData:any,thunkApi: any) => {
+    try {
+        const response = await categoryService.categoryProductApi(userData);
+        return response;
+    } catch (error: any) {
+        const message: any = getErrorMessage(error)
+        return thunkApi.rejectWithValue(message);
+    }
+});
+
 
 // Home Reducer
 export const categoryReducer = createSlice({
@@ -60,6 +73,21 @@ export const categoryReducer = createSlice({
             .addCase(getSubCategories.rejected, (state: any) => {
                 state.isLoadingSubCategories = false;
                 state.isSuccess = false;
+            })
+            .addCase(getSearchProducts.pending, (state: any, _: any) => {
+                state.isLoadingSearchProduct = true;
+                state.isSuccess = false;
+                state.searchProductData = null;
+            })
+            .addCase(getSearchProducts.fulfilled, (state: any, action: any) => {
+                state.isLoadingSearchProduct = false;
+                state.isSuccess = true;
+                state.searchProductData = action.payload;
+            })
+            .addCase(getSearchProducts.rejected, (state: any, action:any) => {
+                state.isLoadingSearchProduct = isCancelRequest(action?.payload);
+                state.isSuccess = false;
+                state.searchProductData = null;
             })
             .addCase(getCategoryProducts.pending, (state: any, _: any) => {
                 state.isLoadingCategoryProduct = true;

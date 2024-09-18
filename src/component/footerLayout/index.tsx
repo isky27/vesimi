@@ -19,7 +19,7 @@ const Footer = () => {
             <Link to="/about-us" className="footerNavLink">About Vesimi</Link>
             <Link to={"/"}  className="footerNavLink">Our store</Link>
             <Link to={"/career"}  className="footerNavLink">Careers</Link>
-            <Link to={"/"}  className="footerNavLink">Contact Us</Link>
+            <Link to={"/contact"}  className="footerNavLink">Contact Us</Link>
           </div>
 
           <div className="footerCols">

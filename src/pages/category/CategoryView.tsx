@@ -20,19 +20,19 @@ const CategoryView = () => {
     setFilterPrice,
     handlePriceChange,
     subCategoryData,
-    categoryProductData,
-    isLoadingCategoryProduct,
+    isLoadingSearchProduct,
+    searchProductData,
     isLoadingSubCategories,
     currentPage,
     setCurrentPage,
     handelClearFilter,
     handlePriceReset
   } = CategoryController();
-  
+
 	return (
       <section className="pageMain">
         <Loader
-          isLoading={[isLoadingCategoryProduct, isLoadingSubCategories]}
+          isLoading={[isLoadingSearchProduct, isLoadingSubCategories]}
         />
         <div className="container">
           <div className="pageHead">
@@ -173,7 +173,7 @@ const CategoryView = () => {
 
               <div className="productListinfWrap">
                 <div className="row">
-                  {categoryProductData?.data?.map((item: any) => {
+                  {searchProductData?.data?.map((item: any) => {
                     return (
                       <div key={item?.id} className="col-sm-6 col-lg-4">
                         <div className="productCols position-relative mb-2 mb-md-3">
@@ -223,9 +223,9 @@ const CategoryView = () => {
                     );
                   })}
                 </div>
-                {categoryProductData?.meta?.total && <Pagination
-                  total={categoryProductData?.meta?.total}
-                  pageSize={categoryProductData?.meta?.per_page}
+                {searchProductData?.meta?.total > 0 && <Pagination
+                  total={searchProductData?.meta?.total}
+                  pageSize={searchProductData?.meta?.per_page}
                   currentPage={currentPage}
                   handleClick={setCurrentPage}
                 />}

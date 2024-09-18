@@ -1,5 +1,4 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row, Col, Card } from 'react-bootstrap';
 
 const AboutUs = () => {
