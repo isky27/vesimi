@@ -16,6 +16,7 @@ import BookAppointment from "component/BookAppointment";
 import { Link } from "react-router-dom";
 import ProductCard from "component/ProductCard";
 import ProductCarousal from "component/ProductCarousal";
+import { getPrice } from "utils";
 
 const HomeView = () => {
   const {
@@ -246,7 +247,7 @@ const HomeView = () => {
                           {categoryProductData?.data?.map((prod: any) => (
                             <ProductCard
                               key={prod.id}
-                              price={prod?.main_price}
+                              price={getPrice(prod?.main_price)}
                               imageName={prod?.thumbnail_image}
                               isPath={true}
                               tag={prod?.designer}

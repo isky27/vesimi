@@ -80,8 +80,22 @@ export const getCategoryUrl=(categId:number | string)=>{
   return `/category/${categId}?sub-category=${categId}&min=${priceRange[0]}&max=${priceRange[1]}`
 };
 
-export const getPrice = (price: number | string) =>{
+export const getPrice = (price: any) =>{
   const selectedPrice:string = store?.getState()?.auth?.selectedCurrency || "INR"
-  return countryOptions[selectedPrice]["symbol"]+ (Math.round(Number(price)/currencyPrice[selectedPrice] * 100) / 100)
+  return countryOptions[selectedPrice]["symbol"]+ (Math.round(Number(extractNumber(price))/currencyPrice[selectedPrice] * 100) / 100)
+}
+
+export function extractNumber(text: string): number {
+  // Remove all non-numeric characters except for decimal points and commas
+  let cleanedText = text.replace(/[^0-9.,]/g, '');
+  
+  // Remove commas (used in Indian currency format)
+  cleanedText = cleanedText.replace(/,/g, '');
+  
+  // Convert the cleaned string to a float
+  const number = parseFloat(cleanedText);
+  
+  // Return the extracted number
+  return isNaN(number) ? 0 : number;
 }
 

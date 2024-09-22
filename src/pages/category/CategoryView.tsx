@@ -5,6 +5,7 @@ import Slider from 'rc-slider';
 import { Link } from 'react-router-dom';
 import Pagination from 'component/Pagination';
 import { priceRange } from 'constant';
+import { getPrice } from 'utils';
 
 const CategoryView = () => {
 
@@ -215,7 +216,7 @@ const CategoryView = () => {
                               <h3 className="text-uparcase">{item?.designer}</h3>
                               <p className="text-gray ">{item?.name}</p>
                               <small className="font-semibold">
-                                {item?.main_price}
+                                {getPrice(item?.main_price)}
                               </small>
                             </div>
                           </Link>

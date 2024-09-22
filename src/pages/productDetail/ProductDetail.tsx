@@ -3,6 +3,7 @@ import ProductDetailController from './productDetailController'
 import Loader from 'component/Loader'
 import ProductCard from 'component/ProductCard';
 import ProductCarousal from 'component/ProductCarousal';
+import { getPrice } from 'utils';
 
 const ProductDetail = () => {
 
@@ -140,7 +141,7 @@ const ProductDetail = () => {
               {relatedProductsData?.data?.map((prod: any) => (
                 <ProductCard
                   key={prod.id}
-                  price={prod?.main_price}
+                  price={getPrice(prod?.main_price)}
                   imageName={prod?.thumbnail_image}
                   isPath={true}
                   tag={prod?.designer}
