@@ -18,7 +18,8 @@ if (process.env.REACT_APP_IS_DEV) {
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ["loginDetails"]
+  whitelist: ["loginDetails","selectedCurrency"]
+
 }
 
 const authReducer = persistReducer(persistConfig, authDataReducer)

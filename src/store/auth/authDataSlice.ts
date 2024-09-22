@@ -14,6 +14,7 @@ const initialState: AuthDataInterface = {
     isAuthLoginLoading: false,
     message: null,
     loginDetails: null,
+    selectedCurrency:"INR"
 }
 
 // Async Thunks
@@ -66,6 +67,11 @@ export const logoutPost = createAsyncThunk("post/logout", async (_, thunkApi) =>
     }
 });
 
+//Currency chnage reducer
+export const currencyChange = createAsyncThunk("change/currency", async (data:any) => {
+    return data;
+});
+
 // Authentication Reducer
 export const authDataReducer = createSlice({
     name: "auth-login",
@@ -105,6 +111,9 @@ export const authDataReducer = createSlice({
             })
             .addCase(logoutPost.fulfilled, (state: any) => {
                 state.loginDetails = null;
+            })
+            .addCase(currencyChange.fulfilled, (state: any,action) => {
+                state.selectedCurrency = action.payload;
             })
     }
 

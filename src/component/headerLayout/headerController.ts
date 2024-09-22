@@ -3,7 +3,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "store/redux.hooks";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { loginPost, logoutPost, signUpPost } from "store/auth/authDataSlice";
+import { currencyChange, loginPost, logoutPost, signUpPost } from "store/auth/authDataSlice";
 import { priceRange } from "constant";
 
 const HeaderController = () => {
@@ -11,13 +11,13 @@ const HeaderController = () => {
 
   const [isOpenLoginPopup, setIsOpenLoginPopup] = useState(false);
   const [isOpenSignupPopup, setIsOpenSignupPopup] = useState(false);
-  const [searchInput,setSearchInput] = useState(searchParams.get("name") || "");
+  const [searchInput,setSearchInput] = useState(searchParams.get("name") ?? "");
 
   const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
 
-  const { loginDetails } = useAppSelector((state: any) => state.auth);
+  const { loginDetails, selectedCurrency } = useAppSelector((state: any) => state.auth);
 
   const loginInitialValues = {
     email: "",
@@ -113,10 +113,14 @@ const HeaderController = () => {
     }))
   }
 
+  const handleCurrencyChange=(countryDetails:any)=>{
+    dispatch(currencyChange(countryDetails?.currency))
+  };
+
   const handleSearch= (e:any) => {
     e.preventDefault();
     if(searchInput){
-      navigate(`/category?min=${priceRange[0]}&max=${priceRange[1]}&name=${searchInput}`)
+      navigate(`/category/6?min=${priceRange[0]}&max=${priceRange[1]}&name=${searchInput}`)
     }
   }
 
@@ -142,7 +146,9 @@ const HeaderController = () => {
     handleLogout,
     searchInput,
     setSearchInput,
-    handleSearch
+    handleSearch,
+    handleCurrencyChange,
+    selectedCurrency
   };
 };
 

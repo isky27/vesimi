@@ -3,7 +3,8 @@ import moment from "moment";
 import { AxiosError } from "axios";
 import { imageURL } from "./InterceptorApi";
 import { toast } from "react-toastify";
-import { priceRange } from "constant";
+import { countryOptions, currencyPrice, priceRange } from "constant";
+import store from 'store'; 
 
 //Get value from local storage or default to an empty string
 export const getLocalStorage = (key: string) => {
@@ -78,4 +79,9 @@ export const removeSpaceOnly = (e: any) => {
 export const getCategoryUrl=(categId:number | string)=>{
   return `/category/${categId}?sub-category=${categId}&min=${priceRange[0]}&max=${priceRange[1]}`
 };
+
+export const getPrice = (price: number | string) =>{
+  const selectedPrice:string = store?.getState()?.auth?.selectedCurrency || "INR"
+  return countryOptions[selectedPrice]["symbol"]+ (Math.round(Number(price)/currencyPrice[selectedPrice] * 100) / 100)
+}
 

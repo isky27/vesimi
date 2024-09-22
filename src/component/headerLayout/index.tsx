@@ -25,8 +25,9 @@ import CustomPopup from "component/modal/CustomPopup";
 import { Button, Form } from "react-bootstrap";
 import HeaderController from "./headerController";
 import InputField from "component/forms/InputField";
-import { getCategoryUrl, removeSpaceOnly } from "utils";
+import { getCategoryUrl, getPrice, removeSpaceOnly } from "utils";
 import { Link } from "react-router-dom";
+import { countryOptions } from "constant";
 
 const Header = () => {
 
@@ -42,7 +43,9 @@ const Header = () => {
     handleLogout,
     handleSearch,
     searchInput,
-    setSearchInput
+    handleCurrencyChange,
+    setSearchInput,
+    selectedCurrency
   } = HeaderController();
 
   return (
@@ -64,34 +67,20 @@ const Header = () => {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  <span className="text-sm me-2">India</span>
-                  <span className="pl-1 text-sm cursor-pointer">(₹)</span>
+                  <span className="text-sm me-2">{countryOptions[selectedCurrency]?.country}</span>
+                  <span className="pl-1 text-sm cursor-pointer">({countryOptions[selectedCurrency]?.currency})</span>
                 </button>
                 <div
                   className="dropdown-menu countrySETWrap"
                   aria-labelledby="countrySET"
                 >
-                  <div className="SearchcountryList">
-                    <input type="text" placeholder="Search for a region" />
-                    <button
-                      className="bg-image w-6 h-6 border-0 bg-transparent"
-                      style={{ backgroundPosition: "-411px -132px" }}
-                    ></button>
-                  </div>
-
                   <ul className="SearchedcountryList">
-                    <li>
-                      <span>India</span>
-                      <span>A₹</span>
-                    </li>
-                    <li>
-                      <span>Saudi Arabia</span>
-                      <span>A$</span>
-                    </li>
-                    <li>
-                      <span>USA</span>
-                      <span>A$</span>
-                    </li>
+                    {Object.values(countryOptions).filter((el:any)=>el.currency!==selectedCurrency).map((element: any) => {
+                      return <li key={element?.currency} onClick={()=>handleCurrencyChange(element)}>
+                        <span>{element.country}</span>
+                        <span>({element.currency})</span>
+                      </li>
+                    })}
                   </ul>
                 </div>
               </div>

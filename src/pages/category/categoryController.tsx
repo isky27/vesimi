@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/redux.hooks";
 import { useParams, useSearchParams } from "react-router-dom";
-import {
-  getSearchProducts,
-  getSubCategories,
-} from "store/category/category.slice";
+import { getSearchProducts, getSubCategories } from "store/category/category.slice";
 import { priceRange } from "constant";
 
 /**
