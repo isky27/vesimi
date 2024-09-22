@@ -25,7 +25,7 @@ import CustomPopup from "component/modal/CustomPopup";
 import { Button, Form } from "react-bootstrap";
 import HeaderController from "./headerController";
 import InputField from "component/forms/InputField";
-import { removeSpaceOnly } from "utils";
+import { getCategoryUrl, removeSpaceOnly } from "utils";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -39,7 +39,10 @@ const Header = () => {
     loginFormik,
     signupFormik,
     loginDetails,
-    handleLogout
+    handleLogout,
+    handleSearch,
+    searchInput,
+    setSearchInput
   } = HeaderController();
 
   return (
@@ -95,18 +98,24 @@ const Header = () => {
             </div>
 
             <div className="HeaderSearchOuter">
-              <button
+              <form onSubmit={handleSearch}>
+              <span
                 className="headerSearchIcon bg-image"
                 style={{ backgroundPosition: "-411px -132px" }}
-              ></button>
+              ></span>
               <input
                 type="text"
+                value={searchInput}
                 className=""
+                onChange={
+                 (e)=>setSearchInput(e.target.value)
+                }
                 placeholder="Search for products, brand and more"
               />
-              <div className="uploadSearchPicRight">
-                <span>Search</span>
-              </div>
+              <button className="uploadSearchPicRight" type="submit">
+                Search
+              </button>
+              </form>
             </div>
 
             <div className="headerRight">
@@ -169,7 +178,7 @@ const Header = () => {
                 <span>Home</span>
               </li>
               {/* <!-- what's new  --> */}
-              <li onClick={() => navigate("/category/5")}>
+              <li onClick={() => navigate(getCategoryUrl(5))}>
                 <span>What's New</span>
                 <div className="subNavPart">
                   <div className="container">
@@ -177,19 +186,19 @@ const Header = () => {
                       <div className="SubNavGrid">
                         <h4>CATEGORIES</h4>
                         <ul>
-                          <li onClick={() => navigate("/category/1242")}>
+                          <li onClick={() => navigate(getCategoryUrl(1242))}>
                             Women
                           </li>
-                          <li onClick={() => navigate("/category/1342")}>
+                          <li onClick={() => navigate(getCategoryUrl(1342))}>
                             Men
                           </li>
-                          <li onClick={() => navigate("/category/1424")}>
+                          <li onClick={() => navigate(getCategoryUrl(1424))}>
                             Jewellery
                           </li>
-                          <li onClick={() => navigate("/category/1407")}>
+                          <li onClick={() => navigate(getCategoryUrl(1407))}>
                             Accessories
                           </li>
-                          <li onClick={() => navigate("/category/1389")}>
+                          <li onClick={() => navigate(getCategoryUrl(1389))}>
                             Kids
                           </li>
                         </ul>
@@ -197,11 +206,11 @@ const Header = () => {
                       </div>
 
                       <div className="SubNavGrid">
-                        <h4 onClick={() => navigate("/category/1389")}>
+                        <h4 onClick={() => navigate(getCategoryUrl(1389))}>
                           DESIGNERS
                         </h4>
                         <ul>
-                          <li onClick={() => navigate("/category/1389")}>
+                          <li onClick={() => navigate(getCategoryUrl(1389))}>
                             Masaba
                           </li>
                           <li>Vvani by Vani Vats</li>
@@ -254,7 +263,7 @@ const Header = () => {
               </li>
 
               {/* <!-- Designers --> */}
-              <li onClick={() => navigate("/category/6")}>
+              <li onClick={() => navigate(getCategoryUrl(6))}>
                 <span>Designers</span>
                 <div className="subNavPart">
                   <div className="container">

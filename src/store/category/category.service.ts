@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { priceRange } from 'constant';
 
 const subcategoryApi = async (userData: any): Promise<ApiResponse> => {
   try {
@@ -17,13 +18,13 @@ const searchProductApi = async (userData: any): Promise<ApiResponse> => {
     if(userData?.min){
       searchQuery += `&min=${userData?.min}`
     }else{
-      searchQuery += "&min=1"
+      searchQuery += `&min=${priceRange[0]}`
     }
 
     if(userData?.max){
       searchQuery +=`&max=${userData?.max}`
     }else{
-      searchQuery +=`&max=10000000`
+      searchQuery +=`&max=${priceRange[1]}`
     }
 
     if(userData?.color){
@@ -41,6 +42,11 @@ const searchProductApi = async (userData: any): Promise<ApiResponse> => {
     if(userData?.designer){
       searchQuery +=`&selected_attribute_values[]=${userData?.designer}` 
     }
+
+    if(userData?.name){
+      searchQuery += `&name=${userData?.name}`
+    }
+
 
     const response: ApiResponse = await axios.get(`/products/search?${searchQuery}&page=${userData?.page || 1}`);
     return response;

@@ -1,13 +1,17 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "store/redux.hooks";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { loginPost, logoutPost, signUpPost } from "store/auth/authDataSlice";
+import { priceRange } from "constant";
 
 const HeaderController = () => {
+  const [searchParams] = useSearchParams();
+
   const [isOpenLoginPopup, setIsOpenLoginPopup] = useState(false);
   const [isOpenSignupPopup, setIsOpenSignupPopup] = useState(false);
+  const [searchInput,setSearchInput] = useState(searchParams.get("name") || "");
 
   const navigate = useNavigate();
 
@@ -109,6 +113,19 @@ const HeaderController = () => {
     }))
   }
 
+  const handleSearch= (e:any) => {
+    e.preventDefault();
+    if(searchInput){
+      navigate(`/category?min=${priceRange[0]}&max=${priceRange[1]}&name=${searchInput}`)
+    }
+  }
+
+  useEffect(()=>{
+    if(!searchParams.get("name")){
+      setSearchInput("")
+    }
+  },[searchParams])
+
   const handleLogout = () =>{
     dispatch(logoutPost())
   }
@@ -122,7 +139,10 @@ const HeaderController = () => {
     loginFormik,
     signupFormik,
     loginDetails,
-    handleLogout
+    handleLogout,
+    searchInput,
+    setSearchInput,
+    handleSearch
   };
 };
 

@@ -6,8 +6,6 @@ const MultiLevelCheckbox = ({selectedValueKey="id",isColor=false, isSearchBox=fa
     const [searchTerm, setSearchTerm] = useState<string>('');
     const [filteredData, setFilteredData] = useState<any>(data);
 
-    console.log(data, "fdfbdjfjdfdf");
-
     useEffect(() => {
         const filterData = (items: any, term: string) => {
             return items?.reduce((acc: any, item: any) => {

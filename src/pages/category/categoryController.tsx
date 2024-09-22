@@ -5,6 +5,7 @@ import {
   getSearchProducts,
   getSubCategories,
 } from "store/category/category.slice";
+import { priceRange } from "constant";
 
 /**
  *
@@ -12,14 +13,13 @@ import {
  */
 
 const CategoryController = () => {
-  const { categoryId } = useParams();
+  const { categoryId=""} = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
   const [filterCategory, setFilterCategory] = useState<any>(new Set([searchParams.get("sub-category") ?? categoryId]));
   const [filterDesigner, setFilterDesigner] = useState<any>(new Set([searchParams.get("designer")]));
   const [filterSize, setFilterSize] = useState<any>(new Set([searchParams.get("size")]));
   const [filterColor, setFilterColor] = useState<any>(new Set([searchParams.get("color")]));
-  const initialPrice= ["0","1000000"];
-  const [filterPrice, setFilterPrice] = useState<any>([searchParams.get("min")|| initialPrice[0],searchParams.get("max") || initialPrice[1]] );
+  const [filterPrice, setFilterPrice] = useState<any>([searchParams.get("min") ?? priceRange[0],searchParams.get("max") ?? priceRange[1]] );
   const [currentPage, setCurrentPage] = useState<any>(1);
 
   // Import data from auth selectora
@@ -33,7 +33,10 @@ const CategoryController = () => {
 
   useEffect(() => {
 
-    let newSearchParams: any = { ...searchParams };
+    let newSearchParams: any = {};
+    searchParams.forEach((value, key) => {
+      newSearchParams[key] = value;
+    });
 
     // Helper function to set or remove parameters
     const updateSearchParams = (param: string, value: any) => {
@@ -61,7 +64,6 @@ const CategoryController = () => {
     setCurrentPage(1)
     // Check if newSearchParams has any keys
     const hasParams = Object.keys(newSearchParams).length > 0;
-
     // Update searchParams state
     setSearchParams(hasParams ? newSearchParams : {});
   }, [filterSize, filterColor, filterDesigner, filterCategory, filterPrice]);
@@ -78,15 +80,16 @@ const CategoryController = () => {
       designer: searchParams.get("designer"),
       min: searchParams.get("min"),
       max: searchParams.get("max"),
+      name: searchParams.get("name") || "",
       page: currentPage
     }));
-  }, [categoryId, currentPage, searchParams])
+  }, [dispatch, currentPage, searchParams])
 
   const handlePriceChange = (newRange: any) => {
     setFilterPrice([newRange[0].toString(),newRange[1].toString()]);
   };
   const handlePriceReset=()=>{
-    setFilterPrice(initialPrice);
+    setFilterPrice(priceRange);
   }
 
   const handelClearFilter = () => {
@@ -94,7 +97,7 @@ const CategoryController = () => {
     setFilterDesigner(new Set());
     setFilterSize(new Set());
     setFilterColor(new Set());
-    setFilterPrice(initialPrice);
+    setFilterPrice(priceRange);
     setCurrentPage(1)
   }
 

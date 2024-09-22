@@ -3,6 +3,7 @@ import moment from "moment";
 import { AxiosError } from "axios";
 import { imageURL } from "./InterceptorApi";
 import { toast } from "react-toastify";
+import { priceRange } from "constant";
 
 //Get value from local storage or default to an empty string
 export const getLocalStorage = (key: string) => {
@@ -72,5 +73,9 @@ export const removeSpaceOnly = (e: any) => {
   if (inputValue.length === 0 && key === 32) {
     e.preventDefault();
   }
+};
+
+export const getCategoryUrl=(categId:number | string)=>{
+  return `/category/${categId}?sub-category=${categId}&min=${priceRange[0]}&max=${priceRange[1]}`
 };
 

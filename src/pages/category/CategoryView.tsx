@@ -4,6 +4,7 @@ import MultiLevelCheckbox from './MultiLevelCheckbox'
 import Slider from 'rc-slider';
 import { Link } from 'react-router-dom';
 import Pagination from 'component/Pagination';
+import { priceRange } from 'constant';
 
 const CategoryView = () => {
 
@@ -92,8 +93,8 @@ const CategoryView = () => {
                 <h3 className="mb-3">Price</h3>
                 <Slider
                   range
-                  min={0}
-                  max={1000000}
+                  min={priceRange[0]}
+                  max={priceRange[1]}
                   defaultValue={[Number(filterPrice[0]),Number(filterPrice[1])]}
                   onChange={handlePriceChange}
                   value={[Number(filterPrice[0]),Number(filterPrice[1])]}
