@@ -10,7 +10,7 @@ const ProductCard = ({imageName, isPath, tag, link, price, subTag, arg}:any) => 
                     <div className="py-2">
                         <h3 className="text-uparcase">{tag}</h3>
                         <p className="text-gray ">{subTag}</p>
-                        <small className="font-semibold">₹{price}</small>
+                        <small className="font-semibold">{price}</small>
                     </div>
                 </Link>
             </div>

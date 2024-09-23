@@ -610,6 +610,10 @@ header {
   border: none;
 }
 
+#myTabContent{
+  min-height: 300px;
+}
+
 .themeTabsStyle .nav-link.active {
   border: 1px solid #bc3d19;
   background: #bc3d191c;

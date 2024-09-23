@@ -21,24 +21,21 @@ import { getPrice } from "utils";
 const HomeView = () => {
   const {
     isLoadingMainSlider,
-    mainSliderData,
-    isLoadingTopCategory,
-    topCategoryData,
-    isLoadingFeatureCategory,
-    featureCategoryData,
-    isLoadingBestSellerProduct,
-    bestSellerProductData,
-    ownDesignerData,
-    lovedCollectionData,
-    exclusiveCollectionData,
-    isLoadingCelebrityProduct,
-    celebrityProductData,
-    navigate,
-    setSelectedPopularStyle,
-    isLoadingCategoryProduct,
-    categoryProductData,
-    selectedPopularStyle,
-    featureProductData
+      mainSliderData,
+      isLoadingTopCategory,
+      topCategoryData,
+      isLoadingFeatureCategory,
+      featureCategoryData,
+      isLoadingBestSellerProduct,
+      ownDesignerData,
+      lovedCollectionData,
+      exclusiveCollectionData,
+      isLoadingCelebrityProduct,
+      navigate,
+      activeTab, setActiveTab,
+      featureProductData,
+      isLoadingTabProduct,
+      tabProductData
   } = HomeController();
 
   return (
@@ -50,7 +47,7 @@ const HomeView = () => {
             isLoadingFeatureCategory,
             isLoadingBestSellerProduct,
             isLoadingCelebrityProduct,
-            isLoadingCategoryProduct
+            isLoadingTabProduct
           ]}
         />
 
@@ -72,7 +69,7 @@ const HomeView = () => {
               <section className="CTGCols mt-4">
                 <div className="container">
                   <div className="row">
-                    {topCategoryData?.map((item: any, index: number) => (
+                    {topCategoryData?.map((item: any) => (
                       <div key={item?.icon} className="col-sm-6 col-lg-3">
                         <CategeryCard
                           bottomText={true}
@@ -137,130 +134,70 @@ const HomeView = () => {
               <div className="container">
                 <div className="productHead d-flex align-items-center justify-content-between mb-3 mb-md-4">
                   <h2 className="Playfair">Popular Styles </h2>
-                  <Link
+                  {/* <Link
                     to={`/category/${selectedPopularStyle}`}
                     className="text-uparcase"
                   >
                     VIEW ALL
-                  </Link>
+                  </Link> */}
                 </div>
 
-                <div className="productSliderWrap">
-                  <ul
-                    className="nav nav-tabs themeTabsStyle mb-3 mb-md-4"
-                    id="myTab"
-                    role="tablist"
-                  >
-                    <li className="nav-item">
-                      <button
-                        className="nav-link active"
-                        id="all-tab"
-                        data-bs-toggle="tab"
-                        data-bs-target="#All"
-                        type="button"
-                        role="tab"
-                        aria-controls="all"
-                        aria-selected="true"
-                        onClick={() => setSelectedPopularStyle("5")}
-                      >
-                        All
-                      </button>
-                    </li>
-                    <li className="nav-item">
-                      <button
-                        className="nav-link"
-                        id="woman-tab"
-                        data-bs-toggle="tab"
-                        data-bs-target="#Woman"
-                        type="button"
-                        role="tab"
-                        aria-controls="woman"
-                        aria-selected="false"
-                        onClick={() => setSelectedPopularStyle("358")}
-                      >
-                        Woman
-                      </button>
-                    </li>
-                    <li className="nav-item">
-                      <button
-                        className="nav-link"
-                        id="man-tab"
-                        data-bs-toggle="tab"
-                        data-bs-target="#Mans"
-                        type="button"
-                        role="tab"
-                        aria-controls="man"
-                        aria-selected="false"
-                        onClick={() => setSelectedPopularStyle("1342")}
-                      >
-                        Man
-                      </button>
-                    </li>
-                    <li className="nav-item">
-                      <button
-                        className="nav-link"
-                        id="kids-tab"
-                        data-bs-toggle="tab"
-                        data-bs-target="#Kids"
-                        type="button"
-                        role="tab"
-                        aria-controls="kids"
-                        aria-selected="false"
-                        onClick={() => setSelectedPopularStyle("1389")}
-                      >
-                        Kids
-                      </button>
-                    </li>
-                    <li className="nav-item">
-                      <button
-                        className="nav-link"
-                        id="accessories-tab"
-                        data-bs-toggle="tab"
-                        data-bs-target="#Accessories"
-                        type="button"
-                        role="tab"
-                        aria-controls="accessories"
-                        aria-selected="false"
-                        onClick={() => setSelectedPopularStyle("1407")}
-                      >
-                        Accessories
-                      </button>
-                    </li>
-                  </ul>
-                  <div className="tab-content" id="myTabContent">
-                    {[
-                      { id: "All", ariaLabel: "all-tab" },
-                      { id: "Woman", ariaLabel: "woman-tab" },
-                      { id: "Mans", ariaLabel: "man-tab" },
-                      { id: "Kids", ariaLabel: "kids-tab" },
-                      { id: "Accessories", ariaLabel: "accessories-tab" },
-                    ].map((item: any, index: number) => (
-                      <div
-                        key={item.id}
-                        className={`tab-pane fade ${index === 0 ? "show active" : ""}`}
-                        id={item.id}
-                        role="tabpanel"
-                        aria-labelledby={item.ariaLabel}
-                      >  
-                       <div className="relatedTabs">
-                        {categoryProductData?.data.length > 0 && <ProductCarousal>
-                          {categoryProductData?.data?.map((prod: any) => (
-                            <ProductCard
-                              key={prod.id}
-                              price={getPrice(prod?.main_price)}
-                              imageName={prod?.thumbnail_image}
-                              isPath={true}
-                              tag={prod?.designer}
-                              link={`/products/${prod?.id}`}
-                              subTag={prod?.name}
-                            />
-                          ))}
-                          </ProductCarousal>}
-                          </div>
-                      </div>
+              <div className="productSliderWrap">
+                <ul className="nav nav-tabs themeTabsStyle" id="myTab" role="tablist">
+                  {tabProductData &&
+                    Object.keys(tabProductData).map((category: string, index: number) => (
+                      <li className="nav-item" key={category}>
+                        <button
+                          className={`nav-link ${activeTab === category ? "active" : ""}`}
+                          id={category}
+                          type="button"
+                          role="tab"
+                          aria-controls={category}
+                          aria-selected={activeTab === category}
+                          onClick={() => setActiveTab(category)} // Handle tab switching with React state
+                        >
+                          {category}
+                        </button>
+                      </li>
                     ))}
-                  </div>
+                </ul>
+
+                <div className="tab-content" id="myTabContent">
+                  {tabProductData &&
+                    Object.keys(tabProductData).map((category: string) => {
+                      const dataArray = tabProductData[category]?.data;
+                      return (
+                        <div
+                          key={category}
+                          className={`tab-pane fade ${activeTab === category ? "show active" : ""}`}
+                          id={category}
+                          role="tabpanel"
+                          aria-labelledby={category}
+                        >
+                          <div className="relatedTabs">
+                            {dataArray?.length > 0 && (
+                              <ProductCarousal>
+                                {dataArray.map((prod: any) => (
+                                  <ProductCard
+                                    key={prod.id}
+                                    price={getPrice(prod?.main_price)}
+                                    imageName={prod?.thumbnail_image}
+                                    isPath={true}
+                                    tag={prod?.designer}
+                                    link={`/products/${prod?.id}`}
+                                    subTag={prod?.name}
+                                  />
+                                ))}
+                              </ProductCarousal>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    })}
                 </div>
+
+
+              </div>
               </div>
             </section>
 

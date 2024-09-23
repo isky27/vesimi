@@ -27,7 +27,9 @@ const initialState: HomeInterface = {
     isLoadingMenuBar: false,
     headerMenuData:null,
     isLoadingCelebrityProduct: false,
-    celebrityProductData :null
+    celebrityProductData :null,
+    isLoadingTabProduct: false,
+    tabProductData: null
 }
 
 // Async Thunks
@@ -92,9 +94,9 @@ export const bestSellerProduct = createAsyncThunk("get/best/seller/product", asy
     }
 });
 
-export const searchProduct = createAsyncThunk("get/search/product", async (useData: any, thunkApi: any) => {
+export const tabProduct = createAsyncThunk("get/tab/product", async (_, thunkApi: any) => {
     try {
-        const response = await homeService.searchProductApi(useData);
+        const response = await homeService.tabProductApi();
         return response;
     } catch (error: any) {
         const message: any = getErrorMessage(error)
@@ -283,6 +285,19 @@ export const homeReducer = createSlice({
           })
           .addCase(celebrityStyleProduct.rejected, (state: any) => {
             state.isLoadingCelebrityProduct = false;
+            state.isSuccess = false;
+          })
+          .addCase(tabProduct.pending, (state: any, _: any) => {
+            state.isLoadingTabProduct = true;
+            state.isSuccess = false;
+          })
+          .addCase(tabProduct.fulfilled, (state: any, action: any) => {
+              state.isLoadingTabProduct = false;
+              state.isSuccess = true;
+              state.tabProductData = action.payload;
+          })
+          .addCase(tabProduct.rejected, (state: any) => {
+            state.isLoadingTabProduct = false;
             state.isSuccess = false;
           });
     }

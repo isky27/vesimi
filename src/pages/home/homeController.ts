@@ -5,15 +5,12 @@ import {
   homeMainSlider,
   featureCagtegory,
   featureProduct,
-  bestSellerProduct,
-  searchProduct,
+  tabProduct,
   lovedCollectionProduct,
   ownDesignerProduct,
   exclusiveCollectionProduct,
-  celebrityStyleProduct,
 } from "store/home/home.slice";
 import { useNavigate } from 'react-router-dom';
-import { getCategoryProducts } from 'store/category/category.slice';
 
 /**
  * 
@@ -23,39 +20,35 @@ import { getCategoryProducts } from 'store/category/category.slice';
 const HomeController = () => {
 
     // Import data from auth selector
-
-    const [searchKey, setSearchKey] = useState("")
-    const [selectedPopularStyle, setSelectedPopularStyle ] = useState("5")
+    
+    const [activeTab, setActiveTab] = useState("");
 
     const navigate = useNavigate()
-
     const dispatch = useAppDispatch()
 
-
-    const {isLoadingCategoryProduct, categoryProductData } = useAppSelector((state:any)=>state.category)
-
     const { isLoadingMainSlider, mainSliderData, isLoadingTopCategory, topCategoryData,  isLoadingFeatureCategory,
-      featureCategoryData,  isLoadingFeatureProduct, featureProductData, isLoadingBestSellerProduct,
-      bestSellerProductData, ownDesignerData, lovedCollectionData, exclusiveCollectionData, isLoadingCelebrityProduct,
-      celebrityProductData } = useAppSelector((state:any) => state.home);
-
+      featureCategoryData, featureProductData, isLoadingBestSellerProduct,
+      ownDesignerData, lovedCollectionData, exclusiveCollectionData, isLoadingCelebrityProduct,
+      isLoadingTabProduct, tabProductData } = useAppSelector((state:any) => state.home);
+      
     useEffect(()=>{
       dispatch(homeMainSlider())
       dispatch(homeTopCategory())
       dispatch(featureCagtegory())
       dispatch(featureProduct())
-      dispatch(bestSellerProduct())
+      // dispatch(bestSellerProduct())
       dispatch(ownDesignerProduct())
       dispatch(lovedCollectionProduct())
       dispatch(exclusiveCollectionProduct());
-      dispatch(celebrityStyleProduct())
+      // dispatch(celebrityStyleProduct())
+      dispatch(tabProduct())
     },[dispatch])
 
     useEffect(() => {
-      dispatch(
-        getCategoryProducts({ categoryId: selectedPopularStyle, pageSize:4 })
-      );
-    }, [dispatch, selectedPopularStyle]);
+    if(tabProductData && Object.keys(tabProductData)?.length>0){
+    setActiveTab(Object.keys(tabProductData)?.[0]);
+    }
+    }, [tabProductData]);
 
     // All the state and function return to LoginView
     return {
@@ -66,18 +59,15 @@ const HomeController = () => {
       isLoadingFeatureCategory,
       featureCategoryData,
       isLoadingBestSellerProduct,
-      bestSellerProductData,
       ownDesignerData,
       lovedCollectionData,
       exclusiveCollectionData,
       isLoadingCelebrityProduct,
-      celebrityProductData,
       navigate,
-      setSelectedPopularStyle,
-      isLoadingCategoryProduct,
-      categoryProductData,
-      selectedPopularStyle,
-      featureProductData
+      activeTab, setActiveTab,
+      featureProductData,
+      isLoadingTabProduct,
+      tabProductData
     };
 
 }

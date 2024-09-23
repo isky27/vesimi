@@ -54,9 +54,9 @@ const bestSellerProductApi = async (): Promise<ApiResponse> => {
   }
 };
 
-const searchProductApi = async (useData:any): Promise<ApiResponse> => {
+const tabProductApi = async (): Promise<ApiResponse> => {
   try {
-    const response: ApiResponse = (await axios.get(`products/search?${useData}`)).data;
+    const response: ApiResponse = (await axios.get(`products/home-tabs`)).data;
     return response;
   } catch (error: any) {
     throw error;
@@ -108,7 +108,7 @@ const homeService = {
   featureCagtegoryApi,
   featureProductApi,
   bestSellerProductApi,
-  searchProductApi,
+  tabProductApi,
   ownDesignersApi,
   exclusiveCollectionApi,
   lovedCollectionApi,

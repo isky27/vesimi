@@ -24,6 +24,8 @@ export interface HomeInterface {
   isLoadingMenuBar: boolean;
   headerMenuData: any;
   isLoadingCelebrityProduct: boolean,
-  celebrityProductData :any
+  celebrityProductData :any,
+  isLoadingTabProduct: boolean,
+  tabProductData: any
 }
 
