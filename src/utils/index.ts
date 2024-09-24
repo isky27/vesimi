@@ -87,10 +87,10 @@ export const getPrice = (price: any) =>{
 
 export function extractNumber(text: string): number {
   // Remove all non-numeric characters except for decimal points and commas
-  let cleanedText = text.replace(/[^0-9.,]/g, '');
+  let cleanedText = text?.replace(/[^0-9.,]/g, '');
   
   // Remove commas (used in Indian currency format)
-  cleanedText = cleanedText.replace(/,/g, '');
+  cleanedText = cleanedText?.replace(/,/g, '');
   
   // Convert the cleaned string to a float
   const number = parseFloat(cleanedText);

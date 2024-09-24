@@ -73,10 +73,9 @@ const ProductDetail = () => {
               <div className="detailPrice">
                 <p className="d-flex align-items-baseline space-x-[6px]">
                   <span
-                    className="leading-none tracking-tighter text-azaBlackShade3 fs-lg fs-lg-2xl fw-bold">{productDetailData?.data[0]?.main_price}</span>
-                  <span
-                    className="text-sm fw-normal line-through lg:text-base text-azaBlackShade4">{productDetailData?.data[0]?.currency_symbol}</span>
-                  <span className="text-sm text-lg-base text-azaGreen_5">{productDetailData?.data[0]?.discount}OFF</span>
+                    className="leading-none tracking-tighter text-azaBlackShade3 fs-lg fs-lg-2xl fw-bold">{getPrice(productDetailData?.data?.[0]?.main_price)}</span>
+                  
+                  <span className="text-sm text-lg-base text-azaGreen_5">({getPrice(productDetailData?.data[0]?.discount)}OFF)</span>
                 </p>
                 <p className="textSmallLight">(inclusive of all taxes)</p>
               </div>
