@@ -320,7 +320,6 @@ const Header = () => {
                           <li onClick={() => navigate(getCategoryUrl(216))}>
 						Nikita Vishakha
 						</li>
-                         </li>
                           <li onClick={() => navigate(getCategoryUrl(327))}>
 						Pink City by Sarika
 						</li>
