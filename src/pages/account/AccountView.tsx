@@ -45,7 +45,7 @@ const AccountView = () => {
                 <div className="infoOuter mb-4">
                     <div className="infoHead d-flex align-items-center justify-content-between">
                         <h3>Address Book</h3>
-                        <Link to={"/"}>Manage Address</Link>
+                        <Link to={"/address"}>Manage Address</Link>
                     </div>
 
                     <div className="row">

@@ -13,10 +13,9 @@ import facebookBack from '../../assets/images/facebookBack.png'
 import instagramBack from '../../assets/images/instagramBack.png';
 import pinterestBack from '../../assets/images/pinterestBack.png'
 import BookAppointment from "component/BookAppointment";
-import { Link } from "react-router-dom";
 import ProductCard from "component/ProductCard";
 import ProductCarousal from "component/ProductCarousal";
-import { getPrice } from "utils";
+import { getCategoryUrl, getPrice } from "utils";
 
 const HomeView = () => {
   const {
@@ -76,7 +75,7 @@ const HomeView = () => {
                           imageName={item?.icon}
                           isPath={true}
                           tag={item?.name}
-                          link={`/category/${item?.id}`}
+                          link={getCategoryUrl(item?.id)}
                         />
                       </div>
                     ))}
@@ -119,7 +118,7 @@ const HomeView = () => {
                               imageName={item?.icon}
                               isPath={true}
                               tag={item?.name}
-                              link={`/category/${item?.id}`}
+                              link={getCategoryUrl(item?.id)}
                             />
                           </div>
                         );
@@ -237,7 +236,7 @@ const HomeView = () => {
                               imageName={item?.banner}
                               isPath={true}
                               tag={item?.name}
-                              link={`/category/${item?.id}`}
+                              link={getCategoryUrl(item?.id)}
                             />
                           </div>
                         );
@@ -283,7 +282,7 @@ const HomeView = () => {
                               imageName={item?.banner}
                               isPath={true}
                               tag={item?.name}
-                              link={`/category/${item?.id}`}
+                              link={getCategoryUrl(item?.id)}
                             />
                           </div>
                         );
@@ -330,7 +329,7 @@ const HomeView = () => {
                               imageName={item?.banner}
                               isPath={true}
                               tag={item?.name}
-                              link={`/category/${item?.id}`}
+                              link={getCategoryUrl(item?.id)}
                             />
                           </div>
                         );
