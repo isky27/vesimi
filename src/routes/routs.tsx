@@ -11,6 +11,8 @@ const CategoryView = lazy(() => import("../pages/category/CategoryView"));
 const AboutUs = lazy(() => import("../pages/staticPages/About"));
 const AccountView = lazy(() => import("../pages/account/AccountView"));
 const CareerView = lazy(() => import("../pages/staticPages/CareerView"));
+const EditProfile = lazy(() => import("pages/account/edit/EditProfile"));
+
 
 
 /**
@@ -138,6 +140,45 @@ const CustomRoute = () => {
                 }
               >
                 <AccountView />
+              </Suspense>
+            }
+          />
+        </Route>
+
+        <Route element={<ProtectedRoute />}>
+          <Route
+            path="/edit-user"
+            element={
+              <Suspense
+                fallback={
+                  <div className="graph-loader  d-flex justify-content-center align-items-center">
+                    <div className="spinner-border  spinner-ui d-flex justify-content-center align-items-center">
+                      <span className="visually-hidden"></span>
+                    </div>
+                  </div>
+                }
+              >
+                <EditProfile />
+              </Suspense>
+            }
+          />
+        </Route>
+
+
+        <Route element={<ProtectedRoute />}>
+          <Route
+            path="/edit-user/:isChangePassword?"
+            element={
+              <Suspense
+                fallback={
+                  <div className="graph-loader  d-flex justify-content-center align-items-center">
+                    <div className="spinner-border  spinner-ui d-flex justify-content-center align-items-center">
+                      <span className="visually-hidden"></span>
+                    </div>
+                  </div>
+                }
+              >
+                <EditProfile />
               </Suspense>
             }
           />

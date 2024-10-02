@@ -167,8 +167,8 @@ const Header = () => {
                 <span>Home</span>
               </li>
               {/* <!-- what's new  --> */}
-              <li onClick={() => navigate(getCategoryUrl(5))}>
-                <span>What's New</span>
+              <li>
+                <span onClick={() => navigate(getCategoryUrl(5))}>What's New</span>
                 <div className="subNavPart">
                   <div className="container">
                     <div className="SubNavRow">
@@ -274,8 +274,8 @@ const Header = () => {
               </li>
 
               {/* <!-- Designers --> */}
-              <li onClick={() => navigate(getCategoryUrl(6))}>
-                <span>Designers</span>
+              <li>
+                <span onClick={() => navigate(getCategoryUrl(6))}>Designers</span>
                 <div className="subNavPart">
                   <div className="container">
                     <div className="SubNavRow">
@@ -417,42 +417,16 @@ const Header = () => {
                       <div className="SubNavGrid">
                         <h4>CATEGORIES</h4>
                         <ul>
-						
-						 <li onClick={() => navigate(getCategoryUrl(69))}>
-						Lehengas
-						</li> 
-						<li onClick={() => navigate(getCategoryUrl(49))}>
-						Dresses
-						</li>
-						
-						<li onClick={() => navigate(getCategoryUrl(62))}>
-						Gowns
-						</li>
-					
-						<li onClick={() => navigate(getCategoryUrl(119))}>
-						Blouses
-						</li>
-                        
-						  <li onClick={() => navigate(getCategoryUrl(106))}>
-						Dupattas
-						</li>
-                     
-					  <li onClick={() => navigate(getCategoryUrl(13))}>
-						Sarees
-						</li>
-                        <li onClick={() => navigate(getCategoryUrl(288))}>
-						Crop Tops
-						</li>
-						<li onClick={() => navigate(getCategoryUrl(54))}>
-						Anarkali Set
-						</li>
-                         	<li onClick={() => navigate(getCategoryUrl(165))}>
-						Sharara Set
-						</li>
-						<li onClick={() => navigate(getCategoryUrl(118))}>
-						Lehenga Set
-						</li>
-                        
+                          <li onClick={() => navigate(getCategoryUrl(69))}>Lehengas</li>
+                          <li onClick={() => navigate(getCategoryUrl(49))}>Dresses</li>
+                          <li onClick={() => navigate(getCategoryUrl(62))}>Gowns</li>
+                          <li onClick={() => navigate(getCategoryUrl(119))}>Blouses</li>
+                          <li onClick={() => navigate(getCategoryUrl(106))}>Dupattas</li>
+                          <li onClick={() => navigate(getCategoryUrl(13))}>Sarees</li>
+                          <li onClick={() => navigate(getCategoryUrl(288))}>Crop Tops</li>
+                          <li onClick={() => navigate(getCategoryUrl(54))}>Anarkali Set</li>
+                          <li onClick={() => navigate(getCategoryUrl(165))}>Sharara Set</li>
+                          <li onClick={() => navigate(getCategoryUrl(118))}>Lehenga Set</li>
                         </ul>
                       </div>
 
@@ -460,16 +434,16 @@ const Header = () => {
                         <h4>CATEGORIES</h4>
                         <ul>
                           <li onClick={() => navigate(getCategoryUrl(24))}>Kurta Sets</li>
-<li onClick={() => navigate(getCategoryUrl(53))}>Palazzo Set</li>
-<li onClick={() => navigate(getCategoryUrl(124))}>Skirt Sets</li>
-<li onClick={() => navigate(getCategoryUrl(15))}>Pant Sets</li>
-<li onClick={() => navigate(getCategoryUrl(23))}>Blazer Set</li>
-<li onClick={() => navigate(getCategoryUrl(91))}>Jackets</li>
-<li onClick={() => navigate(getCategoryUrl(155))}>Jumpsuits</li>
-<li onClick={() => navigate(getCategoryUrl(264))}>Trousers</li>
-<li onClick={() => navigate(getCategoryUrl(12))}>Kaftans</li>
-<li onClick={() => navigate(getCategoryUrl(118))}>Tops</li>
-<li onClick={() => navigate(getCategoryUrl(212))}>Co-Ord Set</li>
+                          <li onClick={() => navigate(getCategoryUrl(53))}>Palazzo Set</li>
+                          <li onClick={() => navigate(getCategoryUrl(124))}>Skirt Sets</li>
+                          <li onClick={() => navigate(getCategoryUrl(15))}>Pant Sets</li>
+                          <li onClick={() => navigate(getCategoryUrl(23))}>Blazer Set</li>
+                          <li onClick={() => navigate(getCategoryUrl(91))}>Jackets</li>
+                          <li onClick={() => navigate(getCategoryUrl(155))}>Jumpsuits</li>
+                          <li onClick={() => navigate(getCategoryUrl(264))}>Trousers</li>
+                          <li onClick={() => navigate(getCategoryUrl(12))}>Kaftans</li>
+                          <li onClick={() => navigate(getCategoryUrl(118))}>Tops</li>
+                          <li onClick={() => navigate(getCategoryUrl(212))}>Co-Ord Set</li>
                         </ul>
                         <div className="viewmore">VIEW ALL</div>
                       </div>
@@ -477,16 +451,16 @@ const Header = () => {
                       <div className="SubNavGrid">
                         <h4>DESIGNERS</h4>
                         <ul>
-                    <li onClick={() => navigate(getCategoryUrl(1139))}>Ahi Clothing</li>
-<li onClick={() => navigate(getCategoryUrl(180))}>Vvani by Vani Vats</li>
-<li onClick={() => navigate(getCategoryUrl(1508))}>Vannikaa Malik</li>
-<li onClick={() => navigate(getCategoryUrl(359))}>Krisha Sunny Ramani</li>
-<li onClick={() => navigate(getCategoryUrl(678))}>Bhanuni by Jyoti</li>
-<li onClick={() => navigate(getCategoryUrl(774))}>Enness Studio</li>
-<li onClick={() => navigate(getCategoryUrl(981))}>Deme By Gabriella</li>
-<li onClick={() => navigate(getCategoryUrl(593))}>Moledro</li>
-<li onClick={() => navigate(getCategoryUrl(877))}>Jigar & Nikita</li>
-<li onClick={() => navigate(getCategoryUrl(28))}>Masaba</li>
+                          <li onClick={() => navigate(getCategoryUrl(1139))}>Ahi Clothing</li>
+                          <li onClick={() => navigate(getCategoryUrl(180))}>Vvani by Vani Vats</li>
+                          <li onClick={() => navigate(getCategoryUrl(1508))}>Vannikaa Malik</li>
+                          <li onClick={() => navigate(getCategoryUrl(359))}>Krisha Sunny Ramani</li>
+                          <li onClick={() => navigate(getCategoryUrl(678))}>Bhanuni by Jyoti</li>
+                          <li onClick={() => navigate(getCategoryUrl(774))}>Enness Studio</li>
+                          <li onClick={() => navigate(getCategoryUrl(981))}>Deme By Gabriella</li>
+                          <li onClick={() => navigate(getCategoryUrl(593))}>Moledro</li>
+                          <li onClick={() => navigate(getCategoryUrl(877))}>Jigar & Nikita</li>
+                          <li onClick={() => navigate(getCategoryUrl(28))}>Masaba</li>
                         </ul>
                         <div className="viewmore">VIEW ALL</div>
                       </div>
@@ -527,39 +501,38 @@ const Header = () => {
               {/* <!-- Man --> */}
               <li>
                 <span>Man</span>
-
                 <div className="subNavPart">
                   <div className="container">
                     <div className="SubNavRow">
                       <div className="SubNavGrid">
                         <h4>CATEGORIES</h4>
                         <ul>
-                         <li onClick={() => navigate(getCategoryUrl(24))}>Kurta Sets</li>
-<li onClick={() => navigate(getCategoryUrl(136))}>Kurtas</li>
-<li onClick={() => navigate(getCategoryUrl(31))}>Kurta Pyjamas</li>
-<li onClick={() => navigate(getCategoryUrl(140))}>Sherwanis</li>
-<li onClick={() => navigate(getCategoryUrl(592))}>Nehru Jacket & Sets</li>
-<li onClick={() => navigate(getCategoryUrl(141))}>Bandhgalas</li>
-<li onClick={() => navigate(getCategoryUrl(30))}>Shirts</li>
-<li onClick={() => navigate(getCategoryUrl(425))}>Footwear</li>
-<li onClick={() => navigate(getCategoryUrl(138))}>Bottoms</li>
-<li onClick={() => navigate(getCategoryUrl(91))}>Jackets</li>
+                          <li onClick={() => navigate(getCategoryUrl(24))}>Kurta Sets</li>
+                          <li onClick={() => navigate(getCategoryUrl(136))}>Kurtas</li>
+                          <li onClick={() => navigate(getCategoryUrl(31))}>Kurta Pyjamas</li>
+                          <li onClick={() => navigate(getCategoryUrl(140))}>Sherwanis</li>
+                          <li onClick={() => navigate(getCategoryUrl(592))}>Nehru Jacket & Sets</li>
+                          <li onClick={() => navigate(getCategoryUrl(141))}>Bandhgalas</li>
+                          <li onClick={() => navigate(getCategoryUrl(30))}>Shirts</li>
+                          <li onClick={() => navigate(getCategoryUrl(425))}>Footwear</li>
+                          <li onClick={() => navigate(getCategoryUrl(138))}>Bottoms</li>
+                          <li onClick={() => navigate(getCategoryUrl(91))}>Jackets</li>
                         </ul>
                       </div>
 
                       <div className="SubNavGrid">
                         <h4>CATEGORIES</h4>
                         <ul>
-                  <li onClick={() => navigate(getCategoryUrl(763))}>Tuxedo Set</li>
-<li onClick={() => navigate(getCategoryUrl(269))}>Shorts</li>
-<li onClick={() => navigate(getCategoryUrl(466))}>Tuxedo</li>
-<li onClick={() => navigate(getCategoryUrl(1325))}>Ethnic Wear</li>
-<li onClick={() => navigate(getCategoryUrl(264))}>Trousers</li>
-<li onClick={() => navigate(getCategoryUrl(261))}>Waistcoat</li>
-<li onClick={() => navigate(getCategoryUrl(468))}>Shrug Set</li>
-<li onClick={() => navigate(getCategoryUrl(462))}>Pashmina Shawl</li>
-<li onClick={() => navigate(getCategoryUrl(764))}>Jodhpuris</li>
-<li onClick={() => navigate(getCategoryUrl(10))}>Bandi Set</li>
+                          <li onClick={() => navigate(getCategoryUrl(763))}>Tuxedo Set</li>
+                          <li onClick={() => navigate(getCategoryUrl(269))}>Shorts</li>
+                          <li onClick={() => navigate(getCategoryUrl(466))}>Tuxedo</li>
+                          <li onClick={() => navigate(getCategoryUrl(1325))}>Ethnic Wear</li>
+                          <li onClick={() => navigate(getCategoryUrl(264))}>Trousers</li>
+                          <li onClick={() => navigate(getCategoryUrl(261))}>Waistcoat</li>
+                          <li onClick={() => navigate(getCategoryUrl(468))}>Shrug Set</li>
+                          <li onClick={() => navigate(getCategoryUrl(462))}>Pashmina Shawl</li>
+                          <li onClick={() => navigate(getCategoryUrl(764))}>Jodhpuris</li>
+                          <li onClick={() => navigate(getCategoryUrl(10))}>Bandi Set</li>
                         </ul>
                         <div className="viewmore">VIEW ALL</div>
                       </div>
@@ -567,16 +540,16 @@ const Header = () => {
                       <div className="SubNavGrid">
                         <h4>DESIGNERS</h4>
                         <ul>
-                        <li onClick={() => navigate(getCategoryUrl(389))}>Inder Clothing Studio</li>
-<li onClick={() => navigate(getCategoryUrl(131))}>Jenjum Gadi</li>
-<li onClick={() => navigate(getCategoryUrl(426))}>Kalista</li>
-<li onClick={() => navigate(getCategoryUrl(359))}>Krisha Sunny Ramani</li>
-<li onClick={() => navigate(getCategoryUrl(28))}>Masaba</li>
-<li onClick={() => navigate(getCategoryUrl(254))}>S&N by Shantnu Nikhil</li>
-<li onClick={() => navigate(getCategoryUrl(459))}>Jatin Malik Couture</li>
-<li onClick={() => navigate(getCategoryUrl(836))}>Khushboo & Pankaj</li>
-<li onClick={() => navigate(getCategoryUrl(877))}>Jigar & Nikita</li>
-<li onClick={() => navigate(getCategoryUrl(997))}>Rey & I</li>
+                          <li onClick={() => navigate(getCategoryUrl(389))}>Inder Clothing Studio</li>
+                          <li onClick={() => navigate(getCategoryUrl(131))}>Jenjum Gadi</li>
+                          <li onClick={() => navigate(getCategoryUrl(426))}>Kalista</li>
+                          <li onClick={() => navigate(getCategoryUrl(359))}>Krisha Sunny Ramani</li>
+                          <li onClick={() => navigate(getCategoryUrl(28))}>Masaba</li>
+                          <li onClick={() => navigate(getCategoryUrl(254))}>S&N by Shantnu Nikhil</li>
+                          <li onClick={() => navigate(getCategoryUrl(459))}>Jatin Malik Couture</li>
+                          <li onClick={() => navigate(getCategoryUrl(836))}>Khushboo & Pankaj</li>
+                          <li onClick={() => navigate(getCategoryUrl(877))}>Jigar & Nikita</li>
+                          <li onClick={() => navigate(getCategoryUrl(997))}>Rey & I</li>
                         </ul>
                         <div className="viewmore">VIEW ALL</div>
                       </div>
@@ -628,12 +601,12 @@ const Header = () => {
                       <div className="SubNavGrid">
                         <h4>BOYS</h4>
                         <ul>
-                       <li onClick={() => navigate(getCategoryUrl(269))}>Shorts</li>
-<li onClick={() => navigate(getCategoryUrl(24))}>Kurta Sets</li>
-<li onClick={() => navigate(getCategoryUrl(136))}>Kurtas</li>
-<li onClick={() => navigate(getCategoryUrl(91))}>Jackets</li>
-<li onClick={() => navigate(getCategoryUrl(140))}>Sherwanis</li>
-<li onClick={() => navigate(getCategoryUrl(1170))}>Suits & Tuxedos</li>
+                          <li onClick={() => navigate(getCategoryUrl(269))}>Shorts</li>
+                          <li onClick={() => navigate(getCategoryUrl(24))}>Kurta Sets</li>
+                          <li onClick={() => navigate(getCategoryUrl(136))}>Kurtas</li>
+                          <li onClick={() => navigate(getCategoryUrl(91))}>Jackets</li>
+                          <li onClick={() => navigate(getCategoryUrl(140))}>Sherwanis</li>
+                          <li onClick={() => navigate(getCategoryUrl(1170))}>Suits & Tuxedos</li>
                         </ul>
                         <div className="viewmore">VIEW ALL</div>
                       </div>
