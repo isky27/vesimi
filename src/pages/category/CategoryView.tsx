@@ -175,7 +175,7 @@ const CategoryView = () => {
 
               <div className="productListinfWrap">
                 <div className="row">
-                  {searchProductData?.data?.map((item: any) => {
+                  {(!isLoadingSearchProduct && searchProductData?.data?.length > 0) && searchProductData?.data?.map((item: any) => {
                     return (
                       <div key={item?.id} className="col-sm-6 col-lg-4">
                         <div className="productCols position-relative mb-2 mb-md-3">
@@ -224,6 +224,7 @@ const CategoryView = () => {
                       </div>
                     );
                   })}
+                  {(!isLoadingSearchProduct && !(searchProductData?.data?.length > 0)) && <div className='text-center'> No products to show.</div>}
                 </div>
                 {searchProductData?.meta?.total > 0 && <Pagination
                   total={searchProductData?.meta?.total}

@@ -6,10 +6,7 @@ const CategeryCard = ({ imageName, isPath, tag, link, subTag, bottomText }: any)
     const navigate = useNavigate()
 
     return (
-      <div
-        className="productCols position-relative"
-        onClick={() => navigate(link ?? "/")}
-      >
+      <div className="productCols position-relative cursorPointer" onClick={() => link && navigate(link ?? "/")}>
           <picture>
             <img
               src={isPath ? imageName : require(`assets/images/${imageName}`)}

@@ -32,6 +32,7 @@ const HomeController = () => {
       isLoadingTabProduct, tabProductData } = useAppSelector((state:any) => state.home);
       
     useEffect(()=>{
+      window.scrollTo(0, 0);
       dispatch(homeMainSlider())
       dispatch(homeTopCategory())
       dispatch(featureCagtegory())

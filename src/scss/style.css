@@ -162,6 +162,10 @@ body {
   margin: 0px;
 }
 
+.cursorPointer{
+  cursor: pointer;
+}
+
 .loading{
   overflow: auto !important;
 }

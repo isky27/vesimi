@@ -22,17 +22,7 @@ const ProductDetail = () => {
     <section className="pageMain">
       <Loader isLoading={[isLoadingProductDetail, isLoadingRelatedProducts]} />
 
-      <div className="container">
-
-        <div className="pageHead">
-          <nav aria-label="breadcrumb" className=" ">
-            <ol className="breadcrumb">
-              <li className="breadcrumb-item"><a href="/">Home</a></li>
-              <li className="breadcrumb-item active" aria-current="page">Designer Menswear</li>
-            </ol>
-          </nav>
-        </div>
-
+      <div className="container mt-4">
         {/* <!-- DETAIL PAGE CONTENT --> */}
 
         <div className="row">

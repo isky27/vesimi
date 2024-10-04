@@ -10,13 +10,13 @@ import { priceRange } from "constant";
  */
 
 const CategoryController = () => {
-  const { categoryId=""} = useParams();
+  const { categoryId = "" } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
   const [filterCategory, setFilterCategory] = useState<any>(new Set([searchParams.get("sub-category") ?? categoryId]));
   const [filterDesigner, setFilterDesigner] = useState<any>(new Set([searchParams.get("designer")]));
   const [filterSize, setFilterSize] = useState<any>(new Set([searchParams.get("size")]));
   const [filterColor, setFilterColor] = useState<any>(new Set([searchParams.get("color")]));
-  const [filterPrice, setFilterPrice] = useState<any>([searchParams.get("min") ?? priceRange[0],searchParams.get("max") ?? priceRange[1]] );
+  const [filterPrice, setFilterPrice] = useState<any>([searchParams.get("min") ?? priceRange[0], searchParams.get("max") ?? priceRange[1]]);
   const [currentPage, setCurrentPage] = useState<any>(1);
 
   // Import data from auth selectora
@@ -29,7 +29,6 @@ const CategoryController = () => {
   } = useAppSelector((state: any) => state.category);
 
   useEffect(() => {
-
     let newSearchParams: any = {};
     searchParams.forEach((value, key) => {
       newSearchParams[key] = value;
@@ -50,14 +49,14 @@ const CategoryController = () => {
     let selectedCategory = filterCategory.values().next().value;
     let priceLimit = filterPrice.values();
     let minPrice = priceLimit.next().value;
-    let maxPrice = priceLimit.next().value;  
+    let maxPrice = priceLimit.next().value;
     //    // Update 'color' and 'designer' parameters using the helper function
     updateSearchParams('size', selectedSize);
     updateSearchParams('color', selectedColor);
     updateSearchParams('designer', selectedDesigner);
     updateSearchParams('sub-category', selectedCategory);
     updateSearchParams('min', minPrice);
-    updateSearchParams('max',maxPrice);
+    updateSearchParams('max', maxPrice);
     setCurrentPage(1)
     // Check if newSearchParams has any keys
     const hasParams = Object.keys(newSearchParams).length > 0;
@@ -70,6 +69,7 @@ const CategoryController = () => {
   }, [dispatch, categoryId]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     dispatch(getSearchProducts({
       color: searchParams.get("color"),
       category: searchParams.get("sub-category"),
@@ -83,9 +83,9 @@ const CategoryController = () => {
   }, [dispatch, currentPage, searchParams])
 
   const handlePriceChange = (newRange: any) => {
-    setFilterPrice([newRange[0].toString(),newRange[1].toString()]);
+    setFilterPrice([newRange[0].toString(), newRange[1].toString()]);
   };
-  const handlePriceReset=()=>{
+  const handlePriceReset = () => {
     setFilterPrice(priceRange);
   }
 

@@ -14,6 +14,7 @@ const ProductDetailController = () => {
 
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         dispatch(getProductDetails({ productId: productId }))
         dispatch(getRealtedProducts({ productId: productId }))
     }, [dispatch, productId])
@@ -24,7 +25,6 @@ const ProductDetailController = () => {
         }
 
     }, [productDetailData])
-
 
     return {
         isLoadingProductDetail,
