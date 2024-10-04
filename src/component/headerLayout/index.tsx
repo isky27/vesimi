@@ -75,8 +75,8 @@ const Header = () => {
                   aria-labelledby="countrySET"
                 >
                   <ul className="SearchedcountryList">
-                    {Object.values(countryOptions).filter((el:any)=>el.currency!==selectedCurrency).map((element: any) => {
-                      return <li key={element?.currency} onClick={()=>handleCurrencyChange(element)}>
+                    {Object.values(countryOptions).filter((el: any) => el.currency !== selectedCurrency).map((element: any) => {
+                      return <li key={element?.currency} onClick={() => handleCurrencyChange(element)}>
                         <span>{element.country}</span>
                         <span>({element.currency})</span>
                       </li>
@@ -88,22 +88,22 @@ const Header = () => {
 
             <div className="HeaderSearchOuter">
               <form onSubmit={handleSearch}>
-              <span
-                className="headerSearchIcon bg-image"
-                style={{ backgroundPosition: "-411px -132px" }}
-              ></span>
-              <input
-                type="text"
-                value={searchInput}
-                className=""
-                onChange={
-                 (e)=>setSearchInput(e.target.value)
-                }
-                placeholder="Search for products, brand and more"
-              />
-              <button className="uploadSearchPicRight" type="submit">
-                Search
-              </button>
+                <span
+                  className="headerSearchIcon bg-image"
+                  style={{ backgroundPosition: "-411px -132px" }}
+                ></span>
+                <input
+                  type="text"
+                  value={searchInput}
+                  className=""
+                  onChange={
+                    (e) => setSearchInput(e.target.value)
+                  }
+                  placeholder="Search for products, brand and more"
+                />
+                <button className="uploadSearchPicRight" type="submit">
+                  Search
+                </button>
               </form>
             </div>
 
@@ -118,16 +118,16 @@ const Header = () => {
                   {loginDetails ? <ul className="ProfileDropDown">
                     <li ><Link to={"/account"}>Your Account</Link></li>
                     <li onClick={handleLogout}>Logout</li>
-                  </ul> : 
-                  
-                  <ul className="ProfileDropDown">
-                    <li onClick={() => setIsOpenLoginPopup(!isOpenLoginPopup)}>
-                      Login
-                    </li>
-                    <li onClick={() => setIsOpenSignupPopup(!isOpenSignupPopup)}>
-                      Register
-                    </li>
-                  </ul>}
+                  </ul> :
+
+                    <ul className="ProfileDropDown">
+                      <li onClick={() => setIsOpenLoginPopup(!isOpenLoginPopup)}>
+                        Login
+                      </li>
+                      <li onClick={() => setIsOpenSignupPopup(!isOpenSignupPopup)}>
+                        Register
+                      </li>
+                    </ul>}
                 </li>
                 <li className="wishList">
                   <span
@@ -203,36 +203,36 @@ const Header = () => {
                             Masaba
                           </li>
                           <li onClick={() => navigate(getCategoryUrl(180))}>
-                          Vvani by Vani Vats
+                            Vvani by Vani Vats
                           </li>
                           <li onClick={() => navigate(getCategoryUrl(1508))}>
-                          Vannikaa Malik
+                            Vannikaa Malik
                           </li>
                           <li onClick={() => navigate(getCategoryUrl(359))}>
-                          Krisha Sunny Ramani
+                            Krisha Sunny Ramani
                           </li>
                           <li onClick={() => navigate(getCategoryUrl(527))}>
-                          Redpine Designs
+                            Redpine Designs
                           </li>
                           <li onClick={() => navigate(getCategoryUrl(1171))}>
-                          Kudi Pataka
+                            Kudi Pataka
                           </li>
-                      
-                      
+
+
                           <li onClick={() => navigate(getCategoryUrl(1562))}>
-                          Rooh by Ridhimaa
+                            Rooh by Ridhimaa
                           </li>
                           <li onClick={() => navigate(getCategoryUrl(981))}>
-                          Deme by Gabriella
+                            Deme by Gabriella
                           </li>
-                        
+
                           <li onClick={() => navigate(getCategoryUrl(1484))}>
-                          Tyohar
+                            Tyohar
                           </li>
-                             <li onClick={() => navigate(getCategoryUrl(593))}>
-                          Deme by Gabriella
+                          <li onClick={() => navigate(getCategoryUrl(593))}>
+                            Deme by Gabriella
                           </li>
-                       
+
                         </ul>
                         <div className="viewmore">VIEW ALL</div>
                       </div>
@@ -282,55 +282,55 @@ const Header = () => {
                       <div className="SubNavGrid">
                         <h4>SALE</h4>
                         <ul>
-                      
-                        <li onClick={() => navigate(getCategoryUrl(392))}>
-                        Kovet
-                     </li>
-                     <li onClick={() => navigate(getCategoryUrl(836))}>
-                     Khushboo & Pankaj
-                     </li>
-                     <li onClick={() => navigate(getCategoryUrl(1079))}>
-                     Lil Drama
-                     </li>
-                          
+
+                          <li onClick={() => navigate(getCategoryUrl(392))}>
+                            Kovet
+                          </li>
+                          <li onClick={() => navigate(getCategoryUrl(836))}>
+                            Khushboo & Pankaj
+                          </li>
+                          <li onClick={() => navigate(getCategoryUrl(1079))}>
+                            Lil Drama
+                          </li>
+
                         </ul>
                       </div>
 
                       <div className="SubNavGrid">
                         <h4>FEATURED</h4>
                         <ul>
-                        <li onClick={() => navigate(getCategoryUrl(706))}>
-                        Amka India
-                     </li>
-						<li onClick={() => navigate(getCategoryUrl(760))}>
-                     Amrit Dawani
-						</li>
-						<li onClick={() => navigate(getCategoryUrl(510))}>
-						Ease
-						</li>
-						<li onClick={() => navigate(getCategoryUrl(389))}>
-						Inder Clothing Studio
-						</li>
-                       <li onClick={() => navigate(getCategoryUrl(76))}>
-						Masumi Mewawalla
-						</li>
-                       <li onClick={() => navigate(getCategoryUrl(206))}>
-						Monisha Jaising
-						</li>
+                          <li onClick={() => navigate(getCategoryUrl(706))}>
+                            Amka India
+                          </li>
+                          <li onClick={() => navigate(getCategoryUrl(760))}>
+                            Amrit Dawani
+                          </li>
+                          <li onClick={() => navigate(getCategoryUrl(510))}>
+                            Ease
+                          </li>
+                          <li onClick={() => navigate(getCategoryUrl(389))}>
+                            Inder Clothing Studio
+                          </li>
+                          <li onClick={() => navigate(getCategoryUrl(76))}>
+                            Masumi Mewawalla
+                          </li>
+                          <li onClick={() => navigate(getCategoryUrl(206))}>
+                            Monisha Jaising
+                          </li>
                           <li onClick={() => navigate(getCategoryUrl(216))}>
-						Nikita Vishakha
-						</li>
+                            Nikita Vishakha
+                          </li>
                           <li onClick={() => navigate(getCategoryUrl(327))}>
-						Pink City by Sarika
-						</li>
+                            Pink City by Sarika
+                          </li>
                           <li onClick={() => navigate(getCategoryUrl(242))}>
-						Neeta Lulla
-						</li>
+                            Neeta Lulla
+                          </li>
                           <li onClick={() => navigate(getCategoryUrl(158))}>
-						Mala And Kinnary
-						</li>
-                          
-                        
+                            Mala And Kinnary
+                          </li>
+
+
                         </ul>
                         <div className="viewmore">VIEW ALL</div>
                       </div>
@@ -338,39 +338,39 @@ const Header = () => {
                       <div className="SubNavGrid">
                         <h4>TRENDING</h4>
                         <ul>
-						 <li onClick={() => navigate(getCategoryUrl(1139))}>
-						Ahi Clothing
-						</li>
-						 <li onClick={() => navigate(getCategoryUrl(180))}>
-						Vvani by Vani Vats
-						</li>
-                        <li onClick={() => navigate(getCategoryUrl(1508))}>
-						Vannikaa Malik
-						</li>
+                          <li onClick={() => navigate(getCategoryUrl(1139))}>
+                            Ahi Clothing
+                          </li>
+                          <li onClick={() => navigate(getCategoryUrl(180))}>
+                            Vvani by Vani Vats
+                          </li>
+                          <li onClick={() => navigate(getCategoryUrl(1508))}>
+                            Vannikaa Malik
+                          </li>
                           <li onClick={() => navigate(getCategoryUrl(359))}>
-						Krisha Sunny Ramani
-						</li>
-                      <li onClick={() => navigate(getCategoryUrl(678))}>
-						Bhanuni by Jyoti
-						</li>
-                           <li onClick={() => navigate(getCategoryUrl(774))}>
-						Enness Studio
-						</li>
-                     
-                           <li onClick={() => navigate(getCategoryUrl(981))}>
-						Deme By Gabriella
-						</li>
-						   <li onClick={() => navigate(getCategoryUrl(693))}>
-						Mona & Vishu
-						</li>
-                         <li onClick={() => navigate(getCategoryUrl(877))}>
-						Jigar & Nikita
-						</li>
-                           <li onClick={() => navigate(getCategoryUrl(28))}>
-						Masaba
-						</li>
-                          
-                       
+                            Krisha Sunny Ramani
+                          </li>
+                          <li onClick={() => navigate(getCategoryUrl(678))}>
+                            Bhanuni by Jyoti
+                          </li>
+                          <li onClick={() => navigate(getCategoryUrl(774))}>
+                            Enness Studio
+                          </li>
+
+                          <li onClick={() => navigate(getCategoryUrl(981))}>
+                            Deme By Gabriella
+                          </li>
+                          <li onClick={() => navigate(getCategoryUrl(693))}>
+                            Mona & Vishu
+                          </li>
+                          <li onClick={() => navigate(getCategoryUrl(877))}>
+                            Jigar & Nikita
+                          </li>
+                          <li onClick={() => navigate(getCategoryUrl(28))}>
+                            Masaba
+                          </li>
+
+
                         </ul>
                         <div className="viewmore">VIEW ALL</div>
                       </div>
@@ -943,7 +943,7 @@ const Header = () => {
               Already have an account
             </Button>
           </div>
-           <div className="d-flex justify-content-end gap-2 mt-3">
+          <div className="d-flex justify-content-end gap-2 mt-3">
             <Button
               className="font-14 w-100"
               onClick={() => setIsOpenSignupPopup(false)}

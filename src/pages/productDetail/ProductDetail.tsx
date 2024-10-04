@@ -36,7 +36,7 @@ const ProductDetail = () => {
         {/* <!-- DETAIL PAGE CONTENT --> */}
 
         <div className="row">
-          <div className="col-lg-5">
+          <div className="col-lg-6">
             <div className="imageContainer pe-0 pe-xl-5">
               <div className="row">
                 {/* Left Side (Thumbnails) */}
@@ -57,13 +57,13 @@ const ProductDetail = () => {
                 {/* Right Side (Main Image) */}
                 <div className="col-9">
                   <div className="main-image-wrapper">
-                    <InnerImageZoom src={selectedImage} zoomSrc={selectedImage}  zoomScale={2.5} />
+                    <InnerImageZoom src={selectedImage} zoomSrc={selectedImage} zoomScale={2.5} />
                   </div>
                 </div>
               </div>
-              </div>
+            </div>
           </div>
-          <div className="col-lg-7">
+          <div className="col-lg-6">
             <div className="detailPageContent">
               <div className="d-flex flex-wrap align-items-center">
                 <h1 className="innerPageTitle" style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}>{productDetailData?.data[0]?.designer}</h1>
@@ -77,31 +77,20 @@ const ProductDetail = () => {
                 <p className="d-flex align-items-baseline space-x-[6px]">
                   <span
                     className="leading-none tracking-tighter text-azaBlackShade3 fs-lg fs-lg-2xl fw-bold">{getPrice(productDetailData?.data?.[0]?.main_price)}</span>
-                  
+
                   <span className="text-sm text-lg-base text-azaGreen_5">({getPrice(productDetailData?.data[0]?.discount)}OFF)</span>
                 </p>
                 <p className="textSmallLight">(inclusive of all taxes)</p>
               </div>
 
               <div className="sizePart">
-                <div className="d-flex">
-                  <h4>SELECT SIZE </h4><button>Size Guide </button>
+                <div className="sizeGuide">
+                  <h4>SELECT SIZE </h4><button>Size Guide</button>
                 </div>
-                <div className="sizePartTabs">
-                  <ul>
-                    {productDetailData?.data[0]?.choice_options[0]?.options?.map((elem: string) => {
-                      return (<li key={elem}>
-                        <div>
-                          <i className="bg-image"
-                            style={{ backgroundPosition: "-267px -184px", width: "8px", height: "13px" }}></i>{elem}
-                        </div>
-
-                      </li>)
-                    })}
-                  </ul>
-                  <strong style={{ backgroundPosition: "-276px -184px", width: "14px", height: "14px" }}
-                    className="bg-image"></strong>
-
+                <div className="sizePartTabs d-flex flex-wrap gap-3">
+                  {productDetailData?.data[0]?.choice_options[0]?.options?.map((elem: string) => {
+                    return <button className={`sizeBtn ${selectedSize === elem ? "selected" : ""}`} onClick={() => setSelectedSize(elem)} key={elem}>{elem}</button>
+                  })}
                 </div>
               </div>
 
@@ -115,17 +104,14 @@ const ProductDetail = () => {
                     style={{ backgroundPosition: "-181px -158px", width: "1.25rem", height: "1.25rem" }}></i>WISHLIST</button>
               </div>
 
-
               <div className="AboutDetail">
                 <div id="profile-description">
                   <div className="">
                     <h4>ABOUT</h4>
                     <p dangerouslySetInnerHTML={{ __html: productDetailData?.data[0]?.description }}></p>
-                    <ul>
-                      {productDetailData?.data[0]?.other_attribute && Object.entries(productDetailData?.data[0]?.other_attribute)?.map((atr: any) => {
-                        return <li key={atr[0]}>{atr[0]} : {atr[1]} </li>
-                      })}
-                    </ul>
+                    {productDetailData?.data[0]?.other_attribute && Object.entries(productDetailData?.data[0]?.other_attribute)?.map((atr: any) => {
+                      return <p className='d-flex gap-1 align-items-top' key={atr[0]}><p dangerouslySetInnerHTML={{ __html: atr[0] }}></p><p> : </p><p dangerouslySetInnerHTML={{ __html: atr[1] }}></p></p>
+                    })}
                   </div>
                   {/* <div className="show-more">Show More</div> */}
                 </div>

@@ -1214,12 +1214,13 @@ span.appOnly {
   font-weight: 500;
 }
 
-.sizePart > .d-flex {
+.sizePart .sizeGuide {
+  display:flex;
   margin: 15px 0;
 }
  
 
-.sizePart > .d-flex button {
+.sizePart .sizeGuide button {
   color: #bc3d19;
   border: none;
   background: no-repeat;
@@ -1230,38 +1231,28 @@ span.appOnly {
   padding: 15px 0;
 }
 
-.sizePartTabs ul {
-  display: flex;
-}
-
-.sizePartTabs ul li {
-  min-width: 40px;
+.sizePartTabs .sizeBtn {
+  width: 40px;
   border: 1px solid #e6e6e6;
+  background-color: white;
   min-height: 40px;
-  margin-right: 10px;
   border-radius: 5px;
   text-align: center;
   font-size: 11px;
-  display: flex;
-  align-items: center;
-  justify-content: center; 
   padding:4px 5px;
 }
 
-.sizePartTabs ul li small {
-  display: block;
-  flex: 0 0 100%;
-  max-width: 100%;
-  line-height: 1;
+.sizePartTabs .selected {
+  border: 1px solid #bc3d19;
+  font-weight: 700;
 }
 
-.sizePartTabs ul li i {
-  margin-right: 4px;
-}
+
 .ButtonTabsAction {
   display: flex;
   flex-wrap: wrap;
 }
+
 .ButtonTabsAction .addToCart {
   flex: 1;
 }
@@ -1295,7 +1286,7 @@ span.appOnly {
 }
 
 #profile-description p {
-  margin: 10px 0;
+  margin: 2px 0;
 }
 
 .relatedTabs button {
