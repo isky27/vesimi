@@ -229,10 +229,6 @@ const Header = () => {
                           <li onClick={() => navigate(getCategoryUrl(1484))}>
                             Tyohar
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(593))}>
-                            Deme by Gabriella
-                          </li>
-
                         </ul>
                         <div className="viewmore">VIEW ALL</div>
                       </div>
