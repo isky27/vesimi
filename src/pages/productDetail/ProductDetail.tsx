@@ -1,9 +1,11 @@
-import React from 'react'
 import ProductDetailController from './productDetailController'
 import Loader from 'component/Loader'
 import ProductCard from 'component/ProductCard';
 import ProductCarousal from 'component/ProductCarousal';
 import { getPrice } from 'utils';
+import InnerImageZoom from 'react-inner-image-zoom';
+import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
+
 
 const ProductDetail = () => {
 
@@ -13,7 +15,8 @@ const ProductDetail = () => {
     isLoadingRelatedProducts,
     relatedProductsData,
     selectedImage,
-    setSelectedImage } = ProductDetailController()
+    setSelectedImage,
+    selectedSize, setSelectedSize } = ProductDetailController()
 
   return (
     <section className="pageMain">
@@ -54,7 +57,7 @@ const ProductDetail = () => {
                 {/* Right Side (Main Image) */}
                 <div className="col-9">
                   <div className="main-image-wrapper">
-                    <img src={selectedImage} alt="Main" className="main-image" />
+                    <InnerImageZoom src={selectedImage} zoomSrc={selectedImage}  zoomScale={2.5} />
                   </div>
                 </div>
               </div>

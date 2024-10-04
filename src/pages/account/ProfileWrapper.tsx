@@ -2,9 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import "../../scss/myAccount.css";
 
-const ProfileWrapper = ({children}:any) => {
-  return (
-    <main className="pageMain">
+const ProfileWrapper = ({ children }: any) => {
+    return (
+        <main className="pageMain">
             <div className="container">
                 <div className="myAccountPage">
                     <div className="accountSidebar">
@@ -24,7 +24,7 @@ const ProfileWrapper = ({children}:any) => {
                 </div>
             </div>
         </main>
-  )
+    )
 }
 
 export default ProfileWrapper

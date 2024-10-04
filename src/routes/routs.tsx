@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ProtectedRoute, { HomeRoute } from "../auth/ProtectedRoute";
 import ProductDetail from "pages/productDetail/ProductDetail";
+import EditAddressView from "pages/address/editAddress/EditAddressView";
 
 
 const ContactUs = lazy(()=> import("../pages/staticPages/ContactUs"));
@@ -179,6 +180,25 @@ const CustomRoute = () => {
                 }
               >
                 <EditProfile />
+              </Suspense>
+            }
+          />
+        </Route>
+
+        <Route element={<ProtectedRoute />}>
+          <Route
+            path="/address"
+            element={
+              <Suspense
+                fallback={
+                  <div className="graph-loader  d-flex justify-content-center align-items-center">
+                    <div className="spinner-border  spinner-ui d-flex justify-content-center align-items-center">
+                      <span className="visually-hidden"></span>
+                    </div>
+                  </div>
+                }
+              >
+                <EditAddressView />
               </Suspense>
             }
           />
