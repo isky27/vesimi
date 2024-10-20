@@ -3,21 +3,18 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "store/redux.hooks";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { currencyChange, loginPost, logoutPost, signUpPost } from "store/auth/authDataSlice";
+import { currencyChange, loginPost, logoutPost, setOpenLoginPopup, setOpenSignPopup, signUpPost } from "store/auth/authDataSlice";
 import { emailRegex, phoneRegex, priceRange } from "constant";
 
 const HeaderController = () => {
   const [searchParams] = useSearchParams();
-
-  const [isOpenLoginPopup, setIsOpenLoginPopup] = useState(false);
-  const [isOpenSignupPopup, setIsOpenSignupPopup] = useState(false);
   const [searchInput,setSearchInput] = useState(searchParams.get("name") ?? "");
 
   const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
 
-  const { loginDetails, selectedCurrency } = useAppSelector((state: any) => state.auth);
+  const { loginDetails, selectedCurrency, isOpenLoginPopup, isOpenSignupPopup } = useAppSelector((state: any) => state.auth);
 
   const loginInitialValues = {
     email: "",
@@ -48,6 +45,14 @@ const HeaderController = () => {
     },
   });
 
+  const handleOpenLoginPopup = (state: boolean) => {
+    dispatch(setOpenLoginPopup(state))
+  }
+
+  const handleOpenSignupPopup = (state: boolean) => {
+    dispatch(setOpenSignPopup(state))
+  }
+  
   const signupFormik = useFormik({
     initialValues: signupInitialValues,
     validationSchema: Yup.object({
@@ -84,7 +89,7 @@ const HeaderController = () => {
         "password": values.password,
         "login_by": login_by
       },
-      closePopup: setIsOpenLoginPopup
+      closePopup: handleOpenLoginPopup
     }))
   }
 
@@ -105,7 +110,7 @@ const HeaderController = () => {
         "passowrd_confirmation": values.passowrd_confirmation,
         "register_by":register_by,
       },
-      closePopup: setIsOpenSignupPopup
+      closePopup: handleOpenSignupPopup
     }))
   }
 
@@ -132,9 +137,9 @@ const HeaderController = () => {
 
   return {
     isOpenLoginPopup,
-    setIsOpenLoginPopup,
+    handleOpenLoginPopup,
     isOpenSignupPopup,
-    setIsOpenSignupPopup,
+    handleOpenSignupPopup,
     navigate,
     loginFormik,
     signupFormik,

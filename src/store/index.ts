@@ -19,7 +19,10 @@ if (process.env.REACT_APP_IS_DEV) {
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ["loginDetails","selectedCurrency"]
+  whitelist: [
+    "loginDetails",
+    "selectedCurrency"
+  ]
 
 }
 

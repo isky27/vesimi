@@ -33,9 +33,9 @@ const Header = () => {
 
   const {
     isOpenLoginPopup,
-    setIsOpenLoginPopup,
+    handleOpenLoginPopup,
     isOpenSignupPopup,
-    setIsOpenSignupPopup,
+    handleOpenSignupPopup,
     navigate,
     loginFormik,
     signupFormik,
@@ -121,10 +121,10 @@ const Header = () => {
                   </ul> :
 
                     <ul className="ProfileDropDown">
-                      <li onClick={() => setIsOpenLoginPopup(!isOpenLoginPopup)}>
+                      <li onClick={() => handleOpenLoginPopup(!isOpenLoginPopup)}>
                         Login
                       </li>
-                      <li onClick={() => setIsOpenSignupPopup(!isOpenSignupPopup)}>
+                      <li onClick={() => handleOpenSignupPopup(!isOpenSignupPopup)}>
                         Register
                       </li>
                     </ul>}
@@ -836,7 +836,7 @@ const Header = () => {
       <CustomPopup
         modalClass="loginModal"
         show={isOpenLoginPopup}
-        handleClose={() => setIsOpenLoginPopup(false)}
+        handleClose={() => handleOpenLoginPopup(false)}
         modalHeader="Login"
       >
         <Form onSubmit={loginFormik?.handleSubmit}>
@@ -865,8 +865,8 @@ const Header = () => {
             <Button
               variant="link"
               onClick={() => {
-                setIsOpenLoginPopup(false);
-                setIsOpenSignupPopup(true);
+                handleOpenLoginPopup(false);
+                handleOpenSignupPopup(true);
               }}
             >
               Create an account
@@ -875,7 +875,7 @@ const Header = () => {
           <div className="d-flex justify-content-end gap-2 mt-3">
             <Button
               className="font-14 w-100"
-              onClick={() => setIsOpenLoginPopup(false)}
+              onClick={() => handleOpenLoginPopup(false)}
             >
               Cancel
             </Button>
@@ -889,7 +889,7 @@ const Header = () => {
         modalClass="loginModal"
         show={isOpenSignupPopup}
         modalHeader="Create an Account"
-        handleClose={() => setIsOpenSignupPopup(false)}
+        handleClose={() => handleOpenSignupPopup(false)}
       >
         <Form onSubmit={signupFormik.handleSubmit}>
           <InputField
@@ -932,8 +932,8 @@ const Header = () => {
             <Button
               variant="link"
               onClick={() => {
-                setIsOpenLoginPopup(true);
-                setIsOpenSignupPopup(false);
+                handleOpenLoginPopup(true);
+                handleOpenSignupPopup(false);
               }}
             >
               Already have an account
@@ -942,7 +942,7 @@ const Header = () => {
           <div className="d-flex justify-content-end gap-2 mt-3">
             <Button
               className="font-14 w-100"
-              onClick={() => setIsOpenSignupPopup(false)}
+              onClick={() => handleOpenSignupPopup(false)}
             >
               Cancel
             </Button>

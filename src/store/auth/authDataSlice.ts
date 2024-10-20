@@ -14,7 +14,9 @@ const initialState: AuthDataInterface = {
     isAuthLoginLoading: false,
     message: null,
     loginDetails: null,
-    selectedCurrency:"INR"
+    selectedCurrency:"INR",
+    isOpenLoginPopup: false,
+    isOpenSignupPopup: false,
 }
 
 // Async Thunks
@@ -72,6 +74,15 @@ export const currencyChange = createAsyncThunk("change/currency", async (data:an
     return data;
 });
 
+export const setOpenLoginPopup = createAsyncThunk("open/login/popup", async (data:any) => {
+    return data;
+});
+
+export const setOpenSignPopup = createAsyncThunk("open/signup/popup", async (data:any) => {
+    return data;
+});
+
+
 // Authentication Reducer
 export const authDataReducer = createSlice({
     name: "auth-login",
@@ -115,6 +126,13 @@ export const authDataReducer = createSlice({
             .addCase(currencyChange.fulfilled, (state: any,action) => {
                 state.selectedCurrency = action.payload;
             })
+            .addCase(setOpenLoginPopup.fulfilled, (state: any,action) => {
+                state.isOpenLoginPopup = action.payload;
+            })
+            .addCase(setOpenSignPopup.fulfilled, (state: any,action) => {
+                state.isOpenSignupPopup = action.payload;
+            })
+            
     }
 
 });

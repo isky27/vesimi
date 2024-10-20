@@ -5,9 +5,14 @@ import Paypal from "../../assets/images/paypal.svg";
 import AmericanExpress from "../../assets/images/american-express.svg";
 import LogoImage from "../../assets/images/VESIMI_new_logo-03.png"
 import { Link } from 'react-router-dom';
+import { setOpenLoginPopup } from 'store/auth/authDataSlice';
+import { useAppDispatch, useAppSelector } from 'store/redux.hooks';
 
 
 const Footer = () => {
+
+  const dispatch = useAppDispatch()
+  const {loginDetails} = useAppSelector((state)=> state.auth)
 
   return (
     <footer className="webFooter">
@@ -33,7 +38,7 @@ const Footer = () => {
 
           <div className="footerCols">
             <h5>ACCOUNT</h5>
-            <Link to={"/"}  className="footerNavLink">Login</Link>
+            {loginDetails ? <Link to={"/account"} className="footerNavLink">Account</Link> : <div onClick={() => dispatch(setOpenLoginPopup(true))} className="footerNavLink cursor-pointer">Login</div>}
             <Link to={"/"}  className="footerNavLink">Order History</Link>
             <Link to={"/"}  className="footerNavLink">Track My Order</Link>
            </div>

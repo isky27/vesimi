@@ -10,6 +10,8 @@ export interface AuthDataInterface {
     isAuthLoginLoading: boolean;
     message: string | null;
     loginDetails: any | null;
-    selectedCurrency: string
+    selectedCurrency: string,
+    isOpenLoginPopup: boolean,
+    isOpenSignupPopup: boolean,
 }
 
