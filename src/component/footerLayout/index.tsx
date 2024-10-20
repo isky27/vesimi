@@ -45,11 +45,11 @@ const Footer = () => {
 
            <div className="footerCols">
             <h5>CUSTOMER CARE</h5>
-            <Link to={"/"}  className="footerNavLink">Terms & Conditions</Link>
-            <Link to={"/"}  className="footerNavLink">FAQ's</Link>
-            <Link to={"/"}  className="footerNavLink">Privacy Policy</Link>
-            <Link to={"/"}  className="footerNavLink">Return & Exchange</Link>
-            <Link to={"/"}  className="footerNavLink">Refund and Cancelation Policy</Link>
+            <Link to={"/terms-conditions"}  className="footerNavLink">Terms & Conditions</Link>
+            <Link to={"/faqs"}  className="footerNavLink">FAQ's</Link>
+            <Link to={"/privacy-policy"}  className="footerNavLink">Privacy Policy</Link>
+            <Link to={"/returns-and-exchange"}  className="footerNavLink">Return & Exchange</Link>
+            <Link to={"/refund-cancellation-policy"}  className="footerNavLink">Refund and Cancelation Policy</Link>
            </div>
 
           <div className="footerCols">

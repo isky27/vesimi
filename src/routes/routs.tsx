@@ -5,6 +5,10 @@ import ProductDetail from "pages/productDetail/ProductDetail";
 import EditAddressView from "pages/address/editAddress/EditAddressView";
 import AddressView from "pages/address/AddressView";
 import TermsAndConditions from "pages/staticPages/TermsAndCondition";
+import Faq from "pages/staticPages/Faq";
+import PrivacyPolicy from "pages/staticPages/PrivacyPolicy";
+import ReturnExchange from "pages/staticPages/ReturnExchange";
+import RefundCancellation from "pages/staticPages/RefundCancellation";
 
 
 const ContactUs = lazy(() => import("../pages/staticPages/ContactUs"));
@@ -112,7 +116,7 @@ const CustomRoute = () => {
             }
           />
 
-<Route
+          <Route
             path="/terms-conditions"
             element={
               <Suspense
@@ -129,6 +133,74 @@ const CustomRoute = () => {
             }
           />
 
+          <Route
+            path="/faqs"
+            element={
+              <Suspense
+                fallback={
+                  <div className="graph-loader  d-flex justify-content-center align-items-center">
+                    <div className="spinner-border  spinner-ui d-flex justify-content-center align-items-center">
+                      <span className="visually-hidden"></span>
+                    </div>
+                  </div>
+                }
+              >
+                <Faq />
+              </Suspense>
+            }
+          />
+
+          <Route
+            path="/privacy-policy"
+            element={
+              <Suspense
+                fallback={
+                  <div className="graph-loader  d-flex justify-content-center align-items-center">
+                    <div className="spinner-border  spinner-ui d-flex justify-content-center align-items-center">
+                      <span className="visually-hidden"></span>
+                    </div>
+                  </div>
+                }
+              >
+                <PrivacyPolicy />
+              </Suspense>
+            }
+          />
+
+
+          <Route
+            path="/returns-and-exchange"
+            element={
+              <Suspense
+                fallback={
+                  <div className="graph-loader  d-flex justify-content-center align-items-center">
+                    <div className="spinner-border  spinner-ui d-flex justify-content-center align-items-center">
+                      <span className="visually-hidden"></span>
+                    </div>
+                  </div>
+                }
+              >
+                <ReturnExchange />
+              </Suspense>
+            }
+          />
+
+          <Route
+            path="/refund-cancellation-policy"
+            element={
+              <Suspense
+                fallback={
+                  <div className="graph-loader  d-flex justify-content-center align-items-center">
+                    <div className="spinner-border  spinner-ui d-flex justify-content-center align-items-center">
+                      <span className="visually-hidden"></span>
+                    </div>
+                  </div>
+                }
+              >
+                <RefundCancellation />
+              </Suspense>
+            }
+          />
           <Route
             path="/products/:productId"
             element={
