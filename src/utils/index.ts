@@ -31,7 +31,7 @@ export const getErrorMessage = (error: AxiosError): any => {
 export const getTokenHeader = () => {
   const userdata: any = getLocalStorage("loginDetails");
 
-  let token: string = userdata?.token;
+  let token: string = userdata?.access_token;
 
   return {
     headers: { Authorization: `Bearer ${token}` },

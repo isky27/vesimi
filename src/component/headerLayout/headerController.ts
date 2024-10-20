@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from "store/redux.hooks";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { currencyChange, loginPost, logoutPost, signUpPost } from "store/auth/authDataSlice";
-import { priceRange } from "constant";
+import { emailRegex, phoneRegex, priceRange } from "constant";
 
 const HeaderController = () => {
   const [searchParams] = useSearchParams();
@@ -30,10 +30,6 @@ const HeaderController = () => {
     password: "",
     passowrd_confirmation: ""
   };
-
-
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const phoneRegex = /^[0-9]{10}$/; // Assuming phone number format is 10 digits
 
   const loginFormik = useFormik({
     initialValues: loginInitialValues,

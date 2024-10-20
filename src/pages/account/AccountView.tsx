@@ -2,16 +2,19 @@ import React from 'react'
 import AccountController from './accountController';
 import { Link } from 'react-router-dom';
 import ProfileWrapper from './ProfileWrapper';
+import Loader from 'component/Loader';
 
 const AccountView = () => {
 
-    const { loginDetails } = AccountController();
+    const { loginDetails,
+        isLoadingUserAddress, userAddressData
+    } = AccountController();
 
     return (
         <ProfileWrapper>
+            <Loader isLoading={[isLoadingUserAddress]} />
             <div className="myAccountMain">
                 <h2>My Account</h2>
-
                 <div className="infoOuter mb-4">
                     <div className="infoHead">
                         <h3>Account Information</h3>
@@ -52,35 +55,20 @@ const AccountView = () => {
                         <div className="col-lg-6">
                             <div className="InfoBlock">
                                 <h4>Default Billing Address</h4>
-                                <p>Mahesh varma</p>
-                                <p>Test</p>
-                                <p>Jaipur, Rajasthan, 302020, india</p>
-                                <p>T.445646464</p>
-
+                                {userAddressData ? <>
+                                    <p>Mahesh varma</p>
+                                    <p>Test</p>
+                                    <p>Jaipur, Rajasthan, 302020, india</p>
+                                    <p>T.445646464</p>
+                                    </> : 
+                                    <h4>You have not set a default billing address.</h4>}
                                 <div className="d-flex infoAction">
-                                    <Link to={"/"}>Edit Address</Link>
+                                    <Link to={userAddressData ? "/edit-address" : "add-address" }>Edit Address</Link>
                                 </div>
                             </div>
                         </div>
-
-                        <div className="col-lg-6">
-                            <div className="InfoBlock">
-                                <h4>Default Shipping Address</h4>
-                                <p>Mahesh varma</p>
-                                <p>Test</p>
-                                <p>Jaipur, Rajasthan, 302020, india</p>
-                                <p>T.445646464</p>
-
-                                <div className="d-flex infoAction">
-                                    <Link to={"/"}>Edit Address</Link>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
-
-
             </div>
         </ProfileWrapper>
 

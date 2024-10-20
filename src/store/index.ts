@@ -6,6 +6,7 @@ import { persistReducer, persistStore } from 'redux-persist';
 import homeReducer from './home/home.slice';
 import categoryReducer from './category/category.slice';
 import productReducer from './product/productSlice';
+import accountDataReducer from './account/accountDataSlice';
 
 // Array to hold middleware
 const middleware: any = [];
@@ -29,7 +30,8 @@ const store = configureStore({
     auth: authReducer,
     home: homeReducer,
     category:categoryReducer,
-    product: productReducer
+    product: productReducer,
+    account: accountDataReducer
   },
   middleware: getDefaultMiddleware => getDefaultMiddleware({
     // Disable checks for immutability and serializability for improved performance

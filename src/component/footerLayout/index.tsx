@@ -17,7 +17,7 @@ const Footer = () => {
           <div className="footerCols">
             <Link to="/" className="footerLogo"><img src={LogoImage} /></Link>
             <Link to="/about-us" className="footerNavLink">About Vesimi</Link>
-            <Link to={"/"}  className="footerNavLink">Our store</Link>
+            <Link to={"/store-locator"}  className="footerNavLink">Our store</Link>
             <Link to={"/career"}  className="footerNavLink">Careers</Link>
             <Link to={"/contact"}  className="footerNavLink">Contact Us</Link>
           </div>
@@ -25,7 +25,7 @@ const Footer = () => {
           <div className="footerCols">
             <h5>BUYING GUIDE </h5>
             <Link to={"/"}  className="footerNavLink">Gift Card</Link>
-            <Link to={"/"}  className="footerNavLink">Shipping</Link>
+            <Link to={"/shipping"}  className="footerNavLink">Shipping</Link>
             <Link to={"/"}  className="footerNavLink">Celebrity closet</Link>
             <Link to={"/"}  className="footerNavLink">Client Diaries</Link>
           </div>

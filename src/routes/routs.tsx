@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ProtectedRoute, { HomeRoute } from "../auth/ProtectedRoute";
 import ProductDetail from "pages/productDetail/ProductDetail";
 import EditAddressView from "pages/address/editAddress/EditAddressView";
+import AddressView from "pages/address/AddressView";
 
 
 const ContactUs = lazy(()=> import("../pages/staticPages/ContactUs"));
@@ -10,6 +11,8 @@ const ErrorPage = lazy(() => import("../pages/error/ErrorView"));
 const HomePage = lazy(() => import("../pages/home/HomeView"));
 const CategoryView = lazy(() => import("../pages/category/CategoryView"));
 const AboutUs = lazy(() => import("../pages/staticPages/About"));
+const StoreInfo = lazy(() => import("../pages/staticPages/OurStores"));
+const ShippingInfo = lazy(() => import("../pages/staticPages/ShippingInfo"));
 const AccountView = lazy(() => import("../pages/account/AccountView"));
 const CareerView = lazy(() => import("../pages/staticPages/CareerView"));
 const EditProfile = lazy(() => import("pages/account/edit/EditProfile"));
@@ -75,6 +78,39 @@ const CustomRoute = () => {
               </Suspense>
             }
           />
+          <Route
+            path="/store-locator"
+            element={
+              <Suspense
+                fallback={
+                  <div className="graph-loader  d-flex justify-content-center align-items-center">
+                    <div className="spinner-border  spinner-ui d-flex justify-content-center align-items-center">
+                      <span className="visually-hidden"></span>
+                    </div>
+                  </div>
+                }
+              >
+                <StoreInfo />
+              </Suspense>
+            }
+          />
+  <Route
+            path="/shipping"
+            element={
+              <Suspense
+                fallback={
+                  <div className="graph-loader  d-flex justify-content-center align-items-center">
+                    <div className="spinner-border  spinner-ui d-flex justify-content-center align-items-center">
+                      <span className="visually-hidden"></span>
+                    </div>
+                  </div>
+                }
+              >
+                <ShippingInfo />
+              </Suspense>
+            }
+          />
+
           <Route
             path="/products/:productId"
             element={
@@ -188,6 +224,44 @@ const CustomRoute = () => {
         <Route element={<ProtectedRoute />}>
           <Route
             path="/address"
+            element={
+              <Suspense
+                fallback={
+                  <div className="graph-loader  d-flex justify-content-center align-items-center">
+                    <div className="spinner-border  spinner-ui d-flex justify-content-center align-items-center">
+                      <span className="visually-hidden"></span>
+                    </div>
+                  </div>
+                }
+              >
+                <AddressView />
+              </Suspense>
+            }
+          />
+        </Route>
+
+        <Route element={<ProtectedRoute />}>
+          <Route
+            path="/add-address"
+            element={
+              <Suspense
+                fallback={
+                  <div className="graph-loader  d-flex justify-content-center align-items-center">
+                    <div className="spinner-border  spinner-ui d-flex justify-content-center align-items-center">
+                      <span className="visually-hidden"></span>
+                    </div>
+                  </div>
+                }
+              >
+                <EditAddressView />
+              </Suspense>
+            }
+          />
+        </Route>
+
+        <Route element={<ProtectedRoute />}>
+          <Route
+            path="/edit-address/:addressId"
             element={
               <Suspense
                 fallback={
