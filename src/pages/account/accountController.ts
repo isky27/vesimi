@@ -8,7 +8,7 @@ const AccountController = () => {
     const { loginDetails } = useAppSelector((state: any) => state.auth);
     const {isLoadingUserAddress, userAddressData} = useAppSelector((state)=>state.account)
 
-    console.log(loginDetails, "loginDetails");
+    console.log(loginDetails, "loginDetailsgdjfseh" );
 
     useEffect(()=>{
         dispatch(getUserAddress({user_id: loginDetails?.user?.id}))
