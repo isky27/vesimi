@@ -44,7 +44,7 @@ const CategoryView = () => {
                   <a href="/">Home</a>
                 </li>
                 <li className="breadcrumb-item active" aria-current="page">
-                  Designer Menswear
+                  {subCategoryData?.category_data?.name}
                 </li>
               </ol>
             </nav>

@@ -11,7 +11,6 @@ const EditProfile = () => {
     user, setUser
   } = EditController()
 
-  console.log(loginDetails, "______________________loginDetails");
   return (
     <ProfileWrapper>
       <Form>

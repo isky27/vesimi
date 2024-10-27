@@ -133,7 +133,12 @@ const ProductDetail = () => {
 
         <div className="relatedTabs support">
           <h4>CUSTOMER SUPPORT </h4>
-          <a href="/" className="" style={{ textDecoration: "none" }}><i className="bg-image"
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://api.whatsapp.com/send?phone=919820082317"
+            style={{ textDecoration: "none" }}
+          ><i className="bg-image"
             style={{ backgroundPosition: "-375px -199px", width: "24px", height: "24px" }}></i>Chat With
             Us</a>
           <a href="/" className="" style={{ textDecoration: "none" }}><i className="bg-image"

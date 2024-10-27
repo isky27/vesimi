@@ -3,7 +3,6 @@ import Carousel from "component/carousel";
 import ServiceInfo from "./ServiceInfo";
 import HomeController from "./homeController";
 import OwlCarousel from "react-owl-carousel";
-import ShopNowCard from "component/ShopNowCard";
 import Loader from "component/Loader";
 import CelebritySection from "component/CelebritySection";
 import BlogSection from "component/BlogSection";

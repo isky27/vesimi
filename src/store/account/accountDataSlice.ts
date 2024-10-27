@@ -40,9 +40,9 @@ export const getCountries = createAsyncThunk("get/country", async (_ , thunkApi:
     }
 });
 
-export const getStates = createAsyncThunk("get/state", async (_ , thunkApi: any) => {
+export const getStates = createAsyncThunk("get/state", async (countryId:number , thunkApi: any) => {
     try {
-        const response: any = await accountService.getStatesApi(getTokenHeader());
+        const response: any = await accountService.getStatesApi(countryId, getTokenHeader());
         return response;
     } catch (error: any) {
         const message: any = getErrorMessage(error)
@@ -50,9 +50,19 @@ export const getStates = createAsyncThunk("get/state", async (_ , thunkApi: any)
     }
 });
 
-export const getCities = createAsyncThunk("get/cities", async (_, thunkApi: any) => {
+export const getCities = createAsyncThunk("get/cities", async (stateId: number, thunkApi: any) => {
     try {
-        const response: any = await accountService.getCitiesApi(getTokenHeader());
+        const response: any = await accountService.getCitiesApi(stateId, getTokenHeader());
+        return response;
+    } catch (error: any) {
+        const message: any = getErrorMessage(error)
+        return thunkApi.rejectWithValue(message);
+    }
+});
+
+export const addAddress = createAsyncThunk("add/address", async (userData: any, thunkApi: any) => {
+    try {
+        const response: any = await accountService.addAddressApi(userData, getTokenHeader());
         return response;
     } catch (error: any) {
         const message: any = getErrorMessage(error)
@@ -106,6 +116,15 @@ export const accountDataReducer = createSlice({
                 state.citiesData = action.payload;
             })
             .addCase(getCities.rejected, (state: any) => {
+                state.citiesData = null;
+            })
+            .addCase(addAddress.pending, (state: any, _: any) => {
+                state.citiesData = null;
+            })
+            .addCase(addAddress.fulfilled, (state: any, action: any) => {
+                state.citiesData = action.payload;
+            })
+            .addCase(addAddress.rejected, (state: any) => {
                 state.citiesData = null;
             })
     }

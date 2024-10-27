@@ -929,6 +929,17 @@ const Header = () => {
             onKeyDown={removeSpaceOnly}
           />
          
+        <div className="mt-3 d-flex justify-content-center"> 
+           <Button  className="ps-0 d-block text-center text-dark"
+              variant="link"
+              onClick={() => {
+                handleOpenLoginPopup(true);
+                handleOpenSignupPopup(false);
+              }}
+            >
+              Already have an account
+            </Button>
+          </div>
           <div className="d-flex justify-content-end gap-2 mt-3">
             <Button
               className="font-14 w-100 themeCancelBtn"
@@ -941,17 +952,6 @@ const Header = () => {
             </Button>
           </div>
         </Form>
-        <div className="mt-3 d-flex justify-content-center"> 
-           <Button  className="ps-0 d-block text-center text-dark"
-              variant="link"
-              onClick={() => {
-                handleOpenLoginPopup(true);
-                handleOpenSignupPopup(false);
-              }}
-            >
-              Already have an account
-            </Button>
-            </div>
         <div className="mt-4 text-center">
           {/* <GoogleOAuthProvider clientId="YOUR_GOOGLE_CLIENT_ID">
             <GoogleLogin
