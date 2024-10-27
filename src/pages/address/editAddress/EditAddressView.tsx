@@ -9,8 +9,6 @@ import Select from 'react-select'
 const EditAddressView = () => {
   const { addressFormik, countriesData, statesData, citiesData } = EditAddressController()
 
-  console.log(countriesData, statesData, "countriesData");
-
   return (
     <ProfileWrapper>
       <div className="myAccountMain">

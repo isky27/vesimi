@@ -1,6 +1,7 @@
 import { phoneRegex } from "constant";
 import { useFormik } from "formik";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { getCities, getCountries, getStates,addAddress } from "store/account/accountDataSlice";
 import { useAppDispatch, useAppSelector } from "store/redux.hooks"
 import * as Yup from "yup";
@@ -10,6 +11,7 @@ const EditAddressController = () => {
   const { countriesData, statesData, citiesData } = useAppSelector((state) => state.account)
   const { loginDetails } = useAppSelector((state: any) => state.auth);
   const dispatch = useAppDispatch();
+  const navigate= useNavigate()
 
   const addressInitialValues = {
     name: "",
@@ -46,18 +48,20 @@ const EditAddressController = () => {
       }).required("City is required"),
       zip_code: Yup.string().required("Zip code is required"),
     }),
-    onSubmit: (values:any) => {
-      console.log(values, "ffhdjhfkdjfkdrjkf"); 
-      dispatch(addAddress({
-        "user_id":loginDetails?.user?.id,
-        "address":values?.address,
-        "country_id":values?.country?.value,
-        "state_id":values?.state?.value,
-        "city_id":values?.city?.value,
-        "postal_code":values?.zip_code,
-        "phone":values?.phone
-      }))
-      // handleSignup(values);
+    onSubmit: (values: any) => {
+      dispatch(addAddress(
+        {
+          payload: {
+            "user_id": loginDetails?.user?.id,
+            "address": values?.address,
+            "country_id": values?.country?.value,
+            "state_id": values?.state?.value,
+            "city_id": values?.city?.value,
+            "postal_code": values?.zip_code,
+            "phone": values?.phone
+          },
+          navigate: navigate
+        }))
     },
   });
 

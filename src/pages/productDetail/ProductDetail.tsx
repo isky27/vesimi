@@ -2,7 +2,7 @@ import ProductDetailController from './productDetailController'
 import Loader from 'component/Loader'
 import ProductCard from 'component/ProductCard';
 import ProductCarousal from 'component/ProductCarousal';
-import { getPrice } from 'utils';
+import { extractNumber, getPrice } from 'utils';
 import InnerImageZoom from 'react-inner-image-zoom';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
 
@@ -68,7 +68,7 @@ const ProductDetail = () => {
                   <span
                     className="leading-none tracking-tighter text-azaBlackShade3 fs-lg fs-lg-2xl fw-bold">{getPrice(productDetailData?.data?.[0]?.main_price)}</span>
 
-                  <span className="text-sm text-lg-base text-azaGreen_5">({getPrice(productDetailData?.data[0]?.discount)}OFF)</span>
+                  {extractNumber(productDetailData?.data[0]?.discount) ? <span className="text-sm text-lg-base text-azaGreen_5">({getPrice(productDetailData?.data[0]?.discount)}OFF)</span> : ""}
                 </p>
                 <p className="textSmallLight">(inclusive of all taxes)</p>
               </div>
