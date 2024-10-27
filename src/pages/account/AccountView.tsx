@@ -6,10 +6,8 @@ import Loader from 'component/Loader';
 
 const AccountView = () => {
 
-    const {
-        loginDetails,
-        isLoadingUserAddress, 
-        userAddressData
+    const { loginDetails,
+        isLoadingUserAddress, userAddressData
     } = AccountController();
 
     return (
@@ -56,18 +54,17 @@ const AccountView = () => {
                     <div className="row">
                         <div className="col-lg-6">
                             <div className="InfoBlock">
-                                {userAddressData?.data?.[0] ? userAddressData?.data?.map((elem:any, ind: number)=>{
-                                    return ind===0 && <>
-                                    <h4>Default Address</h4>
-                                    <p>{elem?.address}</p>
-                                    <p>{elem?.city_name}</p>
-                                    <p>{`${elem?.state_name},${elem?.country_name}, ${elem?.postal_code}`}</p>
-                                    <p>{elem?.phone}</p>
+                                <h4>Default Billing Address</h4>
+                                {userAddressData ? <>
+                                    <p>Mahesh varma</p>
+                                    <p>Test</p>
+                                    <p>Jaipur, Rajasthan, 302020, india</p>
+                                    <p>T.445646464</p>
+                                    </> : 
+                                    <h4>You have not set a default billing address.</h4>}
                                 <div className="d-flex infoAction">
-                                    <Link to={userAddressData?.data?.[0] ? "/edit-address" : "/add-address" }>{userAddressData?.data?.[0] ? "Edit" : "Add"} Address</Link>
+                                    <Link to={userAddressData ? "/edit-address" : "add-address" }>Edit Address</Link>
                                 </div>
-                                    </> }) : 
-                                    <h4>You have not set a default address.</h4>}
                             </div>
                         </div>
                     </div>

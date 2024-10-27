@@ -3,7 +3,7 @@ import axios from 'axios'
 // Login API Call
 const getAddressApi = async (userData: any, userToken: { headers: { Authorization: string } }): Promise<ApiResponse> => {
   try {
-    const response: ApiResponse = await axios.get(`user/shipping/address?id=${userData?.user_id}`, userToken);
+    const response: ApiResponse = await axios.get(`user/shipping/address/${userData?.user_id}`, userToken);
     return response;
   } catch (error: any) {
     throw error;
@@ -28,18 +28,18 @@ const getCountriesApi = async ( userToken: { headers: { Authorization: string } 
   }
 };
 
-const getStatesApi = async (countryId:number, userToken: { headers: { Authorization: string } }): Promise<ApiResponse> => {
+const getStatesApi = async ( userToken: { headers: { Authorization: string } }): Promise<ApiResponse> => {
   try {
-    const response: ApiResponse = await axios.get(`states-by-country/${countryId}`, userToken);
+    const response: ApiResponse = await axios.get("states", userToken);
     return response;
   } catch (error: any) {
     throw error;
   }
 };
 
-const getCitiesApi = async (stateId:number, userToken: { headers: { Authorization: string } }): Promise<ApiResponse> => {
+const getCitiesApi = async ( userToken: { headers: { Authorization: string } }): Promise<ApiResponse> => {
   try {
-    const response: ApiResponse = await axios.get(`cities-by-state/${stateId}`, userToken);
+    const response: ApiResponse = await axios.get("cities", userToken);
     return response;
   } catch (error: any) {
     throw error;
