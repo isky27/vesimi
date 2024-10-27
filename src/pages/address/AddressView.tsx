@@ -81,7 +81,7 @@ const AddressView = () => {
             </div>
           </div>
           {/* Add New Address Button */}
-          <button className="btn btn-dark">Add New Address</button>
+          <Link to={"/add-address"} className="btn btn-dark">Add New Address</Link>
         </div>
       </div>
       <CustomPopup

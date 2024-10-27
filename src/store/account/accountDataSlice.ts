@@ -62,7 +62,8 @@ export const getCities = createAsyncThunk("get/cities", async (stateId: number, 
 
 export const addAddress = createAsyncThunk("add/address", async (userData: any, thunkApi: any) => {
     try {
-        const response: any = await accountService.addAddressApi(userData, getTokenHeader());
+        const response: any = await accountService.addAddressApi(userData?.payload, getTokenHeader());
+        userData?.navigate("/address")
         return response;
     } catch (error: any) {
         const message: any = getErrorMessage(error)
