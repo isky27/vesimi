@@ -16,7 +16,9 @@ const ProductDetail = () => {
     relatedProductsData,
     selectedImage,
     setSelectedImage,
-    selectedSize, setSelectedSize } = ProductDetailController()
+    selectedSize, setSelectedSize,
+    handleAddToCart
+   } = ProductDetailController()
 
   return (
     <section className="pageMain">
@@ -85,7 +87,7 @@ const ProductDetail = () => {
               </div>
 
               <div className="ButtonTabsAction">
-                <button className="addToCart" style={{ backgroundColor: "#bb3d1f", borderRadius: "6px", fontSize: "16px", color: "#fff", border: "none", marginRight: "10px", padding: "12px 20px" }}>
+                <button className="addToCart" onClick={()=>handleAddToCart(1,"xxl")} style={{ backgroundColor: "#bb3d1f", borderRadius: "6px", fontSize: "16px", color: "#fff", border: "none", marginRight: "10px", padding: "12px 20px" }}>
                   <i className="" style={{ backgroundPosition: "-181px -158px", width: "1.25rem", height: "1.25rem" }}></i>ADD TO CART
                 </button>
                 <button
@@ -127,24 +129,25 @@ const ProductDetail = () => {
                   subTag={prod?.name}
                 />
               ))}
-            </ProductCarousal>;
+            </ProductCarousal>
           </div>
         </div>}
 
         <div className="relatedTabs support">
           <h4>CUSTOMER SUPPORT </h4>
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href="https://api.whatsapp.com/send?phone=919820082317"
-            style={{ textDecoration: "none" }}
+          <a target="_blank"
+            rel="noreferrer" href="https://api.whatsapp.com/send?phone=919820082317" style={{ textDecoration: "none" }}
           ><i className="bg-image"
-            style={{ backgroundPosition: "-375px -199px", width: "24px", height: "24px" }}></i>Chat With
-            Us</a>
-          <a href="/" className="" style={{ textDecoration: "none" }}><i className="bg-image"
-            style={{ backgroundPosition: "-342px -199px", width: "24px", height: "24px" }}></i>022-42792123</a>
-          <a href="/" className="" style={{ textDecoration: "none" }}><i className="bg-image"
-            style={{ backgroundPosition: "-407px -199px", width: "24px", height: "24px" }}></i>Mail us</a>
+            style={{ backgroundPosition: "-375px -199px", width: "24px", height: "24px" }}></i>Chat With Us</a>
+          <a target="_blank"
+            rel="noreferrer" href="tel:+919820082317" className="" style={{ textDecoration: "none" }}><i className="bg-image"
+              style={{ backgroundPosition: "-342px -199px", width: "24px", height: "24px" }}></i>India +91-9820082317</a>
+          <a target="_blank"
+            rel="noreferrer" href="tel:+971526929312" className="" style={{ textDecoration: "none" }}><i className="bg-image"
+              style={{ backgroundPosition: "-342px -199px", width: "24px", height: "24px" }}></i>International +971-526929312</a>
+          <a target="_blank"
+            rel="noreferrer" href="mailto:info@vesimi.com" className="" style={{ textDecoration: "none" }}><i className="bg-image"
+              style={{ backgroundPosition: "-407px -199px", width: "24px", height: "24px" }}></i>Mail us</a>
         </div>
 
 

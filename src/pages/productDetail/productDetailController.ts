@@ -11,8 +11,6 @@ const ProductDetailController = () => {
     const [selectedSize, setSelectedSize] = useState("")
     const { isLoadingProductDetail, productDetailData, isLoadingRelatedProducts, relatedProductsData } = useAppSelector((state: any) => state.product);
 
-
-
     useEffect(() => {
         window.scrollTo(0, 0);
         dispatch(getProductDetails({ productId: productId }))
@@ -23,8 +21,11 @@ const ProductDetailController = () => {
         if (productDetailData?.data[0]?.photos?.[0]?.path) {
             setSelectedImage(productDetailData?.data[0]?.photos?.[0]?.path)
         }
-
     }, [productDetailData])
+
+    const handleAddToCart = (id:number | string , size: string) => {
+        
+    }
 
     return {
         isLoadingProductDetail,
@@ -33,7 +34,8 @@ const ProductDetailController = () => {
         relatedProductsData,
         selectedImage,
         setSelectedImage,
-        selectedSize, setSelectedSize
+        selectedSize, setSelectedSize,
+        handleAddToCart
     }
 }
 
