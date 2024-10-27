@@ -4,9 +4,10 @@ import ProfileWrapper from 'pages/account/ProfileWrapper';
 import { Form } from 'reactstrap';
 import InputField from 'component/forms/InputField';
 import { removeSpaceOnly } from 'utils';
+import Select from 'react-select'
 
 const EditAddressView = () => {
-  const { addressFormik, countriesData, statesData } = EditAddressController()
+  const { addressFormik, countriesData, statesData, citiesData } = EditAddressController()
 
   console.log(countriesData, statesData, "countriesData");
 
@@ -30,18 +31,6 @@ const EditAddressView = () => {
               onKeyDown={removeSpaceOnly}
             />
           </div>
-
-          <div className="col-md-6">
-            <InputField
-              label="Company"
-              onChange={addressFormik.handleChange}
-              name="company"
-              type="name"
-              placeholder="Enter company"
-              onKeyDown={removeSpaceOnly}
-            />
-          </div>
-
           <div className="col-md-6">
           <InputField
               label="Phone Number"
@@ -54,90 +43,81 @@ const EditAddressView = () => {
             />
           </div>
 
-          <div className="col-md-6">
-          <InputField
-              label="Fax"
-              onChange={addressFormik.handleChange}
-              name="fax"
-              type="name"
-              placeholder="Fax"
-              onKeyDown={removeSpaceOnly}
-            />
-          </div>
-
           {/* Address Section */}
           <div className="col-12 mt-4">
             <h4>Address</h4>
           </div>
 
           <div className="col-md-6">
-            <label htmlFor="streetAddress1" className="form-label">
-              Street Address <span className="text-danger">*</span>
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="streetAddress1"
-              placeholder="Street Address: Line 1"
-              required
-            />
+            <InputField
+            label={"Address"}
+            onChange={addressFormik.handleChange}
+            name="address"
+            type="name"
+            placeholder="Enter Address"
+            required={true}
+            onKeyDown={removeSpaceOnly}
+          />
           </div>
-
-          <div className="col-md-6">
-            <label htmlFor="streetAddress2" className="form-label">Street Address: Line 2</label>
-            <input
-              type="text"
-              className="form-control"
-              id="streetAddress2"
-              placeholder="Street Address: Line 2"
-            />
-          </div>
-
           <div className="col-md-6">
             <label htmlFor="country" className="form-label">
               Country <span className="text-danger">*</span>
             </label>
-            <select id="country" className="form-select" required>
-              <option value="">Select Country</option>
-              <option value="India">India</option>
-              {/* Add more countries as options */}
-            </select>
+            <Select
+              required
+              name='country'
+              placeholder="Select Country"
+              value={addressFormik?.values?.country}
+              onChange={(selectedOption) => {
+                addressFormik.setFieldValue('state',null)
+                addressFormik.setFieldValue('city',null) 
+                addressFormik.setFieldValue('country', selectedOption);
+              }}
+              options={countriesData?.data?.map((country:{name:string, id: number})=> {return {label:country?.name, value: country?.id}})}
+            />
           </div>
 
           <div className="col-md-6">
             <label htmlFor="state" className="form-label">
               State/Province <span className="text-danger">*</span>
             </label>
-            <select id="state" className="form-select" required>
-              <option value="">Select State</option>
-              <option value="Rajasthan">Rajasthan</option>
-              {/* Add more states as options */}
-            </select>
+            <Select
+              required
+              name='state'
+              placeholder="Select State"
+              value={addressFormik?.values?.state}
+              isDisabled={!addressFormik?.values?.country}
+              onChange={(selectedOption) => {addressFormik.setFieldValue('state', selectedOption);
+                addressFormik.setFieldValue('city',null)
+              }}
+              options={statesData?.data?.map((state:{name:string, id: number})=> {return {label:state?.name, value: state?.id}})}
+            />
           </div>
 
           <div className="col-md-6">
             <label htmlFor="city" className="form-label">
               City <span className="text-danger">*</span>
             </label>
-            <input
-              type="text"
-              className="form-control"
-              id="city"
-              placeholder="City"
+            <Select
               required
+              name='city'
+              placeholder="Select City"
+              value={addressFormik?.values?.city}
+              isDisabled={!addressFormik?.values?.state}
+              onChange={(selectedOption) => addressFormik.setFieldValue('city', selectedOption)}
+              options={citiesData?.data?.map((city:{name:string, id: number})=> {return {label:city?.name, value: city?.id}})}
             />
           </div>
 
           <div className="col-md-6">
-            <label htmlFor="postalCode" className="form-label">
-              Zip/Postal Code <span className="text-danger">*</span>
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="postalCode"
+            <InputField
+              label={"Zip/Postal Code"}
+              onChange={addressFormik.handleChange}
+              name="zip_code"
+              type="name"
               placeholder="Postal Code"
-              required
+              required={true}
+              onKeyDown={removeSpaceOnly}
             />
           </div>
 

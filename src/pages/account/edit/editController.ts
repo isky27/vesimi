@@ -2,10 +2,6 @@ import { useState } from "react"
 import { useParams } from "react-router-dom"
 import { useAppSelector } from "store/redux.hooks";
 
-interface RouteParams {
-    passChng: boolean;
-  }
-
 interface User {
     email:string,
     currentPassword:string,

@@ -1,5 +1,4 @@
 import React from "react";
-import { getImageUrl } from "utils";
 
 const Carousel = ({ images, isPath }: any) => {
     return (

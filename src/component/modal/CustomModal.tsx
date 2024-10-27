@@ -1,5 +1,4 @@
-import { Modal, ModalBody, ModalHeader, Button, ModalFooter, Form, Input, Row, Col } from "reactstrap";
-import { sassTrue } from "sass";
+import { Modal, ModalBody, ModalHeader, Button, Form, Input, Row, Col } from "reactstrap";
 
 const CustomModal = ({ show, handleClose, modalClass, handleSubmit }: any) => {
   return (
