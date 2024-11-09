@@ -9,7 +9,6 @@ const productDetailApi = async (userData: any): Promise<ApiResponse> => {
   }
 };
 
-
 const relatedProductApi = async (userData: any): Promise<ApiResponse> => {
   try {
     const response: ApiResponse = (await axios.get(`products/related/${userData?.productId}`));
@@ -19,9 +18,29 @@ const relatedProductApi = async (userData: any): Promise<ApiResponse> => {
   }
 };
 
+const addToCartApi = async (userData: any): Promise<ApiResponse> => {
+  try {
+    const response: ApiResponse = (await axios.post("/carts/add", userData ));
+    return response;
+  } catch (error: any) {
+    throw error;
+  }
+};
+
+const cartListApi = async (userData: any): Promise<ApiResponse> => {
+  try {
+    const response: ApiResponse = (await axios.post("/carts", userData ));
+    return response;
+  } catch (error: any) {
+    throw error;
+  }
+};
+
 const productService = {
   productDetailApi,
-  relatedProductApi
+  relatedProductApi,
+  addToCartApi,
+  cartListApi
 };
 
 export default productService;

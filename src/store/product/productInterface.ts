@@ -7,5 +7,8 @@ export interface ProductInterface {
     productDetailData :null;
     isLoadingRelatedProducts: boolean;
     relatedProductsData: any | null;
+    isLoadingAddToCart: boolean;
+    isLoadingCartList: boolean;
+    cartListData: any | null
 }
 

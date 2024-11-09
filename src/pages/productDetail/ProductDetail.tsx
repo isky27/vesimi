@@ -17,12 +17,14 @@ const ProductDetail = () => {
     selectedImage,
     setSelectedImage,
     selectedSize, setSelectedSize,
-    handleAddToCart
+    handleAddToCart,
+    selectedDesigner, setSelectedDesigner,
+    isLoadingAddToCart
    } = ProductDetailController()
 
   return (
     <section className="pageMain">
-      <Loader isLoading={[isLoadingProductDetail, isLoadingRelatedProducts]} />
+      <Loader isLoading={[isLoadingProductDetail, isLoadingRelatedProducts, isLoadingAddToCart]} />
 
       <div className="container mt-4">
         {/* <!-- DETAIL PAGE CONTENT --> */}
@@ -75,19 +77,30 @@ const ProductDetail = () => {
                 <p className="textSmallLight">(inclusive of all taxes)</p>
               </div>
 
-              <div className="sizePart">
+              {productDetailData?.data[0]?.choice_options?.find((el:any)=>el.title==="Size")?.options && <div className="sizePart">
                 <div className="sizeGuide">
                   <h4>SELECT SIZE </h4><button>Size Guide</button>
                 </div>
                 <div className="sizePartTabs d-flex flex-wrap gap-3">
-                  {productDetailData?.data[0]?.choice_options[0]?.options?.map((elem: string) => {
+                  {productDetailData?.data[0]?.choice_options?.find((el:any)=>el.title==="Size")?.options?.map((elem: string) => {
                     return <button className={`sizeBtn ${selectedSize === elem ? "selected" : ""}`} onClick={() => setSelectedSize(elem)} key={elem}>{elem}</button>
                   })}
                 </div>
-              </div>
+              </div>}
+
+              {productDetailData?.data[0]?.choice_options?.find((el:any)=>el.title==="Designer")?.options && <div className="mb-3">
+                <div className="sizeGuide">
+                  <h4>SELECT DESIGNER </h4>
+                </div>
+                <div className="sizePartTabs d-flex flex-wrap gap-3">
+                  {productDetailData?.data[0]?.choice_options?.find((el:any)=>el.title==="Designer")?.options?.map((elem: string) => {
+                    return <button className={`designerBtn ${selectedDesigner === elem ? "selected" : ""}`} onClick={() => setSelectedDesigner(elem)} key={elem}>{elem}</button>
+                  })}
+                </div>
+              </div>}
 
               <div className="ButtonTabsAction">
-                <button className="addToCart" onClick={()=>handleAddToCart(1,"xxl")} style={{ backgroundColor: "#bb3d1f", borderRadius: "6px", fontSize: "16px", color: "#fff", border: "none", marginRight: "10px", padding: "12px 20px" }}>
+                <button disabled={productDetailData?.data[0]?.choice_options?.find((el:any)=>el.title==="Size")?.options && !selectedSize} className="addToCart" onClick={handleAddToCart}>
                   <i className="" style={{ backgroundPosition: "-181px -158px", width: "1.25rem", height: "1.25rem" }}></i>ADD TO CART
                 </button>
                 <button

@@ -16,6 +16,8 @@ const HeaderController = () => {
 
   const { loginDetails, selectedCurrency, isOpenLoginPopup, isOpenSignupPopup } = useAppSelector((state: any) => state.auth);
 
+  const { cartListData, isLoadingCartList } = useAppSelector((state: any) => state.product)
+
   const loginInitialValues = {
     email: "",
     password: ""
@@ -133,6 +135,15 @@ const HeaderController = () => {
 
   const handleLogout = () =>{
     dispatch(logoutPost())
+    navigate("/")
+  }
+
+  const handleCart = () =>{
+    if (loginDetails?.access_token) {
+     navigate("/cart")
+    }else{
+     dispatch(setOpenLoginPopup(true))
+    }
   }
 
   return {
@@ -149,7 +160,10 @@ const HeaderController = () => {
     setSearchInput,
     handleSearch,
     handleCurrencyChange,
-    selectedCurrency
+    selectedCurrency,
+    cartListData, 
+    isLoadingCartList,
+    handleCart
   };
 };
 

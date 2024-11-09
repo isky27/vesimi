@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { getProductDetails, getRealtedProducts } from "store/product/productSlice"
+import { setOpenLoginPopup } from "store/auth/authDataSlice"
+import { addToCart, getProductDetails, getRealtedProducts } from "store/product/productSlice"
 import { useAppDispatch, useAppSelector } from "store/redux.hooks"
 
 const ProductDetailController = () => {
@@ -9,7 +10,9 @@ const ProductDetailController = () => {
     const dispatch = useAppDispatch()
     const [selectedImage, setSelectedImage] = useState("")
     const [selectedSize, setSelectedSize] = useState("")
-    const { isLoadingProductDetail, productDetailData, isLoadingRelatedProducts, relatedProductsData } = useAppSelector((state: any) => state.product);
+    const [selectedDesigner, setSelectedDesigner] = useState("")
+    const { isLoadingProductDetail, productDetailData, isLoadingRelatedProducts, relatedProductsData, isLoadingAddToCart } = useAppSelector((state: any) => state.product);
+    const { loginDetails } = useAppSelector((state: any) => state.auth);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -21,10 +24,23 @@ const ProductDetailController = () => {
         if (productDetailData?.data[0]?.photos?.[0]?.path) {
             setSelectedImage(productDetailData?.data[0]?.photos?.[0]?.path)
         }
+        if(productDetailData?.data[0]?.choice_options?.find((el:any)=>el.title==="Designer")?.options[0]){
+            setSelectedDesigner(productDetailData?.data[0]?.choice_options?.find((el:any)=>el.title==="Designer")?.options[0])
+        }
     }, [productDetailData])
 
-    const handleAddToCart = (id:number | string , size: string) => {
-        
+    const handleAddToCart = () => {
+        const varient = selectedSize+"-"+selectedDesigner.split(" ").join("")
+        if(loginDetails?.access_token){
+            dispatch(addToCart({
+                id: productDetailData?.data[0]?.id,
+                variant: varient,
+                user_id: loginDetails?.user?.id,
+                quantity: 1
+            }))
+        }else{
+            dispatch(setOpenLoginPopup(true))
+        }
     }
 
     return {
@@ -35,7 +51,9 @@ const ProductDetailController = () => {
         selectedImage,
         setSelectedImage,
         selectedSize, setSelectedSize,
-        handleAddToCart
+        handleAddToCart,
+        selectedDesigner, setSelectedDesigner,
+        isLoadingAddToCart
     }
 }
 

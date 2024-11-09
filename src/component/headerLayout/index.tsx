@@ -22,12 +22,13 @@ import Jewellery1Img from "../../assets/images/bipc-pcbn.jpg"
 import Jewellery2Img from "../../assets/images/07_3.jpg";
 import Jewellery3Img from "../../assets/images/jm_ss22.png";
 import CustomPopup from "component/modal/CustomPopup";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Badge } from "react-bootstrap";
 import HeaderController from "./headerController";
 import InputField from "component/forms/InputField";
-import { getCategoryUrl, getPrice, removeSpaceOnly } from "utils";
+import { getCategoryUrl, removeSpaceOnly } from "utils";
 import { Link } from "react-router-dom";
 import { countryOptions } from "constant";
+import Loader from "component/Loader";
 
 const Header = () => {
 
@@ -45,11 +46,17 @@ const Header = () => {
     searchInput,
     handleCurrencyChange,
     setSearchInput,
-    selectedCurrency
+    selectedCurrency,
+    cartListData, 
+    isLoadingCartList,
+    handleCart
   } = HeaderController();
+
+  console.log(cartListData, "cartListData");
 
   return (
     <header>
+      <Loader isLoading={[isLoadingCartList]}/>
       <div className="headerTopRow">
         <div className="container">
           <div className="headerTop">
@@ -136,11 +143,14 @@ const Header = () => {
                   ></span>
                   Wishlist
                 </li>
-                <li className="Cart">
-                  <span
-                    className="profileIcon bg-image w-5 h-6 d-block"
-                    style={{ backgroundPosition: "-329px -132px" }}
-                  ></span>
+                <li className="Cart" onClick={handleCart}>
+                  <Badge className="cartCount" bg="danger" pill>
+                    {cartListData?.data?.[0]?.cart_items?.length}
+                  </Badge>
+                    <span
+                      className="profileIcon bg-image w-5 h-6 d-block"
+                      style={{ backgroundPosition: "-329px -132px" }}
+                    ></span>
                   Cart
                 </li>
                 <a
@@ -928,9 +938,9 @@ const Header = () => {
             required={true}
             onKeyDown={removeSpaceOnly}
           />
-         
-        <div className="mt-3 d-flex justify-content-center"> 
-           <Button  className="ps-0 d-block text-center text-dark"
+
+          <div className="mt-3 d-flex justify-content-center">
+            <Button className="ps-0 d-block text-center text-dark"
               variant="link"
               onClick={() => {
                 handleOpenLoginPopup(true);

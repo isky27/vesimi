@@ -331,6 +331,14 @@ h6 {
   align-items: center;
 }
 
+.Cart{
+  position: relative;
+}
+
+.Cart .cartCount{
+  position: absolute;
+}
+
 .text-gray{color:#888;}
 .text-uparcase{text-transform:uppercase!important;}
 
@@ -1217,14 +1225,12 @@ span.appOnly {
   color: #000;
   font-weight: 500;
 }
-
-.sizePart .sizeGuide {
+.sizeGuide {
   display:flex;
   margin: 15px 0;
 }
  
-
-.sizePart .sizeGuide button {
+.sizeGuide button {
   color: #bc3d19;
   border: none;
   background: no-repeat;
@@ -1246,6 +1252,18 @@ span.appOnly {
   padding:4px 5px;
 }
 
+.sizePartTabs .designerBtn{
+  max-width: 100px;
+  border: 1px solid #e6e6e6;
+  background-color: white;
+  min-height: 40px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 11px;
+  padding:4px 5px;
+  text-overflow: ellipsis;
+}
+
 .sizePartTabs .selected {
   border: 1px solid #bc3d19;
   font-weight: 700;
@@ -1258,9 +1276,20 @@ span.appOnly {
 }
 
 .ButtonTabsAction .addToCart {
+  background-color: #bb3d1f;
+  border-radius: 6px;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  margin-right: 10px;
+  padding: 12px 20px;
   flex: 1;
 }
- 
+
+.ButtonTabsAction .addToCart:disabled {
+  background-color: #c59090;
+}
+
 .AboutDetail h4 {
     color: #000;
     margin-bottom: 10px;

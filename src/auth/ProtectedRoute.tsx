@@ -1,8 +1,9 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { useAppSelector } from "store/redux.hooks";
+import { useAppDispatch, useAppSelector } from "store/redux.hooks";
 import { getLocalStorage } from "utils";
 import Header from "component/headerLayout";
 import Footer from "component/footerLayout";
+import { cartListData } from "store/product/productSlice";
 // Returns Is user is logged in or not
 export const useAuth = () => {
   const userdata: any = getLocalStorage("loginDetails");
@@ -33,6 +34,11 @@ export const ProtectedRouteCheck = ({ children }: any) => {
 };
 
 export const HomeRoute = () => {
+  const { loginDetails } = useAppSelector((state) => state.auth);
+  const dispatch = useAppDispatch()
+  if (loginDetails?.access_token) {
+    dispatch(cartListData({user_id:loginDetails?.user?.id}))
+  }
 
   return <section>
     <div>
@@ -45,11 +51,13 @@ export const HomeRoute = () => {
 
 const ProtectedRoute = () => {
   const { loginDetails } = useAppSelector((state) => state.auth);
+  const dispatch = useAppDispatch()
 
   if (!loginDetails?.access_token) {
     return <Navigate to="/" />;
   }
-
+  dispatch(cartListData({user_id:loginDetails?.user?.id}))
+  
   return <section>
     <div>
       <Header />

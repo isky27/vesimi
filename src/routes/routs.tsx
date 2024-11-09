@@ -9,6 +9,7 @@ import Faq from "pages/staticPages/Faq";
 import PrivacyPolicy from "pages/staticPages/PrivacyPolicy";
 import ReturnExchange from "pages/staticPages/ReturnExchange";
 import RefundCancellation from "pages/staticPages/RefundCancellation";
+import CartView from "pages/cart/CartView";
 
 
 const ContactUs = lazy(() => import("../pages/staticPages/ContactUs"));
@@ -214,6 +215,23 @@ const CustomRoute = () => {
                 }
               >
                 <ProductDetail />
+              </Suspense>
+            }
+          />
+
+          <Route
+            path="/cart"
+            element={
+              <Suspense
+                fallback={
+                  <div className="graph-loader  d-flex justify-content-center align-items-center">
+                    <div className="spinner-border  spinner-ui d-flex justify-content-center align-items-center">
+                      <span className="visually-hidden"></span>
+                    </div>
+                  </div>
+                }
+              >
+                <CartView />
               </Suspense>
             }
           />
