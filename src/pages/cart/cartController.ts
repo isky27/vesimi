@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { cartSummaryDataApi } from "store/product/productSlice"
+import { cartListDataApi, cartSummaryDataApi } from "store/product/productSlice"
 import { useAppDispatch, useAppSelector } from "store/redux.hooks"
 
 const CartController = () => {
@@ -10,7 +10,7 @@ const CartController = () => {
   const dispatch = useAppDispatch()
 
   useEffect(()=>{
-    dispatch(cartListData({user_id:loginDetails?.user?.id}))
+    dispatch(cartListDataApi({user_id:loginDetails?.user?.id}))
     dispatch(cartSummaryDataApi({user_id: loginDetails?.user?.id}))
   },[dispatch, loginDetails])
 

@@ -53,7 +53,7 @@ export const addToCart = createAsyncThunk("add/to/cart", async (userData:any,thu
         }else{
             toast.error(response.message)
         }
-        thunkApi.dispatch(cartListData({
+        thunkApi.dispatch(cartListDataApi({
             user_id:userData?.user_id
         }))
         return response;
@@ -63,7 +63,7 @@ export const addToCart = createAsyncThunk("add/to/cart", async (userData:any,thu
     }
 });
 
-export const cartListData = createAsyncThunk("cart/list", async (userData:any,thunkApi: any) => {
+export const cartListDataApi = createAsyncThunk("cart/list", async (userData:any,thunkApi: any) => {
     try {
         const response:any = await productService.cartListApi(userData);
         return response;
@@ -134,17 +134,17 @@ export const productReducer = createSlice({
                 state.isLoadingAddToCart = false;
                 state.isSuccess = false;
             })
-            .addCase(cartListData.pending, (state: any, _: any) => {
+            .addCase(cartListDataApi.pending, (state: any, _: any) => {
                 state.isLoadingCartList = true;
                 state.cartListData =  null
                 state.isSuccess = false;
             })
-            .addCase(cartListData.fulfilled, (state: any, action: any) => {
+            .addCase(cartListDataApi.fulfilled, (state: any, action: any) => {
                 state.isLoadingCartList = false;
                 state.cartListData = action.payload
                 state.isSuccess = true;
             })
-            .addCase(cartListData.rejected, (state: any) => {
+            .addCase(cartListDataApi.rejected, (state: any) => {
                 state.isLoadingCartList = false;
                 state.cartListData = null
                 state.isSuccess = false;
