@@ -36,11 +36,21 @@ const cartListApi = async (userData: any): Promise<ApiResponse> => {
   }
 };
 
+const cartSummaryApi = async (userData: any): Promise<ApiResponse> => {
+  try {
+    const response: ApiResponse = (await axios.get(`/cart-summary/${userData?.user_id}`));
+    return response;
+  } catch (error: any) {
+    throw error;
+  }
+};
+
 const productService = {
   productDetailApi,
   relatedProductApi,
   addToCartApi,
-  cartListApi
+  cartListApi,
+  cartSummaryApi
 };
 
 export default productService;

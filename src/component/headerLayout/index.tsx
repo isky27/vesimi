@@ -52,8 +52,6 @@ const Header = () => {
     handleCart
   } = HeaderController();
 
-  console.log(cartListData, "cartListData");
-
   return (
     <header>
       <Loader isLoading={[isLoadingCartList]}/>

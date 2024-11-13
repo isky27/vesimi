@@ -11,6 +11,7 @@ const ProductDetailController = () => {
     const [selectedImage, setSelectedImage] = useState("")
     const [selectedSize, setSelectedSize] = useState("")
     const [selectedDesigner, setSelectedDesigner] = useState("")
+    const [selectedColor, setSelectedColor] = useState("")
     const { isLoadingProductDetail, productDetailData, isLoadingRelatedProducts, relatedProductsData, isLoadingAddToCart } = useAppSelector((state: any) => state.product);
     const { loginDetails } = useAppSelector((state: any) => state.auth);
 
@@ -35,9 +36,12 @@ const ProductDetailController = () => {
             dispatch(addToCart({
                 id: productDetailData?.data[0]?.id,
                 variant: varient,
+                ...(selectedSize && { size: selectedSize }),
+                ...(selectedDesigner && { designer: selectedDesigner }),
+                ...(selectedColor && { color: selectedColor }),
                 user_id: loginDetails?.user?.id,
-                quantity: 1
-            }))
+                quantity: 1,
+            }));
         }else{
             dispatch(setOpenLoginPopup(true))
         }

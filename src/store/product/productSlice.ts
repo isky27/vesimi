@@ -18,7 +18,9 @@ const initialState: ProductInterface = {
     relatedProductsData : null,
     isLoadingAddToCart: false,
     isLoadingCartList: false,
-    cartListData: null
+    cartListData: null,
+    isLoadingCartSummary: false,
+    cartSummaryData: null
 }
 
 // Async Thunks
@@ -70,6 +72,17 @@ export const cartListData = createAsyncThunk("cart/list", async (userData:any,th
         return thunkApi.rejectWithValue(message);
     }
 });
+
+export const cartSummaryDataApi = createAsyncThunk("cart/summary", async (userData:any,thunkApi: any) => {
+    try {
+        const response:any = await productService.cartSummaryApi(userData);
+        return response;
+    } catch (error: any) {
+        const message: any = getErrorMessage(error)
+        return thunkApi.rejectWithValue(message);
+    }
+});
+
 
 // Home Reducer
 export const productReducer = createSlice({
@@ -135,6 +148,18 @@ export const productReducer = createSlice({
                 state.isLoadingCartList = false;
                 state.cartListData = null
                 state.isSuccess = false;
+            })
+            .addCase(cartSummaryDataApi.pending, (state: any, _: any) => {
+                state.isLoadingCartSummary = true;
+                state.cartSummaryData =  null
+            })
+            .addCase(cartSummaryDataApi.fulfilled, (state: any, action: any) => {
+                state.isLoadingCartSummary = false;
+                state.cartSummaryData = action.payload
+            })
+            .addCase(cartSummaryDataApi.rejected, (state: any) => {
+                state.isLoadingCartSummary = false;
+                state.cartSummaryData = null
             })
     }
 

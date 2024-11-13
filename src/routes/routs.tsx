@@ -220,23 +220,6 @@ const CustomRoute = () => {
           />
 
           <Route
-            path="/cart"
-            element={
-              <Suspense
-                fallback={
-                  <div className="graph-loader  d-flex justify-content-center align-items-center">
-                    <div className="spinner-border  spinner-ui d-flex justify-content-center align-items-center">
-                      <span className="visually-hidden"></span>
-                    </div>
-                  </div>
-                }
-              >
-                <CartView />
-              </Suspense>
-            }
-          />
-
-          <Route
             path="/career"
             element={
               <Suspense
@@ -285,6 +268,23 @@ const CustomRoute = () => {
                 }
               >
                 <AccountView />
+              </Suspense>
+            }
+          />
+
+          <Route
+            path="/cart"
+            element={
+              <Suspense
+                fallback={
+                  <div className="graph-loader  d-flex justify-content-center align-items-center">
+                    <div className="spinner-border  spinner-ui d-flex justify-content-center align-items-center">
+                      <span className="visually-hidden"></span>
+                    </div>
+                  </div>
+                }
+              >
+                <CartView />
               </Suspense>
             }
           />
