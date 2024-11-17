@@ -10,7 +10,8 @@ const CartView = () => {
         isLoadingCartList,
         cartListData,
         isLoadingCartSummary, 
-        cartSummaryData
+        cartSummaryData,
+        handleProceed
     } = CartController()
 
     return (
@@ -85,7 +86,7 @@ const CartView = () => {
                                     </ul>
                                 </div>
                             </div>
-                            <button className="themeBtnCart">PROCEED TO CHECKOUT</button>
+                            <button onClick={handleProceed} className="themeBtnCart">PROCEED TO CHECKOUT</button>
                         </div>
                     </div>
                 </div>

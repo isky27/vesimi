@@ -10,6 +10,7 @@ import PrivacyPolicy from "pages/staticPages/PrivacyPolicy";
 import ReturnExchange from "pages/staticPages/ReturnExchange";
 import RefundCancellation from "pages/staticPages/RefundCancellation";
 import CartView from "pages/cart/CartView";
+import CheckoutView from "pages/checkout/CheckoutView";
 
 
 const ContactUs = lazy(() => import("../pages/staticPages/ContactUs"));
@@ -288,9 +289,24 @@ const CustomRoute = () => {
               </Suspense>
             }
           />
-        </Route>
 
-        <Route element={<ProtectedRoute />}>
+          <Route
+            path="/checkout"
+            element={
+              <Suspense
+                fallback={
+                  <div className="graph-loader  d-flex justify-content-center align-items-center">
+                    <div className="spinner-border  spinner-ui d-flex justify-content-center align-items-center">
+                      <span className="visually-hidden"></span>
+                    </div>
+                  </div>
+                }
+              >
+                <CheckoutView />
+              </Suspense>
+            }
+          />
+
           <Route
             path="/edit-user"
             element={
@@ -307,10 +323,7 @@ const CustomRoute = () => {
               </Suspense>
             }
           />
-        </Route>
 
-
-        <Route element={<ProtectedRoute />}>
           <Route
             path="/edit-user/:isChangePassword?"
             element={
@@ -327,9 +340,7 @@ const CustomRoute = () => {
               </Suspense>
             }
           />
-        </Route>
 
-        <Route element={<ProtectedRoute />}>
           <Route
             path="/address"
             element={
@@ -346,9 +357,7 @@ const CustomRoute = () => {
               </Suspense>
             }
           />
-        </Route>
 
-        <Route element={<ProtectedRoute />}>
           <Route
             path="/add-address"
             element={
@@ -365,9 +374,7 @@ const CustomRoute = () => {
               </Suspense>
             }
           />
-        </Route>
 
-        <Route element={<ProtectedRoute />}>
           <Route
             path="/edit-address/:addressId"
             element={
