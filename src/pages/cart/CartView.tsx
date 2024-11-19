@@ -42,7 +42,6 @@ const CartView = () => {
                         </div>
                         {/* <div className="watsappLink">Shop for <strong className="mx-1">{getPrice(cartListData?.data[0]?.sub_total)} </strong>more to get additional offers on your order. To know more <button><i className="fa-brands fa-whatsapp"></i> Chat with us</button></div> */}
 
-
                         <div className="cartlistingWrap">
                             <h4>ORDER DETAILS -<small>{cartListData?.data[0]?.cart_items?.length} Item(s)</small> </h4>
                             {

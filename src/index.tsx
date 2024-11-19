@@ -8,7 +8,7 @@ import 'react-multi-carousel/lib/styles.css';
 import 'rc-slider/assets/index.css';
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-// import "./scss/index.scss";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import "./scss/style.css"
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
