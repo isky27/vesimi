@@ -15,6 +15,7 @@ const initialState: AccountDataInterface = {
     countriesData: null,
     statesData: null,
     citiesData: null,
+    isLoadingDeleteAddress:false
 }
 
 // Async Thunks
@@ -63,6 +64,16 @@ export const getCities = createAsyncThunk("get/cities", async (stateId: number, 
 export const addAddress = createAsyncThunk("add/address", async (userData: any, thunkApi: any) => {
     try {
         const response: any = await accountService.addAddressApi(userData, getTokenHeader());
+        return response;
+    } catch (error: any) {
+        const message: any = getErrorMessage(error)
+        return thunkApi.rejectWithValue(message);
+    }
+});
+
+export const deleteAddress = createAsyncThunk("delete/address", async (userData: any, thunkApi: any) => {
+    try {
+        const response: any = await accountService.deleteAddressApi(userData, getTokenHeader());
         return response;
     } catch (error: any) {
         const message: any = getErrorMessage(error)
@@ -126,6 +137,15 @@ export const accountDataReducer = createSlice({
             })
             .addCase(addAddress.rejected, (state: any) => {
                 state.citiesData = null;
+            })
+            .addCase(deleteAddress.pending, (state:any)=>{
+                state.isLoadingDeleteAddress = true
+            })
+            .addCase(deleteAddress.fulfilled, (state:any)=>{
+                state.isLoadingDeleteAddress = false
+            })
+            .addCase(deleteAddress.rejected, (state:any)=>{
+                state.isLoadingDeleteAddress = false
             })
     }
 

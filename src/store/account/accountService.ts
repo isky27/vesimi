@@ -12,7 +12,16 @@ const getAddressApi = async (userData: any, userToken: { headers: { Authorizatio
 
 const addAddressApi = async (userData: any, userToken: { headers: { Authorization: string } }): Promise<ApiResponse> => {
   try {
-    const response: ApiResponse = await axios.post(`user/shipping/create`, userData, userToken);
+    const response: ApiResponse = await axios.post(`user/address/create`, userData, userToken);
+    return response;
+  } catch (error: any) {
+    throw error;
+  }
+};
+
+const deleteAddressApi = async (userData: any, userToken: { headers: { Authorization: string } }): Promise<ApiResponse> => {
+  try {
+    const response: ApiResponse = await axios.get(`user/address/delete/${userData?.addressId}`, userToken);
     return response;
   } catch (error: any) {
     throw error;
@@ -51,7 +60,8 @@ const accountService = {
   getCountriesApi,
   getStatesApi,
   getCitiesApi,
-  addAddressApi
+  addAddressApi,
+  deleteAddressApi
 };
 
 export default accountService;

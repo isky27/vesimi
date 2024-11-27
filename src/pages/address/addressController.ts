@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
-import { getUserAddress } from "store/account/accountDataSlice";
+import { deleteAddress, getUserAddress } from "store/account/accountDataSlice";
 import { useAppDispatch, useAppSelector } from "store/redux.hooks";
 
 const AddressController = () =>{
 
     const [isOpenDeletePopup, setIsOPenDeletePopup] = useState({isOpen:false, addressId : ""})
     const { loginDetails } = useAppSelector((state: any) => state.auth);
-    const {isLoadingUserAddress, userAddressData} = useAppSelector((state)=>state.account)
+    const {isLoadingUserAddress, userAddressData, isLoadingDeleteAddress} = useAppSelector((state)=>state.account)
     
     const dispatch = useAppDispatch()
 
@@ -15,7 +15,12 @@ const AddressController = () =>{
     },[dispatch, loginDetails])
 
     const handleDeleteAddress = () =>{
-        // dispatch(dele)
+        dispatch(deleteAddress({addressId: isOpenDeletePopup?.addressId})).unwrap().then(()=>{
+            dispatch(getUserAddress({user_id: loginDetails?.user?.id}))
+        }).catch((error)=>{
+            console.log(error.message);
+        })
+        setIsOPenDeletePopup({isOpen:false, addressId :""})
     }
 
 
@@ -24,7 +29,9 @@ const AddressController = () =>{
         userAddressData,
         loginDetails,
         isOpenDeletePopup, 
-        setIsOPenDeletePopup
+        setIsOPenDeletePopup,
+        handleDeleteAddress,
+        isLoadingDeleteAddress
     }
 }
 

@@ -11,12 +11,14 @@ const AddressView = () => {
   const {
     isLoadingUserAddress, userAddressData,
     loginDetails,
-    isOpenDeletePopup, setIsOPenDeletePopup
+    isOpenDeletePopup, setIsOPenDeletePopup,
+    handleDeleteAddress,
+    isLoadingDeleteAddress
    } = AddressController()
 
   return (
     <ProfileWrapper>
-      <Loader isLoading={[isLoadingUserAddress]}/>
+      <Loader isLoading={[isLoadingUserAddress, isLoadingDeleteAddress]}/>
       <div className="myAccountMain">
         <div className="container">
           <h2 className="mb-4">Address Book</h2>
@@ -87,10 +89,13 @@ const AddressView = () => {
       <CustomPopup
         modalClass="loginModal"
         show={isOpenDeletePopup?.isOpen}
+        modalBody="Are you sure want to delete address"
         handleClose={() => setIsOPenDeletePopup({isOpen:false, addressId : ""})}
         modalHeader="Delete address"
+        secondaryButtonText="Cancel"
         secondaryButtonClick={()=>{setIsOPenDeletePopup({isOpen:false, addressId :""})}}
-        primaryButtonClick={()=>{}}
+        primaryButtonText="Delete"
+        primaryButtonClick={handleDeleteAddress}
       />
     </ProfileWrapper>
   )
