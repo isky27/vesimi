@@ -3,6 +3,7 @@ import { getErrorMessage } from "utils";
 import { ProductInterface } from "./productInterface";
 import productService from "./productService";
 import { toast } from "react-toastify";
+import { cartListDataApi } from "store/order/orderSlice";
 
 /**
  * Initial state for the authentication
@@ -17,10 +18,6 @@ const initialState: ProductInterface = {
     isLoadingRelatedProducts: false,
     relatedProductsData : null,
     isLoadingAddToCart: false,
-    isLoadingCartList: false,
-    cartListData: null,
-    isLoadingCartSummary: false,
-    cartSummaryData: null
 }
 
 // Async Thunks
@@ -62,27 +59,6 @@ export const addToCart = createAsyncThunk("add/to/cart", async (userData:any,thu
         return thunkApi.rejectWithValue(message);
     }
 });
-
-export const cartListDataApi = createAsyncThunk("cart/list", async (userData:any,thunkApi: any) => {
-    try {
-        const response:any = await productService.cartListApi(userData);
-        return response;
-    } catch (error: any) {
-        const message: any = getErrorMessage(error)
-        return thunkApi.rejectWithValue(message);
-    }
-});
-
-export const cartSummaryDataApi = createAsyncThunk("cart/summary", async (userData:any,thunkApi: any) => {
-    try {
-        const response:any = await productService.cartSummaryApi(userData);
-        return response;
-    } catch (error: any) {
-        const message: any = getErrorMessage(error)
-        return thunkApi.rejectWithValue(message);
-    }
-});
-
 
 // Home Reducer
 export const productReducer = createSlice({
@@ -133,33 +109,6 @@ export const productReducer = createSlice({
             .addCase(addToCart.rejected, (state: any) => {
                 state.isLoadingAddToCart = false;
                 state.isSuccess = false;
-            })
-            .addCase(cartListDataApi.pending, (state: any, _: any) => {
-                state.isLoadingCartList = true;
-                state.cartListData =  null
-                state.isSuccess = false;
-            })
-            .addCase(cartListDataApi.fulfilled, (state: any, action: any) => {
-                state.isLoadingCartList = false;
-                state.cartListData = action.payload
-                state.isSuccess = true;
-            })
-            .addCase(cartListDataApi.rejected, (state: any) => {
-                state.isLoadingCartList = false;
-                state.cartListData = null
-                state.isSuccess = false;
-            })
-            .addCase(cartSummaryDataApi.pending, (state: any, _: any) => {
-                state.isLoadingCartSummary = true;
-                state.cartSummaryData =  null
-            })
-            .addCase(cartSummaryDataApi.fulfilled, (state: any, action: any) => {
-                state.isLoadingCartSummary = false;
-                state.cartSummaryData = action.payload
-            })
-            .addCase(cartSummaryDataApi.rejected, (state: any) => {
-                state.isLoadingCartSummary = false;
-                state.cartSummaryData = null
             })
     }
 

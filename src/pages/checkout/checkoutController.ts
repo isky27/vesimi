@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { getUserAddress, updateOrderAddress } from "store/account/accountDataSlice";
-import { cartListDataApi, cartSummaryDataApi } from "store/product/productSlice";
+import { getUserAddress } from "store/account/accountDataSlice";
+import { cartListDataApi, cartSummaryDataApi, updateOrderAddress } from "store/order/orderSlice";
 import { useAppDispatch, useAppSelector } from "store/redux.hooks";
 
 const CheckoutController = () => {
@@ -16,9 +16,9 @@ const CheckoutController = () => {
       setActiveKey(key);
   };
 
-  const {isLoadingCartList, cartListData, isLoadingCartSummary, cartSummaryData } = useAppSelector((state:any)=> state.product)
+  const {isLoadingOrderAddress, isLoadingCartList, cartListData, isLoadingCartSummary, cartSummaryData } = useAppSelector((state)=> state.order)
   const { loginDetails } = useAppSelector((state:any) => state.auth);
-  const {isLoadingUserAddress, userAddressData, isLoadingOrderAddress} = useAppSelector((state)=>state.account)
+  const {isLoadingUserAddress, userAddressData} = useAppSelector((state)=>state.account)
 
   const dispatch = useAppDispatch()
 
@@ -43,7 +43,7 @@ const CheckoutController = () => {
       })).unwrap().then(()=>{
         setIsShippingMethodDisabled(false)
         handleNext("1")
-      }).catch((error)=>{
+      }).catch((error:any)=>{
         console.log(error.message);
       })
     }else{

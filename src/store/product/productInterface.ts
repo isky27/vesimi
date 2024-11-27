@@ -8,9 +8,5 @@ export interface ProductInterface {
     isLoadingRelatedProducts: boolean;
     relatedProductsData: any | null;
     isLoadingAddToCart: boolean;
-    isLoadingCartList: boolean;
-    cartListData: any | null;
-    isLoadingCartSummary: boolean,
-    cartSummaryData: any| null;
 }
 

@@ -16,7 +16,7 @@ const HeaderController = () => {
 
   const { loginDetails, selectedCurrency, isOpenLoginPopup, isOpenSignupPopup } = useAppSelector((state: any) => state.auth);
 
-  const { cartListData, isLoadingCartList } = useAppSelector((state: any) => state.product)
+  const { cartListData, isLoadingCartList } = useAppSelector((state: any) => state.order)
 
   const loginInitialValues = {
     email: "",

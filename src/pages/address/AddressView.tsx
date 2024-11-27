@@ -89,6 +89,8 @@ const AddressView = () => {
         show={isOpenDeletePopup?.isOpen}
         handleClose={() => setIsOPenDeletePopup({isOpen:false, addressId : ""})}
         modalHeader="Delete address"
+        secondaryButtonClick={()=>{setIsOPenDeletePopup({isOpen:false, addressId :""})}}
+        primaryButtonClick={()=>{}}
       />
     </ProfileWrapper>
   )

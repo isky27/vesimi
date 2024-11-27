@@ -14,6 +14,11 @@ const AddressController = () =>{
         dispatch(getUserAddress({user_id: loginDetails?.user?.id}))
     },[dispatch, loginDetails])
 
+    const handleDeleteAddress = () =>{
+        // dispatch(dele)
+    }
+
+
     return {
         isLoadingUserAddress, 
         userAddressData,

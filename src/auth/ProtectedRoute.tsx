@@ -3,7 +3,8 @@ import { useAppDispatch, useAppSelector } from "store/redux.hooks";
 import { getLocalStorage } from "utils";
 import Header from "component/headerLayout";
 import Footer from "component/footerLayout";
-import { cartListDataApi } from "store/product/productSlice";
+import { cartListDataApi } from "store/order/orderSlice";
+
 // Returns Is user is logged in or not
 export const useAuth = () => {
   const userdata: any = getLocalStorage("loginDetails");
@@ -34,6 +35,7 @@ export const ProtectedRouteCheck = ({ children }: any) => {
 };
 
 export const HomeRoute = () => {
+  
   const { loginDetails } = useAppSelector((state) => state.auth);
   const dispatch = useAppDispatch()
   if (loginDetails?.access_token) {

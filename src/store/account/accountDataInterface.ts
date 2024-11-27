@@ -7,6 +7,5 @@ export interface AccountDataInterface {
     countriesData: any;
     statesData: any;
     citiesData: any;
-    isLoadingOrderAddress: boolean;
 }
 

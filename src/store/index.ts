@@ -7,6 +7,7 @@ import homeReducer from './home/home.slice';
 import categoryReducer from './category/category.slice';
 import productReducer from './product/productSlice';
 import accountDataReducer from './account/accountDataSlice';
+import orderDataReducer from './order/orderSlice';
 
 // Array to hold middleware
 const middleware: any = [];
@@ -34,7 +35,8 @@ const store = configureStore({
     home: homeReducer,
     category:categoryReducer,
     product: productReducer,
-    account: accountDataReducer
+    account: accountDataReducer,
+    order: orderDataReducer
   },
   middleware: getDefaultMiddleware => getDefaultMiddleware({
     // Disable checks for immutability and serializability for improved performance

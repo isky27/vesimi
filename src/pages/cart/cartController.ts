@@ -1,11 +1,11 @@
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import { cartListDataApi, cartSummaryDataApi } from "store/product/productSlice"
+import { cartListDataApi, cartSummaryDataApi } from "store/order/orderSlice"
 import { useAppDispatch, useAppSelector } from "store/redux.hooks"
 
 const CartController = () => {
   
-  const {isLoadingCartList, cartListData, isLoadingCartSummary, cartSummaryData } = useAppSelector((state:any)=> state.product)
+  const {isLoadingCartList, cartListData, isLoadingCartSummary, cartSummaryData } = useAppSelector((state)=> state.order)
   const { loginDetails } = useAppSelector((state) => state.auth);
 
   const dispatch = useAppDispatch()

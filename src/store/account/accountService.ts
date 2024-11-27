@@ -46,22 +46,12 @@ const getCitiesApi = async (stateId:number, userToken: { headers: { Authorizatio
   }
 };
 
-const updateOrderAddressApi = async (payload:any, userToken: { headers: { Authorization: string } }): Promise<ApiResponse> => {
-  try {
-    const response: ApiResponse = await axios.post("update-address-in-cart", payload, userToken);
-    return response;
-  } catch (error: any) {
-    throw error;
-  }
-};
-
 const accountService = {
   getAddressApi,
   getCountriesApi,
   getStatesApi,
   getCitiesApi,
-  addAddressApi,
-  updateOrderAddressApi
+  addAddressApi
 };
 
 export default accountService;
