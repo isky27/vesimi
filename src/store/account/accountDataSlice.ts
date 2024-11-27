@@ -14,7 +14,8 @@ const initialState: AccountDataInterface = {
     userAddressData: null,
     countriesData: null,
     statesData: null,
-    citiesData: null
+    citiesData: null,
+    isLoadingOrderAddress: false
 }
 
 // Async Thunks
@@ -62,8 +63,17 @@ export const getCities = createAsyncThunk("get/cities", async (stateId: number, 
 
 export const addAddress = createAsyncThunk("add/address", async (userData: any, thunkApi: any) => {
     try {
-        const response: any = await accountService.addAddressApi(userData?.payload, getTokenHeader());
-        userData?.navigate("/address")
+        const response: any = await accountService.addAddressApi(userData, getTokenHeader());
+        return response;
+    } catch (error: any) {
+        const message: any = getErrorMessage(error)
+        return thunkApi.rejectWithValue(message);
+    }
+});
+
+export const updateOrderAddress = createAsyncThunk("update/order/address", async (userData: any, thunkApi: any) => {
+    try {
+        const response: any = await accountService.updateOrderAddressApi(userData, getTokenHeader());
         return response;
     } catch (error: any) {
         const message: any = getErrorMessage(error)
@@ -127,6 +137,15 @@ export const accountDataReducer = createSlice({
             })
             .addCase(addAddress.rejected, (state: any) => {
                 state.citiesData = null;
+            })
+            .addCase(updateOrderAddress.pending, (state: any, _: any) => {
+                state.isLoadingOrderAddress = true;
+            })
+            .addCase(updateOrderAddress.fulfilled, (state: any, action: any) => {
+                state.isLoadingOrderAddress = false;
+            })
+            .addCase(updateOrderAddress.rejected, (state: any) => {
+                state.isLoadingOrderAddress = false;
             })
     }
 

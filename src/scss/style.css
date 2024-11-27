@@ -841,18 +841,6 @@ footer {
   border-top: 1px solid #bdbdbd;
 }
 
-.categoeryRightBar {
-  flex: 1;
-  max-width: calc(100% - 200px);
-}
-
-.categoeryRightBar h2 {
-  font-size: 24px;
-  margin-bottom: 15px;
-  font-weight: 500;
-  margin: 0;
-}
-
 .TabRedirec a {
   display: inline-block;
   padding: 10px;
@@ -861,12 +849,6 @@ footer {
   color: #afafaf;
   text-transform: uppercase;
 } 
-.categoeryRightBar .accordion-button {
-    font-size: 26px;
-    font-family: "Playfair Display", serif;
-    padding: 15px 0;
-}
-
 .searchOuter {
   position: relative;
   margin: 15px 0;
@@ -1025,15 +1007,9 @@ footer {
   border: 1px solid #bc3d19;
   background: #fff8f5;
 }
-.categoeryRightBar .accordion-body .categoeryLink a {
-  flex: 0 0 25%;
-  max-width: 25%;
-}
+
 .accordion-button:not(.collapsed){background-color:#fff;}
 .accordion-button:focus{box-shadow:none;}
-.categoeryRightBar .accordion-body{padding:0 0 20px 0;}
-
-
 
 /* Price range slider */
 

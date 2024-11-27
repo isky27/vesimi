@@ -1,275 +1,125 @@
 import { getPrice } from 'utils'
 import CheckoutController from './checkoutController'
+import { Accordion } from "react-bootstrap";
 import Loader from 'component/Loader'
+import AddressFormView from 'pages/address/addressForm/AddressFormView';
 
 const CheckoutView = () => {
     const {
         isLoadingCartList,
         cartListData,
         isLoadingCartSummary,
-        cartSummaryData
+        cartSummaryData,
+        isLoadingUserAddress,
+        userAddressData,
+        openAddressForm,
+        setOpenAddressForm,
+        selectedAddress,
+        setSelectedAddress,
+        handleChooseAddress,
+        activeKey,
+        setActiveKey,
+        isShippingMethodDisabled, 
+        setIsShippingMethodDisabled,
+        isPaymentMethodDisabled, 
+        setIsPaymentMethodDisabled,
+        isLoadingOrderAddress,
+        handleAfterAddAddress
     } = CheckoutController()
 
     return (
         <section className="pageMain">
-            <Loader isLoading={[isLoadingCartList, isLoadingCartSummary]} />
+            <Loader isLoading={[isLoadingCartList, isLoadingCartSummary, isLoadingUserAddress, isLoadingOrderAddress]} />
             <div className="container">
                 <div className="py-5">
                     <div className="cartRow align-items-stretch">
                         <div className="cartleft checkOutLeft pb-5">
                             <h2>shipping and billing address </h2>
-                            <div className="accordion" id="accordionExample">
-                                <div className="accordion-item">
-                                    <h2 className="accordion-header" id="headingOne">
-                                        <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Shipping Information
-                                        </button>
-                                    </h2>
-                                    <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                        <div className="accordion-body">
-                                            <div className="addAddressBlock">
-                                                <form>
-                                                    <div className="row">
-                                                        <div className="col-md-6">
-                                                            <div className="mb-3">
-                                                                <label className="form-label">First Name</label>
-                                                                <input type="text" className="form-control" id="firstName" aria-describedby="emailHelp" />
+                            <Accordion className='accordian' activeKey={activeKey} onSelect={(key) => setActiveKey(key as string)}>
+                                <Accordion.Item eventKey="0">
+                                    <Accordion.Header>Shipping Information</Accordion.Header>
+                                    <Accordion.Body>
+                                        <div className="addAddressBlock">
+                                            {openAddressForm ? (
+                                                <AddressFormView handleAfterSuccess={handleAfterAddAddress}/>
+                                            ) : (
+                                                <div>
+                                                    {userAddressData?.data?.map((elem: any) => (
+                                                        <div className="addressBox d-flex align-items-center gap-3" key={elem.id}>
+                                                            <input
+                                                                type="radio"
+                                                                value={elem.id}
+                                                                checked={selectedAddress?.id === elem.id}
+                                                                onChange={() => setSelectedAddress(elem)}
+                                                            />
+                                                            <div>
+                                                                <p>{elem.address}</p>
+                                                                <p>{elem.city_name}</p>
+                                                                <p>{`${elem.state_name}, ${elem.country_name}, ${elem.postal_code}`}</p>
+                                                                <p>{elem.phone}</p>
                                                             </div>
                                                         </div>
-
-
-                                                        <div className="col-md-6">
-                                                            <div className="mb-3">
-                                                                <label className="form-label">Last Name</label>
-                                                                <input type="text" className="form-control" id="" aria-describedby="emailHelp" />
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-6">
-                                                            <div className="mb-3">
-                                                                <label className="form-label">Last Name</label>
-                                                                <select className="form-select" aria-label="Default select example">
-                                                                    <option selected>Country</option>
-                                                                    <option value="1">One</option>
-                                                                    <option value="2">Two</option>
-                                                                    <option value="3">Three</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-
-                                                        <div className="col-md-6">
-                                                            <div className="mb-3">
-                                                                <label className="form-label">Address</label>
-                                                                <input type="text" className="form-control" id="" aria-describedby="emailHelp" />
-                                                            </div>
-                                                        </div>
-
-
-                                                        <div className="col-md-6">
-                                                            <div className="mb-3">
-                                                                <label className="form-label">Addition address information</label>
-                                                                <input type="text" className="form-control" id="" aria-describedby="emailHelp" />
-                                                            </div>
-                                                        </div>
-
-                                                        <div className="col-md-6">
-                                                            <div className="mb-3">
-                                                                <label className="form-label">City</label>
-                                                                <input type="text" className="form-control" id="" aria-describedby="emailHelp" />
-                                                            </div>
-                                                        </div>
-
-
-                                                        <div className="col-md-6">
-                                                            <div className="mb-3">
-                                                                <label className="form-label">State/Province/Region</label>
-                                                                <input type="text" className="form-control" id="" aria-describedby="emailHelp" />
-                                                            </div>
-                                                        </div>
-
-                                                        <div className="col-md-6">
-                                                            <div className="mb-3">
-                                                                <label className="form-label">Zip/postal Code</label>
-                                                                <input type="text" className="form-control" id="" aria-describedby="emailHelp" />
-                                                            </div>
-                                                        </div>
-
-                                                        <div className="col-md-6">
-                                                            <div className="mb-3">
-                                                                <label className="form-label">Phone Number</label>
-                                                                <input type="text" className="form-control" id="" aria-describedby="emailHelp" />
-                                                            </div>
+                                                    ))}
+                                                    <div>
+                                                        <button className="themeBtnCart" onClick={handleChooseAddress}>
+                                                            Continue Checkout
+                                                        </button>
+                                                        <button
+                                                            className="themeBtnCart"
+                                                            onClick={() => {
+                                                                setOpenAddressForm(!openAddressForm);
+                                                                setSelectedAddress(null);
+                                                            }}
+                                                        >
+                                                            Add new address
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </Accordion.Body>
+                                </Accordion.Item>
+                                <Accordion.Item eventKey="1">
+                                    <Accordion.Header className={isShippingMethodDisabled ? "disabled" : ""}
+                                        style={{ cursor: isShippingMethodDisabled ? "not-allowed" : "pointer" }}>Shipping Methods</Accordion.Header>
+                                    <Accordion.Body>
+                                        <div className="addAddressBlock">
+                                            <form>
+                                                <div className="row">
+                                                    <div className="col-md-6">
+                                                        <div className="mb-3">
+                                                            <label className="form-label">First Name</label>
+                                                            <input type="text" className="form-control" />
                                                         </div>
                                                     </div>
-
-                                                    <button className="themeBtnCart">Continue Checkout</button>
-
-                                                </form>
-                                            </div>
+                                                    {/* Add other form fields */}
+                                                </div>
+                                                <button className="themeBtnCart">Checkout</button>
+                                            </form>
                                         </div>
-                                    </div>
-                                </div>
-                                <div className="accordion-item">
-                                    <h2 className="accordion-header" id="headingTwo">
-                                        <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            Payment Method
-                                        </button>
-                                    </h2>
-                                    <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                        <div className="accordion-body">
-                                            <div className="addAddressBlock">
-                                                <form>
+                                    </Accordion.Body>
+                                </Accordion.Item>
 
-                                                    <div className="row">
-                                                        <div className="col-md-12">
-                                                            <div className="mb-3">
-                                                                <label className="form-label">Card Number</label>
-                                                                <input type="text" className="form-control" id="" aria-describedby="emailHelp" />
-                                                            </div>
-                                                        </div>
-
-
-                                                        <div className="col-md-12">
-                                                            <div className="mb-3">
-                                                                <label className="form-label">Name On Card</label>
-                                                                <input type="text" className="form-control" id="" aria-describedby="emailHelp" />
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-4">
-                                                            <div className="mb-3">
-                                                                <label className="form-label">Month</label>
-                                                                <select className="form-select" aria-label="Default select example">
-                                                                    <option selected>Country</option>
-                                                                    <option value="1">One</option>
-                                                                    <option value="2">Two</option>
-                                                                    <option value="3">Three</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-
-
-                                                        <div className="col-md-4">
-                                                            <div className="mb-3">
-                                                                <label className="form-label">Years</label>
-                                                                <select className="form-select" aria-label="Default select example">
-                                                                    <option selected>Country</option>
-                                                                    <option value="1">One</option>
-                                                                    <option value="2">Two</option>
-                                                                    <option value="3">Three</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-
-                                                        <div className="col-md-4">
-                                                            <div className="mb-3">
-                                                                <label className="form-label">CVV</label>
-                                                                <input type="text" className="form-control" id="" aria-describedby="emailHelp" />
-                                                            </div>
-                                                        </div>
-
-                                                        <div className="form-check ms-3 mb-4">
-                                                            <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                                            <label className="form-check-label">
-                                                                My billing addresss is  the same as  my shiping address.
-                                                            </label>
-                                                        </div>
+                                <Accordion.Item eventKey="2">
+                                    <Accordion.Header className={isPaymentMethodDisabled ? "disabled" : ""}
+                                        style={{ cursor: isPaymentMethodDisabled ? "not-allowed" : "pointer" }}>Payment Method</Accordion.Header>
+                                    <Accordion.Body>
+                                        <form>
+                                            <div className="row">
+                                                <div className="col-md-12">
+                                                    <div className="mb-3">
+                                                        <label className="form-label">Card Number</label>
+                                                        <input type="text" className="form-control" />
                                                     </div>
-
-                                                    <button className="themeBtnCart">Continue Checkout</button>
-
-                                                </form>
+                                                </div>
+                                                {/* Add remaining form fields */}
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="accordion-item">
-                                    <h2 className="accordion-header" id="headingThree">
-                                        <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                            Shipping Information
-                                        </button>
-                                    </h2>
-                                    <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                        <div className="accordion-body">
-                                            <div className="addAddressBlock">
-                                                <form>
-                                                    <div className="row">
-                                                        <div className="col-md-6">
-                                                            <div className="mb-3">
-                                                                <label className="form-label">First Name</label>
-                                                                <input type="text" className="form-control" id="" aria-describedby="emailHelp" />
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-6">
-                                                            <div className="mb-3">
-                                                                <label className="form-label">Last Name</label>
-                                                                <input type="text" className="form-control" id="" aria-describedby="emailHelp" />
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-6">
-                                                            <div className="mb-3">
-                                                                <label className="form-label">Last Name</label>
-                                                                <select className="form-select" aria-label="Default select example">
-                                                                    <option selected>Country</option>
-                                                                    <option value="1">One</option>
-                                                                    <option value="2">Two</option>
-                                                                    <option value="3">Three</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
+                                            <button className="themeBtnCart">Continue Checkout</button>
+                                        </form>
+                                    </Accordion.Body>
+                                </Accordion.Item>
+                            </Accordion>
 
-                                                        <div className="col-md-6">
-                                                            <div className="mb-3">
-                                                                <label className="form-label">Address</label>
-                                                                <input type="text" className="form-control" id="" aria-describedby="emailHelp" />
-                                                            </div>
-                                                        </div>
-
-
-                                                        <div className="col-md-6">
-                                                            <div className="mb-3">
-                                                                <label className="form-label">Addition address information</label>
-                                                                <input type="text" className="form-control" id="" aria-describedby="emailHelp" />
-                                                            </div>
-                                                        </div>
-
-                                                        <div className="col-md-6">
-                                                            <div className="mb-3">
-                                                                <label className="form-label">City</label>
-                                                                <input type="text" className="form-control" id="" aria-describedby="emailHelp" />
-                                                            </div>
-                                                        </div>
-
-
-                                                        <div className="col-md-6">
-                                                            <div className="mb-3">
-                                                                <label className="form-label">State/Province/Region</label>
-                                                                <input type="text" className="form-control" id="" aria-describedby="emailHelp" />
-                                                            </div>
-                                                        </div>
-
-                                                        <div className="col-md-6">
-                                                            <div className="mb-3">
-                                                                <label className="form-label">Zip/postal Code</label>
-                                                                <input type="text" className="form-control" id="" aria-describedby="emailHelp" />
-                                                            </div>
-                                                        </div>
-
-                                                        <div className="col-md-6">
-                                                            <div className="mb-3">
-                                                                <label className="form-label">Phone Number</label>
-                                                                <input type="text" className="form-control" id="" aria-describedby="emailHelp" />
-                                                            </div>
-                                                        </div>
-
-
-                                                    </div>
-
-                                                    <button className="themeBtnCart">Checkout</button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div className="cartRight">
                             <div className="cartRightBox">
@@ -287,32 +137,31 @@ const CheckoutView = () => {
                                         </ul>
                                     </div>
                                 </div>
-                                <button className="themeBtnCart">PROCEED TO CHECKOUT</button>
                             </div>
 
                             <div className="totalOrdersOuter">
                                 <h4>ORDER DETAILS - <small>{cartListData?.data[0]?.cart_items?.length}Item(s)</small> </h4>
                                 {
-                                cartListData?.data[0]?.cart_items?.map((item: any) => <div className="cartListingOuter">
-                                    <div className="cartListing">
-                                        <figure>{item?.product_thumbnail_image && <img src={item?.product_thumbnail_image} alt="cart1" />}</figure>
-                                        <figcaption>
-                                            {item?.designer && <h5 className="mb-1">{item?.designer} </h5>}
-                                            {item?.product_name && <p className="mb-1" style={{ fontSize: "11px" }}>{item?.product_name}</p>}
-                                            {(item?.color || item?.size) && <div className="mb-1">{item?.color && <span className="me-2">Color: {item?.color}</span>}{item?.size && <span>Size: {item?.size}</span>}</div>}
-                                            {item?.price && <div className="mb-1">Price: {getPrice(item?.price)}
-                                                {/* <strong className="ms-2">₹ 17,600</strong>
+                                    cartListData?.data[0]?.cart_items?.map((item: any) => <div className="cartListingOuter">
+                                        <div className="cartListing">
+                                            <figure>{item?.product_thumbnail_image && <img src={item?.product_thumbnail_image} alt="cart1" />}</figure>
+                                            <figcaption>
+                                                {item?.designer && <h5 className="mb-1">{item?.designer} </h5>}
+                                                {item?.product_name && <p className="mb-1" style={{ fontSize: "11px" }}>{item?.product_name}</p>}
+                                                {(item?.color || item?.size) && <div className="mb-1">{item?.color && <span className="me-2">Color: {item?.color}</span>}{item?.size && <span>Size: {item?.size}</span>}</div>}
+                                                {item?.price && <div className="mb-1">Price: {getPrice(item?.price)}
+                                                    {/* <strong className="ms-2">₹ 17,600</strong>
                                                 <span className="ms-2" style={{ color: "#388e3c" }}>(20% off)</span> */}
-                                            </div>}
-                                            {/* <div className="mb-1">
+                                                </div>}
+                                                {/* <div className="mb-1">
                                                 <a href="#" className="assuedDelivary"> <span className=" d-inline-block "><i className="fa-regular fa-circle-check"></i></span>Assured Delivery </a>
                                                 <span className="d-inline-block">by 20th November 2024 </span>
                                             </div> */}
-                                        </figcaption>
-                                        <button className="cartDelete top-0 right-0"><i className="fa-solid fa-trash-can"></i></button>
-                                    </div>
-                                </div>)
-                            }
+                                            </figcaption>
+                                            <button className="cartDelete top-0 right-0"><i className="fa-solid fa-trash-can"></i></button>
+                                        </div>
+                                    </div>)
+                                }
                             </div>
                         </div>
                     </div>
