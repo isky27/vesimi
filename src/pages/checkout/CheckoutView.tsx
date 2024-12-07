@@ -84,9 +84,11 @@ const CheckoutView = () => {
                                         style={{ cursor: isShippingMethodDisabled ? "not-allowed" : "pointer" }}>Shipping Methods</Accordion.Header>
                                     <Accordion.Body>
                                         <div className="addAddressBlock">
-                                            <form>
-                                                <button className="themeBtnCart">Checkout</button>
-                                            </form>
+                                            {/* <form> */}
+                                                <button onClick={()=>{setIsPaymentMethodDisabled(false);
+                                                    setActiveKey("2")
+                                                }} className="themeBtnCart">Save and Continue</button>
+                                            {/* </form> */}
                                         </div>
                                     </Accordion.Body>
                                 </Accordion.Item>
