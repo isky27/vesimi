@@ -20,26 +20,6 @@ const CartView = () => {
             <div className="container py-5">
                 <div className="cartRow">
                     <div className="cartleft">
-                        <div className="cartFeature">
-                            <ul>
-                                <li className="text-center">
-                                    <span className="bg-image d-block" style={{ width: "45px", height: "33px", backgroundPosition: "-44px -10px", backgroundRepeat: "no-repeat", margin: "auto" }}></span>
-                                    <strong className="py-2 d-block">Free shipping </strong>
-                                </li>
-
-                                <li className="text-center">
-                                    <span className="bg-image d-block" style={{ width: "45px", height: "33px", backgroundPosition: "-44px -10px", backgroundRepeat: "no-repeat", margin: "auto" }}></span>
-                                    <strong className="py-2 d-block">Hassle free return policy </strong>
-                                </li>
-
-                                <li className="text-center">
-                                    <span className="bg-image d-block" style={{ width: "45px", height: "33px", backgroundPosition: "-44px -10px", backgroundRepeat: "no-repeat", margin: "auto" }}></span>
-                                    <strong className="py-0 d-block">WhatsApp: +91 8291990059 </strong>
-                                    <strong className="py-0 d-block">contactus@azafashions.com </strong>
-                                </li>
-                            </ul>
-
-                        </div>
                         {/* <div className="watsappLink">Shop for <strong className="mx-1">{getPrice(cartListData?.data[0]?.sub_total)} </strong>more to get additional offers on your order. To know more <button><i className="fa-brands fa-whatsapp"></i> Chat with us</button></div> */}
 
                         <div className="cartlistingWrap">

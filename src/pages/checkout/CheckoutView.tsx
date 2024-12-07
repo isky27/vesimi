@@ -85,15 +85,6 @@ const CheckoutView = () => {
                                     <Accordion.Body>
                                         <div className="addAddressBlock">
                                             <form>
-                                                <div className="row">
-                                                    <div className="col-md-6">
-                                                        <div className="mb-3">
-                                                            <label className="form-label">First Name</label>
-                                                            <input type="text" className="form-control" />
-                                                        </div>
-                                                    </div>
-                                                    {/* Add other form fields */}
-                                                </div>
                                                 <button className="themeBtnCart">Checkout</button>
                                             </form>
                                         </div>
