@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { toast } from 'react-toastify';
 
 const updateOrderAddressApi = async (payload:any, userToken: { headers: { Authorization: string } }): Promise<ApiResponse> => {
   try {
@@ -27,10 +28,22 @@ const cartListApi = async (userData: any): Promise<ApiResponse> => {
     }
   };
 
+  const saveOrderApi = async (userData: any): Promise<ApiResponse> => {
+    try {
+      const response: ApiResponse = (await axios.post(`/order/store`, userData));
+
+      toast.success("Your order is placed.")
+      return response;
+    } catch (error: any) {
+      throw error;
+    }
+  };
+
 const orderService = {
   updateOrderAddressApi,
   cartListApi,
-  cartSummaryApi
+  cartSummaryApi,
+  saveOrderApi
 };
 
 export default orderService;

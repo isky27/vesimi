@@ -13,7 +13,9 @@ const initialState: OrderDataInterface = {
     isLoadingCartList: false,
     cartListData: null,
     isLoadingCartSummary: false,
-    cartSummaryData: null
+    cartSummaryData: null,
+    isLoadingSaveOrder: false,
+    saveOrderData : null
 }
 
 // Async Thunks
@@ -42,6 +44,16 @@ export const cartListDataApi = createAsyncThunk("cart/list", async (userData:any
 export const cartSummaryDataApi = createAsyncThunk("cart/summary", async (userData:any,thunkApi: any) => {
     try {
         const response:any = await orderService.cartSummaryApi(userData);
+        return response;
+    } catch (error: any) {
+        const message: any = getErrorMessage(error)
+        return thunkApi.rejectWithValue(message);
+    }
+});
+
+export const orderSaveaApi = createAsyncThunk("save/order", async (userData:any,thunkApi: any) => {
+    try {
+        const response:any = await orderService.saveOrderApi(userData);
         return response;
     } catch (error: any) {
         const message: any = getErrorMessage(error)
@@ -94,6 +106,18 @@ export const orderDataReducer = createSlice({
             .addCase(cartSummaryDataApi.rejected, (state: any) => {
                 state.isLoadingCartSummary = false;
                 state.cartSummaryData = null
+            })
+            .addCase(orderSaveaApi.pending, (state: any, _: any) => {
+                state.isLoadingSaveOrder = true;
+                state.saveOrderData =  null
+            })
+            .addCase(orderSaveaApi.fulfilled, (state: any, action: any) => {
+                state.isLoadingSaveOrder = false;
+                state.saveOrderData = action.payload
+            })
+            .addCase(orderSaveaApi.rejected, (state: any) => {
+                state.isLoadingSaveOrder = false;
+                state.saveOrderData = null
             })
     }
 

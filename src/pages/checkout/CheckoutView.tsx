@@ -24,12 +24,14 @@ const CheckoutView = () => {
         isPaymentMethodDisabled, 
         setIsPaymentMethodDisabled,
         isLoadingOrderAddress,
-        handleAfterAddAddress
+        handleAfterAddAddress,
+        handleSaveOrder,
+        isLoadingSaveOrder
     } = CheckoutController()
 
     return (
         <section className="pageMain">
-            <Loader isLoading={[isLoadingCartList, isLoadingCartSummary, isLoadingUserAddress, isLoadingOrderAddress]} />
+            <Loader isLoading={[isLoadingCartList, isLoadingCartSummary, isLoadingUserAddress, isLoadingOrderAddress, isLoadingSaveOrder]} />
             <div className="container">
                 <div className="py-5">
                     <div className="cartRow align-items-stretch">
@@ -84,11 +86,19 @@ const CheckoutView = () => {
                                         style={{ cursor: isShippingMethodDisabled ? "not-allowed" : "pointer" }}>Shipping Methods</Accordion.Header>
                                     <Accordion.Body>
                                         <div className="addAddressBlock">
-                                            {/* <form> */}
-                                                <button onClick={()=>{setIsPaymentMethodDisabled(false);
-                                                    setActiveKey("2")
-                                                }} className="themeBtnCart">Save and Continue</button>
-                                            {/* </form> */}
+                                            <form onSubmit={(e)=>{
+                                                e.preventDefault();
+                                                setIsPaymentMethodDisabled(false);
+                                                setActiveKey("2")
+                                            }}>
+                                                <div className="row">
+                                                <div className="col-md-12 mb-3">
+                                                <input type='radio' checked={true}/> <label>Free Shipping</label>
+
+                                                </div>
+                                                </div>
+                                                <button type='submit' className="themeBtnCart">Save and Continue</button>
+                                            </form>
                                         </div>
                                     </Accordion.Body>
                                 </Accordion.Item>
@@ -97,17 +107,22 @@ const CheckoutView = () => {
                                     <Accordion.Header className={isPaymentMethodDisabled ? "disabled" : ""}
                                         style={{ cursor: isPaymentMethodDisabled ? "not-allowed" : "pointer" }}>Payment Method</Accordion.Header>
                                     <Accordion.Body>
-                                        <form>
+                                        <form onSubmit={(e)=>{
+                                            e.preventDefault();
+                                            handleSaveOrder()
+                                        }}>
                                             <div className="row">
-                                                <div className="col-md-12">
-                                                    <div className="mb-3">
+                                            <div className="col-md-12 mb-3">
+                                                <input type="radio" checked={true} /> <label>Cash on delivery</label>
+                                            </div>
+                                                {/* <div className="col-md-12 mb-3">
+
                                                         <label className="form-label">Card Number</label>
                                                         <input type="text" className="form-control" />
-                                                    </div>
+                                                    </div> */}
                                                 </div>
                                                 {/* Add remaining form fields */}
-                                            </div>
-                                            <button className="themeBtnCart">Continue Checkout</button>
+                                            <button type='submit' className="themeBtnCart">Continue Checkout</button>
                                         </form>
                                     </Accordion.Body>
                                 </Accordion.Item>

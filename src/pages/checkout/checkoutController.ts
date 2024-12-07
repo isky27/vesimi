@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { getUserAddress } from "store/account/accountDataSlice";
-import { cartListDataApi, cartSummaryDataApi, updateOrderAddress } from "store/order/orderSlice";
+import { cartListDataApi, cartSummaryDataApi, orderSaveaApi, updateOrderAddress } from "store/order/orderSlice";
 import { useAppDispatch, useAppSelector } from "store/redux.hooks";
 
 const CheckoutController = () => {
@@ -16,12 +17,13 @@ const CheckoutController = () => {
       setActiveKey(key);
   };
 
-  const {isLoadingOrderAddress, isLoadingCartList, cartListData, isLoadingCartSummary, cartSummaryData } = useAppSelector((state)=> state.order)
+  const {isLoadingOrderAddress, isLoadingCartList, cartListData, isLoadingCartSummary, cartSummaryData, isLoadingSaveOrder } = useAppSelector((state)=> state.order)
   const { loginDetails } = useAppSelector((state:any) => state.auth);
   const {isLoadingUserAddress, userAddressData} = useAppSelector((state)=>state.account)
 
   const dispatch = useAppDispatch()
-
+  const navigate = useNavigate()
+  
   useEffect(()=>{
     dispatch(cartListDataApi({user_id:loginDetails?.user?.id}))
     dispatch(cartSummaryDataApi({user_id: loginDetails?.user?.id}))
@@ -59,6 +61,16 @@ const CheckoutController = () => {
       })
   }
 
+  const handleSaveOrder = () =>{
+    dispatch(orderSaveaApi({
+      "owner_id":1,
+      "user_id":loginDetails?.user?.id,
+      "payment_type": "stripe"
+  })).then(()=>{
+    navigate("/")
+  })
+  }
+
   return {
     isLoadingCartList, 
     cartListData,
@@ -78,7 +90,8 @@ const CheckoutController = () => {
     isPaymentMethodDisabled, 
     setIsPaymentMethodDisabled,
     isLoadingOrderAddress,
-    handleAfterAddAddress
+    handleAfterAddAddress,
+    handleSaveOrder, isLoadingSaveOrder
   }
 }
 
