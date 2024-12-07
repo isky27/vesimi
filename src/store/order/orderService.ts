@@ -32,7 +32,7 @@ const cartListApi = async (userData: any): Promise<ApiResponse> => {
     try {
       const response: ApiResponse = (await axios.post(`/order/store`, userData));
 
-      toast.success("Your order is placed.")
+      toast.success("Your order has been placed successfully.")
       return response;
     } catch (error: any) {
       throw error;

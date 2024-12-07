@@ -18,6 +18,7 @@ const CartView = () => {
         <section className="pageMain">
             <Loader isLoading={[isLoadingCartList, isLoadingCartSummary]} />
             <div className="container py-5">
+            { !(isLoadingCartList || isLoadingCartSummary ) && (cartListData?.data[0]?.cart_items?.length > 0 ?
                 <div className="cartRow">
                     <div className="cartleft">
                         {/* <div className="watsappLink">Shop for <strong className="mx-1">{getPrice(cartListData?.data[0]?.sub_total)} </strong>more to get additional offers on your order. To know more <button><i className="fa-brands fa-whatsapp"></i> Chat with us</button></div> */}
@@ -68,7 +69,9 @@ const CartView = () => {
                             <button onClick={handleProceed} className="themeBtnCart">PROCEED TO CHECKOUT</button>
                         </div>
                     </div>
-                </div>
+                </div> : <div className="py-5 my-5 text-center">
+                    Your cart is empty.
+                    </div>)}
             </div>
         </section>
     )
