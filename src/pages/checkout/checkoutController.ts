@@ -53,7 +53,7 @@ const CheckoutController = () => {
 
   const handleAfterAddAddress = () => {
       dispatch(getUserAddress({user_id: loginDetails?.user?.id})).unwrap().then(()=>{
-        setOpenAddressForm(true)
+        setOpenAddressForm(false)
       }).catch((error)=>{
         console.log(error.message);
       })
