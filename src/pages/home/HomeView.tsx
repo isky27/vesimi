@@ -68,7 +68,7 @@ const HomeView = () => {
                 <div className="container">
                   <div className="row">
                     {topCategoryData?.map((item: any) => (
-                      <div key={item?.icon} className="col-sm-6 col-lg-3">
+                      <div key={item?.icon} className="col-6 col-lg-3">
                         <CategeryCard
                           bottomText={true}
                           imageName={item?.icon}
@@ -364,8 +364,8 @@ const HomeView = () => {
 
           <section className="productSection py-3 py-md-4">
             <div className="container">
-              <div className="fullscreen fullwidth clearfix">
-                <div
+              <div className="fullscreen fullwidth clearfix SocialSharing">
+                <div 
                   style={{ width: "25%", float: "left", position: "relative" }}
                 >
                   <a

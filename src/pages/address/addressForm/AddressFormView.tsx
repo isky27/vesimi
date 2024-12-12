@@ -13,7 +13,7 @@ const AddressFormView = ({ handleAfterSuccess }: any) => {
         <Form className="row g-3" onSubmit={addressFormik.handleSubmit}>
             {/* Contact Information Section */}
 
-            <div className="col-md-6">
+            <div className="col-sm-6 col-md-12 col-lg-6">
                 <InputField
                     label="Name"
                     onChange={addressFormik.handleChange}
@@ -24,7 +24,7 @@ const AddressFormView = ({ handleAfterSuccess }: any) => {
                     onKeyDown={removeSpaceOnly}
                 />
             </div>
-            <div className="col-md-6">
+            <div className="col-sm-6 col-md-12 col-lg-6">
                 <InputField
                     label="Phone Number"
                     onChange={addressFormik.handleChange}
@@ -35,7 +35,7 @@ const AddressFormView = ({ handleAfterSuccess }: any) => {
                     onKeyDown={removeSpaceOnly}
                 />
             </div>
-            <div className="col-md-6">
+            <div className="col-sm-6 col-md-12 col-lg-6">
                 <InputField
                     label={"Address"}
                     onChange={addressFormik.handleChange}
@@ -46,7 +46,7 @@ const AddressFormView = ({ handleAfterSuccess }: any) => {
                     onKeyDown={removeSpaceOnly}
                 />
             </div>
-            <div className="col-md-6">
+            <div className="col-sm-6 col-md-12 col-lg-6">
                 <label htmlFor="country" className="form-label">
                     Country <span className="text-danger">*</span>
                 </label>
@@ -64,7 +64,7 @@ const AddressFormView = ({ handleAfterSuccess }: any) => {
                 />
             </div>
 
-            <div className="col-md-6">
+            <div className="col-sm-6 col-md-12 col-lg-6">
                 <label htmlFor="state" className="form-label">
                     State/Province <span className="text-danger">*</span>
                 </label>
@@ -82,7 +82,7 @@ const AddressFormView = ({ handleAfterSuccess }: any) => {
                 />
             </div>
 
-            <div className="col-md-6">
+            <div className="col-sm-6 col-md-12 col-sm-6 col-md-12 col-lg-6">
                 <label htmlFor="city" className="form-label">
                     City <span className="text-danger">*</span>
                 </label>
@@ -97,7 +97,7 @@ const AddressFormView = ({ handleAfterSuccess }: any) => {
                 />
             </div>
 
-            <div className="col-md-6">
+            <div className="col-sm-6 col-md-12 col-sm-6 col-md-12 col-lg-6">
                 <InputField
                     label={"Zip/Postal Code"}
                     onChange={addressFormik.handleChange}

@@ -30,11 +30,11 @@ const ProductDetail = () => {
         {/* <!-- DETAIL PAGE CONTENT --> */}
 
         <div className="row">
-          <div className="col-lg-6">
-            <div className="imageContainer pe-0 pe-xl-5">
-              <div className="row">
+          <div className="col-md-6">
+            <div className="imageContainer detailPageContainer pe-0">
+              <div className="detailImgThumbrow">
                 {/* Left Side (Thumbnails) */}
-                <div className="col-3">
+                <div className="detailImgThumb">
                   <div className="thumbnail-wrapper">
                     {productDetailData?.data[0]?.photos?.map((image: any, index: number) => (
                       <img
@@ -49,7 +49,7 @@ const ProductDetail = () => {
                 </div>
 
                 {/* Right Side (Main Image) */}
-                <div className="col-9">
+                <div className="detailMainImage">
                   <div className="main-image-wrapper">
                     <InnerImageZoom src={selectedImage} zoomSrc={selectedImage} zoomScale={2.5} />
                   </div>
@@ -57,7 +57,7 @@ const ProductDetail = () => {
               </div>
             </div>
           </div>
-          <div className="col-lg-6">
+          <div className="col-md-6">
             <div className="detailPageContent">
               <div className="d-flex flex-wrap align-items-center">
                 <h1 className="innerPageTitle" style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}>{productDetailData?.data[0]?.designer}</h1>
@@ -81,7 +81,7 @@ const ProductDetail = () => {
                 <div className="sizeGuide">
                   <h4>SELECT SIZE </h4><button>Size Guide</button>
                 </div>
-                <div className="sizePartTabs d-flex flex-wrap gap-3">
+                <div className="sizePartTabs d-flex flex-wrap gap-1 gap-md-3">
                   {productDetailData?.data[0]?.choice_options?.find((el:any)=>el.title==="Size")?.options?.map((elem: string) => {
                     return <button className={`sizeBtn ${selectedSize === elem ? "selected" : ""}`} onClick={() => setSelectedSize(elem)} key={elem}>{elem}</button>
                   })}
@@ -92,7 +92,7 @@ const ProductDetail = () => {
                 <div className="sizeGuide">
                   <h4>SELECT DESIGNER </h4>
                 </div>
-                <div className="sizePartTabs d-flex flex-wrap gap-3">
+                <div className="sizePartTabs d-flex flex-wrap gap-1 gap-md-3">
                   {productDetailData?.data[0]?.choice_options?.find((el:any)=>el.title==="Designer")?.options?.map((elem: string) => {
                     return <button className={`designerBtn ${selectedDesigner === elem ? "selected" : ""}`} onClick={() => setSelectedDesigner(elem)} key={elem}>{elem}</button>
                   })}

@@ -20,7 +20,7 @@ const AddressView = () => {
     <ProfileWrapper>
       <Loader isLoading={[isLoadingUserAddress, isLoadingDeleteAddress]}/>
       <div className="myAccountMain">
-        <div className="container">
+        <div className="container2">
           <h2 className="mb-4">Address Book</h2>
 
           {/* Default Addresses Section */}
@@ -47,7 +47,8 @@ const AddressView = () => {
          <div className="card mb-4">
             <div className="card-header">Additional Address Entries</div>
             <div className="card-body">
-              <table className="table table-bordered table-hover">
+              <div className='tableResponsive'>
+              <table className="table table-bordered table-hover myAccountTableResponsive">
                 <thead>
                   <tr>
                     <th>Name</th>
@@ -79,6 +80,7 @@ const AddressView = () => {
                 })}
                 </tbody>
               </table>
+              </div>
               <p>{userAddressData?.data?.length} Item</p>
             </div>
           </div>

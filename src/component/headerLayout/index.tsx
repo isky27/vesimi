@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import LogoImage from "../../assets/images/VESIMI_new_logo-03.png";
 import "../../scss/customPopup.css";
 import MasabaImg from "../../assets/images/msb23608.jpg";
@@ -21,6 +22,7 @@ import AmrtiImg from "../../assets/images/gdm-ad010.jpg";
 import Jewellery1Img from "../../assets/images/bipc-pcbn.jpg"
 import Jewellery2Img from "../../assets/images/07_3.jpg";
 import Jewellery3Img from "../../assets/images/jm_ss22.png";
+import sidebarClose from "../../assets/images/sidebarClose.png";
 import CustomPopup from "component/modal/CustomPopup";
 import { Button, Form, Badge } from "react-bootstrap";
 import HeaderController from "./headerController";
@@ -52,6 +54,23 @@ const Header = () => {
     handleCart
   } = HeaderController();
 
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  
+    const handleToggle = () => {
+      setIsSidebarOpen((prev) => !prev);
+  
+      if (!isSidebarOpen) {
+        document.body.classList.add("sidebar-open");
+      } else {
+        document.body.classList.remove("sidebar-open");
+      }
+    };
+
+    const handleCloseSidebar = () => {
+      document.body.classList.remove("sidebar-open"); // Remove the class from <body>
+    };
+
+
   return (
     <header>
       <Loader isLoading={[isLoadingCartList]}/>
@@ -59,7 +78,7 @@ const Header = () => {
         <div className="container">
           <div className="headerTop">
             <div className="navBrand">
-              <button
+              <button onClick={handleToggle}
                 className="MobileNavToggle bg-image d-block d-lg-none "
                 style={{ backgroundPosition: "-260px -158px" }}
               ></button>
@@ -168,6 +187,7 @@ const Header = () => {
 			<!-- header Nav bar --> */}
 
       <div className="headerNav">
+        <button className="sidebarClose d-lg-none" onClick={handleCloseSidebar}> <img src={sidebarClose} /></button>
         <div className="container">
           <nav className="Nav-bar">
             <ul>
@@ -866,7 +886,7 @@ const Header = () => {
             required={true}
             onKeyDown={removeSpaceOnly}
           />
-          <div className="mt-3 d-flex justify-content-between">
+          <div className="mt-3 d-flex justify-content-between forgot-remember">
             <Button variant="link" onClick={() => { }}>
               Forgot password?
             </Button>

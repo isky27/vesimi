@@ -11,8 +11,9 @@
 }
 
 .myAccountMain {
-    flex: 1;
+    flex: 0 0 100%;
     padding-left: 20px;
+    max-width: calc(100% - 300px);
 }
 
 .accountSidebar h1 {
@@ -73,4 +74,22 @@
     text-decoration: none;
     color: #333;
     font-size: 16px;
+}
+
+
+
+@media only screen and (max-width: 991px) {
+.accountSidebar {
+    flex: 0 0 250px;
+    max-width: 250px;
+}
+
+.myAccountMain{    max-width: calc(100% - 250px);}
+
+
+}
+
+@media only screen and (max-width: 767px) {
+    .myAccountMain{    max-width:100%}
+
 }

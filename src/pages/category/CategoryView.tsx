@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import Pagination from 'component/Pagination';
 import { priceRange } from 'constant';
 import { getPrice } from 'utils';
+import filterIcon from "../../assets/images/filterIcon.png";
+import sidebarClose from "../../assets/images/sidebarClose.png";
 
 const CategoryView = () => {
 
@@ -31,6 +33,15 @@ const CategoryView = () => {
     handlePriceReset
   } = CategoryController();
 
+
+  const handleToggleSidebar = () => {
+    document.body.classList.toggle("openfilterSidebar"); // Toggle the class on <body>
+  };
+
+  const handleCloseSidebar = () => {
+    document.body.classList.remove("openfilterSidebar"); // Remove the class from <body>
+  };
+
 	return (
       <section className="pageMain">
         <Loader
@@ -54,7 +65,8 @@ const CategoryView = () => {
           </div>
 
           <div className="listingPage">
-            <div className="Listing_sidebar pt-3 pt-md-4">
+            <div className="Listing_sidebar pt-5 pt-md-4">
+            <button className="sidebarClose d-lg-none" onClick={handleCloseSidebar}> <img src={sidebarClose} /></button>
               <div className="d-sm-flex justify-content-between py-2 py-md-3">
                 <span className="StyleCount">Showing 43,964 Styles </span>
                 <button className="AsLink" onClick={handelClearFilter}>CLEAR ALL</button>
@@ -171,13 +183,14 @@ const CategoryView = () => {
 
             {/* right part */}
             <div className="pageRightMain">
+              <button className='d-md-none filterSidebarToggle' onClick={handleToggleSidebar}> <img src={filterIcon}  /></button>
               {/* product Bar */}
 
               <div className="productListinfWrap">
                 <div className="row">
                   {(!isLoadingSearchProduct && searchProductData?.data?.length > 0) && searchProductData?.data?.map((item: any) => {
                     return (
-                      <div key={item?.id} className="col-sm-6 col-lg-4">
+                      <div key={item?.id} className="col-6 col-lg-4">
                         <div className="productCols position-relative mb-2 mb-md-3">
                           <Link
                             to={`/products/${item?.id}`}
