@@ -33,7 +33,9 @@ const HomeView = () => {
       activeTab, setActiveTab,
       featureProductData,
       isLoadingTabProduct,
-      tabProductData
+      tabProductData,
+      isLoadingBlogs,
+      blogsData
   } = HomeController();
 
   return (
@@ -45,7 +47,8 @@ const HomeView = () => {
             isLoadingFeatureCategory,
             isLoadingBestSellerProduct,
             isLoadingCelebrityProduct,
-            isLoadingTabProduct
+            isLoadingTabProduct,
+            isLoadingBlogs
           ]}
         />
 
@@ -359,7 +362,7 @@ const HomeView = () => {
             productData={featureProductData}
           />
 
-          <BlogSection />
+          <BlogSection data={blogsData}/>
           {/* <!-- product section --> */}
 
           <section className="productSection py-3 py-md-4">

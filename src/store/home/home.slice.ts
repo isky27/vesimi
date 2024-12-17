@@ -29,7 +29,9 @@ const initialState: HomeInterface = {
     isLoadingCelebrityProduct: false,
     celebrityProductData :null,
     isLoadingTabProduct: false,
-    tabProductData: null
+    tabProductData: null,
+    blogsData: null,
+    isLoadingBlogs: false
 }
 
 // Async Thunks
@@ -140,6 +142,16 @@ export const exclusiveCollectionProduct = createAsyncThunk("get/exclusiveCollect
 export const celebrityStyleProduct = createAsyncThunk("get/celebrity/style/data", async (_, thunkApi: any) => {
   try {
     const response = await homeService.celebrityStyleApi();
+    return response;
+  } catch (error: any) {
+    const message: any = getErrorMessage(error);
+    return thunkApi.rejectWithValue(message);
+  }
+});
+
+export const getBlogs = createAsyncThunk("get/blogs", async (_, thunkApi: any) => {
+  try {
+    const response = await homeService.getBlogsApi();
     return response;
   } catch (error: any) {
     const message: any = getErrorMessage(error);
@@ -298,6 +310,19 @@ export const homeReducer = createSlice({
           })
           .addCase(tabProduct.rejected, (state: any) => {
             state.isLoadingTabProduct = false;
+            state.isSuccess = false;
+          })
+          .addCase(getBlogs.pending, (state: any, _: any) => {
+            state.isLoadingBlogs = true;
+            state.isSuccess = false;
+          })
+          .addCase(getBlogs.fulfilled, (state: any, action: any) => {
+              state.isLoadingBlogs = false;
+              state.isSuccess = true;
+              state.blogsData = action.payload;
+          })
+          .addCase(getBlogs.rejected, (state: any) => {
+            state.isLoadingBlogs = false;
             state.isSuccess = false;
           });
     }

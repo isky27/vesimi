@@ -1,10 +1,6 @@
 import OwlCarousel from "react-owl-carousel";
-import Blog1 from '../assets/images/blog1.avif'
-import Blog2 from '../assets/images/blog2.avif'
-import Blog3 from '../assets/images/blog3.avif'
-import Blog4 from '../assets/images/blog4.webp'
 
-const BlogSection = () => {
+const BlogSection = ({ data }: any) => {
   return (
     <section className="productSection py-3 py-md-4">
       <div className="container">
@@ -32,101 +28,23 @@ const BlogSection = () => {
                 },
               }}
             >
-              {/* <div className="col-sm-6 col-lg-3"> */}
+              {data?.map((blog: any) => (
                 <div className="productCols position-relative">
                   <picture>
-                    <img src={Blog1} alt="" />
+                    <img src={blog?.banner} alt="" />
                   </picture>
                   <div className="py-2">
-                    <h3 className="text-md-dark fs-7 my-2">
-                      DISCOVER ELEGANT FOOTWEAR WITH A SPANISH FLAIR FROM OROH{" "}
-                    </h3>
-                    <p>
-                      Exemplify ease and comfort while being high on style with
-                      Oroh’s collection of footwear with a Spanish flair.
-                      Explore Now on Vesimi Fashions.{" "}
-                    </p>
-                    <a
+                    <h3 className="text-md-dark fs-7 my-2">{blog?.title} </h3>
+                    <p>{blog?.short_description}</p>
+                    {/* <a
                       href="/"
                       className="font-semibold text-md-dark fs-7 fw-light text-decoration-none"
                     >
                       Read More
-                    </a>
+                    </a> */}
                   </div>
                 </div>
-              {/* </div> */}
-
-              {/* <div className="col-sm-6 col-lg-3"> */}
-                <div className="productCols position-relative">
-                  <picture>
-                    <img src={Blog2} alt="" />
-                  </picture>
-                  <div className="py-2">
-                    <h3 className="text-md-dark fs-7 my-2">
-                      DISCOVER ELEGANT FOOTWEAR WITH A SPANISH FLAIR FROM OROH{" "}
-                    </h3>
-                    <p>
-                      Exemplify ease and comfort while being high on style with
-                      Oroh’s collection of footwear with a Spanish flair.
-                      Explore Now on Vesimi Fashions.{" "}
-                    </p>
-                    <a
-                      href="/"
-                      className="font-semibold text-md-dark fs-7 fw-light text-decoration-none"
-                    >
-                      Read More
-                    </a>
-                  </div>
-                </div>
-              {/* </div> */}
-
-              {/* <div className="col-sm-6 col-lg-3"> */}
-                <div className="productCols position-relative">
-                  <picture>
-                    <img src={Blog3} alt="" />
-                  </picture>
-                  <div className="py-2">
-                    <h3 className="text-md-dark fs-7 my-2">
-                      DISCOVER ELEGANT FOOTWEAR WITH A SPANISH FLAIR FROM OROH{" "}
-                    </h3>
-                    <p>
-                      Exemplify ease and comfort while being high on style with
-                      Oroh’s collection of footwear with a Spanish flair.
-                      Explore Now on Vesimi Fashions.{" "}
-                    </p>
-                    <a
-                      href="/"
-                      className="font-semibold text-md-dark fs-7 fw-light text-decoration-none"
-                    >
-                      Read More
-                    </a>
-                  </div>
-                </div>
-              {/* </div> */}
-
-              {/* <div className="col-sm-6 col-lg-3"> */}
-                <div className="productCols position-relative">
-                  <picture>
-                    <img src={Blog4} alt="" />
-                  </picture>
-                  <div className="py-2">
-                    <h3 className="text-md-dark fs-7 my-2">
-                      DISCOVER ELEGANT FOOTWEAR WITH A SPANISH FLAIR FROM OROH{" "}
-                    </h3>
-                    <p>
-                      Exemplify ease and comfort while being high on style with
-                      Oroh’s collection of footwear with a Spanish flair.
-                      Explore Now on Vesimi Fashions.{" "}
-                    </p>
-                    <a
-                      href="/"
-                      className="font-semibold text-md-dark fs-7 fw-light text-decoration-none"
-                    >
-                      Read More
-                    </a>
-                  </div>
-                {/* </div> */}
-              </div>
+              ))}
             </OwlCarousel>
           </div>
         </div>
