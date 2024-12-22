@@ -3,6 +3,7 @@ import CheckoutController from './checkoutController'
 import { Accordion } from "react-bootstrap";
 import Loader from 'component/Loader'
 import AddressFormView from 'pages/address/addressForm/AddressFormView';
+import { Link } from 'react-router-dom';
 
 const CheckoutView = () => {
     const {
@@ -19,9 +20,9 @@ const CheckoutView = () => {
         handleChooseAddress,
         activeKey,
         setActiveKey,
-        isShippingMethodDisabled, 
+        isShippingMethodDisabled,
         setIsShippingMethodDisabled,
-        isPaymentMethodDisabled, 
+        isPaymentMethodDisabled,
         setIsPaymentMethodDisabled,
         isLoadingOrderAddress,
         handleAfterAddAddress,
@@ -43,7 +44,7 @@ const CheckoutView = () => {
                                     <Accordion.Body>
                                         <div className="addAddressBlock">
                                             {openAddressForm ? (
-                                                <AddressFormView handleAfterSuccess={handleAfterAddAddress}/>
+                                                <AddressFormView handleAfterSuccess={handleAfterAddAddress} />
                                             ) : (
                                                 <div>
                                                     {userAddressData?.data?.map((elem: any) => (
@@ -86,16 +87,16 @@ const CheckoutView = () => {
                                         style={{ cursor: isShippingMethodDisabled ? "not-allowed" : "pointer" }}>Shipping Methods</Accordion.Header>
                                     <Accordion.Body>
                                         <div className="addAddressBlock">
-                                            <form onSubmit={(e)=>{
+                                            <form onSubmit={(e) => {
                                                 e.preventDefault();
                                                 setIsPaymentMethodDisabled(false);
                                                 setActiveKey("2")
                                             }}>
                                                 <div className="row">
-                                                <div className="col-md-12 mb-3">
-                                                <input type='radio' checked={true}/> <label>Free Shipping</label>
+                                                    <div className="col-md-12 mb-3">
+                                                        <input type='radio' checked={true} /> <label>Free Shipping</label>
 
-                                                </div>
+                                                    </div>
                                                 </div>
                                                 <button type='submit' className="themeBtnCart">Save and Continue</button>
                                             </form>
@@ -107,21 +108,21 @@ const CheckoutView = () => {
                                     <Accordion.Header className={isPaymentMethodDisabled ? "disabled" : ""}
                                         style={{ cursor: isPaymentMethodDisabled ? "not-allowed" : "pointer" }}>Payment Method</Accordion.Header>
                                     <Accordion.Body>
-                                        <form onSubmit={(e)=>{
+                                        <form onSubmit={(e) => {
                                             e.preventDefault();
                                             handleSaveOrder()
                                         }}>
                                             <div className="row">
-                                            <div className="col-md-12 mb-3">
-                                                <input type="radio" checked={true} /> <label>Cash on delivery</label>
-                                            </div>
+                                                <div className="col-md-12 mb-3">
+                                                    <input type="radio" checked={true} /> <label>Cash on delivery</label>
+                                                </div>
                                                 {/* <div className="col-md-12 mb-3">
 
                                                         <label className="form-label">Card Number</label>
                                                         <input type="text" className="form-control" />
                                                     </div> */}
-                                                </div>
-                                                {/* Add remaining form fields */}
+                                            </div>
+                                            {/* Add remaining form fields */}
                                             <button type='submit' className="themeBtnCart">Continue Checkout</button>
                                         </form>
                                     </Accordion.Body>
@@ -154,17 +155,19 @@ const CheckoutView = () => {
                                         <div className="cartListing">
                                             <figure>{item?.product_thumbnail_image && <img src={item?.product_thumbnail_image} alt="cart1" />}</figure>
                                             <figcaption>
-                                                {item?.designer && <h5 className="mb-1">{item?.designer} </h5>}
-                                                {item?.product_name && <p className="mb-1" style={{ fontSize: "11px" }}>{item?.product_name}</p>}
-                                                {(item?.color || item?.size) && <div className="mb-1">{item?.color && <span className="me-2">Color: {item?.color}</span>}{item?.size && <span>Size: {item?.size}</span>}</div>}
-                                                {item?.price && <div className="mb-1">Price: {getPrice(item?.price)}
-                                                    {/* <strong className="ms-2">₹ 17,600</strong>
+                                                <Link className="text-dark text-decoration-none" to={`/products/${item?.product_id}`}>
+                                                    {item?.designer && <h5 className="mb-1">{item?.designer} </h5>}
+                                                    {item?.product_name && <p className="mb-1" style={{ fontSize: "11px" }}>{item?.product_name}</p>}
+                                                    {(item?.color || item?.size) && <div className="mb-1">{item?.color && <span className="me-2">Color: {item?.color}</span>}{item?.size && <span>Size: {item?.size}</span>}</div>}
+                                                    {item?.price && <div className="mb-1">Price: {getPrice(item?.price)}
+                                                        {/* <strong className="ms-2">₹ 17,600</strong>
                                                 <span className="ms-2" style={{ color: "#388e3c" }}>(20% off)</span> */}
-                                                </div>}
-                                                {/* <div className="mb-1">
+                                                    </div>}
+                                                    {/* <div className="mb-1">
                                                 <a href="#" className="assuedDelivary"> <span className=" d-inline-block "><i className="fa-regular fa-circle-check"></i></span>Assured Delivery </a>
                                                 <span className="d-inline-block">by 20th November 2024 </span>
                                             </div> */}
+                                                </Link>
                                             </figcaption>
                                             <button className="cartDelete top-0 right-0"><i className="fa-solid fa-trash-can"></i></button>
                                         </div>

@@ -18,6 +18,15 @@ const cartListApi = async (userData: any): Promise<ApiResponse> => {
       throw error;
     }
   };
+
+  const updateCart = async (userData: any, userToken: { headers: { Authorization: string } }): Promise<ApiResponse> => {
+    try {
+      const response: ApiResponse = (await axios.post("/carts/process", userData, userToken ));
+      return response;
+    } catch (error: any) {
+      throw error;
+    }
+  };
   
   const cartSummaryApi = async (userData: any): Promise<ApiResponse> => {
     try {
@@ -43,7 +52,8 @@ const orderService = {
   updateOrderAddressApi,
   cartListApi,
   cartSummaryApi,
-  saveOrderApi
+  saveOrderApi,
+  updateCart
 };
 
 export default orderService;

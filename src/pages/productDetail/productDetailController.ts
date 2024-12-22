@@ -28,6 +28,10 @@ const ProductDetailController = () => {
         if(productDetailData?.data[0]?.choice_options?.find((el:any)=>el.title==="Designer")?.options[0]){
             setSelectedDesigner(productDetailData?.data[0]?.choice_options?.find((el:any)=>el.title==="Designer")?.options[0])
         }
+        return (()=>{
+            setSelectedImage("")
+            setSelectedDesigner("")
+        })
     }, [productDetailData])
 
     const handleAddToCart = () => {

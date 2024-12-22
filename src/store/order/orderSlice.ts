@@ -15,7 +15,9 @@ const initialState: OrderDataInterface = {
     isLoadingCartSummary: false,
     cartSummaryData: null,
     isLoadingSaveOrder: false,
-    saveOrderData : null
+    saveOrderData : null,
+    isLoadingUpdateCart: false,
+    updateCartData: null
 }
 
 // Async Thunks
@@ -61,6 +63,15 @@ export const orderSaveaApi = createAsyncThunk("save/order", async (userData:any,
     }
 });
 
+export const updateCartApi = createAsyncThunk("update/cart", async (userData:any,thunkApi: any) => {
+    try {
+        const response:any = await orderService.updateCart(userData, getTokenHeader());
+        return response;
+    } catch (error: any) {
+        const message: any = getErrorMessage(error)
+        return thunkApi.rejectWithValue(message);
+    }
+});
 
 // Account Reducer
 export const orderDataReducer = createSlice({
@@ -119,8 +130,19 @@ export const orderDataReducer = createSlice({
                 state.isLoadingSaveOrder = false;
                 state.saveOrderData = null
             })
+            .addCase(updateCartApi.pending, (state: any, _: any) => {
+                state.isLoadingUpdateCart = true;
+                state.updateCartData =  null
+            })
+            .addCase(updateCartApi.fulfilled, (state: any, action: any) => {
+                state.isLoadingUpdateCart = false;
+                state.updateCartData = action.payload
+            })
+            .addCase(updateCartApi.rejected, (state: any) => {
+                state.isLoadingUpdateCart = false;
+                state.updateCartData = null
+            })
     }
-
 });
 
 export const { resetOrder } = orderDataReducer.actions;
