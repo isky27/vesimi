@@ -263,7 +263,7 @@ const Header = () => {
 
                       <div className="SubNavGrid ProductDemoGrid"></div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(28))}>
                         <figure>
                           <img src={MasabaImg} />
                         </figure>
@@ -273,7 +273,7 @@ const Header = () => {
                         </figcaption>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(1540))}>
                         <figure>
                           <img src={RidhimaImg} />
                         </figure>
@@ -283,7 +283,7 @@ const Header = () => {
                         </figcaption>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(714))}>
                         <figure>
                           <img src={Kalighata} />
                         </figure>
@@ -399,7 +399,7 @@ const Header = () => {
                         <div className="viewmore">VIEW ALL</div>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(593))}>
                         <figure>
                           <img src={MoleradoImg} />
                         </figure>
@@ -409,7 +409,7 @@ const Header = () => {
                         </figcaption>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(348))}>
                         <figure>
                           <img src={WaverImg} />
                         </figure>
@@ -419,7 +419,7 @@ const Header = () => {
                         </figcaption>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(739))}>
                         <figure>
                           <img src={OneKnot} />
                         </figure>
@@ -489,7 +489,7 @@ const Header = () => {
                         <div className="viewmore">VIEW ALL</div>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(1139))}>
                         <figure>
                           <img src={AhiiImg} />
                         </figure>
@@ -499,7 +499,7 @@ const Header = () => {
                         </figcaption>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(1171))}>
                         <figure>
                           <img src={KupkImg} />
                         </figure>
@@ -509,7 +509,7 @@ const Header = () => {
                         </figcaption>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(28))}>
                         <figure>
                           <img src={MsbImg} />
                         </figure>
@@ -578,7 +578,7 @@ const Header = () => {
                         <div className="viewmore">VIEW ALL</div>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(254))}>
                         <figure>
                           <img src={Man1Img} />
                         </figure>
@@ -588,7 +588,7 @@ const Header = () => {
                         </figcaption>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(359))}>
                         <figure>
                           <img src={Man2Img} />
                         </figure>
@@ -600,7 +600,7 @@ const Header = () => {
                         </figcaption>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(459))}>
                         <figure>
                           <img src={Man3Img} />
                         </figure>
@@ -662,7 +662,7 @@ const Header = () => {
                         <div className="viewmore">VIEW ALL</div>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(1155))}>
                         <figure>
                           <img src={Kids1Img} />
                         </figure>
@@ -672,17 +672,17 @@ const Header = () => {
                         </figcaption>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(1028))}>
                         <figure>
                           <img src={Kids2Img} />
                         </figure>
                         <figcaption className="text-center">
-                          <strong className="d-block">LITTLECHEER</strong>
+                          <strong className="d-block">LITTLE CHEER</strong>
                           <small>Shop Now</small>
                         </figcaption>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(1079))}>
                         <figure>
                           <img src={Kids3Img} />
                         </figure>
