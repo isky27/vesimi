@@ -15,6 +15,7 @@ import BookAppointment from "component/BookAppointment";
 import ProductCard from "component/ProductCard";
 import ProductCarousal from "component/ProductCarousal";
 import { getCategoryUrl, getPrice } from "utils";
+import { useAppSelector } from "store/redux.hooks";
 
 const HomeView = () => {
   const {
@@ -37,6 +38,8 @@ const HomeView = () => {
       isLoadingBlogs,
       blogsData
   } = HomeController();
+
+  const {selectedCurrency} = useAppSelector((state:any)=>state.auth)
 
   return (
       <section>
@@ -181,7 +184,7 @@ const HomeView = () => {
                                 {dataArray.map((prod: any) => (
                                   <ProductCard
                                     key={prod.id}
-                                    price={getPrice(prod?.main_price)}
+                                    price={getPrice(prod?.main_price, selectedCurrency)}
                                     imageName={prod?.thumbnail_image}
                                     isPath={true}
                                     tag={prod?.designer}

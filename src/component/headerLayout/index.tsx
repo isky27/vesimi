@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import LogoImage from "../../assets/images/VESIMI_new_logo-03.png";
-import "../../scss/customPopup.css";
 import MasabaImg from "../../assets/images/msb23608.jpg";
 import RidhimaImg from "../../assets/images/rr025-saj.png";
 import Kalighata from "../../assets/images/avyanna.jpg";

@@ -2,3 +2,8 @@
         padding: 20px;
         width: 420px;
 }
+
+.sizeModal .modal-content{
+        padding: 20px;
+        width:40vw;
+}

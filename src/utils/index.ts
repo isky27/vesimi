@@ -80,8 +80,7 @@ export const getCategoryUrl=(categId:number | string)=>{
   return `/category/${categId}?sub-category=${categId}&min=${priceRange[0]}&max=${priceRange[1]}`
 };
 
-export const getPrice = (price: any) =>{
-  const selectedPrice:string = store?.getState()?.auth?.selectedCurrency || "INR"
+export const getPrice = (price: any, selectedPrice: string = "INR") =>{
   return countryOptions[selectedPrice]["symbol"]+ (Math.round(Number(extractNumber(price))/currencyPrice[selectedPrice] * 100) / 100)
 }
 

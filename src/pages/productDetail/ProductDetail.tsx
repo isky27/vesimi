@@ -6,6 +6,7 @@ import { extractNumber, getPrice } from 'utils';
 import InnerImageZoom from 'react-inner-image-zoom';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
 import CustomPopup from 'component/modal/CustomPopup';
+import { useAppSelector } from 'store/redux.hooks';
 
 
 const ProductDetail = () => {
@@ -23,6 +24,8 @@ const ProductDetail = () => {
     isLoadingAddToCart,
     isOpenSizeChart, setIsOpenSizeChart
   } = ProductDetailController()
+
+  const {selectedCurrency} = useAppSelector((state:any)=>state.auth)
 
   return (
     <section className="pageMain">
@@ -65,16 +68,12 @@ const ProductDetail = () => {
                 <h1 className="innerPageTitle" style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}>{productDetailData?.data[0]?.designer}</h1>
               </div>
               <h2 className="textBigLight">{productDetailData?.data[0]?.name}</h2>
-              <button className="my-2"
-                style={{ backgroundColor: "#f5f5f5", padding: "8px 10px", borderRadius: "4px", fontSize: "12px", border: "none" }}>Contains:
-                {productDetailData?.data[0]?.name}<span className="ps-1"><i className="fas fa-question-circle"></i></span></button>
-
-              {productDetailData?.data[0]?.is_price_hide ? "" : <div className="detailPrice">
+               {productDetailData?.data[0]?.is_price_hide ? "" : <div className="detailPrice">
                 <p className="d-flex align-items-baseline space-x-[6px]">
                   <span
-                    className="leading-none tracking-tighter text-azaBlackShade3 fs-lg fs-lg-2xl fw-bold">{getPrice(productDetailData?.data?.[0]?.main_price)}</span>
+                    className="leading-none tracking-tighter text-azaBlackShade3 fs-lg fs-lg-2xl fw-bold">{getPrice(productDetailData?.data?.[0]?.main_price, selectedCurrency)}</span>
 
-                  {extractNumber(productDetailData?.data[0]?.discount) ? <span className="text-sm text-lg-base text-azaGreen_5">({getPrice(productDetailData?.data[0]?.discount)}OFF)</span> : ""}
+                  {extractNumber(productDetailData?.data[0]?.discount) ? <span className="text-sm text-lg-base text-azaGreen_5">({getPrice(productDetailData?.data[0]?.discount, selectedCurrency)}OFF)</span> : ""}
                 </p>
                 <p className="textSmallLight">(inclusive of all taxes)</p>
               </div>}
@@ -146,7 +145,7 @@ const ProductDetail = () => {
               {relatedProductsData?.data?.map((prod: any) => (
                 <ProductCard
                   key={prod.id}
-                  price={getPrice(prod?.main_price)}
+                  price={getPrice(prod?.main_price, selectedCurrency)}
                   imageName={prod?.thumbnail_image}
                   isPath={true}
                   tag={prod?.designer}
@@ -190,14 +189,14 @@ const ProductDetail = () => {
         </div>
       </div>
       <CustomPopup
-        modalClass="loginModal"
+        modalClass="sizeModal"
         show={isOpenSizeChart}
         handleClose={() => setIsOpenSizeChart(!isOpenSizeChart)}
         modalHeader="Size Chart"
         secondaryButtonText="Ok"
         secondaryButtonClick={()=>{setIsOpenSizeChart(!isOpenSizeChart)}}
       >
-        <img src={productDetailData?.data[0]?.size_chart}/>
+        <img style={{width:"60vw"}} src={productDetailData?.data[0]?.size_chart}/>
       </CustomPopup>
     </section>
   )

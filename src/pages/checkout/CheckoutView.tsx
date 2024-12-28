@@ -4,6 +4,7 @@ import { Accordion } from "react-bootstrap";
 import Loader from 'component/Loader'
 import AddressFormView from 'pages/address/addressForm/AddressFormView';
 import { Link } from 'react-router-dom';
+import { useAppSelector } from 'store/redux.hooks';
 
 const CheckoutView = () => {
     const {
@@ -29,6 +30,8 @@ const CheckoutView = () => {
         handleSaveOrder,
         isLoadingSaveOrder
     } = CheckoutController()
+
+    const {selectedCurrency} = useAppSelector((state:any)=>state.auth)
 
     return (
         <section className="pageMain">
@@ -135,13 +138,13 @@ const CheckoutView = () => {
                                 <h2>PRICE DETAILS </h2>
                                 <div className="cartRightInner">
                                     <ul>
-                                        <li>ORDER Total <strong>{getPrice(cartSummaryData?.grand_total)}</strong></li>
+                                        <li>ORDER Total <strong>{getPrice(cartSummaryData?.grand_total, selectedCurrency)}</strong></li>
                                         <li><p>Shipping & Duties<small>( Apply Coupon Codes on payments page )
                                         </small></p> <strong>Calculated at checkout </strong></li>
                                     </ul>
                                     <div className="cartRightInner">
                                         <ul>
-                                            <li><span>TOTAL PAYABLE </span><strong>{getPrice(cartSummaryData?.sub_total)}</strong></li>
+                                            <li><span>TOTAL PAYABLE </span><strong>{getPrice(cartSummaryData?.sub_total, selectedCurrency)}</strong></li>
                                             <li className="text-green"><span>YOUR TOTAL SAVINGS </span><strong>{cartSummaryData?.discount}</strong></li>
                                         </ul>
                                     </div>
@@ -159,7 +162,7 @@ const CheckoutView = () => {
                                                     {item?.designer && <h5 className="mb-1">{item?.designer} </h5>}
                                                     {item?.product_name && <p className="mb-1" style={{ fontSize: "11px" }}>{item?.product_name}</p>}
                                                     {(item?.color || item?.size) && <div className="mb-1">{item?.color && <span className="me-2">Color: {item?.color}</span>}{item?.size && <span>Size: {item?.size}</span>}</div>}
-                                                    {item?.price && <div className="mb-1">Price: {getPrice(item?.price)}
+                                                    {item?.price && <div className="mb-1">Price: {getPrice(item?.price, selectedCurrency)}
                                                         {/* <strong className="ms-2">₹ 17,600</strong>
                                                 <span className="ms-2" style={{ color: "#388e3c" }}>(20% off)</span> */}
                                                     </div>}

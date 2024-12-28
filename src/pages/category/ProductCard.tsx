@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { getPrice } from "utils";
 import { Link } from "react-router-dom";
+import { useAppSelector } from "store/redux.hooks";
 
 const ProductCard = React.memo(({item, ...alt}: any) => {
   const [imageSrc, setImageSrc] = useState(item?.thumbnail_image);
+
+  const {selectedCurrency} = useAppSelector((state:any)=>state.auth)
 
   const handleMouseEnter = () => {
     if(item?.second_photo){
@@ -59,7 +62,7 @@ const ProductCard = React.memo(({item, ...alt}: any) => {
           <div className="py-2">
             <h3 className="text-uppercase">{item?.designer}</h3>
             <p className="text-gray">{item?.name}</p>
-            <small className="font-semibold">{getPrice(item?.main_price)}</small>
+            <small className="font-semibold">{getPrice(item?.main_price, selectedCurrency)}</small>
           </div>
         </Link>
       </div>
