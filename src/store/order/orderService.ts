@@ -51,8 +51,7 @@ const cartListApi = async (userData: any): Promise<ApiResponse> => {
   const deleteCartProduct = async (userData: any): Promise<ApiResponse> => {
     try {
       const response: ApiResponse = (await axios.delete(`carts/${userData?.cartId}`));
-
-      toast.success(response?.data?.messgae)
+      toast.success(response?.message)
       return response;
     } catch (error: any) {
       throw error;
