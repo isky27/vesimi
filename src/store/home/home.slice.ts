@@ -46,7 +46,7 @@ export const getHeaderMenu = createAsyncThunk("get/header/menu", async (_, thunk
     }
 });
 
-export const homeMainSlider = createAsyncThunk("get/mainSlider", async (_, thunkApi: any) => {
+export const homeMainSlider = createAsyncThunk("get/main/slider", async (_, thunkApi: any) => {
     try {
         const response = await homeService.mainSlider();
         return response;

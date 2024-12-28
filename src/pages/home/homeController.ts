@@ -53,8 +53,6 @@ const HomeController = () => {
     }
     }, [tabProductData]);
 
-    console.log(blogsData,"blogsDatablogsDatablogsData");
-
     // All the state and function return to LoginView
     return {
       isLoadingMainSlider,

@@ -59,7 +59,7 @@ const HomeView = () => {
             {mainSliderData?.length > 0 && (
               <div className="container mainSlider">
                 <Carousel
-                  images={mainSliderData?.map((item: any) => item?.photo)}
+                  data={mainSliderData?.map((item: any) => ({image:item?.photo, link: item?.link}))}
                   isPath={true}
                 />
               </div>

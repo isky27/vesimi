@@ -20,7 +20,7 @@ const ProductDetail = () => {
     handleAddToCart,
     selectedDesigner, setSelectedDesigner,
     isLoadingAddToCart
-   } = ProductDetailController()
+  } = ProductDetailController()
 
   return (
     <section className="pageMain">
@@ -67,7 +67,7 @@ const ProductDetail = () => {
                 style={{ backgroundColor: "#f5f5f5", padding: "8px 10px", borderRadius: "4px", fontSize: "12px", border: "none" }}>Contains:
                 {productDetailData?.data[0]?.name}<span className="ps-1"><i className="fas fa-question-circle"></i></span></button>
 
-              <div className="detailPrice">
+              {productDetailData?.data[0]?.is_price_hide ? "" : <div className="detailPrice">
                 <p className="d-flex align-items-baseline space-x-[6px]">
                   <span
                     className="leading-none tracking-tighter text-azaBlackShade3 fs-lg fs-lg-2xl fw-bold">{getPrice(productDetailData?.data?.[0]?.main_price)}</span>
@@ -75,38 +75,48 @@ const ProductDetail = () => {
                   {extractNumber(productDetailData?.data[0]?.discount) ? <span className="text-sm text-lg-base text-azaGreen_5">({getPrice(productDetailData?.data[0]?.discount)}OFF)</span> : ""}
                 </p>
                 <p className="textSmallLight">(inclusive of all taxes)</p>
-              </div>
+              </div>}
 
-              {productDetailData?.data[0]?.choice_options?.find((el:any)=>el.title==="Size")?.options && <div className="sizePart">
+              {productDetailData?.data[0]?.choice_options?.find((el: any) => el.title === "Size")?.options && <div className="sizePart">
                 <div className="sizeGuide">
-                  <h4>SELECT SIZE </h4><button>Size Guide</button>
+                  <h4>{!productDetailData?.data[0]?.is_price_hide ? "SELECT" : ""} SIZE </h4><button>Size Guide</button>
                 </div>
                 <div className="sizePartTabs d-flex flex-wrap gap-1 gap-md-3">
-                  {productDetailData?.data[0]?.choice_options?.find((el:any)=>el.title==="Size")?.options?.map((elem: string) => {
+                  {productDetailData?.data[0]?.choice_options?.find((el: any) => el.title === "Size")?.options?.map((elem: string) => {
                     return <button className={`sizeBtn ${selectedSize === elem ? "selected" : ""}`} onClick={() => setSelectedSize(elem)} key={elem}>{elem}</button>
                   })}
                 </div>
               </div>}
 
-              {productDetailData?.data[0]?.choice_options?.find((el:any)=>el.title==="Designer")?.options && <div className="mb-3">
+              {productDetailData?.data[0]?.choice_options?.find((el: any) => el.title === "Designer")?.options && <div className="mb-3">
                 <div className="sizeGuide">
-                  <h4>SELECT DESIGNER </h4>
+                  <h4>DESIGNER </h4>
                 </div>
                 <div className="sizePartTabs d-flex flex-wrap gap-1 gap-md-3">
-                  {productDetailData?.data[0]?.choice_options?.find((el:any)=>el.title==="Designer")?.options?.map((elem: string) => {
+                  {productDetailData?.data[0]?.choice_options?.find((el: any) => el.title === "Designer")?.options?.map((elem: string) => {
                     return <button className={`designerBtn ${selectedDesigner === elem ? "selected" : ""}`} onClick={() => setSelectedDesigner(elem)} key={elem}>{elem}</button>
                   })}
                 </div>
               </div>}
 
               <div className="ButtonTabsAction">
-                <button disabled={productDetailData?.data[0]?.choice_options?.find((el:any)=>el.title==="Size")?.options && !selectedSize} className="addToCart" onClick={handleAddToCart}>
-                  <i className="" style={{ backgroundPosition: "-181px -158px", width: "1.25rem", height: "1.25rem" }}></i>ADD TO CART
-                </button>
+                {productDetailData?.data[0]?.is_price_hide ? <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://api.whatsapp.com/send?phone=919820082317&text=Hello%20I%20need%20assistance"
+                  className='text-decoration-none'
+                >
+                  <button style={{ display:"flex", gap:"4px", backgroundColor: "#fff", border: "1px solid #cccccc", borderRadius: "6px", fontSize: "16px", color: "#333333", padding: "12px 20px", marginRight: "10px" }}>
+                    <i className="watsap bg-image ms-3"></i>Chat on Whatsapp
+                  </button>
+                </a>
+                  :
+                  <button disabled={productDetailData?.data[0]?.choice_options?.find((el: any) => el.title === "Size")?.options && !selectedSize} className="addToCart" onClick={handleAddToCart}>
+                    ADD TO CART
+                  </button>
+                }
                 <button
-                  style={{ backgroundColor: "#fff", border: "1px solid #cccccc", borderRadius: "6px", fontSize: "16px", color: "#333333", padding: "12px 20px" }}><i
-                    className=""
-                    style={{ backgroundPosition: "-181px -158px", width: "1.25rem", height: "1.25rem" }}></i>WISHLIST</button>
+                  style={{ backgroundColor: "#fff", border: "1px solid #cccccc", borderRadius: "6px", fontSize: "16px", color: "#333333", padding: "12px 20px" }}>WISHLIST</button>
               </div>
 
               <div className="AboutDetail">

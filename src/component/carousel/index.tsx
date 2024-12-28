@@ -1,6 +1,6 @@
-import React from "react";
+import { Link } from "react-router-dom";
 
-const Carousel = ({ images, isPath }: any) => {
+const Carousel = ({ data, isPath }: any) => {
     return (
         <div
             id="carouselExampleIndicators"
@@ -8,9 +8,9 @@ const Carousel = ({ images, isPath }: any) => {
             data-bs-ride="carousel"
         >
             <div className="carousel-indicators">
-                {images?.map((item: any, index: number) => (
+                {data?.map((item: any, index: number) => (
                     <button
-                        key={item}
+                        key={item?.image}
                         type="button"
                         data-bs-target="#carouselExampleIndicators"
                         data-bs-slide-to={index}
@@ -21,12 +21,14 @@ const Carousel = ({ images, isPath }: any) => {
                 ))}
             </div>
             <div className="carousel-inner">
-                {images?.map((item: any, index: number) => (
-                    <div key={item}
+                {data?.map((item: any, index: number) => (
+                    <div key={item?.image}
                         className={`carousel-item ${index === 0 ? "active" : ""}`}
                         data-bs-interval="3000"
                     >
-                        <img src={isPath ? item :  require(`../../assets/images/${item}`)} className="d-block w-100" alt="..." />
+                        <Link to={item?.link}>
+                             <img src={isPath ? item?.image :  require(`../../assets/images/${item?.image}`)} className="d-block w-100" alt="..." />
+                        </Link>
                     </div>
                 ))}
             </div>

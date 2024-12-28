@@ -13,9 +13,8 @@ const BlogSection = ({ data }: any) => {
           <div className="row">
             <OwlCarousel
               className="owl-theme productSlider"
-              loop
               margin={10}
-              nav
+              nav={true}
               responsive={{
                 0: {
                   items: 1,
@@ -28,7 +27,7 @@ const BlogSection = ({ data }: any) => {
                 },
               }}
             >
-              {data?.map((blog: any) => (
+               {data?.map((blog: any) => (
                 <div className="productCols position-relative">
                   <picture>
                     <img src={blog?.banner} alt="" />
@@ -36,12 +35,12 @@ const BlogSection = ({ data }: any) => {
                   <div className="py-2">
                     <h3 className="text-md-dark fs-7 my-2">{blog?.title} </h3>
                     <p>{blog?.short_description}</p>
-                    {/* <a
+                    <a
                       href="/"
                       className="font-semibold text-md-dark fs-7 fw-light text-decoration-none"
                     >
                       Read More
-                    </a> */}
+                    </a>
                   </div>
                 </div>
               ))}
