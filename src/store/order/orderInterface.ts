@@ -9,6 +9,7 @@ export interface OrderDataInterface {
     isLoadingSaveOrder: boolean,
     saveOrderData : any,
     isLoadingUpdateCart: boolean;
-    updateCartData: any
+    updateCartData: any;
+    isLoadingDeleteCartProduct: boolean
 }
 

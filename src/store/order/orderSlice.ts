@@ -17,7 +17,8 @@ const initialState: OrderDataInterface = {
     isLoadingSaveOrder: false,
     saveOrderData : null,
     isLoadingUpdateCart: false,
-    updateCartData: null
+    updateCartData: null,
+    isLoadingDeleteCartProduct: false
 }
 
 // Async Thunks
@@ -66,6 +67,16 @@ export const orderSaveaApi = createAsyncThunk("save/order", async (userData:any,
 export const updateCartApi = createAsyncThunk("update/cart", async (userData:any,thunkApi: any) => {
     try {
         const response:any = await orderService.updateCart(userData, getTokenHeader());
+        return response;
+    } catch (error: any) {
+        const message: any = getErrorMessage(error)
+        return thunkApi.rejectWithValue(message);
+    }
+});
+
+export const deleteCartProductApi = createAsyncThunk("delete/cart/product", async (userData:any,thunkApi: any) => {
+    try {
+        const response:any = await orderService.deleteCartProduct(userData);
         return response;
     } catch (error: any) {
         const message: any = getErrorMessage(error)
@@ -141,6 +152,15 @@ export const orderDataReducer = createSlice({
             .addCase(updateCartApi.rejected, (state: any) => {
                 state.isLoadingUpdateCart = false;
                 state.updateCartData = null
+            })
+            .addCase(deleteCartProductApi.pending, (state: any, _: any) => {
+                state.isLoadingDeleteCartProduct = true;
+            })
+            .addCase(deleteCartProductApi.fulfilled, (state: any, action: any) => {
+                state.isLoadingDeleteCartProduct = false;
+            })
+            .addCase(deleteCartProductApi.rejected, (state: any) => {
+                state.isLoadingDeleteCartProduct = false;
             })
     }
 });

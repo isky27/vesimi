@@ -1,11 +1,11 @@
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import { cartListDataApi, cartSummaryDataApi, updateCartApi } from "store/order/orderSlice"
+import { cartListDataApi, cartSummaryDataApi, deleteCartProductApi, updateCartApi } from "store/order/orderSlice"
 import { useAppDispatch, useAppSelector } from "store/redux.hooks"
 
 const CartController = () => {
 
-  const { isLoadingCartList, cartListData, isLoadingCartSummary, cartSummaryData } = useAppSelector((state) => state.order)
+  const { isLoadingCartList, cartListData, isLoadingCartSummary, cartSummaryData, isLoadingDeleteCartProduct } = useAppSelector((state) => state.order)
   const { loginDetails } = useAppSelector((state:any) => state.auth);
 
   const dispatch = useAppDispatch()
@@ -21,31 +21,10 @@ const CartController = () => {
   }
 
   const handleRemoveItem = (el: any) => {
+    
     const userId = loginDetails?.user?.id;
 
-    const data = cartListData?.data?.[0]?.cart_items?.reduce(
-      (acc: any, element: any) => {
-        console.log(element, el, "dsfrfwerdfdgtsefgzdfnhtregfr");
-        if (element?.id !== el?.id) {
-          acc.cart_ids.push(element?.id);
-          acc.cart_quantities.push(element?.quantity);
-        }else{
-          acc.cart_ids.push(element?.id);
-          acc.cart_quantities.push(0);
-        }
-        return acc;
-      },
-      { cart_ids: [], cart_quantities: [] }
-    );
-
-    console.log(cartListData?.data?.cart_items, cartListData?.data, data, "FSsddddddddddddddddddddddddddddd");
-
-
-    // Convert arrays to comma-separated strings
-    data.cart_ids = data.cart_ids.join(",");
-    data.cart_quantities = data.cart_quantities.join(",");
-
-    dispatch(updateCartApi(data))
+    dispatch(deleteCartProductApi({cartId:el?.id}))
       .unwrap()
       .then(() => {
         refreshCartData(userId);
@@ -67,7 +46,8 @@ const CartController = () => {
     isLoadingCartSummary,
     cartSummaryData,
     handleProceed,
-    handleRemoveItem
+    handleRemoveItem,
+    isLoadingDeleteCartProduct
   }
 }
 

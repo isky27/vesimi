@@ -67,7 +67,7 @@ const CategoryView = () => {
             <div className="Listing_sidebar pt-5 pt-md-4">
             <button className="sidebarClose d-lg-none" onClick={handleCloseSidebar}> <img src={sidebarClose} /></button>
               <div className="d-sm-flex justify-content-between py-2 py-md-3">
-                <span className="StyleCount">Showing 43,964 Styles </span>
+                <span className="StyleCount">Showing {searchProductData?.meta?.total || 0} Styles </span>
                 <button className="AsLink" onClick={handelClearFilter}>CLEAR ALL</button>
               </div>
               <div className="sidebarBlock">

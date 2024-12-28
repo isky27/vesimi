@@ -48,12 +48,24 @@ const cartListApi = async (userData: any): Promise<ApiResponse> => {
     }
   };
 
+  const deleteCartProduct = async (userData: any): Promise<ApiResponse> => {
+    try {
+      const response: ApiResponse = (await axios.delete(`carts/${userData?.cartId}`));
+
+      toast.success(response?.data?.messgae)
+      return response;
+    } catch (error: any) {
+      throw error;
+    }
+  };
+
 const orderService = {
   updateOrderAddressApi,
   cartListApi,
   cartSummaryApi,
   saveOrderApi,
-  updateCart
+  updateCart,
+  deleteCartProduct
 };
 
 export default orderService;

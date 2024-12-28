@@ -14,14 +14,15 @@ const CartView = () => {
         isLoadingCartSummary,
         cartSummaryData,
         handleProceed,
-        handleRemoveItem
+        handleRemoveItem,
+        isLoadingDeleteCartProduct
     } = CartController()
 
   const {selectedCurrency} = useAppSelector((state:any)=>state.auth)
 
     return (
         <section className="pageMain">
-            <Loader isLoading={[isLoadingCartList, isLoadingCartSummary]} />
+            <Loader isLoading={[isLoadingCartList, isLoadingCartSummary, isLoadingDeleteCartProduct]} />
             <div className="container py-5">
                 {!(isLoadingCartList || isLoadingCartSummary) && (cartListData?.data[0]?.cart_items?.length > 0 ?
                     <div className="cartRow">
