@@ -5,6 +5,7 @@ import ProductCarousal from 'component/ProductCarousal';
 import { extractNumber, getPrice } from 'utils';
 import InnerImageZoom from 'react-inner-image-zoom';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
+import CustomPopup from 'component/modal/CustomPopup';
 
 
 const ProductDetail = () => {
@@ -19,7 +20,8 @@ const ProductDetail = () => {
     selectedSize, setSelectedSize,
     handleAddToCart,
     selectedDesigner, setSelectedDesigner,
-    isLoadingAddToCart
+    isLoadingAddToCart,
+    isOpenSizeChart, setIsOpenSizeChart
   } = ProductDetailController()
 
   return (
@@ -79,7 +81,7 @@ const ProductDetail = () => {
 
               {productDetailData?.data[0]?.choice_options?.find((el: any) => el.title === "Size")?.options && <div className="sizePart">
                 <div className="sizeGuide">
-                  <h4>{!productDetailData?.data[0]?.is_price_hide ? "SELECT" : ""} SIZE </h4><button>Size Guide</button>
+                  <h4>{!productDetailData?.data[0]?.is_price_hide ? "SELECT" : ""} SIZE </h4><button onClick={()=>setIsOpenSizeChart(true)}>Size Guide</button>
                 </div>
                 <div className="sizePartTabs d-flex flex-wrap gap-1 gap-md-3">
                   {productDetailData?.data[0]?.choice_options?.find((el: any) => el.title === "Size")?.options?.map((elem: string) => {
@@ -187,6 +189,16 @@ const ProductDetail = () => {
 
         </div>
       </div>
+      <CustomPopup
+        modalClass="loginModal"
+        show={isOpenSizeChart}
+        handleClose={() => setIsOpenSizeChart(!isOpenSizeChart)}
+        modalHeader="Size Chart"
+        secondaryButtonText="Ok"
+        secondaryButtonClick={()=>{setIsOpenSizeChart(!isOpenSizeChart)}}
+      >
+        <img src={productDetailData?.data[0]?.size_chart}/>
+      </CustomPopup>
     </section>
   )
 }

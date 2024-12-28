@@ -14,6 +14,8 @@ const ProductDetailController = () => {
     const [selectedColor, setSelectedColor] = useState("")
     const { isLoadingProductDetail, productDetailData, isLoadingRelatedProducts, relatedProductsData, isLoadingAddToCart } = useAppSelector((state: any) => state.product);
     const { loginDetails } = useAppSelector((state: any) => state.auth);
+    const [ isOpenSizeChart, setIsOpenSizeChart ] = useState(false)
+
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -61,7 +63,9 @@ const ProductDetailController = () => {
         selectedSize, setSelectedSize,
         handleAddToCart,
         selectedDesigner, setSelectedDesigner,
-        isLoadingAddToCart
+        isLoadingAddToCart,
+        isOpenSizeChart, 
+        setIsOpenSizeChart
     }
 }
 

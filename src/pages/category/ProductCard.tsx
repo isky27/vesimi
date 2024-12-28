@@ -42,8 +42,10 @@ const ProductCard = React.memo(({item, ...alt}: any) => {
                 <path d="M848 359.3H627.7L825.8 109c4.1-5.3.4-13-6.3-13H436c-2.8 0-5.5 1.5-6.9 4L170 547.5c-3.1 5.3.7 12 6.9 12h174.4l-89.4 357.6c-1.9 7.8 7.5 13.3 13.3 7.7L853.5 373c5.2-4.9 1.7-13.7-5.5-13.7z"></path>
               </svg>
             </picture>
-            <div className="QuickView">
-              <div className="AddProductAction">
+           <div className="QuickView">
+              {item?.is_price_hide ? <div className="AddProductAction">
+            <button style={{ color: "#bb3d1f" }}>View Details</button>
+            </div> : <div className="AddProductAction">
                 <button style={{ color: "#bb3d1f" }}>ADD TO CART</button>
                 <button
                   style={{ color: "#eab308" }}
@@ -51,7 +53,7 @@ const ProductCard = React.memo(({item, ...alt}: any) => {
                 >
                   BUY NOW
                 </button>
-              </div>
+              </div>}
             </div>
           </div>
           <div className="py-2">
