@@ -474,7 +474,9 @@ header {
   top: 0;
   z-index: 999;
   background-color:#fff;
-}.pageMain {
+  height: max-content;
+}
+.pageMain {
   padding-top: 140px;
 }
 
@@ -841,6 +843,18 @@ footer {
   border-top: 1px solid #bdbdbd;
 }
 
+.categoeryRightBar {
+  flex: 1;
+  max-width: calc(100% - 200px);
+}
+
+.categoeryRightBar h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  margin: 0;
+}
+
 .TabRedirec a {
   display: inline-block;
   padding: 10px;
@@ -849,6 +863,12 @@ footer {
   color: #afafaf;
   text-transform: uppercase;
 } 
+.categoeryRightBar .accordion-button {
+    font-size: 26px;
+    font-family: "Playfair Display", serif;
+    padding: 15px 0;
+}
+
 .searchOuter {
   position: relative;
   margin: 15px 0;

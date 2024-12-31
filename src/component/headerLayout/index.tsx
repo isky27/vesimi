@@ -298,14 +298,13 @@ const Header = () => {
 
               {/* <!-- Designers --> */}
               <li>
-                <span onClick={() => navigate(getCategoryUrl(6))}>Designers</span>
+                <span onClick={() => navigate("/designer")}>Designers</span>
                 <div className="subNavPart">
                   <div className="container">
                     <div className="SubNavRow">
                       <div className="SubNavGrid">
                         <h4>SALE</h4>
                         <ul>
-
                           <li onClick={() => navigate(getCategoryUrl(392))}>
                             Kovet
                           </li>
@@ -355,7 +354,7 @@ const Header = () => {
 
 
                         </ul>
-                        <div className="viewmore">VIEW ALL</div>
+                        <div className="viewmore" onClick={() => navigate("/designer")}>VIEW ALL</div>
                       </div>
 
                       <div className="SubNavGrid">
@@ -395,7 +394,7 @@ const Header = () => {
 
 
                         </ul>
-                        <div className="viewmore">VIEW ALL</div>
+                        <div className="viewmore" onClick={() => navigate("/designer")}>VIEW ALL</div>
                       </div>
 
                       <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(593))}>

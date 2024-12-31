@@ -54,7 +54,6 @@ const HomeView = () => {
             isLoadingBlogs
           ]}
         />
-
         <main className="pageMain">
           {/*slider main banner */}
           <div className="Mainslider">

@@ -108,7 +108,7 @@ const ProductDetail = () => {
                   className='text-decoration-none'
                 >
                   <button style={{ display:"flex", gap:"4px", backgroundColor: "#fff", border: "1px solid #cccccc", borderRadius: "6px", fontSize: "16px", color: "#333333", padding: "12px 20px", marginRight: "10px" }}>
-                    <i className="watsap bg-image ms-3"></i>Chat on Whatsapp
+                    <i className="watsap bg-image ms-3"></i>Request for price
                   </button>
                 </a>
                   :
