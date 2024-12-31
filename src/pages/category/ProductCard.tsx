@@ -62,7 +62,7 @@ const ProductCard = React.memo(({item, ...alt}: any) => {
           <div className="py-2">
             <h3 className="text-uppercase">{item?.designer}</h3>
             <p className="text-gray">{item?.name}</p>
-            <small className="font-semibold">{getPrice(item?.main_price, selectedCurrency)}</small>
+            {item?.is_price_hide ? "" : <small className="font-semibold">{getPrice(item?.main_price, selectedCurrency)}</small>}
           </div>
         </Link>
       </div>

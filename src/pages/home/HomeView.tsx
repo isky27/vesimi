@@ -59,7 +59,7 @@ const HomeView = () => {
           <div className="Mainslider">
             {/* Carousal */}
             {mainSliderData?.length > 0 && (
-              <div className="container mainSlider">
+              <div className="container mainSlider blogSection">
                 <Carousel
                   data={mainSliderData?.map((item: any) => ({image:item?.photo, link: item?.link}))}
                   isPath={true}
@@ -348,8 +348,8 @@ const HomeView = () => {
               <div className="container">
                 <picture>
                   <a href="/">
-                    <img
-                      src={require("assets/images/bannerShape.avif")}
+                    <img style={{width:"100%"}}
+                      src={require("assets/images/bannerShape1.jpeg")}
                       alt=""
                     />
                   </a>

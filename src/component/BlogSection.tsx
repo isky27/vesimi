@@ -2,7 +2,7 @@ import OwlCarousel from "react-owl-carousel";
 
 const BlogSection = ({ data }: any) => {
   return (
-    <section className="productSection py-3 py-md-4">
+    <section className="productSection py-3 py-md-4 blogSection">
       <div className="container">
         <div className="productHead text-center  mb-md-4">
           <h2 className="Playfair fs-3 text-black">Our Blog </h2>

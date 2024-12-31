@@ -766,6 +766,9 @@ header {
 
 .subscribe .subscribeBtn {position: absolute;right: 0;padding: 10px;border: none;color: #fff;text-transform: uppercase;font-size: 12px;line-height: 1.5;}
 
+.blogSection .owl-stage {
+  margin: auto;
+}
 
 .countrySETWrap {
   padding: 10px;
