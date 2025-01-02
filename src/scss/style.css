@@ -477,9 +477,8 @@ header {
   height: max-content;
 }
 .pageMain {
-  padding-top: 140px;
+    padding-top: 168px;
 }
-
 .watsap {
   display: block;
   height: 24px;

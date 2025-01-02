@@ -3,6 +3,10 @@
         width: 420px;
 }
 
+.modal-dialog.sizeModal {
+    max-width: 980px;
+}
+
 .sizeModal .modal-content {
         width: 100%!important;
         padding: 20px;
