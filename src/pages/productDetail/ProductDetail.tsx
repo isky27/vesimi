@@ -27,9 +27,17 @@ const ProductDetail = () => {
 
   const {selectedCurrency} = useAppSelector((state:any)=>state.auth)
 
+  const productDetails = productDetailData?.data[0];
+
   return (
     <section className="pageMain">
-      <Loader isLoading={[isLoadingProductDetail, isLoadingRelatedProducts, isLoadingAddToCart]} />
+      <Loader
+        isLoading={[
+          isLoadingProductDetail,
+          isLoadingRelatedProducts,
+          isLoadingAddToCart,
+        ]}
+      />
 
       <div className="container mt-4">
         {/* <!-- DETAIL PAGE CONTENT --> */}
@@ -41,22 +49,30 @@ const ProductDetail = () => {
                 {/* Left Side (Thumbnails) */}
                 <div className="detailImgThumb">
                   <div className="thumbnail-wrapper">
-                    {productDetailData?.data[0]?.photos?.map((image: any, index: number) => (
-                      <img
-                        key={index}
-                        src={image?.path}
-                        alt={`Thumbnail ${index + 1}`}
-                        className={`thumbnail ${selectedImage === image.path ? 'selected' : ''}`}
-                        onClick={() => setSelectedImage(image.path)}
-                      />
-                    ))}
+                    {productDetails?.photos?.map(
+                      (image: any, index: number) => (
+                        <img
+                          key={index}
+                          src={image?.path}
+                          alt={`Thumbnail ${index + 1}`}
+                          className={`thumbnail ${
+                            selectedImage === image.path ? "selected" : ""
+                          }`}
+                          onClick={() => setSelectedImage(image.path)}
+                        />
+                      )
+                    )}
                   </div>
                 </div>
 
                 {/* Right Side (Main Image) */}
                 <div className="detailMainImage">
                   <div className="main-image-wrapper">
-                    <InnerImageZoom src={selectedImage} zoomSrc={selectedImage} zoomScale={2.5} />
+                    <InnerImageZoom
+                      src={selectedImage}
+                      zoomSrc={selectedImage}
+                      zoomScale={2.5}
+                    />
                   </div>
                 </div>
               </div>
@@ -65,69 +81,198 @@ const ProductDetail = () => {
           <div className="col-md-6">
             <div className="detailPageContent">
               <div className="d-flex flex-wrap align-items-center">
-                <h1 className="innerPageTitle" style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}>{productDetailData?.data[0]?.designer}</h1>
+                <h1
+                  className="innerPageTitle"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    flexWrap: "wrap",
+                  }}
+                >
+                  {productDetails?.designer}
+                </h1>
               </div>
-              <h2 className="textBigLight">{productDetailData?.data[0]?.name}</h2>
-               {productDetailData?.data[0]?.is_price_hide ? "" : <div className="detailPrice">
-                <p className="d-flex align-items-baseline space-x-[6px]">
-                  <span
-                    className="leading-none tracking-tighter text-azaBlackShade3 fs-lg fs-lg-2xl fw-bold">{getPrice(productDetailData?.data?.[0]?.main_price, selectedCurrency)}</span>
+              <h2 className="textBigLight">{productDetails?.name}</h2>
+              {productDetails?.is_price_hide ? (
+                ""
+              ) : (
+                <div className="detailPrice">
+                  <p className="d-flex align-items-baseline space-x-[6px]">
+                    <span className="leading-none tracking-tighter text-azaBlackShade3 fs-lg fs-lg-2xl fw-bold">
+                      {getPrice(
+                        productDetailData?.data?.[0]?.main_price,
+                        selectedCurrency
+                      )}
+                    </span>
 
-                  {extractNumber(productDetailData?.data[0]?.discount) ? <span className="text-sm text-lg-base text-azaGreen_5">({getPrice(productDetailData?.data[0]?.discount, selectedCurrency)}OFF)</span> : ""}
-                </p>
-                <p className="textSmallLight">(inclusive of all taxes)</p>
-              </div>}
+                    {extractNumber(productDetails?.discount) ? (
+                      <span className="text-sm text-lg-base text-azaGreen_5">
+                        ({getPrice(productDetails?.discount, selectedCurrency)}
+                        OFF)
+                      </span>
+                    ) : (
+                      ""
+                    )}
+                  </p>
+                  <p className="textSmallLight">(inclusive of all taxes)</p>
+                </div>
+              )}
 
-              {productDetailData?.data[0]?.choice_options?.find((el: any) => el.title === "Size")?.options && <div className="sizePart">
-                <div className="sizeGuide">
-                  <h4>{!productDetailData?.data[0]?.is_price_hide ? "SELECT" : ""} SIZE </h4><button onClick={()=>setIsOpenSizeChart(true)}>Size Guide</button>
+              {productDetails?.choice_options?.find(
+                (el: any) => el.title === "Size"
+              )?.options && (
+                <div className="sizePart">
+                  <div className="sizeGuide">
+                    <h4>
+                      {!productDetails?.is_price_hide ? "SELECT" : ""} SIZE{" "}
+                    </h4>
+                    <button onClick={() => setIsOpenSizeChart(true)}>
+                      Size Guide
+                    </button>
+                  </div>
+                  <div className="sizePartTabs d-flex flex-wrap gap-1 gap-md-3">
+                    {productDetails?.choice_options
+                      ?.find((el: any) => el.title === "Size")
+                      ?.options?.map((elem: string) => {
+                        return (
+                          <button
+                            className={`sizeBtn ${
+                              selectedSize === elem ? "selected" : ""
+                            }`}
+                            onClick={() => setSelectedSize(elem)}
+                            key={elem}
+                          >
+                            {elem}
+                          </button>
+                        );
+                      })}
+                  </div>
                 </div>
-                <div className="sizePartTabs d-flex flex-wrap gap-1 gap-md-3">
-                  {productDetailData?.data[0]?.choice_options?.find((el: any) => el.title === "Size")?.options?.map((elem: string) => {
-                    return <button className={`sizeBtn ${selectedSize === elem ? "selected" : ""}`} onClick={() => setSelectedSize(elem)} key={elem}>{elem}</button>
-                  })}
-                </div>
-              </div>}
+              )}
 
-              {productDetailData?.data[0]?.choice_options?.find((el: any) => el.title === "Designer")?.options && <div className="mb-3">
-                <div className="sizeGuide">
-                  <h4>DESIGNER </h4>
+              {productDetails?.choice_options?.find(
+                (el: any) => el.title === "Designer"
+              )?.options && (
+                <div className="mb-3">
+                  <div className="sizeGuide">
+                    <h4>DESIGNER </h4>
+                  </div>
+                  <div className="sizePartTabs d-flex flex-wrap gap-1 gap-md-3">
+                    {productDetails?.choice_options
+                      ?.find((el: any) => el.title === "Designer")
+                      ?.options?.map((elem: string) => {
+                        return (
+                          <button
+                            className={`designerBtn ${
+                              selectedDesigner === elem ? "selected" : ""
+                            }`}
+                            onClick={() => setSelectedDesigner(elem)}
+                            key={elem}
+                          >
+                            {elem}
+                          </button>
+                        );
+                      })}
+                  </div>
                 </div>
-                <div className="sizePartTabs d-flex flex-wrap gap-1 gap-md-3">
-                  {productDetailData?.data[0]?.choice_options?.find((el: any) => el.title === "Designer")?.options?.map((elem: string) => {
-                    return <button className={`designerBtn ${selectedDesigner === elem ? "selected" : ""}`} onClick={() => setSelectedDesigner(elem)} key={elem}>{elem}</button>
-                  })}
-                </div>
-              </div>}
+              )}
 
               <div className="ButtonTabsAction">
-                {productDetailData?.data[0]?.is_price_hide ? <a
-                  target="_blank"
-                  rel="noreferrer"
-                  href="https://api.whatsapp.com/send?phone=919820082317&text=Hello%20I%20need%20assistance"
-                  className='text-decoration-none'
-                >
-                  <button style={{ display:"flex", gap:"4px", backgroundColor: "#fff", border: "1px solid #cccccc", borderRadius: "6px", fontSize: "16px", color: "#333333", padding: "12px 20px", marginRight: "10px" }}>
-                    <i className="watsap bg-image ms-3"></i>Request for price
+                {productDetails?.is_price_hide ? (
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href="https://api.whatsapp.com/send?phone=919820082317&text=Hello%20I%20need%20assistance"
+                    className="text-decoration-none"
+                  >
+                    <button
+                      style={{
+                        display: "flex",
+                        gap: "4px",
+                        backgroundColor: "#fff",
+                        border: "1px solid #cccccc",
+                        borderRadius: "6px",
+                        fontSize: "16px",
+                        color: "#333333",
+                        padding: "12px 20px",
+                        marginRight: "10px",
+                      }}
+                    >
+                      <i className="watsap bg-image ms-3"></i>Request for price
+                    </button>
+                  </a>
+                ) : productDetails?.out_of_stock ? (
+                  <button
+                    disabled={true}
+                    style={{
+                      display: "flex",
+                      gap: "4px",
+                      backgroundColor: "#fff",
+                      border: "1px solid #cccccc",
+                      borderRadius: "6px",
+                      fontSize: "16px",
+                      color: "#333333",
+                      padding: "12px 20px",
+                      marginRight: "10px",
+                    }}
+                  >
+                    Out of stock
                   </button>
-                </a>
-                  :
-                  <button disabled={productDetailData?.data[0]?.choice_options?.find((el: any) => el.title === "Size")?.options && !selectedSize} className="addToCart" onClick={handleAddToCart}>
+                ) : (
+                  <button
+                    disabled={
+                      productDetails?.choice_options?.find(
+                        (el: any) => el.title === "Size"
+                      )?.options && !selectedSize
+                    }
+                    className="addToCart"
+                    onClick={handleAddToCart}
+                  >
                     ADD TO CART
                   </button>
-                }
+                )}
                 <button
-                  style={{ backgroundColor: "#fff", border: "1px solid #cccccc", borderRadius: "6px", fontSize: "16px", color: "#333333", padding: "12px 20px" }}>WISHLIST</button>
+                  style={{
+                    backgroundColor: "#fff",
+                    border: "1px solid #cccccc",
+                    borderRadius: "6px",
+                    fontSize: "16px",
+                    color: "#333333",
+                    padding: "12px 20px",
+                  }}
+                >
+                  WISHLIST
+                </button>
               </div>
 
               <div className="AboutDetail">
                 <div id="profile-description">
                   <div className="">
                     <h4>ABOUT</h4>
-                    <p dangerouslySetInnerHTML={{ __html: productDetailData?.data[0]?.description }}></p>
-                    {productDetailData?.data[0]?.other_attribute && Object.entries(productDetailData?.data[0]?.other_attribute)?.map((atr: any) => {
-                      return <p className='d-flex gap-1 align-items-top' key={atr[0]}><p dangerouslySetInnerHTML={{ __html: atr[0] }}></p><p> : </p><p dangerouslySetInnerHTML={{ __html: atr[1] }}></p></p>
-                    })}
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: productDetails?.description,
+                      }}
+                    ></p>
+                    {productDetails?.other_attribute &&
+                      Object.entries(productDetails?.other_attribute)?.map(
+                        (atr: any) => {
+                          return (
+                            <p
+                              className="d-flex gap-1 align-items-top"
+                              key={atr[0]}
+                            >
+                              <p
+                                dangerouslySetInnerHTML={{ __html: atr[0] }}
+                              ></p>
+                              <p> : </p>
+                              <p
+                                dangerouslySetInnerHTML={{ __html: atr[1] }}
+                              ></p>
+                            </p>
+                          );
+                        }
+                      )}
                   </div>
                   {/* <div className="show-more">Show More</div> */}
                 </div>
@@ -136,56 +281,118 @@ const ProductDetail = () => {
           </div>
         </div>
 
+        {relatedProductsData?.data.length > 0 && (
+          <div className="relatedTabs">
+            <h4>RELATED PRODUCTS</h4>
 
-        {relatedProductsData?.data.length > 0 && <div className="relatedTabs">
-          <h4>RELATED PRODUCTS</h4>
-
-          <div className="productSliderWrap">
-            <ProductCarousal>
-              {relatedProductsData?.data?.map((prod: any) => (
-                <ProductCard
-                  key={prod.id}
-                  price={getPrice(prod?.main_price, selectedCurrency)}
-                  imageName={prod?.thumbnail_image}
-                  isPath={true}
-                  tag={prod?.designer}
-                  link={`/products/${prod?.id}`}
-                  subTag={prod?.name}
-                />
-              ))}
-            </ProductCarousal>
+            <div className="productSliderWrap">
+              <ProductCarousal>
+                {relatedProductsData?.data?.map((prod: any) => (
+                  <ProductCard
+                    key={prod.id}
+                    price={getPrice(prod?.main_price, selectedCurrency)}
+                    imageName={prod?.thumbnail_image}
+                    isPath={true}
+                    tag={prod?.designer}
+                    link={`/products/${prod?.id}`}
+                    subTag={prod?.name}
+                  />
+                ))}
+              </ProductCarousal>
+            </div>
           </div>
-        </div>}
+        )}
 
         <div className="relatedTabs support">
           <h4>CUSTOMER SUPPORT </h4>
-          <a target="_blank"
-            rel="noreferrer" href="https://api.whatsapp.com/send?phone=919820082317" style={{ textDecoration: "none" }}
-          ><i className="bg-image"
-            style={{ backgroundPosition: "-375px -199px", width: "24px", height: "24px" }}></i>Chat With Us</a>
-          <a target="_blank"
-            rel="noreferrer" href="tel:+919820082317" className="" style={{ textDecoration: "none" }}><i className="bg-image"
-              style={{ backgroundPosition: "-342px -199px", width: "24px", height: "24px" }}></i>India +91-9820082317</a>
-          <a target="_blank"
-            rel="noreferrer" href="tel:+971526929312" className="" style={{ textDecoration: "none" }}><i className="bg-image"
-              style={{ backgroundPosition: "-342px -199px", width: "24px", height: "24px" }}></i>International +971-526929312</a>
-          <a target="_blank"
-            rel="noreferrer" href="mailto:info@vesimi.com" className="" style={{ textDecoration: "none" }}><i className="bg-image"
-              style={{ backgroundPosition: "-407px -199px", width: "24px", height: "24px" }}></i>Mail us</a>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://api.whatsapp.com/send?phone=919820082317"
+            style={{ textDecoration: "none" }}
+          >
+            <i
+              className="bg-image"
+              style={{
+                backgroundPosition: "-375px -199px",
+                width: "24px",
+                height: "24px",
+              }}
+            ></i>
+            Chat With Us
+          </a>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="tel:+919820082317"
+            className=""
+            style={{ textDecoration: "none" }}
+          >
+            <i
+              className="bg-image"
+              style={{
+                backgroundPosition: "-342px -199px",
+                width: "24px",
+                height: "24px",
+              }}
+            ></i>
+            India +91-9820082317
+          </a>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="tel:+971526929312"
+            className=""
+            style={{ textDecoration: "none" }}
+          >
+            <i
+              className="bg-image"
+              style={{
+                backgroundPosition: "-342px -199px",
+                width: "24px",
+                height: "24px",
+              }}
+            ></i>
+            International +971-526929312
+          </a>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="mailto:info@vesimi.com"
+            className=""
+            style={{ textDecoration: "none" }}
+          >
+            <i
+              className="bg-image"
+              style={{
+                backgroundPosition: "-407px -199px",
+                width: "24px",
+                height: "24px",
+              }}
+            ></i>
+            Mail us
+          </a>
         </div>
-
 
         <div className=" socialTabs">
           <h4>SHARE</h4>
           <div className="d-flex pt-2">
-            <a href="/" className="" style={{ textDecoration: "none" }}><i className="fab fa-whatsapp"></i></a>
-            <a href="/" className="" style={{ textDecoration: "none" }}><i className="fab fa-facebook-f"></i></a>
-            <a href="/" className="" style={{ textDecoration: "none" }}><i className="fab fa-twitter"></i></a>
-            <a href="/" className="" style={{ textDecoration: "none" }}><i
-              className="far fa-envelope-open"></i></a>
-            <a href="/" className="" style={{ textDecoration: "none" }}><i className="fab fa-pinterest"></i></a>
+            <a href="/" className="" style={{ textDecoration: "none" }}>
+              <i className="fab fa-whatsapp"></i>
+            </a>
+            <a href="/" className="" style={{ textDecoration: "none" }}>
+              <i className="fab fa-facebook-f"></i>
+            </a>
+            <a href="/" className="" style={{ textDecoration: "none" }}>
+              <i className="fab fa-twitter"></i>
+            </a>
+            <a href="/" className="" style={{ textDecoration: "none" }}>
+              <i className="far fa-envelope-open"></i>
+            </a>
+            <a href="/" className="" style={{ textDecoration: "none" }}>
+              <i className="fab fa-pinterest"></i>
+            </a>
           </div>
-
         </div>
       </div>
       <CustomPopup
@@ -194,12 +401,14 @@ const ProductDetail = () => {
         handleClose={() => setIsOpenSizeChart(!isOpenSizeChart)}
         modalHeader="Size Chart"
         secondaryButtonText="Ok"
-        secondaryButtonClick={()=>{setIsOpenSizeChart(!isOpenSizeChart)}}
+        secondaryButtonClick={() => {
+          setIsOpenSizeChart(!isOpenSizeChart);
+        }}
       >
-        <img style={{width:"60vw"}} src={productDetailData?.data[0]?.size_chart}/>
+        <img style={{ width: "60vw" }} src={productDetails?.size_chart} />
       </CustomPopup>
     </section>
-  )
+  );
 }
 
 export default ProductDetail
