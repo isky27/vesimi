@@ -3,7 +3,7 @@ import axios from 'axios'
 // Login API Call
 const getAddressApi = async (userData: any, userToken: { headers: { Authorization: string } }): Promise<ApiResponse> => {
   try {
-    const response: ApiResponse = await axios.get(`user/shipping/address/${userData?.user_id}`, userToken);
+    const response: ApiResponse = await axios.get(`user/shipping/address?id=${userData?.user_id}`, userToken);
     return response;
   } catch (error: any) {
     throw error;
@@ -19,6 +19,15 @@ const addAddressApi = async (userData: any, userToken: { headers: { Authorizatio
   }
 };
 
+const deleteAddressApi = async (userData: any, userToken: { headers: { Authorization: string } }): Promise<ApiResponse> => {
+  try {
+    const response: ApiResponse = await axios.get(`user/shipping/delete/${userData?.addressId}`, userToken);
+    return response;
+  } catch (error: any) {
+    throw error;
+  }
+};
+
 const getCountriesApi = async ( userToken: { headers: { Authorization: string } }): Promise<ApiResponse> => {
   try {
     const response: ApiResponse = await axios.get("countries", userToken);
@@ -28,18 +37,18 @@ const getCountriesApi = async ( userToken: { headers: { Authorization: string } 
   }
 };
 
-const getStatesApi = async ( userToken: { headers: { Authorization: string } }): Promise<ApiResponse> => {
+const getStatesApi = async (countryId:number, userToken: { headers: { Authorization: string } }): Promise<ApiResponse> => {
   try {
-    const response: ApiResponse = await axios.get("states", userToken);
+    const response: ApiResponse = await axios.get(`states-by-country/${countryId}`, userToken);
     return response;
   } catch (error: any) {
     throw error;
   }
 };
 
-const getCitiesApi = async ( userToken: { headers: { Authorization: string } }): Promise<ApiResponse> => {
+const getCitiesApi = async (stateId:number, userToken: { headers: { Authorization: string } }): Promise<ApiResponse> => {
   try {
-    const response: ApiResponse = await axios.get("cities", userToken);
+    const response: ApiResponse = await axios.get(`cities-by-state/${stateId}`, userToken);
     return response;
   } catch (error: any) {
     throw error;
@@ -51,7 +60,8 @@ const accountService = {
   getCountriesApi,
   getStatesApi,
   getCitiesApi,
-  addAddressApi
+  addAddressApi,
+  deleteAddressApi
 };
 
 export default accountService;

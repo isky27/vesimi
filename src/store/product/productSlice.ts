@@ -2,6 +2,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { getErrorMessage } from "utils";
 import { ProductInterface } from "./productInterface";
 import productService from "./productService";
+import { toast } from "react-toastify";
+import { cartListDataApi } from "store/order/orderSlice";
 
 /**
  * Initial state for the authentication
@@ -14,7 +16,8 @@ const initialState: ProductInterface = {
     isLoadingProductDetail: false,
     productDetailData :null,
     isLoadingRelatedProducts: false,
-    relatedProductsData : null
+    relatedProductsData : null,
+    isLoadingAddToCart: false,
 }
 
 // Async Thunks
@@ -32,6 +35,24 @@ export const getProductDetails = createAsyncThunk("get/product/details", async (
 export const getRealtedProducts = createAsyncThunk("get/product/related", async (userData:any,thunkApi: any) => {
     try {
         const response = await productService.relatedProductApi(userData);
+        return response;
+    } catch (error: any) {
+        const message: any = getErrorMessage(error)
+        return thunkApi.rejectWithValue(message);
+    }
+});
+
+export const addToCart = createAsyncThunk("add/to/cart", async (userData:any,thunkApi: any) => {
+    try {
+        const response:any = await productService.addToCartApi(userData);
+        if(response?.result){
+            toast.success(response.message)
+        }else{
+            toast.error(response.message)
+        }
+        thunkApi.dispatch(cartListDataApi({
+            user_id:userData?.user_id
+        }))
         return response;
     } catch (error: any) {
         const message: any = getErrorMessage(error)
@@ -76,6 +97,18 @@ export const productReducer = createSlice({
                 state.isLoadingRelatedProducts = false;
                 state.isSuccess = false;
                 state.relatedProductsData = null;
+            })
+            .addCase(addToCart.pending, (state: any, _: any) => {
+                state.isLoadingAddToCart = true;
+                state.isSuccess = false;
+            })
+            .addCase(addToCart.fulfilled, (state: any, action: any) => {
+                state.isLoadingAddToCart = false;
+                state.isSuccess = true;
+            })
+            .addCase(addToCart.rejected, (state: any) => {
+                state.isLoadingAddToCart = false;
+                state.isSuccess = false;
             })
     }
 

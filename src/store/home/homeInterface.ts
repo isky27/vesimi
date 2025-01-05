@@ -26,6 +26,8 @@ export interface HomeInterface {
   isLoadingCelebrityProduct: boolean,
   celebrityProductData :any,
   isLoadingTabProduct: boolean,
-  tabProductData: any
+  tabProductData: any,
+  blogsData: any,
+  isLoadingBlogs: boolean
 }
 

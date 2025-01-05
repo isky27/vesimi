@@ -56,7 +56,7 @@ const Footer = () => {
             <h5>SIGN UP FOR FASHION UPDATES </h5>
             <div className="subscribe">
               <input type="text" className="" placeholder="Enter Your Email" />
-              <button className="bg-themered subscribeBtn">Share App Link</button>
+              <button className="bg-themered subscribeBtn">Subscribe</button>
             </div>
 
             <div className="acceptCard mt-2 pt-1">

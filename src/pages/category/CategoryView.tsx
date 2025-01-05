@@ -2,10 +2,11 @@ import Loader from 'component/Loader';
 import CategoryController from './categoryController'
 import MultiLevelCheckbox from './MultiLevelCheckbox'
 import Slider from 'rc-slider';
-import { Link } from 'react-router-dom';
 import Pagination from 'component/Pagination';
 import { priceRange } from 'constant';
-import { getPrice } from 'utils';
+import filterIcon from "../../assets/images/filterIcon.png";
+import sidebarClose from "../../assets/images/sidebarClose.png";
+import ProductCard from './ProductCard';
 
 const CategoryView = () => {
 
@@ -31,6 +32,15 @@ const CategoryView = () => {
     handlePriceReset
   } = CategoryController();
 
+
+  const handleToggleSidebar = () => {
+    document.body.classList.toggle("openfilterSidebar"); // Toggle the class on <body>
+  };
+
+  const handleCloseSidebar = () => {
+    document.body.classList.remove("openfilterSidebar"); // Remove the class from <body>
+  };
+
 	return (
       <section className="pageMain">
         <Loader
@@ -54,9 +64,10 @@ const CategoryView = () => {
           </div>
 
           <div className="listingPage">
-            <div className="Listing_sidebar pt-3 pt-md-4">
+            <div className="Listing_sidebar pt-5 pt-md-4">
+            <button className="sidebarClose d-lg-none" onClick={handleCloseSidebar}> <img src={sidebarClose} /></button>
               <div className="d-sm-flex justify-content-between py-2 py-md-3">
-                <span className="StyleCount">Showing 43,964 Styles </span>
+                <span className="StyleCount">Showing {searchProductData?.meta?.total || 0} Styles </span>
                 <button className="AsLink" onClick={handelClearFilter}>CLEAR ALL</button>
               </div>
               <div className="sidebarBlock">
@@ -171,57 +182,14 @@ const CategoryView = () => {
 
             {/* right part */}
             <div className="pageRightMain">
+              <button className='d-md-none filterSidebarToggle' onClick={handleToggleSidebar}> <img src={filterIcon}  /></button>
               {/* product Bar */}
 
               <div className="productListinfWrap">
                 <div className="row">
                   {(!isLoadingSearchProduct && searchProductData?.data?.length > 0) && searchProductData?.data?.map((item: any) => {
                     return (
-                      <div key={item?.id} className="col-sm-6 col-lg-4">
-                        <div className="productCols position-relative mb-2 mb-md-3">
-                          <Link
-                            to={`/products/${item?.id}`}
-                            className="text-dark text-decoration-none"
-                          >
-                            <div className="position-relative">
-                              <picture>
-                                <img src={item?.thumbnail_image} alt="Img" />
-                                <svg
-                                  stroke="currentColor"
-                                  fill="currentColor"
-                                  strokeWidth="0"
-                                  viewBox="0 0 1024 1024"
-                                  height="1em"
-                                  width="1em"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path d="M848 359.3H627.7L825.8 109c4.1-5.3.4-13-6.3-13H436c-2.8 0-5.5 1.5-6.9 4L170 547.5c-3.1 5.3.7 12 6.9 12h174.4l-89.4 357.6c-1.9 7.8 7.5 13.3 13.3 7.7L853.5 373c5.2-4.9 1.7-13.7-5.5-13.7z"></path>
-                                </svg>
-                              </picture>
-                              <div className="QuickView">
-                                <div className="AddProductAction">
-                                  <button style={{ color: "#bb3d1f" }}>
-                                    ADD TO CART
-                                  </button>
-                                  <button
-                                    style={{ color: "#eab308" }}
-                                    className="border-0"
-                                  >
-                                    BUY NOW
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="py-2">
-                              <h3 className="text-uparcase">{item?.designer}</h3>
-                              <p className="text-gray ">{item?.name}</p>
-                              <small className="font-semibold">
-                                {getPrice(item?.main_price)}
-                              </small>
-                            </div>
-                          </Link>
-                        </div>
-                      </div>
+                        <ProductCard item={item} key={item?.id} />
                     );
                   })}
                   {(!isLoadingSearchProduct && !(searchProductData?.data?.length > 0)) && <div className='text-center'> No products to show.</div>}

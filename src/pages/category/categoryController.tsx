@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/redux.hooks";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { getSearchProducts, getSubCategories } from "store/category/category.slice";
 import { priceRange } from "constant";
+import { getCategoryUrl } from "utils";
 
 /**
  *
@@ -21,6 +22,7 @@ const CategoryController = () => {
 
   // Import data from auth selectora
   const dispatch = useAppDispatch();
+  const navigate = useNavigate()
   const {
     isLoadingSubCategories,
     subCategoryData,
@@ -46,7 +48,6 @@ const CategoryController = () => {
     let selectedColor = filterColor.values().next().value;
     let selectedSize = filterSize.values().next().value;
     let selectedDesigner = filterDesigner.values().next().value;
-    let selectedCategory = filterCategory.values().next().value;
     let priceLimit = filterPrice.values();
     let minPrice = priceLimit.next().value;
     let maxPrice = priceLimit.next().value;
@@ -54,7 +55,6 @@ const CategoryController = () => {
     updateSearchParams('size', selectedSize);
     updateSearchParams('color', selectedColor);
     updateSearchParams('designer', selectedDesigner);
-    updateSearchParams('sub-category', selectedCategory);
     updateSearchParams('min', minPrice);
     updateSearchParams('max', maxPrice);
     setCurrentPage(1)
@@ -62,7 +62,14 @@ const CategoryController = () => {
     const hasParams = Object.keys(newSearchParams).length > 0;
     // Update searchParams state
     setSearchParams(hasParams ? newSearchParams : {});
-  }, [filterSize, filterColor, filterDesigner, filterCategory, filterPrice]);
+  }, [filterSize, filterColor, filterDesigner, filterPrice]);
+
+  useEffect(() => {
+    if(filterCategory!==categoryId){
+      let selectedCategory = filterCategory.values().next().value;
+      navigate(getCategoryUrl(selectedCategory));
+    }
+  }, [filterCategory]);
 
   useEffect(() => {
     dispatch(getSubCategories({ categoryId }));

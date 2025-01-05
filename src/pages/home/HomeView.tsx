@@ -3,7 +3,6 @@ import Carousel from "component/carousel";
 import ServiceInfo from "./ServiceInfo";
 import HomeController from "./homeController";
 import OwlCarousel from "react-owl-carousel";
-import ShopNowCard from "component/ShopNowCard";
 import Loader from "component/Loader";
 import CelebritySection from "component/CelebritySection";
 import BlogSection from "component/BlogSection";
@@ -16,6 +15,7 @@ import BookAppointment from "component/BookAppointment";
 import ProductCard from "component/ProductCard";
 import ProductCarousal from "component/ProductCarousal";
 import { getCategoryUrl, getPrice } from "utils";
+import { useAppSelector } from "store/redux.hooks";
 
 const HomeView = () => {
   const {
@@ -34,8 +34,12 @@ const HomeView = () => {
       activeTab, setActiveTab,
       featureProductData,
       isLoadingTabProduct,
-      tabProductData
+      tabProductData,
+      isLoadingBlogs,
+      blogsData
   } = HomeController();
+
+  const {selectedCurrency} = useAppSelector((state:any)=>state.auth)
 
   return (
       <section>
@@ -46,18 +50,18 @@ const HomeView = () => {
             isLoadingFeatureCategory,
             isLoadingBestSellerProduct,
             isLoadingCelebrityProduct,
-            isLoadingTabProduct
+            isLoadingTabProduct,
+            isLoadingBlogs
           ]}
         />
-
         <main className="pageMain">
           {/*slider main banner */}
           <div className="Mainslider">
             {/* Carousal */}
             {mainSliderData?.length > 0 && (
-              <div className="container mainSlider">
+              <div className="container mainSlider blogSection">
                 <Carousel
-                  images={mainSliderData?.map((item: any) => item?.photo)}
+                  data={mainSliderData?.map((item: any) => ({image:item?.photo, link: item?.link}))}
                   isPath={true}
                 />
               </div>
@@ -69,7 +73,7 @@ const HomeView = () => {
                 <div className="container">
                   <div className="row">
                     {topCategoryData?.map((item: any) => (
-                      <div key={item?.icon} className="col-sm-6 col-lg-3">
+                      <div key={item?.icon} className="col-6 col-lg-3">
                         <CategeryCard
                           bottomText={true}
                           imageName={item?.icon}
@@ -134,7 +138,7 @@ const HomeView = () => {
                 <div className="productHead d-flex align-items-center justify-content-between mb-3 mb-md-4">
                   <h2 className="Playfair">Popular Styles </h2>
                   {/* <Link
-                    to={`/category/${selectedPopularStyle}`}
+                    to={`/search/category/${selectedPopularStyle}`}
                     className="text-uparcase"
                   >
                     VIEW ALL
@@ -144,7 +148,7 @@ const HomeView = () => {
               <div className="productSliderWrap">
                 <ul className="nav nav-tabs themeTabsStyle" id="myTab" role="tablist">
                   {tabProductData &&
-                    Object.keys(tabProductData).map((category: string, index: number) => (
+                    Object.keys(tabProductData).map((category: string) => (
                       <li className="nav-item" key={category}>
                         <button
                           className={`nav-link ${activeTab === category ? "active" : ""}`}
@@ -179,7 +183,7 @@ const HomeView = () => {
                                 {dataArray.map((prod: any) => (
                                   <ProductCard
                                     key={prod.id}
-                                    price={getPrice(prod?.main_price)}
+                                    price={getPrice(prod?.main_price, selectedCurrency)}
                                     imageName={prod?.thumbnail_image}
                                     isPath={true}
                                     tag={prod?.designer}
@@ -194,8 +198,6 @@ const HomeView = () => {
                       );
                     })}
                 </div>
-
-
               </div>
               </div>
             </section>
@@ -344,8 +346,8 @@ const HomeView = () => {
               <div className="container">
                 <picture>
                   <a href="/">
-                    <img
-                      src={require("assets/images/bannerShape.avif")}
+                    <img style={{width:"100%"}}
+                      src={require("assets/images/bannerShape1.jpeg")}
                       alt=""
                     />
                   </a>
@@ -360,13 +362,13 @@ const HomeView = () => {
             productData={featureProductData}
           />
 
-          <BlogSection />
+          <BlogSection data={blogsData}/>
           {/* <!-- product section --> */}
 
           <section className="productSection py-3 py-md-4">
             <div className="container">
-              <div className="fullscreen fullwidth clearfix">
-                <div
+              <div className="fullscreen fullwidth clearfix SocialSharing">
+                <div 
                   style={{ width: "25%", float: "left", position: "relative" }}
                 >
                   <a

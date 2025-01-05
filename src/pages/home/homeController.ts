@@ -9,6 +9,7 @@ import {
   lovedCollectionProduct,
   ownDesignerProduct,
   exclusiveCollectionProduct,
+  getBlogs,
 } from "store/home/home.slice";
 import { useNavigate } from 'react-router-dom';
 
@@ -29,7 +30,7 @@ const HomeController = () => {
     const { isLoadingMainSlider, mainSliderData, isLoadingTopCategory, topCategoryData,  isLoadingFeatureCategory,
       featureCategoryData, featureProductData, isLoadingBestSellerProduct,
       ownDesignerData, lovedCollectionData, exclusiveCollectionData, isLoadingCelebrityProduct,
-      isLoadingTabProduct, tabProductData } = useAppSelector((state:any) => state.home);
+      isLoadingTabProduct, tabProductData, blogsData, isLoadingBlogs } = useAppSelector((state:any) => state.home);
       
     useEffect(()=>{
       window.scrollTo(0, 0);
@@ -43,6 +44,7 @@ const HomeController = () => {
       dispatch(exclusiveCollectionProduct());
       // dispatch(celebrityStyleProduct())
       dispatch(tabProduct())
+      dispatch(getBlogs())
     },[dispatch])
 
     useEffect(() => {
@@ -68,7 +70,9 @@ const HomeController = () => {
       activeTab, setActiveTab,
       featureProductData,
       isLoadingTabProduct,
-      tabProductData
+      tabProductData,
+      isLoadingBlogs,
+      blogsData
     };
 
 }

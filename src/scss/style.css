@@ -331,6 +331,14 @@ h6 {
   align-items: center;
 }
 
+.Cart{
+  position: relative;
+}
+
+.Cart .cartCount{
+  position: absolute;
+}
+
 .text-gray{color:#888;}
 .text-uparcase{text-transform:uppercase!important;}
 
@@ -338,7 +346,7 @@ h6 {
   flex: 1;
   border: 1px solid #d1d5db;
   position: relative;
-  padding-right: 140px;
+  padding-right: 64px;
   padding-left: 45px;
   height: 43px;
 }
@@ -460,14 +468,13 @@ h6 {
 
 header {
   box-shadow: 0 3px 8px rgba(0, 0, 0, .1);
-  position:fixed;
+  position:sticky;
   left:0;
   right: 0;
   top: 0;
   z-index: 999;
   background-color:#fff;
-}.pageMain {
-  padding-top: 140px;
+  height: max-content;
 }
 
 .watsap {
@@ -756,6 +763,9 @@ header {
 
 .subscribe .subscribeBtn {position: absolute;right: 0;padding: 10px;border: none;color: #fff;text-transform: uppercase;font-size: 12px;line-height: 1.5;}
 
+.blogSection .owl-stage {
+  margin: auto;
+}
 
 .countrySETWrap {
   padding: 10px;
@@ -1017,15 +1027,9 @@ footer {
   border: 1px solid #bc3d19;
   background: #fff8f5;
 }
-.categoeryRightBar .accordion-body .categoeryLink a {
-  flex: 0 0 25%;
-  max-width: 25%;
-}
+
 .accordion-button:not(.collapsed){background-color:#fff;}
 .accordion-button:focus{box-shadow:none;}
-.categoeryRightBar .accordion-body{padding:0 0 20px 0;}
-
-
 
 /* Price range slider */
 
@@ -1217,14 +1221,12 @@ span.appOnly {
   color: #000;
   font-weight: 500;
 }
-
-.sizePart .sizeGuide {
+.sizeGuide {
   display:flex;
   margin: 15px 0;
 }
  
-
-.sizePart .sizeGuide button {
+.sizeGuide button {
   color: #bc3d19;
   border: none;
   background: no-repeat;
@@ -1246,6 +1248,18 @@ span.appOnly {
   padding:4px 5px;
 }
 
+.sizePartTabs .designerBtn{
+  max-width: 100px;
+  border: 1px solid #e6e6e6;
+  background-color: white;
+  min-height: 40px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 11px;
+  padding:4px 5px;
+  text-overflow: ellipsis;
+}
+
 .sizePartTabs .selected {
   border: 1px solid #bc3d19;
   font-weight: 700;
@@ -1258,9 +1272,20 @@ span.appOnly {
 }
 
 .ButtonTabsAction .addToCart {
+  background-color: #bb3d1f;
+  border-radius: 6px;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  margin-right: 10px;
+  padding: 12px 20px;
   flex: 1;
 }
- 
+
+.ButtonTabsAction .addToCart:disabled {
+  background-color: #c59090;
+}
+
 .AboutDetail h4 {
     color: #000;
     margin-bottom: 10px;
@@ -1360,3 +1385,82 @@ span.appOnly {
   height: 450px;
   /* max-height: 100%; */
 }
+
+
+/* new css */
+.loginModal .modal-title {
+  font-size: 20px;
+}
+
+.loginModal form {
+  padding: 15px 0 0 0;
+}
+
+.loginModal .form-control{padding:10px;}
+
+.themeCancelBtn{
+  background: #eee;
+  border-color: #ddd;
+  padding: 10px;
+  color:#222;
+}
+
+.themeCancelBtn:hover,.themeCancelBtn:focus{
+  background: #ddd;
+  border-color: #ddd; 
+  color:#000;
+}
+
+.themePrimaryBtn {
+  background: #bc3d19;
+  border-color: #bc3d19;
+  padding: 10px;
+}
+.btn-link{text-decoration: none;}
+
+.themePrimaryBtn:hover,.themePrimaryBtn:focus {background-color:#a02503; border-color:#a02503;}
+
+
+/* staticpage */
+.statickPageDesign {
+  padding: 184px 0 24px 0;
+  background: #f9f9f9;
+}
+
+.statickPageDesign h1 {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color:#000;
+} 
+.contentPageWrapper {
+  background: #fff;
+  padding:24px;
+  border-radius:12px;
+  box-shadow:0 0 12px rgba(0,0,0,.1);
+}
+ 
+.detailImgThumbrow {
+    display: flex;
+}
+
+.detailImgThumb {
+    flex-shrink: 0;
+    flex: 0 0 80px;
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.main-image-wrapper {
+    width: 100%;
+}
+
+.detailMainImage {
+    width: 100%;
+}
+
+.detailMainImage figure,.detailMainImage figure img {
+    width: 100%;
+}
+
+.cartListing figcaption{padding-right:100px;}

@@ -1,5 +1,5 @@
+import React, { useState } from "react";
 import LogoImage from "../../assets/images/VESIMI_new_logo-03.png";
-import "../../scss/customPopup.css";
 import MasabaImg from "../../assets/images/msb23608.jpg";
 import RidhimaImg from "../../assets/images/rr025-saj.png";
 import Kalighata from "../../assets/images/avyanna.jpg";
@@ -21,13 +21,15 @@ import AmrtiImg from "../../assets/images/gdm-ad010.jpg";
 import Jewellery1Img from "../../assets/images/bipc-pcbn.jpg"
 import Jewellery2Img from "../../assets/images/07_3.jpg";
 import Jewellery3Img from "../../assets/images/jm_ss22.png";
+import sidebarClose from "../../assets/images/sidebarClose.png";
 import CustomPopup from "component/modal/CustomPopup";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Badge } from "react-bootstrap";
 import HeaderController from "./headerController";
 import InputField from "component/forms/InputField";
-import { getCategoryUrl, getPrice, removeSpaceOnly } from "utils";
+import { getCategoryUrl, removeSpaceOnly } from "utils";
 import { Link } from "react-router-dom";
 import { countryOptions } from "constant";
+import Loader from "component/Loader";
 
 const Header = () => {
 
@@ -45,16 +47,37 @@ const Header = () => {
     searchInput,
     handleCurrencyChange,
     setSearchInput,
-    selectedCurrency
+    selectedCurrency,
+    cartListData, 
+    isLoadingCartList,
+    handleCart
   } = HeaderController();
+
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  
+    const handleToggle = () => {
+      setIsSidebarOpen((prev) => !prev);
+  
+      if (!isSidebarOpen) {
+        document.body.classList.add("sidebar-open");
+      } else {
+        document.body.classList.remove("sidebar-open");
+      }
+    };
+
+    const handleCloseSidebar = () => {
+      document.body.classList.remove("sidebar-open"); // Remove the class from <body>
+    };
+
 
   return (
     <header>
+      <Loader isLoading={[isLoadingCartList]}/>
       <div className="headerTopRow">
         <div className="container">
           <div className="headerTop">
             <div className="navBrand">
-              <button
+              <button onClick={handleToggle}
                 className="MobileNavToggle bg-image d-block d-lg-none "
                 style={{ backgroundPosition: "-260px -158px" }}
               ></button>
@@ -136,11 +159,14 @@ const Header = () => {
                   ></span>
                   Wishlist
                 </li>
-                <li className="Cart">
-                  <span
-                    className="profileIcon bg-image w-5 h-6 d-block"
-                    style={{ backgroundPosition: "-329px -132px" }}
-                  ></span>
+                <li className="Cart" onClick={handleCart}>
+                  <Badge className="cartCount" bg="danger" pill>
+                    {cartListData?.data?.[0]?.cart_items?.length}
+                  </Badge>
+                    <span
+                      className="profileIcon bg-image w-5 h-6 d-block"
+                      style={{ backgroundPosition: "-329px -132px" }}
+                    ></span>
                   Cart
                 </li>
                 <a
@@ -160,6 +186,7 @@ const Header = () => {
 			<!-- header Nav bar --> */}
 
       <div className="headerNav">
+        <button className="sidebarClose d-lg-none" onClick={handleCloseSidebar}> <img src={sidebarClose} /></button>
         <div className="container">
           <nav className="Nav-bar">
             <ul>
@@ -168,30 +195,30 @@ const Header = () => {
               </li>
               {/* <!-- what's new  --> */}
               <li>
-                <span onClick={() => navigate(getCategoryUrl(5))}>What's New</span>
+                <span onClick={() => navigate(getCategoryUrl(3))}>What's New</span>
                 <div className="subNavPart">
                   <div className="container">
                     <div className="SubNavRow">
                       <div className="SubNavGrid">
                         <h4>CATEGORIES</h4>
                         <ul>
-                          <li onClick={() => navigate(getCategoryUrl(358))}>
+                          <li onClick={() => navigate(getCategoryUrl(6))}>
                             Women
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(1342))}>
+                          <li onClick={() => navigate(getCategoryUrl(20))}>
                             Men
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(1424))}>
+                          <li onClick={() => navigate(getCategoryUrl(366))}>
                             Jewellery
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(1407))}>
+                          <li onClick={() => navigate(getCategoryUrl(121))}>
                             Accessories
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(1389))}>
+                          <li onClick={() => navigate(getCategoryUrl(2285))}>
                             Kids
                           </li>
                         </ul>
-                        <div className="viewmore">VIEW ALL</div>
+                        <div onClick={() => navigate(getCategoryUrl(3))} className="viewmore">VIEW ALL</div>
                       </div>
 
                       <div className="SubNavGrid">
@@ -199,43 +226,43 @@ const Header = () => {
                           DESIGNERS
                         </h4>
                         <ul>
-                          <li onClick={() => navigate(getCategoryUrl(28))}>
+                          <li onClick={() => navigate(getCategoryUrl(212))}>
                             Masaba
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(180))}>
+                          <li onClick={() => navigate(getCategoryUrl(421))}>
                             Vvani by Vani Vats
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(1508))}>
+                          <li onClick={() => navigate(getCategoryUrl(2702))}>
                             Vannikaa Malik
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(359))}>
+                          <li onClick={() => navigate(getCategoryUrl(587))}>
                             Krisha Sunny Ramani
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(527))}>
+                          <li onClick={() => navigate(getCategoryUrl(1411))}>
                             Redpine Designs
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(1171))}>
+                          <li onClick={() => navigate(getCategoryUrl(2549))}>
                             Kudi Pataka
                           </li>
 
 
-                          <li onClick={() => navigate(getCategoryUrl(1562))}>
+                          <li onClick={() => navigate(getCategoryUrl(2775))}>
                             Rooh by Ridhimaa
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(981))}>
+                          <li onClick={() => navigate(getCategoryUrl(2272))}>
                             Deme by Gabriella
                           </li>
 
-                          <li onClick={() => navigate(getCategoryUrl(1484))}>
+                          <li onClick={() => navigate(getCategoryUrl(2678))}>
                             Tyohar
                           </li>
                         </ul>
-                        <div className="viewmore">VIEW ALL</div>
+                        <div  onClick={() => navigate(getCategoryUrl(4))} className="viewmore">VIEW ALL</div>
                       </div>
 
                       <div className="SubNavGrid ProductDemoGrid"></div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(212))}>
                         <figure>
                           <img src={MasabaImg} />
                         </figure>
@@ -245,7 +272,7 @@ const Header = () => {
                         </figcaption>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(2753))}>
                         <figure>
                           <img src={RidhimaImg} />
                         </figure>
@@ -255,7 +282,7 @@ const Header = () => {
                         </figcaption>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(1693))}>
                         <figure>
                           <img src={Kalighata} />
                         </figure>
@@ -271,21 +298,20 @@ const Header = () => {
 
               {/* <!-- Designers --> */}
               <li>
-                <span onClick={() => navigate(getCategoryUrl(6))}>Designers</span>
+                <span onClick={() => navigate("/designer")}>Designers</span>
                 <div className="subNavPart">
                   <div className="container">
                     <div className="SubNavRow">
                       <div className="SubNavGrid">
                         <h4>SALE</h4>
                         <ul>
-
-                          <li onClick={() => navigate(getCategoryUrl(392))}>
+                          <li onClick={() => navigate(getCategoryUrl(601))}>
                             Kovet
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(836))}>
+                          <li onClick={() => navigate(getCategoryUrl(1980))}>
                             Khushboo & Pankaj
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(1079))}>
+                          <li onClick={() => navigate(getCategoryUrl(2448))}>
                             Lil Drama
                           </li>
 
@@ -295,83 +321,83 @@ const Header = () => {
                       <div className="SubNavGrid">
                         <h4>FEATURED</h4>
                         <ul>
-                          <li onClick={() => navigate(getCategoryUrl(706))}>
+                          <li onClick={() => navigate(getCategoryUrl(1683))}>
                             Amka India
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(760))}>
+                          <li onClick={() => navigate(getCategoryUrl(1780))}>
                             Amrit Dawani
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(510))}>
+                          <li onClick={() => navigate(getCategoryUrl(1302))}>
                             Ease
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(389))}>
+                          <li onClick={() => navigate(getCategoryUrl(594))}>
                             Inder Clothing Studio
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(76))}>
+                          <li onClick={() => navigate(getCategoryUrl(373))}>
                             Masumi Mewawalla
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(206))}>
+                          <li onClick={() => navigate(getCategoryUrl(489))}>
                             Monisha Jaising
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(216))}>
+                          <li onClick={() => navigate(getCategoryUrl(492))}>
                             Nikita Vishakha
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(327))}>
+                          <li onClick={() => navigate(getCategoryUrl(561))}>
                             Pink City by Sarika
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(242))}>
+                          <li onClick={() => navigate(getCategoryUrl(501))}>
                             Neeta Lulla
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(158))}>
+                          <li onClick={() => navigate(getCategoryUrl(443))}>
                             Mala And Kinnary
                           </li>
 
 
                         </ul>
-                        <div className="viewmore">VIEW ALL</div>
+                        <div className="viewmore" onClick={() => navigate("/designer")}>VIEW ALL</div>
                       </div>
 
                       <div className="SubNavGrid">
                         <h4>TRENDING</h4>
                         <ul>
-                          <li onClick={() => navigate(getCategoryUrl(1139))}>
+                          <li onClick={() => navigate(getCategoryUrl(2511))}>
                             Ahi Clothing
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(180))}>
+                          <li onClick={() => navigate(getCategoryUrl(421))}>
                             Vvani by Vani Vats
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(1508))}>
+                          <li onClick={() => navigate(getCategoryUrl(2702))}>
                             Vannikaa Malik
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(359))}>
+                          <li onClick={() => navigate(getCategoryUrl(587))}>
                             Krisha Sunny Ramani
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(678))}>
+                          <li onClick={() => navigate(getCategoryUrl(1649))}>
                             Bhanuni by Jyoti
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(774))}>
+                          <li onClick={() => navigate(getCategoryUrl(1801))}>
                             Enness Studio
                           </li>
 
-                          <li onClick={() => navigate(getCategoryUrl(981))}>
+                          <li onClick={() => navigate(getCategoryUrl(2272))}>
                             Deme By Gabriella
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(693))}>
+                          <li onClick={() => navigate(getCategoryUrl(1666))}>
                             Mona & Vishu
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(877))}>
+                          <li onClick={() => navigate(getCategoryUrl(2053))}>
                             Jigar & Nikita
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(28))}>
+                          <li onClick={() => navigate(getCategoryUrl(212))}>
                             Masaba
                           </li>
 
 
                         </ul>
-                        <div className="viewmore">VIEW ALL</div>
+                        <div className="viewmore" onClick={() => navigate("/designer")}>VIEW ALL</div>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(1486))}>
                         <figure>
                           <img src={MoleradoImg} />
                         </figure>
@@ -381,7 +407,7 @@ const Header = () => {
                         </figcaption>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(570))}>
                         <figure>
                           <img src={WaverImg} />
                         </figure>
@@ -391,7 +417,7 @@ const Header = () => {
                         </figcaption>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(1757))}>
                         <figure>
                           <img src={OneKnot} />
                         </figure>
@@ -406,62 +432,62 @@ const Header = () => {
               </li>
               {/* <!-- WOMEN --> */}
               <li>
-                <span>Woman</span>
+                <span onClick={() => navigate(getCategoryUrl(6))}>Woman</span>
                 <div className="subNavPart">
                   <div className="container">
                     <div className="SubNavRow">
                       <div className="SubNavGrid">
                         <h4>CATEGORIES</h4>
                         <ul>
-                          <li onClick={() => navigate(getCategoryUrl(69))}>Lehengas</li>
-                          <li onClick={() => navigate(getCategoryUrl(49))}>Dresses</li>
-                          <li onClick={() => navigate(getCategoryUrl(62))}>Gowns</li>
-                          <li onClick={() => navigate(getCategoryUrl(119))}>Blouses</li>
-                          <li onClick={() => navigate(getCategoryUrl(106))}>Dupattas</li>
-                          <li onClick={() => navigate(getCategoryUrl(13))}>Sarees</li>
-                          <li onClick={() => navigate(getCategoryUrl(288))}>Crop Tops</li>
-                          <li onClick={() => navigate(getCategoryUrl(54))}>Anarkali Set</li>
-                          <li onClick={() => navigate(getCategoryUrl(165))}>Sharara Set</li>
-                          <li onClick={() => navigate(getCategoryUrl(118))}>Lehenga Set</li>
+                          <li onClick={() => navigate(getCategoryUrl(134))}>Lehengas</li>
+                          <li onClick={() => navigate(getCategoryUrl(128))}>Dresses</li>
+                          <li onClick={() => navigate(getCategoryUrl(129))}>Gowns</li>
+                          <li onClick={() => navigate(getCategoryUrl(126))}>Blouses</li>
+                          <li onClick={() => navigate(getCategoryUrl(127))}>Dupattas</li>
+                          <li onClick={() => navigate(getCategoryUrl(136))}>Sarees</li>
+                          <li onClick={() => navigate(getCategoryUrl(1882))}>Crop Tops</li>
+                          <li onClick={() => navigate(getCategoryUrl(1838))}>Anarkali Set</li>
+                          <li onClick={() => navigate(getCategoryUrl(1837))}>Sharara Set</li>
+                          <li onClick={() => navigate(getCategoryUrl(400))}>Lehenga Set</li>
                         </ul>
                       </div>
 
                       <div className="SubNavGrid">
                         <h4>CATEGORIES</h4>
                         <ul>
-                          <li onClick={() => navigate(getCategoryUrl(24))}>Kurta Sets</li>
-                          <li onClick={() => navigate(getCategoryUrl(53))}>Palazzo Set</li>
-                          <li onClick={() => navigate(getCategoryUrl(124))}>Skirt Sets</li>
-                          <li onClick={() => navigate(getCategoryUrl(15))}>Pant Sets</li>
-                          <li onClick={() => navigate(getCategoryUrl(23))}>Blazer Set</li>
-                          <li onClick={() => navigate(getCategoryUrl(91))}>Jackets</li>
-                          <li onClick={() => navigate(getCategoryUrl(155))}>Jumpsuits</li>
-                          <li onClick={() => navigate(getCategoryUrl(264))}>Trousers</li>
-                          <li onClick={() => navigate(getCategoryUrl(12))}>Kaftans</li>
-                          <li onClick={() => navigate(getCategoryUrl(118))}>Tops</li>
-                          <li onClick={() => navigate(getCategoryUrl(212))}>Co-Ord Set</li>
+                          <li onClick={() => navigate(getCategoryUrl(394))}>Kurta Sets</li>
+                          <li onClick={() => navigate(getCategoryUrl(1841))}>Palazzo Set</li>
+                          <li onClick={() => navigate(getCategoryUrl(398))}>Skirt Sets</li>
+                          <li onClick={() => navigate(getCategoryUrl(420))}>Pant Sets</li>
+                          <li onClick={() => navigate(getCategoryUrl(606))}>Blazer Set</li>
+                          <li onClick={() => navigate(getCategoryUrl(130))}>Jackets</li>
+                          <li onClick={() => navigate(getCategoryUrl(131))}>Jumpsuits</li>
+                          <li onClick={() => navigate(getCategoryUrl(600))}>Trousers</li>
+                          <li onClick={() => navigate(getCategoryUrl(132))}>Kaftans</li>
+                          <li onClick={() => navigate(getCategoryUrl(140))}>Tops</li>
+                          <li onClick={() => navigate(getCategoryUrl(480))}>Co-Ord Set</li>
                         </ul>
-                        <div className="viewmore">VIEW ALL</div>
+                        <div onClick={() => navigate(getCategoryUrl(6))} className="viewmore">VIEW ALL</div>
                       </div>
 
                       <div className="SubNavGrid">
                         <h4>DESIGNERS</h4>
                         <ul>
-                          <li onClick={() => navigate(getCategoryUrl(1139))}>Ahi Clothing</li>
-                          <li onClick={() => navigate(getCategoryUrl(180))}>Vvani by Vani Vats</li>
-                          <li onClick={() => navigate(getCategoryUrl(1508))}>Vannikaa Malik</li>
-                          <li onClick={() => navigate(getCategoryUrl(359))}>Krisha Sunny Ramani</li>
-                          <li onClick={() => navigate(getCategoryUrl(678))}>Bhanuni by Jyoti</li>
-                          <li onClick={() => navigate(getCategoryUrl(774))}>Enness Studio</li>
-                          <li onClick={() => navigate(getCategoryUrl(981))}>Deme By Gabriella</li>
-                          <li onClick={() => navigate(getCategoryUrl(593))}>Moledro</li>
-                          <li onClick={() => navigate(getCategoryUrl(877))}>Jigar & Nikita</li>
-                          <li onClick={() => navigate(getCategoryUrl(28))}>Masaba</li>
+                          <li onClick={() => navigate(getCategoryUrl(2512))}>Ahi Clothing</li>
+                          <li onClick={() => navigate(getCategoryUrl(901))}>Vvani by Vani Vats</li>
+                          <li onClick={() => navigate(getCategoryUrl(2703))}>Vannikaa Malik</li>
+                          <li onClick={() => navigate(getCategoryUrl(952))}>Krisha Sunny Ramani</li>
+                          <li onClick={() => navigate(getCategoryUrl(1650))}>Bhanuni by Jyoti</li>
+                          <li onClick={() => navigate(getCategoryUrl(1802))}>Enness Studio</li>
+                          <li onClick={() => navigate(getCategoryUrl(2273))}>Deme By Gabriella</li>
+                          <li onClick={() => navigate(getCategoryUrl(1488))}>Moledro</li>
+                          <li onClick={() => navigate(getCategoryUrl(2055))}>Jigar & Nikita</li>
+                          <li onClick={() => navigate(getCategoryUrl(967))}>Masaba</li>
                         </ul>
-                        <div className="viewmore">VIEW ALL</div>
+                        <div onClick={() => navigate(getCategoryUrl(6))} className="viewmore">VIEW ALL</div>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(2512))}>
                         <figure>
                           <img src={AhiiImg} />
                         </figure>
@@ -471,7 +497,7 @@ const Header = () => {
                         </figcaption>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(2550))}>
                         <figure>
                           <img src={KupkImg} />
                         </figure>
@@ -481,7 +507,7 @@ const Header = () => {
                         </figcaption>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(967))}>
                         <figure>
                           <img src={MsbImg} />
                         </figure>
@@ -496,61 +522,61 @@ const Header = () => {
               </li>
               {/* <!-- Man --> */}
               <li>
-                <span>Man</span>
+                <span onClick={() => navigate(getCategoryUrl(20))}>Man</span>
                 <div className="subNavPart">
                   <div className="container">
                     <div className="SubNavRow">
                       <div className="SubNavGrid">
                         <h4>CATEGORIES</h4>
                         <ul>
-                          <li onClick={() => navigate(getCategoryUrl(24))}>Kurta Sets</li>
-                          <li onClick={() => navigate(getCategoryUrl(136))}>Kurtas</li>
-                          <li onClick={() => navigate(getCategoryUrl(31))}>Kurta Pyjamas</li>
-                          <li onClick={() => navigate(getCategoryUrl(140))}>Sherwanis</li>
-                          <li onClick={() => navigate(getCategoryUrl(592))}>Nehru Jacket & Sets</li>
+                          <li onClick={() => navigate(getCategoryUrl(446))}>Kurta Sets</li>
+                          <li onClick={() => navigate(getCategoryUrl(409))}>Kurtas</li>
+                          <li onClick={() => navigate(getCategoryUrl(144))}>Kurta Pyjamas</li>
+                          <li onClick={() => navigate(getCategoryUrl(145))}>Sherwanis</li>
+                          <li onClick={() => navigate(getCategoryUrl(2156))}>Nehru Jacket & Sets</li>
                           <li onClick={() => navigate(getCategoryUrl(141))}>Bandhgalas</li>
-                          <li onClick={() => navigate(getCategoryUrl(30))}>Shirts</li>
-                          <li onClick={() => navigate(getCategoryUrl(425))}>Footwear</li>
-                          <li onClick={() => navigate(getCategoryUrl(138))}>Bottoms</li>
-                          <li onClick={() => navigate(getCategoryUrl(91))}>Jackets</li>
+                          <li onClick={() => navigate(getCategoryUrl(146))}>Shirts</li>
+                          <li onClick={() => navigate(getCategoryUrl(633))}>Footwear</li>
+                          <li onClick={() => navigate(getCategoryUrl(1040))}>Bottoms</li>
+                          <li onClick={() => navigate(getCategoryUrl(408))}>Jackets</li>
                         </ul>
                       </div>
 
                       <div className="SubNavGrid">
                         <h4>CATEGORIES</h4>
                         <ul>
-                          <li onClick={() => navigate(getCategoryUrl(763))}>Tuxedo Set</li>
-                          <li onClick={() => navigate(getCategoryUrl(269))}>Shorts</li>
-                          <li onClick={() => navigate(getCategoryUrl(466))}>Tuxedo</li>
-                          <li onClick={() => navigate(getCategoryUrl(1325))}>Ethnic Wear</li>
-                          <li onClick={() => navigate(getCategoryUrl(264))}>Trousers</li>
-                          <li onClick={() => navigate(getCategoryUrl(261))}>Waistcoat</li>
-                          <li onClick={() => navigate(getCategoryUrl(468))}>Shrug Set</li>
-                          <li onClick={() => navigate(getCategoryUrl(462))}>Pashmina Shawl</li>
-                          <li onClick={() => navigate(getCategoryUrl(764))}>Jodhpuris</li>
-                          <li onClick={() => navigate(getCategoryUrl(10))}>Bandi Set</li>
+                          <li onClick={() => navigate(getCategoryUrl(1788))}>Tuxedo Set</li>
+                          <li onClick={() => navigate(getCategoryUrl(1433))}>Shorts</li>
+                          <li onClick={() => navigate(getCategoryUrl(626))}>Tuxedo</li>
+                          {/* <li onClick={() => navigate(getCategoryUrl(1325))}>Ethnic Wear</li> */}
+                          <li onClick={() => navigate(getCategoryUrl(557))}>Trousers</li>
+                          <li onClick={() => navigate(getCategoryUrl(524))}>Waistcoat</li>
+                          <li onClick={() => navigate(getCategoryUrl(624))}>Shrug Set</li>
+                          <li onClick={() => navigate(getCategoryUrl(628))}>Pashmina Shawl</li>
+                          <li onClick={() => navigate(getCategoryUrl(1796))}>Jodhpuris</li>
+                          <li onClick={() => navigate(getCategoryUrl(1634))}>Bandi Set</li>
                         </ul>
-                        <div className="viewmore">VIEW ALL</div>
+                        <div  onClick={() => navigate(getCategoryUrl(20))} className="viewmore">VIEW ALL</div>
                       </div>
 
                       <div className="SubNavGrid">
                         <h4>DESIGNERS</h4>
                         <ul>
-                          <li onClick={() => navigate(getCategoryUrl(389))}>Inder Clothing Studio</li>
-                          <li onClick={() => navigate(getCategoryUrl(131))}>Jenjum Gadi</li>
-                          <li onClick={() => navigate(getCategoryUrl(426))}>Kalista</li>
-                          <li onClick={() => navigate(getCategoryUrl(359))}>Krisha Sunny Ramani</li>
-                          <li onClick={() => navigate(getCategoryUrl(28))}>Masaba</li>
-                          <li onClick={() => navigate(getCategoryUrl(254))}>S&N by Shantnu Nikhil</li>
-                          <li onClick={() => navigate(getCategoryUrl(459))}>Jatin Malik Couture</li>
-                          <li onClick={() => navigate(getCategoryUrl(836))}>Khushboo & Pankaj</li>
-                          <li onClick={() => navigate(getCategoryUrl(877))}>Jigar & Nikita</li>
-                          <li onClick={() => navigate(getCategoryUrl(997))}>Rey & I</li>
+                          <li onClick={() => navigate(getCategoryUrl(925))}>Inder Clothing Studio</li>
+                          <li onClick={() => navigate(getCategoryUrl(936))}>Jenjum Gadi</li>
+                          <li onClick={() => navigate(getCategoryUrl(945))}>Kalista</li>
+                          <li onClick={() => navigate(getCategoryUrl(951))}>Krisha Sunny Ramani</li>
+                          <li onClick={() => navigate(getCategoryUrl(966))}>Masaba</li>
+                          <li onClick={() => navigate(getCategoryUrl(923))}>S&N by Shantnu Nikhil</li>
+                          <li onClick={() => navigate(getCategoryUrl(1086))}>Jatin Malik Couture</li>
+                          <li onClick={() => navigate(getCategoryUrl(1981))}>Khushboo & Pankaj</li>
+                          <li onClick={() => navigate(getCategoryUrl(2054))}>Jigar & Nikita</li>
+                          <li onClick={() => navigate(getCategoryUrl(2292))}>Rey & I</li>
                         </ul>
-                        <div className="viewmore">VIEW ALL</div>
+                        <div  onClick={() => navigate(getCategoryUrl(20))} className="viewmore">VIEW ALL</div>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(923))}>
                         <figure>
                           <img src={Man1Img} />
                         </figure>
@@ -560,7 +586,7 @@ const Header = () => {
                         </figcaption>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(951))}>
                         <figure>
                           <img src={Man2Img} />
                         </figure>
@@ -572,7 +598,7 @@ const Header = () => {
                         </figcaption>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(1086))}>
                         <figure>
                           <img src={Man3Img} />
                         </figure>
@@ -589,52 +615,51 @@ const Header = () => {
               </li>
               {/* <!-- Kids --> */}
               <li>
-                <span>Kids</span>
-
+                <span onClick={() => navigate(getCategoryUrl(2285))}>Kids</span>
                 <div className="subNavPart">
                   <div className="container">
                     <div className="SubNavRow">
                       <div className="SubNavGrid">
                         <h4>BOYS</h4>
                         <ul>
-                          <li onClick={() => navigate(getCategoryUrl(269))}>Shorts</li>
-                          <li onClick={() => navigate(getCategoryUrl(24))}>Kurta Sets</li>
-                          <li onClick={() => navigate(getCategoryUrl(136))}>Kurtas</li>
-                          <li onClick={() => navigate(getCategoryUrl(91))}>Jackets</li>
-                          <li onClick={() => navigate(getCategoryUrl(140))}>Sherwanis</li>
-                          <li onClick={() => navigate(getCategoryUrl(1170))}>Suits & Tuxedos</li>
+                          <li onClick={() => navigate(getCategoryUrl(2286))}>Shorts</li>
+                          <li onClick={() => navigate(getCategoryUrl(2338))}>Kurta Sets</li>
+                          <li onClick={() => navigate(getCategoryUrl(2340))}>Kurtas</li>
+                          <li onClick={() => navigate(getCategoryUrl(2341))}>Jackets</li>
+                          <li onClick={() => navigate(getCategoryUrl(2546))}>Sherwanis</li>
+                          <li onClick={() => navigate(getCategoryUrl(2547))}>Suits & Tuxedos</li>
                         </ul>
-                        <div className="viewmore">VIEW ALL</div>
+                        <div  onClick={() => navigate(getCategoryUrl(2290))} className="viewmore">VIEW ALL</div>
                       </div>
 
                       <div className="SubNavGrid">
                         <h4>GIRLS</h4>
                         <ul>
-                          <li>Dresses</li>
-                          <li>Kurta Sets</li>
-                          <li>Pant Sets</li>
-                          <li>Lehengas</li>
-                          <li>Jumpsuits</li>
-                          <li>Skirt Sets</li>
-                          <li>Tunics & Kurtis</li>
-                          <li>Gowns</li>
-                          <li>Sarees</li>
+                          <li onClick={() => navigate(getCategoryUrl(2336))}>Dresses</li>
+                          <li onClick={() => navigate(getCategoryUrl(2337))}>Kurta Sets</li>
+                          <li onClick={() => navigate(getCategoryUrl(2456))}>Pant Sets</li>
+                          <li onClick={() => navigate(getCategoryUrl(2458))}>Lehengas</li>
+                          <li onClick={() => navigate(getCategoryUrl(2459))}>Jumpsuits</li>
+                          <li onClick={() => navigate(getCategoryUrl(2543))}>Skirt Sets</li>
+                          <li onClick={() => navigate(getCategoryUrl(2544))}>Tunics & Kurtis</li>
+                          <li onClick={() => navigate(getCategoryUrl(2545))}>Gowns</li>
+                          <li onClick={() => navigate(getCategoryUrl(2548))}>Sarees</li>
                         </ul>
-                        <div className="viewmore">VIEW ALL</div>
+                        <div  onClick={() => navigate(getCategoryUrl(2335))} className="viewmore">VIEW ALL</div>
                       </div>
 
                       <div className="SubNavGrid">
                         <h4>DESIGNERS</h4>
                         <ul>
-                          <li>Rey&I</li>
-                          <li>LittleCheer</li>
-                          <li>Lil Drama</li>
-                          <li>Fayyon Kids</li>
+                          <li onClick={() => navigate(getCategoryUrl(2288))}>Rey&I</li>
+                          <li onClick={() => navigate(getCategoryUrl(2342))}>LittleCheer</li>
+                          <li onClick={() => navigate(getCategoryUrl(2457))}>Lil Drama</li>
+                          <li onClick={() => navigate(getCategoryUrl(2528))}>Fayyon Kids</li>
                         </ul>
                         <div className="viewmore">VIEW ALL</div>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(2528))}>
                         <figure>
                           <img src={Kids1Img} />
                         </figure>
@@ -644,17 +669,17 @@ const Header = () => {
                         </figcaption>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(2342))}>
                         <figure>
                           <img src={Kids2Img} />
                         </figure>
                         <figcaption className="text-center">
-                          <strong className="d-block">LITTLECHEER</strong>
+                          <strong className="d-block">LITTLE CHEER</strong>
                           <small>Shop Now</small>
                         </figcaption>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(2457))}>
                         <figure>
                           <img src={Kids3Img} />
                         </figure>
@@ -669,24 +694,23 @@ const Header = () => {
               </li>
               {/* <!-- Accessories --> */}
               <li>
-                <span>Accessories</span>
-
+                <span onClick={() => navigate(getCategoryUrl(121))}>Accessories</span>
                 <div className="subNavPart">
                   <div className="container">
                     <div className="SubNavRow">
                       <div className="SubNavGrid">
                         <h4>CATEGORIES</h4>
                         <ul>
-                          <li>Bags</li>
-                          <li>Belts</li>
-                          <li>Gloves</li>
-                          <li>Brooches</li>
-                          <li>Clutch</li>
-                          <li>Potli</li>
-                          <li>Purse</li>
-                          <li>Pocket Squares</li>
-                          <li>Mens Footwear</li>
-                          <li>Womens Footwear</li>
+                          <li onClick={() => navigate(getCategoryUrl(154))}>Bags</li>
+                          <li onClick={() => navigate(getCategoryUrl(155))}>Belts</li>
+                          <li onClick={() => navigate(getCategoryUrl(537))}>Gloves</li>
+                          <li onClick={() => navigate(getCategoryUrl(580))}>Brooches</li>
+                          <li onClick={() => navigate(getCategoryUrl(158))}>Clutch</li>
+                          <li onClick={() => navigate(getCategoryUrl(160))}>Potli</li>
+                          <li onClick={() => navigate(getCategoryUrl(431))}>Purse</li>
+                          <li onClick={() => navigate(getCategoryUrl(149))}>Pocket Squares</li>
+                          <li onClick={() => navigate(getCategoryUrl(633))}>Mens Footwear</li>
+                          <li onClick={() => navigate(getCategoryUrl(156))}>Womens Footwear</li>
                         </ul>
                         <div className="viewmore">VIEW ALL</div>
                       </div>
@@ -694,22 +718,22 @@ const Header = () => {
                       <div className="SubNavGrid">
                         <h4>DESIGNERS</h4>
                         <ul>
-                          <li>Clutch'D</li>
-                          <li>Devina juneja</li>
-                          <li>Torani</li>
-                          <li>Veruschka</li>
-                          <li>S&N by Shantnu Nikhil</li>
-                          <li>Jatin Malik Couture</li>
-                          <li>Plode</li>
-                          <li>Amrit Dawani</li>
-                          <li>Bijoux by Priya Chandna</li>
+                          <li onClick={() => navigate(getCategoryUrl(896))}>Clutch'D</li>
+                          <li onClick={() => navigate(getCategoryUrl(2209))}>Devina juneja</li>
+                          <li onClick={() => navigate(getCategoryUrl(915))}>Torani</li>
+                          <li onClick={() => navigate(getCategoryUrl(905))}>Veruschka</li>
+                          <li onClick={() => navigate(getCategoryUrl(929))}>S&N by Shantnu Nikhil</li>
+                          <li onClick={() => navigate(getCategoryUrl(933))}>Jatin Malik Couture</li>
+                          <li onClick={() => navigate(getCategoryUrl(1542))}>Plode</li>
+                          <li onClick={() => navigate(getCategoryUrl(1784))}>Amrit Dawani</li>
+                          <li onClick={() => navigate(getCategoryUrl(2360))}>Bijoux by Priya Chandna</li>
                         </ul>
                         <div className="viewmore">VIEW ALL</div>
                       </div>
 
                       <div className="SubNavGrid ProductDemoGrid"></div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(915))}>
                         <figure>
                           <img src={ToraniImg} />
                         </figure>
@@ -719,7 +743,7 @@ const Header = () => {
                         </figcaption>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(1542))}>
                         <figure>
                           <img src={PlodImg} />
                         </figure>
@@ -729,7 +753,7 @@ const Header = () => {
                         </figcaption>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(1784))}>
                         <figure>
                           <img src={AmrtiImg} />
                         </figure>
@@ -744,25 +768,24 @@ const Header = () => {
               </li>
               {/* <!-- Jewellery --> */}
               <li>
-                <span>Jewellery</span>
-
+                <span onClick={() => navigate(getCategoryUrl(366))}>Jewellery</span>
                 <div className="subNavPart">
                   <div className="container">
                     <div className="SubNavRow">
                       <div className="SubNavGrid">
                         <h4>CATEGORIES</h4>
                         <ul>
-                          <li>Earrings</li>
-                          <li>Bracelet</li>
-                          <li>Bangle</li>
-                          <li>Neckpiece</li>
-                          <li>Mala</li>
-                          <li>Kalgi</li>
-                          <li>Rings</li>
-                          <li>Necklaces</li>
-                          <li>Pendants</li>
-                          <li>Hair Accessories</li>
-                          <li>Chains</li>
+                          <li onClick={() => navigate(getCategoryUrl(582))}>Earrings</li>
+                          <li onClick={() => navigate(getCategoryUrl(583))}>Bracelet</li>
+                          <li onClick={() => navigate(getCategoryUrl(584))}>Bangle</li>
+                          <li onClick={() => navigate(getCategoryUrl(585))}>Neckpiece</li>
+                          <li onClick={() => navigate(getCategoryUrl(629))}>Mala</li>
+                          <li onClick={() => navigate(getCategoryUrl(630))}>Kalgi</li>
+                          <li onClick={() => navigate(getCategoryUrl(1681))}>Rings</li>
+                          <li onClick={() => navigate(getCategoryUrl(1682))}>Necklaces</li>
+                          <li onClick={() => navigate(getCategoryUrl(1779))}>Pendants</li>
+                          <li onClick={() => navigate(getCategoryUrl(1851))}>Hair Accessories</li>
+                          <li onClick={() => navigate(getCategoryUrl(1852))}>Chains</li>
                         </ul>
                         <div className="viewmore">VIEW ALL</div>
                       </div>
@@ -770,19 +793,19 @@ const Header = () => {
                       <div className="SubNavGrid">
                         <h4>DESIGNERS</h4>
                         <ul>
-                          <li>Juwelen</li>
-                          <li>Jatin Malik Couture</li>
-                          <li>Mozaati</li>
-                          <li>Tesoro by Bhavika</li>
-                          <li>Twyla Treasures</li>
-                          <li>Bijoux by Priya Chandna</li>
+                          <li onClick={() => navigate(getCategoryUrl(941))}>Juwelen</li>
+                          <li onClick={() => navigate(getCategoryUrl(1088))}>Jatin Malik Couture</li>
+                          <li onClick={() => navigate(getCategoryUrl(1674))}>Mozaati</li>
+                          <li onClick={() => navigate(getCategoryUrl(1774))}>Tesoro by Bhavika</li>
+                          <li onClick={() => navigate(getCategoryUrl(1844))}>Twyla Treasures</li>
+                          <li onClick={() => navigate(getCategoryUrl(2367))}>Bijoux by Priya Chandna</li>
                         </ul>
-                        <div className="viewmore">VIEW ALL</div>
+                        <div  onClick={() => navigate(getCategoryUrl(366))} className="viewmore">VIEW ALL</div>
                       </div>
 
                       <div className="SubNavGrid ProductDemoGrid"></div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(2367))}>
                         <figure>
                           <img src={Jewellery1Img} />
                         </figure>
@@ -794,7 +817,7 @@ const Header = () => {
                         </figcaption>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(941))}>
                         <figure>
                           <img src={Jewellery2Img} />
                         </figure>
@@ -804,7 +827,7 @@ const Header = () => {
                         </figcaption>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(1088))}>
                         <figure>
                           <img src={Jewellery3Img} />
                         </figure>
@@ -858,7 +881,7 @@ const Header = () => {
             required={true}
             onKeyDown={removeSpaceOnly}
           />
-          <div className="mt-3 d-flex justify-content-between">
+          <div className="mt-3 d-flex justify-content-between forgot-remember">
             <Button variant="link" onClick={() => { }}>
               Forgot password?
             </Button>
@@ -874,12 +897,12 @@ const Header = () => {
           </div>
           <div className="d-flex justify-content-end gap-2 mt-3">
             <Button
-              className="font-14 w-100"
+              className="font-14 w-100 themeCancelBtn"
               onClick={() => handleOpenLoginPopup(false)}
             >
               Cancel
             </Button>
-            <Button className="font-14 w-100" type="submit">
+            <Button className="font-14 w-100 themePrimaryBtn" type="submit">
               Login
             </Button>
           </div>
@@ -928,8 +951,9 @@ const Header = () => {
             required={true}
             onKeyDown={removeSpaceOnly}
           />
-          <div className="mt-3 d-flex justify-content-between">
-            <Button
+
+          <div className="mt-3 d-flex justify-content-center">
+            <Button className="ps-0 d-block text-center text-dark"
               variant="link"
               onClick={() => {
                 handleOpenLoginPopup(true);
@@ -941,17 +965,16 @@ const Header = () => {
           </div>
           <div className="d-flex justify-content-end gap-2 mt-3">
             <Button
-              className="font-14 w-100"
+              className="font-14 w-100 themeCancelBtn"
               onClick={() => handleOpenSignupPopup(false)}
             >
               Cancel
             </Button>
-            <Button className="font-14 w-100" type="submit">
+            <Button className="font-14 w-100 themePrimaryBtn" type="submit">
               SignUp
             </Button>
           </div>
         </Form>
-
         <div className="mt-4 text-center">
           {/* <GoogleOAuthProvider clientId="YOUR_GOOGLE_CLIENT_ID">
             <GoogleLogin
