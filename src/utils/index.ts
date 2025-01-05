@@ -76,7 +76,7 @@ export const removeSpaceOnly = (e: any) => {
 };
 
 export const getCategoryUrl=(categId:number | string)=>{
-  return `/search/category/${categId}?sub-category=${categId}&min=${priceRange[0]}&max=${priceRange[1]}`
+  return `/category/${categId}?sub-category=${categId}&min=${priceRange[0]}&max=${priceRange[1]}`
 };
 
 export const getPrice = (price: any, selectedPrice: string = "INR") =>{
