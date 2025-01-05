@@ -769,7 +769,7 @@ const Header = () => {
                 </div>
               </li>
               {/* <!-- Jewellery --> */}
-              <li>
+              <li onClick={() => navigate(getCategoryUrl(366))}>
                 <span>Jewellery</span>
 
                 <div className="subNavPart">
@@ -778,17 +778,17 @@ const Header = () => {
                       <div className="SubNavGrid">
                         <h4>CATEGORIES</h4>
                         <ul>
-                          <li>Earrings</li>
-                          <li>Bracelet</li>
-                          <li>Bangle</li>
-                          <li>Neckpiece</li>
-                          <li>Mala</li>
-                          <li>Kalgi</li>
-                          <li>Rings</li>
-                          <li>Necklaces</li>
-                          <li>Pendants</li>
-                          <li>Hair Accessories</li>
-                          <li>Chains</li>
+                          <li onClick={() => navigate(getCategoryUrl(582))}>Earrings</li>
+                          <li onClick={() => navigate(getCategoryUrl(583))}>Bracelet</li>
+                          <li onClick={() => navigate(getCategoryUrl(584))}>Bangle</li>
+                          <li onClick={() => navigate(getCategoryUrl(585))}>Neckpiece</li>
+                          <li onClick={() => navigate(getCategoryUrl(629))}>Mala</li>
+                          <li onClick={() => navigate(getCategoryUrl(630))}>Kalgi</li>
+                          <li onClick={() => navigate(getCategoryUrl(1681))}>Rings</li>
+                          <li onClick={() => navigate(getCategoryUrl(1682))}>Necklaces</li>
+                          <li onClick={() => navigate(getCategoryUrl(1779))}>Pendants</li>
+                          <li onClick={() => navigate(getCategoryUrl(1851))}>Hair Accessories</li>
+                          <li onClick={() => navigate(getCategoryUrl(1852))}>Chains</li>
                         </ul>
                         <div className="viewmore">VIEW ALL</div>
                       </div>
@@ -796,19 +796,19 @@ const Header = () => {
                       <div className="SubNavGrid">
                         <h4>DESIGNERS</h4>
                         <ul>
-                          <li>Juwelen</li>
-                          <li>Jatin Malik Couture</li>
-                          <li>Mozaati</li>
-                          <li>Tesoro by Bhavika</li>
-                          <li>Twyla Treasures</li>
-                          <li>Bijoux by Priya Chandna</li>
+                          <li onClick={() => navigate(getCategoryUrl(941))}>Juwelen</li>
+                          <li onClick={() => navigate(getCategoryUrl(1088))}>Jatin Malik Couture</li>
+                          <li onClick={() => navigate(getCategoryUrl(1674))}>Mozaati</li>
+                          <li onClick={() => navigate(getCategoryUrl(1774))}>Tesoro by Bhavika</li>
+                          <li onClick={() => navigate(getCategoryUrl(1844))}>Twyla Treasures</li>
+                          <li onClick={() => navigate(getCategoryUrl(2367))}>Bijoux by Priya Chandna</li>
                         </ul>
-                        <div className="viewmore">VIEW ALL</div>
+                        <div  onClick={() => navigate(getCategoryUrl(366))} className="viewmore">VIEW ALL</div>
                       </div>
 
                       <div className="SubNavGrid ProductDemoGrid"></div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(2367))}>
                         <figure>
                           <img src={Jewellery1Img} />
                         </figure>
@@ -820,7 +820,7 @@ const Header = () => {
                         </figcaption>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(941))}>
                         <figure>
                           <img src={Jewellery2Img} />
                         </figure>
@@ -830,7 +830,7 @@ const Header = () => {
                         </figcaption>
                       </div>
 
-                      <div className="SubNavGrid ProductDemoGrid">
+                      <div className="SubNavGrid ProductDemoGrid" onClick={() => navigate(getCategoryUrl(1088))}>
                         <figure>
                           <img src={Jewellery3Img} />
                         </figure>
