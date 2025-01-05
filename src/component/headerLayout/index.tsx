@@ -431,7 +431,7 @@ const Header = () => {
                 </div>
               </li>
               {/* <!-- WOMEN --> */}
-              <li>
+              <li onClick={() => navigate(getCategoryUrl(6))}>
                 <span>Woman</span>
                 <div className="subNavPart">
                   <div className="container">
@@ -521,7 +521,7 @@ const Header = () => {
                 </div>
               </li>
               {/* <!-- Man --> */}
-              <li>
+              <li onClick={() => navigate(getCategoryUrl(20))}>
                 <span>Man</span>
                 <div className="subNavPart">
                   <div className="container">
@@ -614,7 +614,7 @@ const Header = () => {
                 </div>
               </li>
               {/* <!-- Kids --> */}
-              <li>
+              <li onClick={() => navigate(getCategoryUrl(2285))}>
                 <span>Kids</span>
 
                 <div className="subNavPart">
@@ -694,7 +694,7 @@ const Header = () => {
                 </div>
               </li>
               {/* <!-- Accessories --> */}
-              <li>
+              <li  onClick={() => navigate(getCategoryUrl(121))}>
                 <span>Accessories</span>
 
                 <div className="subNavPart">
