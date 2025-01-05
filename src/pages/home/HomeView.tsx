@@ -148,7 +148,7 @@ const HomeView = () => {
               <div className="productSliderWrap">
                 <ul className="nav nav-tabs themeTabsStyle" id="myTab" role="tablist">
                   {tabProductData &&
-                    Object.keys(tabProductData).map((category: string, index: number) => (
+                    Object.keys(tabProductData).map((category: string) => (
                       <li className="nav-item" key={category}>
                         <button
                           className={`nav-link ${activeTab === category ? "active" : ""}`}
@@ -198,8 +198,6 @@ const HomeView = () => {
                       );
                     })}
                 </div>
-
-
               </div>
               </div>
             </section>

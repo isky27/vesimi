@@ -431,8 +431,8 @@ const Header = () => {
                 </div>
               </li>
               {/* <!-- WOMEN --> */}
-              <li onClick={() => navigate(getCategoryUrl(6))}>
-                <span>Woman</span>
+              <li>
+                <span onClick={() => navigate(getCategoryUrl(6))}>Woman</span>
                 <div className="subNavPart">
                   <div className="container">
                     <div className="SubNavRow">
@@ -521,8 +521,8 @@ const Header = () => {
                 </div>
               </li>
               {/* <!-- Man --> */}
-              <li onClick={() => navigate(getCategoryUrl(20))}>
-                <span>Man</span>
+              <li>
+                <span onClick={() => navigate(getCategoryUrl(20))}>Man</span>
                 <div className="subNavPart">
                   <div className="container">
                     <div className="SubNavRow">
@@ -614,9 +614,8 @@ const Header = () => {
                 </div>
               </li>
               {/* <!-- Kids --> */}
-              <li onClick={() => navigate(getCategoryUrl(2285))}>
-                <span>Kids</span>
-
+              <li>
+                <span onClick={() => navigate(getCategoryUrl(2285))}>Kids</span>
                 <div className="subNavPart">
                   <div className="container">
                     <div className="SubNavRow">
@@ -694,9 +693,8 @@ const Header = () => {
                 </div>
               </li>
               {/* <!-- Accessories --> */}
-              <li  onClick={() => navigate(getCategoryUrl(121))}>
-                <span>Accessories</span>
-
+              <li>
+                <span onClick={() => navigate(getCategoryUrl(121))}>Accessories</span>
                 <div className="subNavPart">
                   <div className="container">
                     <div className="SubNavRow">
@@ -769,9 +767,8 @@ const Header = () => {
                 </div>
               </li>
               {/* <!-- Jewellery --> */}
-              <li onClick={() => navigate(getCategoryUrl(366))}>
-                <span>Jewellery</span>
-
+              <li>
+                <span onClick={() => navigate(getCategoryUrl(366))}>Jewellery</span>
                 <div className="subNavPart">
                   <div className="container">
                     <div className="SubNavRow">

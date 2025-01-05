@@ -3,8 +3,7 @@ import moment from "moment";
 import { AxiosError } from "axios";
 import { imageURL } from "./InterceptorApi";
 import { toast } from "react-toastify";
-import { countryOptions, currencyPrice, priceRange } from "constant";
-import store from 'store'; 
+import { countryOptions, currencyPrice, priceRange, sizeConst } from "constant";
 
 //Get value from local storage or default to an empty string
 export const getLocalStorage = (key: string) => {
@@ -98,3 +97,20 @@ export function extractNumber(text: string): number {
   return isNaN(number) ? 0 : number;
 }
 
+export const sortSizes = (newArray:[])=> {
+  // Create a map with size as the key and its index in the predefined sequence as value
+  const sizeIndex = sizeConst?.reduce((map:any, size, index) => {
+    map[size] = index;
+    return map;
+  }, {});
+
+const newArrayCopy = [...normalizedList(newArray)];
+  // Sort the newArray based on the predefined size sequence
+  return newArrayCopy?.sort(
+    (a, b) => sizeIndex[a] - sizeIndex[b]
+  );
+}
+
+export const normalizedList = (list: any) => {
+  return Array.isArray(list) ? list : [];
+};

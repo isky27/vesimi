@@ -2,7 +2,7 @@ import ProductDetailController from './productDetailController'
 import Loader from 'component/Loader'
 import ProductCard from 'component/ProductCard';
 import ProductCarousal from 'component/ProductCarousal';
-import { extractNumber, getPrice } from 'utils';
+import { extractNumber, getPrice, sortSizes } from 'utils';
 import InnerImageZoom from 'react-inner-image-zoom';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
 import CustomPopup from 'component/modal/CustomPopup';
@@ -131,9 +131,9 @@ const ProductDetail = () => {
                     </button>
                   </div>
                   <div className="sizePartTabs d-flex flex-wrap gap-1 gap-md-3">
-                    {productDetails?.choice_options
+                    {sortSizes(productDetails?.choice_options
                       ?.find((el: any) => el.title === "Size")
-                      ?.options?.map((elem: string) => {
+                      ?.options)?.map((elem: string) => {
                         return (
                           <button
                             className={`sizeBtn ${
