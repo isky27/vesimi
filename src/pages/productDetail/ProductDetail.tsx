@@ -258,18 +258,11 @@ const ProductDetail = () => {
                       Object.entries(productDetails?.other_attribute)?.map(
                         (atr: any) => {
                           return (
-                            <p
-                              className="d-flex gap-1 align-items-top"
-                              key={atr[0]}
-                            >
-                              <p
-                                dangerouslySetInnerHTML={{ __html: atr[0] }}
-                              ></p>
-                              <p> : </p>
-                              <p
-                                dangerouslySetInnerHTML={{ __html: atr[1] }}
-                              ></p>
-                            </p>
+                            <div className="d-flex gap-1" key={atr[0]}>
+                              <p>{atr[0]}</p>
+                              <p>:</p>
+                              <p>{atr[1]}</p>
+                            </div>
                           );
                         }
                       )}

@@ -7,11 +7,10 @@ const App = () => {
   const {isAuthLoginLoading} = useAppSelector((state:any)=>state.auth)
 
   return (
-    <div data-testid="app-component">
-      <Loader isLoading={[isAuthLoginLoading, ]}/>
+    <>
+      <Loader isLoading={[isAuthLoginLoading]} />
       <CustomRoute />
-    </div>
-
+    </>
   );
 }
 

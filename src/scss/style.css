@@ -468,7 +468,7 @@ h6 {
 
 header {
   box-shadow: 0 3px 8px rgba(0, 0, 0, .1);
-  position:fixed;
+  position:sticky;
   left:0;
   right: 0;
   top: 0;
@@ -476,9 +476,7 @@ header {
   background-color:#fff;
   height: max-content;
 }
-.pageMain {
-    padding-top: 168px;
-}
+
 .watsap {
   display: block;
   height: 24px;

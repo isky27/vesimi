@@ -4,6 +4,7 @@ import { getLocalStorage } from "utils";
 import Header from "component/headerLayout";
 import Footer from "component/footerLayout";
 import { cartListDataApi } from "store/order/orderSlice";
+import ScrollToTop from "component/ScrollToTop";
 
 // Returns Is user is logged in or not
 export const useAuth = () => {
@@ -35,38 +36,39 @@ export const ProtectedRouteCheck = ({ children }: any) => {
 };
 
 export const HomeRoute = () => {
-  
   const { loginDetails } = useAppSelector((state) => state.auth);
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   if (loginDetails?.access_token) {
-    dispatch(cartListDataApi({user_id:loginDetails?.user?.id}))
+    dispatch(cartListDataApi({ user_id: loginDetails?.user?.id }));
   }
 
-  return <section>
-    <div>
+  return (
+    <>
+      <ScrollToTop /> {/* Ensures scroll to top on route change */}
       <Header />
       <Outlet />
       <Footer />
-    </div>
-  </section>
+    </>
+  );
 };
 
 const ProtectedRoute = () => {
   const { loginDetails } = useAppSelector((state) => state.auth);
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
 
   if (!loginDetails?.access_token) {
     return <Navigate to="/" />;
   }
-  dispatch(cartListDataApi({user_id:loginDetails?.user?.id}))
-  
-  return <section>
-    <div>
+  dispatch(cartListDataApi({ user_id: loginDetails?.user?.id }));
+
+  return (
+    <>
+      <ScrollToTop /> {/* Ensures scroll to top on route change */}
       <Header />
       <Outlet />
       <Footer />
-    </div>
-  </section>
+    </>
+  );
 };
 
 export default ProtectedRoute;

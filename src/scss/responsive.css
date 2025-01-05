@@ -23,9 +23,6 @@
   .container {
     padding: 0 1rem;
   }
-  .pageMain {
-    padding-top: 100px;
-  }
   .navBrand .dropdown {
     margin-right: 0;
   }
@@ -226,9 +223,9 @@
   .navBrand img {
     max-height: 44px;
   }
-  .pageMain {
+  /* .pageMain {
     padding-top: 120px;
-  }
+  } */
   .container {
     padding-left: 1rem;
     padding-right: 1rem;

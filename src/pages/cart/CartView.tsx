@@ -35,9 +35,19 @@ const CartView = () => {
                                             <figure>{item?.product_thumbnail_image && <img src={item?.product_thumbnail_image} alt="cart1" />}</figure>
                                             <figcaption>
                                                 <Link className="text-dark text-decoration-none" to={`/products/${item?.product_id}`}>
-                                                    {item?.designer && <h5 className="mb-1">{item?.designer} </h5>}
                                                     {item?.product_name && <p className="mb-1" style={{ fontSize: "11px" }}>{item?.product_name}</p>}
-                                                    {(item?.color || item?.size) && <div className="mb-1">{item?.color && <span className="me-2">Color: {item?.color}</span>}{item?.size && <span>Size: {item?.size}</span>}</div>}
+                                                    {Object.entries(JSON.parse(item?.option_json))?.map((atr: any) => {
+                                                            return (
+                                                              <div
+                                                                className="d-flex gap-1 align-items-top"
+                                                                key={atr[0]}
+                                                              >
+                                                                <p style={{textTransform:"capitalize"}}>{atr[0]} : </p>
+                                                                <p>{atr[1]}</p>
+                                                              </div>
+                                                            );
+                                                            }
+                                                    )}
                                                     {item?.price && <div className="mb-1">Price: {getPrice(item?.price, selectedCurrency)}
                                                         {/* <strong className="ms-2">₹ 17,600</strong>
                                                 <span className="ms-2" style={{ color: "#388e3c" }}>(20% off)</span> */}
