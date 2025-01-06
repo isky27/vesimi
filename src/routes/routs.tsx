@@ -54,7 +54,7 @@ const CustomRoute = () => {
           />
 
           <Route
-            path="/category/:categoryId?"
+            path="/search/category/:categoryId?"
             element={
               <Suspense
                 fallback={

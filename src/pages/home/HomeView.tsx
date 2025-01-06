@@ -138,7 +138,7 @@ const HomeView = () => {
                 <div className="productHead d-flex align-items-center justify-content-between mb-3 mb-md-4">
                   <h2 className="Playfair">Popular Styles </h2>
                   {/* <Link
-                    to={`/category/${selectedPopularStyle}`}
+                    to={`/search/category/${selectedPopularStyle}`}
                     className="text-uparcase"
                   >
                     VIEW ALL
