@@ -187,7 +187,6 @@ const CustomRoute = () => {
             }
           />
 
-
           <Route
             path="/returns-and-exchange"
             element={
@@ -267,6 +266,23 @@ const CustomRoute = () => {
                 }
               >
                 <ContactUs />
+              </Suspense>
+            }
+          />
+
+          <Route
+            path="/"
+            element={
+              <Suspense
+                fallback={
+                  <div className="graph-loader  d-flex justify-content-center align-items-center">
+                    <div className="spinner-border  spinner-ui d-flex justify-content-center align-items-center">
+                      <span className="visually-hidden"></span>
+                    </div>
+                  </div>
+                }
+              >
+                <HomePage />
               </Suspense>
             }
           />
@@ -410,24 +426,6 @@ const CustomRoute = () => {
             }
           />
         </Route>
-
-        {/* ErrorPage route */}
-        <Route
-          path="*"
-          element={
-            <Suspense
-              fallback={
-                <div className="graph-loader  d-flex justify-content-center align-items-center">
-                  <div className="spinner-border  spinner-ui d-flex justify-content-center align-items-center">
-                    <span className="visually-hidden"></span>
-                  </div>
-                </div>
-              }
-            >
-              <ErrorPage />
-            </Suspense>
-          }
-        />
       </Routes>
     </Router>
   );
