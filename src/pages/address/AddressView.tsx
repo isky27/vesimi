@@ -73,7 +73,7 @@ const AddressView = () => {
                     <td>{elem?.postal_code}</td>
                     <td>{elem?.phone}</td>
                     <td>
-                      <Link to={"/edit-address"} className="text-primary">Edit</Link> | 
+                      <Link to={`/edit-address/${elem?.id}`} className="text-primary">Edit</Link> | 
                       <Button onClick={()=>setIsOPenDeletePopup({isOpen:true, addressId : elem?.id})} className="text-danger border-0 bg-transparent p-0">Delete</Button>
                     </td>
                   </tr>)

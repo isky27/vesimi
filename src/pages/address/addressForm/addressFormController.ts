@@ -5,7 +5,7 @@ import { getCities, getCountries, getStates, addAddress } from "store/account/ac
 import { useAppDispatch, useAppSelector } from "store/redux.hooks"
 import * as Yup from "yup";
 
-const AddressController = ({ handleAfterSuccess }: any) => {
+const AddressController = ({isEdit, handleAfterSuccess }: any) => {
 
   const { countriesData, statesData, citiesData } = useAppSelector((state) => state.account)
   const { loginDetails } = useAppSelector((state: any) => state.auth);
@@ -63,6 +63,12 @@ const AddressController = ({ handleAfterSuccess }: any) => {
         })
     },
   });
+
+  useEffect(() => {
+    if(isEdit){
+      
+    }
+  }, [isEdit]);
 
   useEffect(() => {
     if (addressFormik?.values?.country?.value) {

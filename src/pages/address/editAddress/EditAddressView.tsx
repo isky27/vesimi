@@ -1,11 +1,12 @@
 import React from 'react'
 import ProfileWrapper from 'pages/account/ProfileWrapper';
 import AddressFormView from '../addressForm/AddressFormView';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const EditAddressView = () => {
 
   const navigate = useNavigate()
+  const { addressId } = useParams();
 
   return (
     <ProfileWrapper>
@@ -14,7 +15,7 @@ const EditAddressView = () => {
         <div className="col-12">
           <h4>Contact Information</h4>
         </div>
-        <AddressFormView handleAfterSuccess={()=>{navigate("/address")}} />
+        <AddressFormView isEdit={addressId} handleAfterSuccess={()=>{navigate("/address")}} />
       </div>
     </ProfileWrapper>
   );

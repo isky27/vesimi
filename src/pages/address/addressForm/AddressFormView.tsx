@@ -5,9 +5,14 @@ import InputField from 'component/forms/InputField';
 import { removeSpaceOnly } from 'utils';
 import Select from 'react-select'
 
-const AddressFormView = ({ handleAfterSuccess }: any) => {
+const AddressFormView = ({isEdit, handleAfterSuccess }: any) => {
 
-    const { addressFormik, countriesData, statesData, citiesData } = AddressController({ handleAfterSuccess })
+    const { 
+        addressFormik, 
+        countriesData, 
+        statesData, 
+        citiesData 
+    } = AddressController({isEdit, handleAfterSuccess })
 
     return (
         <Form className="row g-3" onSubmit={addressFormik.handleSubmit}>
