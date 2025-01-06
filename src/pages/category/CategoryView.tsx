@@ -78,7 +78,8 @@ const CategoryView = () => {
                 CLEAR ALL
               </button>
             </div>
-            {subCategoryData?.data?.[0]?.number_of_children!=0 && (
+            {(subCategoryData?.data?.length!=1 && subCategoryData?.data?.[0]
+              ?.number_of_children != 0) && (
               <div className="sidebarBlock">
                 <h3>CATEGORIES</h3>
                 <MultiLevelCheckbox

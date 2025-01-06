@@ -4,7 +4,6 @@ import "../../scss/contactUs.scss";
 const ContactUs = () => {
   return (
     <>
-
       <section className="pageMain statickPageDesign">
         <div className="container">
         <div className="row">
