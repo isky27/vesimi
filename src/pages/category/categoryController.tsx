@@ -97,7 +97,6 @@ const CategoryController = () => {
   }
 
   const handelClearFilter = () => {
-    setFilterCategory(new Set(categoryId))
     setFilterDesigner(new Set());
     setFilterSize(new Set());
     setFilterColor(new Set());
