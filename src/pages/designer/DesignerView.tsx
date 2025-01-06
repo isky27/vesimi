@@ -10,7 +10,7 @@ const DesignerView = () => {
           <nav aria-label="breadcrumb" className=" ">
             <ol className="breadcrumb">
               <li className="breadcrumb-item">
-                <Link to={"/"}>Home</Link>
+                <Link to={getCategoryUrl()}>Home</Link>
               </li>
               <li className="breadcrumb-item active" aria-current="page">
                 Designers
@@ -21,50 +21,35 @@ const DesignerView = () => {
         </div>
 
         <div className="categoeryLink">
-          <Link to={getCategoryUrl(389)}>Aariyana Couture</Link>
-          <Link to={"/"}>A Clutch Story</Link>
-          <Link to={"/"}>Anaar</Link>
-          <Link to={"/"}>Anshika Tak Label</Link>
-          <Link to={"/"}>Anu Pellakuru</Link>
-          <Link to={"/"}>Contrast By Parth</Link>
-          <Link to={"/"}>Hirika Dhruti</Link>
-          <Link to={"/"}>Kalakaari By Sagarika</Link>
-          <Link to={"/"}>Kavya Singh Kundu</Link>
-          <Link to={"/"}>NR BY NIDHI RATHI</Link>
-          <Link to={"/"}>OROH</Link>
-          <Link to={"/"}>Pankaj Nidhi</Link>
-          <Link to={"/"}>PARUL GANDHI</Link>
-          <Link to={"/"}>Pasha India</Link>
-          <Link to={"/"}>Pinki Sinha</Link>
-          <Link to={"/"}>Plode</Link>
-          <Link to={"/"}>Redpine Designs</Link>
-          <Link to={"/"}>Sabyasachi</Link>
-          <Link to={"/"}>Seesa</Link>
-          <Link to={"/"}>Spring Break</Link>
-          <Link to={"/"}>Surabhi Arya</Link>
-          <Link to={"/"}>SWATI WADHWANI COUTURE</Link>
-          <Link to={"/"}>Taroob</Link>
-          <Link to={"/"}>Tasuvure</Link>
-          <Link to={getCategoryUrl(389)}>Vaani Beswal</Link>
-        </div>
+          <Link to={getCategoryUrl(401)}>Angry Owl</Link>
+          <Link to={getCategoryUrl(201)}>Diya Rajvvir</Link>
+          <Link to={getCategoryUrl(622)}>Jatin Malik Couture</Link>
+          <Link to={getCategoryUrl(2549)}>Kudi Pataka</Link>
+          <Link to={getCategoryUrl(2448)}>Lil Drama</Link>
+          <Link to={getCategoryUrl(212)}>Masaba</Link>
+          <Link to={getCategoryUrl(653)}>Merge Design</Link>
+          <Link to={getCategoryUrl(2905)}>ORIGANI</Link>
+          <Link to={getCategoryUrl(1454)}>Pallavi Jaipur</Link>
+          <Link to={getCategoryUrl(2287)}>Rey&I</Link>
+         </div>
 
         <div className="categoerySidebarMain">
           <div className="categoerySidebar">
             <ul className="Playfair">
               <li>
-                <Link to={"/"}>All Designers</Link>
+                <Link to={getCategoryUrl()}>All Designers</Link>
               </li>
               <li>
-                <Link to={"/"}>Clothing Designers</Link>
+                <Link to={getCategoryUrl()}>Clothing Designers</Link>
               </li>
               <li>
-                <Link to={"/"}>Accessories Designers </Link>
+                <Link to={getCategoryUrl()}>Accessories Designers </Link>
               </li>
               <li>
-                <Link to={"/"}>Jewellery Designers</Link>
+                <Link to={getCategoryUrl()}>Jewellery Designers</Link>
               </li>
               <li>
-                <Link to={"/"}>Popular Designers</Link>
+                <Link to={getCategoryUrl()}>Popular Designers</Link>
               </li>
             </ul>
           </div>
@@ -125,15 +110,12 @@ const DesignerView = () => {
                 >
                   <div className="accordion-body">
                     <div className="categoeryLink">
-                      <Link to={"/"}>Dariyana Couture</Link>
-                      <Link to={"/"}>D Clutch Story</Link>
-                      <Link to={"/"}>Dnaar</Link>
-                      <Link to={"/"}>Dnshika Tak Label</Link>
-                      <Link to={"/"}>Dnu Pellakuru</Link>
-                      <Link to={"/"}>Dontrast By Parth</Link>
-                      <Link to={"/"}>Dirika Dhruti</Link>
-                      <Link to={"/"}>Dalakaari By Sagarika</Link>
-                      <Link to={"/"}>Davya Singh Kundu</Link>
+                      <Link to={getCategoryUrl(401)}>Angry Owl</Link>
+                      <Link to={getCategoryUrl(616)}>Anvita Jain</Link>
+                      <Link to={getCategoryUrl(1683)}>Amka India</Link>
+                      <Link to={getCategoryUrl(1780)}>Amrit Dawani</Link>
+                      <Link to={getCategoryUrl(2511)}>Ahi Clothing</Link>
+                      <Link to={getCategoryUrl(2578)}>Aham-Vayam</Link>
                     </div>
                   </div>
                 </div>
@@ -160,15 +142,10 @@ const DesignerView = () => {
                 >
                   <div className="accordion-body">
                     <div className="categoeryLink">
-                      <Link to={"/"}>Dariyana Couture</Link>
-                      <Link to={"/"}>D Clutch Story</Link>
-                      <Link to={"/"}>Dnaar</Link>
-                      <Link to={"/"}>Dnshika Tak Label</Link>
-                      <Link to={"/"}>Dnu Pellakuru</Link>
-                      <Link to={"/"}>Dontrast By Parth</Link>
-                      <Link to={"/"}>Dirika Dhruti</Link>
-                      <Link to={"/"}>Dalakaari By Sagarika</Link>
-                      <Link to={"/"}>Davya Singh Kundu</Link>
+                      <Link to={getCategoryUrl(2650)}>Baidehi</Link>
+                      <Link to={getCategoryUrl(608)}>Brime</Link>
+                      <Link to={getCategoryUrl(2358)}>Bijoux by Priya Chandna</Link>
+                      <Link to={getCategoryUrl(1649)}>Bhanuni by Jyoti</Link>
                     </div>
                   </div>
                 </div>
@@ -195,15 +172,7 @@ const DesignerView = () => {
                 >
                   <div className="accordion-body">
                     <div className="categoeryLink">
-                      <Link to={"/"}>Dariyana Couture</Link>
-                      <Link to={"/"}>D Clutch Story</Link>
-                      <Link to={"/"}>Dnaar</Link>
-                      <Link to={"/"}>Dnshika Tak Label</Link>
-                      <Link to={"/"}>Dnu Pellakuru</Link>
-                      <Link to={"/"}>Dontrast By Parth</Link>
-                      <Link to={"/"}>Dirika Dhruti</Link>
-                      <Link to={"/"}>Dalakaari By Sagarika</Link>
-                      <Link to={"/"}>Davya Singh Kundu</Link>
+                      <Link to={getCategoryUrl(488)}>Clutch'D</Link>
                     </div>
                   </div>
                 </div>
@@ -230,15 +199,11 @@ const DesignerView = () => {
                 >
                   <div className="accordion-body">
                     <div className="categoeryLink">
-                      <Link to={"/"}>Eariyana Couture</Link>
-                      <Link to={"/"}>E Clutch Story</Link>
-                      <Link to={"/"}>Enaar</Link>
-                      <Link to={"/"}>Enshika Tak Label</Link>
-                      <Link to={"/"}>Enu Pellakuru</Link>
-                      <Link to={"/"}>Eontrast By Parth</Link>
-                      <Link to={"/"}>Eirika Dhruti</Link>
-                      <Link to={"/"}>Ealakaari By Sagarika</Link>
-                      <Link to={"/"}>Eavya Singh Kundu</Link>
+                      <Link to={getCategoryUrl(2129)}>Daatri by MK</Link>
+                      <Link to={getCategoryUrl(201)}>Diya Rajvvir</Link>
+                      <Link to={getCategoryUrl(405)}>Devina Juneja</Link>
+                      <Link to={getCategoryUrl(2272)}>Deme by Gabriella</Link>
+                      <Link to={getCategoryUrl(2400)}>Diermeiss by the Dragon Lady</Link>
                     </div>
                   </div>
                 </div>
@@ -265,15 +230,9 @@ const DesignerView = () => {
                 >
                   <div className="accordion-body">
                     <div className="categoeryLink">
-                      <Link to={"/"}>Eariyana Couture</Link>
-                      <Link to={"/"}>E Clutch Story</Link>
-                      <Link to={"/"}>Enaar</Link>
-                      <Link to={"/"}>Enshika Tak Label</Link>
-                      <Link to={"/"}>Enu Pellakuru</Link>
-                      <Link to={"/"}>Eontrast By Parth</Link>
-                      <Link to={"/"}>Eirika Dhruti</Link>
-                      <Link to={"/"}>Ealakaari By Sagarika</Link>
-                      <Link to={"/"}>Eavya Singh Kundu</Link>
+                      <Link to={getCategoryUrl(1302)}>Ease</Link>
+                      <Link to={getCategoryUrl(412)}>Echo</Link>
+                      <Link to={getCategoryUrl(1801)}>Enness Studio</Link>
                     </div>
                   </div>
                 </div>
@@ -300,15 +259,8 @@ const DesignerView = () => {
                 >
                   <div className="accordion-body">
                     <div className="categoeryLink">
-                      <Link to={"/"}>Fariyana Couture</Link>
-                      <Link to={"/"}>F Clutch Story</Link>
-                      <Link to={"/"}>Fnaar</Link>
-                      <Link to={"/"}>Fnshika Tak Label</Link>
-                      <Link to={"/"}>Fnu Pellakuru</Link>
-                      <Link to={"/"}>Fontrast By Parth</Link>
-                      <Link to={"/"}>Firika Dhruti</Link>
-                      <Link to={"/"}>Falakaari By Sagarika</Link>
-                      <Link to={"/"}>Favya Singh Kundu</Link>
+                      <Link to={getCategoryUrl(2527)}>Fayyon Kids</Link>
+                      <Link to={getCategoryUrl(2988)}>Flamingo The Label</Link>
                     </div>
                   </div>
                 </div>
@@ -335,15 +287,7 @@ const DesignerView = () => {
                 >
                   <div className="accordion-body">
                     <div className="categoeryLink">
-                      <Link to={"/"}>Gariyana Couture</Link>
-                      <Link to={"/"}>G Clutch Story</Link>
-                      <Link to={"/"}>Gnaar</Link>
-                      <Link to={"/"}>Gnshika Tak Label</Link>
-                      <Link to={"/"}>Gnu Pellakuru</Link>
-                      <Link to={"/"}>Gontrast By Parth</Link>
-                      <Link to={"/"}>Girika Dhruti</Link>
-                      <Link to={"/"}>Galakaari By Sagarika</Link>
-                      <Link to={"/"}>Gavya Singh Kundu</Link>
+                      
                     </div>
                   </div>
                 </div>
@@ -370,15 +314,7 @@ const DesignerView = () => {
                 >
                   <div className="accordion-body">
                     <div className="categoeryLink">
-                      <Link to={"/"}>Hariyana Couture</Link>
-                      <Link to={"/"}>H Clutch Story</Link>
-                      <Link to={"/"}>Hnaar</Link>
-                      <Link to={"/"}>Hnshika Tak Label</Link>
-                      <Link to={"/"}>Hnu Pellakuru</Link>
-                      <Link to={"/"}>Hontrast By Parth</Link>
-                      <Link to={"/"}>Hirika Dhruti</Link>
-                      <Link to={"/"}>Halakaari By Sagarika</Link>
-                      <Link to={"/"}>Havya Singh Kundu</Link>
+                      <Link to={getCategoryUrl(1512)}>Harsha Khatry</Link>
                     </div>
                   </div>
                 </div>
@@ -405,15 +341,9 @@ const DesignerView = () => {
                 >
                   <div className="accordion-body">
                     <div className="categoeryLink">
-                      <Link to={"/"}>Iariyana Couture</Link>
-                      <Link to={"/"}>I Clutch Story</Link>
-                      <Link to={"/"}>Inaar</Link>
-                      <Link to={"/"}>Inshika Tak Label</Link>
-                      <Link to={"/"}>Inu Pellakuru</Link>
-                      <Link to={"/"}>Iontrast By Parth</Link>
-                      <Link to={"/"}>Iirika Dhruti</Link>
-                      <Link to={"/"}>Ialakaari By Sagarika</Link>
-                      <Link to={"/"}>Iavya Singh Kundu</Link>
+                      <Link to={getCategoryUrl(594)}>Inder Clothing Studio</Link>
+                      <Link to={getCategoryUrl(1704)}>Isha Mittal</Link>
+                      <Link to={getCategoryUrl(2861)}>Itrh</Link>
                     </div>
                   </div>
                 </div>
@@ -440,16 +370,11 @@ const DesignerView = () => {
                 >
                   <div className="accordion-body">
                     <div className="categoeryLink">
-                      <Link to={"/"}>Jariyana Couture</Link>
-                      <Link to={"/"}>J Clutch Story</Link>
-                      <Link to={"/"}>Jnaar</Link>
-                      <Link to={"/"}>Jnshika Tak Label</Link>
-                      <Link to={"/"}>Jnu Pellakuru</Link>
-                      <Link to={"/"}>Jontrast By Parth</Link>
-                      <Link to={"/"}>Jirika Dhruti</Link>
-                      <Link to={"/"}>Jalakaari By Sagarika</Link>
-                      <Link to={"/"}>Javya Singh Kundu</Link>
-                    </div>
+                      <Link to={getCategoryUrl(622)}>Jatin Malik Couture</Link>
+                      <Link to={getCategoryUrl(404)}>Jenjum Gadi</Link>
+                      <Link to={getCategoryUrl(2053)}>Jigar & Nikita</Link>
+                      <Link to={getCategoryUrl(581)}>Juwelen</Link>
+					</div>
                   </div>
                 </div>
               </div>
@@ -474,15 +399,16 @@ const DesignerView = () => {
                 >
                   <div className="accordion-body">
                     <div className="categoeryLink">
-                      <Link to={"/"}>Kariyana Couture</Link>
-                      <Link to={"/"}>K Clutch Story</Link>
-                      <Link to={"/"}>Knaar</Link>
-                      <Link to={"/"}>Knshika Tak Label</Link>
-                      <Link to={"/"}>Knu Pellakuru</Link>
-                      <Link to={"/"}>Kontrast By Parth</Link>
-                      <Link to={"/"}>Kirika Dhruti</Link>
-                      <Link to={"/"}>Kalakaari By Sagarika</Link>
-                      <Link to={"/"}>Kavya Singh Kundu</Link>
+                      <Link to={getCategoryUrl(539)}>Kacha Tanka</Link>
+                      <Link to={getCategoryUrl(612)}>Kalista</Link>
+                      <Link to={getCategoryUrl(1693)}>Kalighata</Link>
+                      <Link to={getCategoryUrl(2089)}>Kiran Gupta Label</Link>
+                      <Link to={getCategoryUrl(2296)}>Komal Kothari</Link>
+                      <Link to={getCategoryUrl(587)}>Krisha Sunny Ramani</Link>
+                      <Link to={getCategoryUrl(1980)}>Khushboo & Pankaj</Link>
+                      <Link to={getCategoryUrl(2549)}>Kudi Pataka</Link>
+                      <Link to={getCategoryUrl(2928)}>Kay Kay by Kkhushi Sahaii</Link>
+					  <Link to={getCategoryUrl(601)}>Kovet</Link>
                     </div>
                   </div>
                 </div>
@@ -508,19 +434,465 @@ const DesignerView = () => {
                 >
                   <div className="accordion-body">
                     <div className="categoeryLink">
-                      <Link to={"/"}>Lariyana Couture</Link>
-                      <Link to={"/"}>L Clutch Story</Link>
-                      <Link to={"/"}>Lnaar</Link>
-                      <Link to={"/"}>Lnshika Tak Label</Link>
-                      <Link to={"/"}>Lnu Pellakuru</Link>
-                      <Link to={"/"}>Lontrast By Parth</Link>
-                      <Link to={"/"}>Lirika Dhruti</Link>
-                      <Link to={"/"}>Lalakaari By Sagarika</Link>
-                      <Link to={"/"}>Lavya Singh Kundu</Link>
+                      <Link to={getCategoryUrl(2001)}>Label Deepika Nagpal</Link>
+                      <Link to={getCategoryUrl(2334)}>LittleCheer</Link>
+                      <Link to={getCategoryUrl(2448)}>Lil Drama</Link>
+                      <Link to={getCategoryUrl(2888)}>Lacquer Embassy</Link>
+                      
                     </div>
                   </div>
                 </div>
               </div>
+			  <div className="accordion-item" id="lFor">
+                <h2 className="accordion-header" id="accordion8">
+                  <button
+                    className="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faccordian12"
+                    aria-expanded="false"
+                    aria-controls="faccordian12"
+                  >
+                    M
+                  </button>
+                </h2>
+                <div
+                  id="faccordian12"
+                  className="accordion-collapse collapse"
+                  aria-labelledby="faccordian11"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div className="accordion-body">
+                    <div className="categoeryLink">
+                      <Link to={getCategoryUrl(1469)}>Mahek Rohra</Link>
+                      <Link to={getCategoryUrl(212)}>Masaba</Link>
+                      <Link to={getCategoryUrl(2098)}>Mavish</Link>
+                      <Link to={getCategoryUrl(1500)}>Mayori</Link>
+                      <Link to={getCategoryUrl(373)}>Masumi Mewawalla</Link>
+					  <Link to={getCategoryUrl(2351)}>Menero</Link>
+                      <Link to={getCategoryUrl(1674)}>Mozaati</Link>
+                      <Link to={getCategoryUrl(2505)}>Modaesta</Link>
+                      <Link to={getCategoryUrl(2315)}>Mirroir</Link>
+                      <Link to={getCategoryUrl(443)}>Mala and Kinnary</Link>
+					  <Link to={getCategoryUrl(653)}>Merge Design</Link>
+                      <Link to={getCategoryUrl(489)}>Monisha Jaising</Link>
+                      <Link to={getCategoryUrl(1486)}>Moledro</Link>
+                      <Link to={getCategoryUrl(1666)}>Mona & Vishu</Link>
+                      <Link to={getCategoryUrl(2572)}>Mulmul</Link>
+					  <Link to={getCategoryUrl(2724)}>Majestic by Japnah</Link>
+                      <Link to={getCategoryUrl(2731)}>Musal</Link>
+                      <Link to={getCategoryUrl(2818)}>MiniMe Organics</Link>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+			  <div className="accordion-item" id="lFor">
+                <h2 className="accordion-header" id="accordion8">
+                  <button
+                    className="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faccordian12"
+                    aria-expanded="false"
+                    aria-controls="faccordian12"
+                  >
+                    N
+                  </button>
+                </h2>
+                <div
+                  id="faccordian12"
+                  className="accordion-collapse collapse"
+                  aria-labelledby="faccordian11"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div className="accordion-body">
+                    <div className="categoeryLink">
+                      <Link to={getCategoryUrl(492)}>Nikita Vishakha</Link>
+                      <Link to={getCategoryUrl(2460)}>Nidhika Shekhar</Link>
+                      <Link to={getCategoryUrl(501)}>Neeta Lulla</Link>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+			  <div className="accordion-item" id="lFor">
+                <h2 className="accordion-header" id="accordion8">
+                  <button
+                    className="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faccordian12"
+                    aria-expanded="false"
+                    aria-controls="faccordian12"
+                  >
+                    O
+                  </button>
+                </h2>
+                <div
+                  id="faccordian12"
+                  className="accordion-collapse collapse"
+                  aria-labelledby="faccordian11"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div className="accordion-body">
+                    <div className="categoeryLink">
+                      <Link to={getCategoryUrl(1637)}>Ohaila Khan</Link>
+                      <Link to={getCategoryUrl(1757)}>One Knot One</Link>
+                      <Link to={getCategoryUrl(2905)}>ORIGANI</Link>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+			  <div className="accordion-item" id="lFor">
+                <h2 className="accordion-header" id="accordion8">
+                  <button
+                    className="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faccordian12"
+                    aria-expanded="false"
+                    aria-controls="faccordian12"
+                  >
+                    P
+                  </button>
+                </h2>
+                <div
+                  id="faccordian12"
+                  className="accordion-collapse collapse"
+                  aria-labelledby="faccordian11"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div className="accordion-body">
+                    <div className="categoeryLink">
+                      <Link to={getCategoryUrl(1454)}>Pallavi Jaipur</Link>
+                      <Link to={getCategoryUrl(2224)}>Parshya</Link>
+                      <Link to={getCategoryUrl(2489)}>Papa Don't Preach by Shubhika</Link>
+                      <Link to={getCategoryUrl(561)}>Pink City by Sarika</Link>
+                      <Link to={getCategoryUrl(1541)}>Plode</Link>
+					  <Link to={getCategoryUrl(631)}>Priti Sahni</Link>
+                      <Link to={getCategoryUrl(1952)}>Pooja Shroff</Link>
+					  <Link to={getCategoryUrl(2260)}>Poppi Luxe</Link>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+			  <div className="accordion-item" id="lFor">
+                <h2 className="accordion-header" id="accordion8">
+                  <button
+                    className="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faccordian12"
+                    aria-expanded="false"
+                    aria-controls="faccordian12"
+                  >
+                    Q
+                  </button>
+                </h2>
+                <div
+                  id="faccordian12"
+                  className="accordion-collapse collapse"
+                  aria-labelledby="faccordian11"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div className="accordion-body">
+                    <div className="categoeryLink">
+                       <Link to={getCategoryUrl()}></Link>
+                      <Link to={getCategoryUrl()}></Link>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+			  <div className="accordion-item" id="lFor">
+                <h2 className="accordion-header" id="accordion8">
+                  <button
+                    className="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faccordian12"
+                    aria-expanded="false"
+                    aria-controls="faccordian12"
+                  >
+                    R
+                  </button>
+                </h2>
+                <div
+                  id="faccordian12"
+                  className="accordion-collapse collapse"
+                  aria-labelledby="faccordian11"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div className="accordion-body">
+                    <div className="categoeryLink">
+                      <Link to={getCategoryUrl(1411)}>Redpine Designs</Link>
+                      <Link to={getCategoryUrl(2287)}>Rey&I</Link>
+                      <Link to={getCategoryUrl(1554)}>Rimi Nayak</Link>
+                      <Link to={getCategoryUrl(2753)}>Ridhimaa Gupta</Link>
+                      <Link to={getCategoryUrl(2775)}>Rooh by Ridhimaa</Link>
+					  <Link to={getCategoryUrl(2893)}>Raaga Reddy</Link>
+                      <Link to={getCategoryUrl(2938)}>Rirasa</Link>
+                      <Link to={getCategoryUrl(2965)}>Ranian</Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+			  <div className="accordion-item" id="lFor">
+                <h2 className="accordion-header" id="accordion8">
+                  <button
+                    className="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faccordian12"
+                    aria-expanded="false"
+                    aria-controls="faccordian12"
+                  >
+                    S
+                  </button>
+                </h2>
+                <div
+                  id="faccordian12"
+                  className="accordion-collapse collapse"
+                  aria-labelledby="faccordian11"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div className="accordion-body">
+                    <div className="categoeryLink">
+                      <Link to={getCategoryUrl(2116)}>Sangeeta Swati</Link>
+                      <Link to={getCategoryUrl(1975)}>Seven</Link>
+                      <Link to={getCategoryUrl(485)}>Sheetal Batra</Link>
+                      <Link to={getCategoryUrl(2408)}>Shreeka</Link>
+                      <Link to={getCategoryUrl(1822)}>Sidhaarth and Disha</Link>
+					  <Link to={getCategoryUrl(1993)}>Sil-Sila</Link>
+                      <Link to={getCategoryUrl(2476)}>Sims Studio</Link>
+                      <Link to={getCategoryUrl(522)}>S&N by Shantnu Nikhil</Link>
+                      <Link to={getCategoryUrl(2627)}>Sshilpa Samriya</Link>
+                      <Link to={getCategoryUrl(1744)}>Studio Shikha Malik</Link>
+					  <Link to={getCategoryUrl(2586)}>Style Junkiie</Link>
+                      <Link to={getCategoryUrl(1400)}>Soha by Harleen and Sona</Link>
+                      <Link to={getCategoryUrl(2192)}>Sunanta Madaan</Link>
+                      <Link to={getCategoryUrl(2472)}>Shruti S</Link>
+                      <Link to={getCategoryUrl(2782)}>17:17 by Simmi Saboo</Link>
+					  <Link to={getCategoryUrl(2848)}>Suhag Emporium</Link>
+					  <Link to={getCategoryUrl(2918)}>Studiio KM</Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+			  <div className="accordion-item" id="lFor">
+                <h2 className="accordion-header" id="accordion8">
+                  <button
+                    className="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faccordian12"
+                    aria-expanded="false"
+                    aria-controls="faccordian12"
+                  >
+                    T
+                  </button>
+                </h2>
+                <div
+                  id="faccordian12"
+                  className="accordion-collapse collapse"
+                  aria-labelledby="faccordian11"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div className="accordion-body">
+                    <div className="categoeryLink">
+                      <Link to={getCategoryUrl(1810)}>Tamaraa by Tahani</Link>
+                      <Link to={getCategoryUrl(657)}>The Aarya</Link>
+                      <Link to={getCategoryUrl(1813)}>The Dramebaaz Co</Link>
+                      <Link to={getCategoryUrl(1773)}>Tesoro by Bhavika</Link>
+                      <Link to={getCategoryUrl(866)}>Tisa Studio</Link>
+					  <Link to={getCategoryUrl(402)}>Torani</Link>
+                      <Link to={getCategoryUrl(1843)}>Twyla Treasures</Link>
+                      <Link to={getCategoryUrl(2678)}>Tyohar</Link>
+                      <Link to={getCategoryUrl(2974)}>Tanu Malhotra</Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+			  <div className="accordion-item" id="lFor">
+                <h2 className="accordion-header" id="accordion8">
+                  <button
+                    className="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faccordian12"
+                    aria-expanded="false"
+                    aria-controls="faccordian12"
+                  >
+                    U
+                  </button>
+                </h2>
+                <div
+                  id="faccordian12"
+                  className="accordion-collapse collapse"
+                  aria-labelledby="faccordian11"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div className="accordion-body">
+                    <div className="categoeryLink">
+                      <Link to={getCategoryUrl()}></Link>
+                      <Link to={getCategoryUrl()}></Link>
+                      <Link to={getCategoryUrl()}></Link>
+                      <Link to={getCategoryUrl()}></Link>
+                      <Link to={getCategoryUrl()}></Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+			  <div className="accordion-item" id="lFor">
+                <h2 className="accordion-header" id="accordion8">
+                  <button
+                    className="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faccordian12"
+                    aria-expanded="false"
+                    aria-controls="faccordian12"
+                  >
+                    V
+                  </button>
+                </h2>
+                <div
+                  id="faccordian12"
+                  className="accordion-collapse collapse"
+                  aria-labelledby="faccordian11"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div className="accordion-body">
+                    <div className="categoeryLink">
+                      <Link to={getCategoryUrl(2702)}>Vannikaa Malik</Link>
+                      <Link to={getCategoryUrl(421)}>Vvani by Vani Vats</Link>
+                      <Link to={getCategoryUrl(610)}>Veruschka</Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+			  <div className="accordion-item" id="lFor">
+                <h2 className="accordion-header" id="accordion8">
+                  <button
+                    className="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faccordian12"
+                    aria-expanded="false"
+                    aria-controls="faccordian12"
+                  >
+                    W
+                  </button>
+                </h2>
+                <div
+                  id="faccordian12"
+                  className="accordion-collapse collapse"
+                  aria-labelledby="faccordian11"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div className="accordion-body">
+                    <div className="categoeryLink">
+                       <Link to={getCategoryUrl(570)}>Weaver Story</Link>
+                      <Link to={getCategoryUrl(2609)}>White by Dinaaz</Link>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+			  <div className="accordion-item" id="lFor">
+                <h2 className="accordion-header" id="accordion8">
+                  <button
+                    className="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faccordian12"
+                    aria-expanded="false"
+                    aria-controls="faccordian12"
+                  >
+                    X
+                  </button>
+                </h2>
+                <div
+                  id="faccordian12"
+                  className="accordion-collapse collapse"
+                  aria-labelledby="faccordian11"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div className="accordion-body">
+                    <div className="categoeryLink">
+                      <Link to={getCategoryUrl()}></Link>
+                      <Link to={getCategoryUrl()}></Link>
+                      <Link to={getCategoryUrl()}></Link>
+                      <Link to={getCategoryUrl()}></Link>
+                      <Link to={getCategoryUrl()}></Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+			  <div className="accordion-item" id="lFor">
+                <h2 className="accordion-header" id="accordion8">
+                  <button
+                    className="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faccordian12"
+                    aria-expanded="false"
+                    aria-controls="faccordian12"
+                  >
+                    Y
+                  </button>
+                </h2>
+                <div
+                  id="faccordian12"
+                  className="accordion-collapse collapse"
+                  aria-labelledby="faccordian11"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div className="accordion-body">
+                    <div className="categoeryLink">
+                      <Link to={getCategoryUrl()}></Link>
+                      <Link to={getCategoryUrl()}></Link>
+                      <Link to={getCategoryUrl()}></Link>
+                      <Link to={getCategoryUrl()}></Link>
+                      <Link to={getCategoryUrl()}></Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+			  <div className="accordion-item" id="lFor">
+                <h2 className="accordion-header" id="accordion8">
+                  <button
+                    className="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faccordian12"
+                    aria-expanded="false"
+                    aria-controls="faccordian12"
+                  >
+                    Z
+                  </button>
+                </h2>
+                <div
+                  id="faccordian12"
+                  className="accordion-collapse collapse"
+                  aria-labelledby="faccordian11"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div className="accordion-body">
+                    <div className="categoeryLink">
+                      <Link to={getCategoryUrl()}></Link>
+                      <Link to={getCategoryUrl()}></Link>
+                      <Link to={getCategoryUrl()}></Link>
+                      <Link to={getCategoryUrl()}></Link>
+                      <Link to={getCategoryUrl()}></Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+			  
             </div>
           </div>
         </div>
