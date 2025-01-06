@@ -10,7 +10,7 @@ const DesignerView = () => {
           <nav aria-label="breadcrumb" className=" ">
             <ol className="breadcrumb">
               <li className="breadcrumb-item">
-                <Link to={getCategoryUrl()}>Home</Link>
+                <Link to={"/"}>Home</Link>
               </li>
               <li className="breadcrumb-item active" aria-current="page">
                 Designers
@@ -37,19 +37,19 @@ const DesignerView = () => {
           <div className="categoerySidebar">
             <ul className="Playfair">
               <li>
-                <Link to={getCategoryUrl()}>All Designers</Link>
+                <Link to={"/"}>All Designers</Link>
               </li>
               <li>
-                <Link to={getCategoryUrl()}>Clothing Designers</Link>
+                <Link to={"/"}>Clothing Designers</Link>
               </li>
               <li>
-                <Link to={getCategoryUrl()}>Accessories Designers </Link>
+                <Link to={"/"}>Accessories Designers </Link>
               </li>
               <li>
-                <Link to={getCategoryUrl()}>Jewellery Designers</Link>
+                <Link to={"/"}>Jewellery Designers</Link>
               </li>
               <li>
-                <Link to={getCategoryUrl()}>Popular Designers</Link>
+                <Link to={"/"}>Popular Designers</Link>
               </li>
             </ul>
           </div>
@@ -600,8 +600,8 @@ const DesignerView = () => {
                 >
                   <div className="accordion-body">
                     <div className="categoeryLink">
-                       <Link to={getCategoryUrl()}></Link>
-                      <Link to={getCategoryUrl()}></Link>
+                       <Link to={"/"}></Link>
+                      <Link to={"/"}></Link>
                       
                     </div>
                   </div>
@@ -737,11 +737,11 @@ const DesignerView = () => {
                 >
                   <div className="accordion-body">
                     <div className="categoeryLink">
-                      <Link to={getCategoryUrl()}></Link>
-                      <Link to={getCategoryUrl()}></Link>
-                      <Link to={getCategoryUrl()}></Link>
-                      <Link to={getCategoryUrl()}></Link>
-                      <Link to={getCategoryUrl()}></Link>
+                      <Link to={"/"}></Link>
+                      <Link to={"/"}></Link>
+                      <Link to={"/"}></Link>
+                      <Link to={"/"}></Link>
+                      <Link to={"/"}></Link>
                     </div>
                   </div>
                 </div>
@@ -823,11 +823,11 @@ const DesignerView = () => {
                 >
                   <div className="accordion-body">
                     <div className="categoeryLink">
-                      <Link to={getCategoryUrl()}></Link>
-                      <Link to={getCategoryUrl()}></Link>
-                      <Link to={getCategoryUrl()}></Link>
-                      <Link to={getCategoryUrl()}></Link>
-                      <Link to={getCategoryUrl()}></Link>
+                      <Link to={"/"}></Link>
+                      <Link to={"/"}></Link>
+                      <Link to={"/"}></Link>
+                      <Link to={"/"}></Link>
+                      <Link to={"/"}></Link>
                     </div>
                   </div>
                 </div>
@@ -853,11 +853,11 @@ const DesignerView = () => {
                 >
                   <div className="accordion-body">
                     <div className="categoeryLink">
-                      <Link to={getCategoryUrl()}></Link>
-                      <Link to={getCategoryUrl()}></Link>
-                      <Link to={getCategoryUrl()}></Link>
-                      <Link to={getCategoryUrl()}></Link>
-                      <Link to={getCategoryUrl()}></Link>
+                      <Link to={"/"}></Link>
+                      <Link to={"/"}></Link>
+                      <Link to={"/"}></Link>
+                      <Link to={"/"}></Link>
+                      <Link to={"/"}></Link>
                     </div>
                   </div>
                 </div>
@@ -883,11 +883,11 @@ const DesignerView = () => {
                 >
                   <div className="accordion-body">
                     <div className="categoeryLink">
-                      <Link to={getCategoryUrl()}></Link>
-                      <Link to={getCategoryUrl()}></Link>
-                      <Link to={getCategoryUrl()}></Link>
-                      <Link to={getCategoryUrl()}></Link>
-                      <Link to={getCategoryUrl()}></Link>
+                      <Link to={"/"}></Link>
+                      <Link to={"/"}></Link>
+                      <Link to={"/"}></Link>
+                      <Link to={"/"}></Link>
+                      <Link to={"/"}></Link>
                     </div>
                   </div>
                 </div>

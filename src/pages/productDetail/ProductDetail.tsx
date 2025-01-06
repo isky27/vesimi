@@ -93,7 +93,7 @@ const ProductDetail = () => {
                 </h1>
               </div>
               <h2 className="textBigLight">{productDetails?.name}</h2>
-              {productDetails?.is_price_hide ? (
+              {(productDetails?.is_price_hide || productDetails?.out_of_stock) ? (
                 ""
               ) : (
                 <div className="detailPrice">
@@ -131,21 +131,23 @@ const ProductDetail = () => {
                     </button>
                   </div>
                   <div className="sizePartTabs d-flex flex-wrap gap-1 gap-md-3">
-                    {sortSizes(productDetails?.choice_options
-                      ?.find((el: any) => el.title === "Size")
-                      ?.options)?.map((elem: string) => {
-                        return (
-                          <button
-                            className={`sizeBtn ${
-                              selectedSize === elem ? "selected" : ""
-                            }`}
-                            onClick={() => setSelectedSize(elem)}
-                            key={elem}
-                          >
-                            {elem}
-                          </button>
-                        );
-                      })}
+                    {sortSizes(
+                      productDetails?.choice_options?.find(
+                        (el: any) => el.title === "Size"
+                      )?.options
+                    )?.map((elem: string) => {
+                      return (
+                        <button
+                          className={`sizeBtn ${
+                            selectedSize === elem ? "selected" : ""
+                          }`}
+                          onClick={() => setSelectedSize(elem)}
+                          key={elem}
+                        >
+                          {elem}
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
               )}
