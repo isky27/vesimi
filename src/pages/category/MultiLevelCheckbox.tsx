@@ -76,7 +76,7 @@ const MultiLevelCheckbox = ({selectedValueKey="id",isColor=false, isSearchBox=fa
                         checked={checkedItems?.has(item[selectedValueKey].toString())}
                         onChange={(e) => handleCheckboxChange(item[selectedValueKey].toString(), e.target.checked)}
                     />
-                    {isColor && item?.code && <span className="colorCircle" style={{ backgroundColor: item.code }}></span>}
+                    {/* {isColor && item?.code && <span className="colorCircle" style={{ backgroundColor: item.code }}></span>} */}
                     {item?.[nameKey]}
                 </label>
                 {item?.children?.length > 0 && (
