@@ -9,12 +9,17 @@ import { emailRegex, phoneRegex, priceRange } from "constant";
 const HeaderController = () => {
   const [searchParams] = useSearchParams();
   const [searchInput,setSearchInput] = useState(searchParams.get("name") ?? "");
-
+  const [isOpenResetPassEmail, setIsOpenResetPassEmail] = useState(false)
   const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
 
-  const { loginDetails, selectedCurrency, isOpenLoginPopup, isOpenSignupPopup } = useAppSelector((state: any) => state.auth);
+  const {
+    loginDetails,
+    selectedCurrency,
+    isOpenLoginPopup,
+    isOpenSignupPopup
+  } = useAppSelector((state: any) => state.auth);
 
   const { cartListData, isLoadingCartList } = useAppSelector((state: any) => state.order)
 
@@ -50,6 +55,10 @@ const HeaderController = () => {
   const handleOpenLoginPopup = (state: boolean) => {
     dispatch(setOpenLoginPopup(state))
   }
+
+  const handleOpenForgetPasswordPopup = (state: boolean) => {
+    // dispatch(setOpenForgetPasswordPopup(state));
+  };
 
   const handleOpenSignupPopup = (state: boolean) => {
     dispatch(setOpenSignPopup(state))
@@ -161,9 +170,12 @@ const HeaderController = () => {
     handleSearch,
     handleCurrencyChange,
     selectedCurrency,
-    cartListData, 
+    cartListData,
     isLoadingCartList,
-    handleCart
+    handleCart,
+    handleOpenForgetPasswordPopup,
+    isOpenResetPassEmail,
+    setIsOpenResetPassEmail,
   };
 };
 

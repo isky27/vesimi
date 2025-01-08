@@ -275,9 +275,6 @@ const CheckoutView = () => {
                                             </div> */}
                         </Link>
                       </figcaption>
-                      <button className="cartDelete top-0 right-0">
-                        <i className="fa-solid fa-trash-can"></i>
-                      </button>
                     </div>
                   </div>
                 ))}

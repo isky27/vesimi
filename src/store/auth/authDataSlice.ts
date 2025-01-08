@@ -8,16 +8,16 @@ import { toast } from "react-toastify";
  * Initial state for the authentication
  */
 const initialState: AuthDataInterface = {
-    isError: false,
-    isSuccess: false,
-    isLoading: false,
-    isAuthLoginLoading: false,
-    message: null,
-    loginDetails: null,
-    selectedCurrency:"INR",
-    isOpenLoginPopup: false,
-    isOpenSignupPopup: false,
-}
+  isError: false,
+  isSuccess: false,
+  isLoading: false,
+  isAuthLoginLoading: false,
+  message: null,
+  loginDetails: null,
+  selectedCurrency: "INR",
+  isOpenLoginPopup: false,
+  isOpenSignupPopup: false,
+};
 
 // Async Thunks
 
@@ -92,46 +92,46 @@ export const authDataReducer = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(loginPost.pending, (state: any, _: any) => {
-                state.isAuthLoginLoading = true;
-                state.isSuccess = false;
-            })
-            .addCase(loginPost.fulfilled, (state: any, action: any) => {
-                state.isAuthLoginLoading = false;
-                state.isSuccess = true;
-                state.isOtp = action?.payload?.data?.otp || false;
-                state.loginDetails = action.payload;
-            })
-            .addCase(loginPost.rejected, (state: any) => {
-                state.isAuthLoginLoading = false;
-                state.isSuccess = false;
-            })
-            .addCase(signUpPost.pending, (state: any, _: any) => {
-                state.isAuthLoginLoading = true;
-                state.isSuccess = false;
-            })
-            .addCase(signUpPost.fulfilled, (state: any, action: any) => {
-                state.isAuthLoginLoading = false;
-                state.isSuccess = true;
-                state.isOtp = action?.payload?.data?.otp || false;
-                state.loginDetails = action.payload;
-            })
-            .addCase(signUpPost.rejected, (state: any) => {
-                state.isAuthLoginLoading = false;
-                state.isSuccess = false;
-            })
-            .addCase(logoutPost.fulfilled, (state: any) => {
-                state.loginDetails = null;
-            })
-            .addCase(currencyChange.fulfilled, (state: any,action) => {
-                state.selectedCurrency = action.payload;
-            })
-            .addCase(setOpenLoginPopup.fulfilled, (state: any,action) => {
-                state.isOpenLoginPopup = action.payload;
-            })
-            .addCase(setOpenSignPopup.fulfilled, (state: any,action) => {
-                state.isOpenSignupPopup = action.payload;
-            })
+          .addCase(loginPost.pending, (state: any, _: any) => {
+            state.isAuthLoginLoading = true;
+            state.isSuccess = false;
+          })
+          .addCase(loginPost.fulfilled, (state: any, action: any) => {
+            state.isAuthLoginLoading = false;
+            state.isSuccess = true;
+            state.isOtp = action?.payload?.data?.otp || false;
+            state.loginDetails = action.payload;
+          })
+          .addCase(loginPost.rejected, (state: any) => {
+            state.isAuthLoginLoading = false;
+            state.isSuccess = false;
+          })
+          .addCase(signUpPost.pending, (state: any, _: any) => {
+            state.isAuthLoginLoading = true;
+            state.isSuccess = false;
+          })
+          .addCase(signUpPost.fulfilled, (state: any, action: any) => {
+            state.isAuthLoginLoading = false;
+            state.isSuccess = true;
+            state.isOtp = action?.payload?.data?.otp || false;
+            state.loginDetails = action.payload;
+          })
+          .addCase(signUpPost.rejected, (state: any) => {
+            state.isAuthLoginLoading = false;
+            state.isSuccess = false;
+          })
+          .addCase(logoutPost.fulfilled, (state: any) => {
+            state.loginDetails = null;
+          })
+          .addCase(currencyChange.fulfilled, (state: any, action) => {
+            state.selectedCurrency = action.payload;
+          })
+          .addCase(setOpenLoginPopup.fulfilled, (state: any, action) => {
+            state.isOpenLoginPopup = action.payload;
+          })
+          .addCase(setOpenSignPopup.fulfilled, (state: any, action) => {
+            state.isOpenSignupPopup = action.payload;
+          });
             
     }
 

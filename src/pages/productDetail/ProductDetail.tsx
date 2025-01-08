@@ -260,7 +260,7 @@ const ProductDetail = () => {
                       Object.entries(productDetails?.other_attribute)?.map(
                         (atr: any) => {
                           return (
-                            <div className="d-flex gap-1" key={atr[0]}>
+                           atr[1] && <div className="d-flex gap-1" key={atr[0]}>
                               <p>{atr[0]}</p>
                               <p>:</p>
                               <p>{atr[1]}</p>
