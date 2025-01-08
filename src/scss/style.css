@@ -827,16 +827,18 @@ header {
 }
 
 .categoerySidebar {
-  flex: 0 0 200px;
-  max-width: 200px;
+  flex: 0 0 224px;
+  max-width: 224px;
+  flex-shrink:0;
 }
 
 .categoerySidebar li a {
   text-decoration: none;
   display: block;
   padding: 7px 0;
-  font-size: 20px;
-  color: rgba(93, 93, 93, .7);
+  font-size: 18px;
+  color: rgba(53, 53, 53, 0.7);
+  font-weight:500;
 }
 
 footer {
@@ -844,8 +846,9 @@ footer {
 }
 
 .categoeryRightBar {
-  flex: 1;
-  max-width: calc(100% - 200px);
+  flex: 1 1;
+  max-width: calc(100% - 224px);
+  padding-left: 24px;
 }
 
 .categoeryRightBar h2 {
@@ -855,16 +858,20 @@ footer {
   margin: 0;
 }
 
+.TabRedirec{margin:10px 0 0 -10px;}
+
 .TabRedirec a {
-  display: inline-block;
-  padding: 10px;
+  display: inline-block; 
   text-decoration: none;
-  margin: 0 7px;
+  margin:0px 8px 0 0 ;
   color: #afafaf;
   text-transform: uppercase;
 } 
+
+.TabRedirec a span{padding:10px;}
+
 .categoeryRightBar .accordion-button {
-    font-size: 26px;
+    font-size: 32px;
     font-family: "Playfair Display", serif;
     padding: 15px 0;
 }

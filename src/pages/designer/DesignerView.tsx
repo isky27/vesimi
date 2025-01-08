@@ -57,32 +57,32 @@ const DesignerView = () => {
           <div className="categoeryRightBar">
             <h2 className="Playfair">Designers</h2>
             <div className="TabRedirec">
-              <a href="#AFor">A</a>
-              <a href="#bFor">b</a>
-              <a href="#cFor">c</a>
-              <a href="#dFor">d</a>
-              <a href="#eFor">e</a>
-              <a href="#fFor">f</a>
-              <a href="#gFor">g</a>
-              <a href="#hFor">h</a>
-              <a href="#iFor">i</a>
-              <a href="#jFor">j</a>
-              <a href="#kFor">k</a>
-              <a href="#lFor">l</a>
-              <a href="#mFor">m</a>
-              <a href="#nFor">n</a>
-              <a href="#oFor">o</a>
-              <a href="#pFor">p</a>
-              <a href="#qFor">q</a>
-              <a href="#rFor">r</a>
-              <a href="#sFor">s</a>
-              <a href="#tFor">t</a>
-              <a href="#uFor">u</a>
-              <a href="#vFor">v</a>
-              <a href="#wFor">w</a>
-              <a href="#xFor">x</a>
-              <a href="#yFor">y</a>
-              <a href="#zFor">z</a>
+              <a href="#AFor"><span data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false">A</span></a>
+              <a href="#bFor"><span  data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false">b</span></a>
+              <a href="#cFor"><span  data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false">c</span></a>
+              <a href="#dFor"><span  data-bs-toggle="collapse" data-bs-target="#faccordian3" aria-expanded="false">d</span></a>
+              <a href="#eFor"><span  data-bs-toggle="collapse" data-bs-target="#faccordian4" aria-expanded="false">e</span></a>
+              <a href="#fFor"><span  data-bs-toggle="collapse" data-bs-target="#faccordian5" aria-expanded="false">f</span></a>
+              <a href="#gFor"><span  data-bs-toggle="collapse" data-bs-target="#faccordian6" aria-expanded="false">g</span></a>
+              <a href="#hFor"><span  data-bs-toggle="collapse" data-bs-target="#faccordian7" aria-expanded="false">h</span></a>
+              <a href="#iFor"><span  data-bs-toggle="collapse" data-bs-target="#faccordian8" aria-expanded="false">i</span></a>
+              <a href="#jFor"><span  data-bs-toggle="collapse" data-bs-target="#faccordian9" aria-expanded="false">j</span></a>
+              <a href="#kFor"><span  data-bs-toggle="collapse" data-bs-target="#faccordian10" aria-expanded="false">k</span></a>
+              <a href="#lFor"><span  data-bs-toggle="collapse" data-bs-target="#faccordian12" aria-expanded="false">l</span></a>
+              <a href="#mFor"><span  data-bs-toggle="collapse" data-bs-target="#faccordian13" aria-expanded="false">m</span></a>
+              <a href="#nFor"><span  data-bs-toggle="collapse" data-bs-target="#faccordian14" aria-expanded="false">n</span></a>
+              <a href="#oFor"><span  data-bs-toggle="collapse" data-bs-target="#faccordian15" aria-expanded="false">o</span></a>
+              <a href="#pFor"><span  data-bs-toggle="collapse" data-bs-target="#faccordian16" aria-expanded="false">p</span></a>
+              <a href="#qFor"><span  data-bs-toggle="collapse" data-bs-target="#faccordian17" aria-expanded="false">q</span></a>
+              <a href="#rFor"><span  data-bs-toggle="collapse" data-bs-target="#faccordian18" aria-expanded="false">r</span></a>
+              <a href="#sFor"><span  data-bs-toggle="collapse" data-bs-target="#faccordian19" aria-expanded="false">s</span></a>
+              <a href="#tFor"><span  data-bs-toggle="collapse" data-bs-target="#faccordian20" aria-expanded="false">t</span></a>
+              <a href="#uFor"><span  data-bs-toggle="collapse" data-bs-target="#faccordian21" aria-expanded="false">u</span></a>
+              <a href="#vFor"><span  data-bs-toggle="collapse" data-bs-target="#faccordian22" aria-expanded="false">v</span></a>
+              <a href="#wFor"><span  data-bs-toggle="collapse" data-bs-target="#faccordian23" aria-expanded="false">w</span></a>
+              <a href="#xFor"><span  data-bs-toggle="collapse" data-bs-target="#faccordian24" aria-expanded="false">x</span></a>
+              <a href="#yFor"><span  data-bs-toggle="collapse" data-bs-target="#faccordian25" aria-expanded="false">y</span></a>
+              <a href="#zFor"><span  data-bs-toggle="collapse" data-bs-target="#faccordian26" aria-expanded="false">z</span></a>
             </div>
 
             <div
@@ -104,7 +104,7 @@ const DesignerView = () => {
                 </h2>
                 <div
                   id="flush-collapseOne"
-                  className="accordion-collapse collapse"
+                  className="accordion-collapse collapse show"
                   aria-labelledby="flush-headingOne"
                   data-bs-parent="#accordionFlushExample"
                 >
@@ -378,6 +378,8 @@ const DesignerView = () => {
                   </div>
                 </div>
               </div>
+
+
               <div className="accordion-item" id="kFor">
                 <h2 className="accordion-header" id="accordion7">
                   <button
@@ -413,6 +415,8 @@ const DesignerView = () => {
                   </div>
                 </div>
               </div>
+
+
               <div className="accordion-item" id="lFor">
                 <h2 className="accordion-header" id="accordion8">
                   <button
@@ -443,13 +447,15 @@ const DesignerView = () => {
                   </div>
                 </div>
               </div>
-			  <div className="accordion-item" id="lFor">
+
+
+			         <div className="accordion-item" id="mFor">
                 <h2 className="accordion-header" id="accordion8">
                   <button
                     className="accordion-button collapsed"
                     type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target="#faccordian12"
+                    data-bs-target="#faccordian13"
                     aria-expanded="false"
                     aria-controls="faccordian12"
                   >
@@ -457,7 +463,7 @@ const DesignerView = () => {
                   </button>
                 </h2>
                 <div
-                  id="faccordian12"
+                  id="faccordian13"
                   className="accordion-collapse collapse"
                   aria-labelledby="faccordian11"
                   data-bs-parent="#accordionFlushExample"
@@ -487,13 +493,15 @@ const DesignerView = () => {
                   </div>
                 </div>
               </div>
-			  <div className="accordion-item" id="lFor">
+
+
+			       <div className="accordion-item" id="nFor">
                 <h2 className="accordion-header" id="accordion8">
                   <button
                     className="accordion-button collapsed"
                     type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target="#faccordian12"
+                    data-bs-target="#faccordian14"
                     aria-expanded="false"
                     aria-controls="faccordian12"
                   >
@@ -501,7 +509,7 @@ const DesignerView = () => {
                   </button>
                 </h2>
                 <div
-                  id="faccordian12"
+                  id="faccordian14"
                   className="accordion-collapse collapse"
                   aria-labelledby="faccordian11"
                   data-bs-parent="#accordionFlushExample"
@@ -516,13 +524,15 @@ const DesignerView = () => {
                   </div>
                 </div>
               </div>
-			  <div className="accordion-item" id="lFor">
+
+
+			       <div className="accordion-item" id="oFor">
                 <h2 className="accordion-header" id="accordion8">
                   <button
                     className="accordion-button collapsed"
                     type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target="#faccordian12"
+                    data-bs-target="#faccordian15"
                     aria-expanded="false"
                     aria-controls="faccordian12"
                   >
@@ -530,7 +540,7 @@ const DesignerView = () => {
                   </button>
                 </h2>
                 <div
-                  id="faccordian12"
+                  id="faccordian15"
                   className="accordion-collapse collapse"
                   aria-labelledby="faccordian11"
                   data-bs-parent="#accordionFlushExample"
@@ -545,21 +555,23 @@ const DesignerView = () => {
                   </div>
                 </div>
               </div>
-			  <div className="accordion-item" id="lFor">
+
+
+			        <div className="accordion-item" id="pFor">
                 <h2 className="accordion-header" id="accordion8">
                   <button
                     className="accordion-button collapsed"
                     type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target="#faccordian12"
+                    data-bs-target="#faccordian16"
                     aria-expanded="false"
-                    aria-controls="faccordian12"
+                    aria-controls="faccordian16"
                   >
                     P
                   </button>
                 </h2>
                 <div
-                  id="faccordian12"
+                  id="faccordian16"
                   className="accordion-collapse collapse"
                   aria-labelledby="faccordian11"
                   data-bs-parent="#accordionFlushExample"
@@ -579,13 +591,15 @@ const DesignerView = () => {
                   </div>
                 </div>
               </div>
-			  <div className="accordion-item" id="lFor">
+
+
+			       <div className="accordion-item" id="qFor">
                 <h2 className="accordion-header" id="accordion8">
                   <button
                     className="accordion-button collapsed"
                     type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target="#faccordian12"
+                    data-bs-target="#faccordian17"
                     aria-expanded="false"
                     aria-controls="faccordian12"
                   >
@@ -593,7 +607,7 @@ const DesignerView = () => {
                   </button>
                 </h2>
                 <div
-                  id="faccordian12"
+                  id="faccordian17"
                   className="accordion-collapse collapse"
                   aria-labelledby="faccordian11"
                   data-bs-parent="#accordionFlushExample"
@@ -607,13 +621,14 @@ const DesignerView = () => {
                   </div>
                 </div>
               </div>
-			  <div className="accordion-item" id="lFor">
+
+			      <div className="accordion-item" id="rFor">
                 <h2 className="accordion-header" id="accordion8">
                   <button
                     className="accordion-button collapsed"
                     type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target="#faccordian12"
+                    data-bs-target="#faccordian18"
                     aria-expanded="false"
                     aria-controls="faccordian12"
                   >
@@ -621,7 +636,7 @@ const DesignerView = () => {
                   </button>
                 </h2>
                 <div
-                  id="faccordian12"
+                  id="faccordian18"
                   className="accordion-collapse collapse"
                   aria-labelledby="faccordian11"
                   data-bs-parent="#accordionFlushExample"
@@ -640,23 +655,25 @@ const DesignerView = () => {
                   </div>
                 </div>
               </div>
-			  <div className="accordion-item" id="lFor">
+
+
+			      <div className="accordion-item" id="sFor">
                 <h2 className="accordion-header" id="accordion8">
                   <button
                     className="accordion-button collapsed"
                     type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target="#faccordian12"
+                    data-bs-target="#faccordian19"
                     aria-expanded="false"
-                    aria-controls="faccordian12"
+                    aria-controls="faccordian"
                   >
                     S
                   </button>
                 </h2>
                 <div
-                  id="faccordian12"
+                  id="faccordian19"
                   className="accordion-collapse collapse"
-                  aria-labelledby="faccordian11"
+                  aria-labelledby="faccordian19"
                   data-bs-parent="#accordionFlushExample"
                 >
                   <div className="accordion-body">
@@ -682,13 +699,15 @@ const DesignerView = () => {
                   </div>
                 </div>
               </div>
-			  <div className="accordion-item" id="lFor">
+
+
+			       <div className="accordion-item" id="tFor">
                 <h2 className="accordion-header" id="accordion8">
                   <button
                     className="accordion-button collapsed"
                     type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target="#faccordian12"
+                    data-bs-target="#faccordian20"
                     aria-expanded="false"
                     aria-controls="faccordian12"
                   >
@@ -696,7 +715,7 @@ const DesignerView = () => {
                   </button>
                 </h2>
                 <div
-                  id="faccordian12"
+                  id="faccordian20"
                   className="accordion-collapse collapse"
                   aria-labelledby="faccordian11"
                   data-bs-parent="#accordionFlushExample"
@@ -716,13 +735,14 @@ const DesignerView = () => {
                   </div>
                 </div>
               </div>
-			  <div className="accordion-item" id="lFor">
+
+			        <div className="accordion-item" id="uFor">
                 <h2 className="accordion-header" id="accordion8">
                   <button
                     className="accordion-button collapsed"
                     type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target="#faccordian12"
+                    data-bs-target="#faccordian21"
                     aria-expanded="false"
                     aria-controls="faccordian12"
                   >
@@ -730,7 +750,7 @@ const DesignerView = () => {
                   </button>
                 </h2>
                 <div
-                  id="faccordian12"
+                  id="faccordian21"
                   className="accordion-collapse collapse"
                   aria-labelledby="faccordian11"
                   data-bs-parent="#accordionFlushExample"
@@ -746,13 +766,15 @@ const DesignerView = () => {
                   </div>
                 </div>
               </div>
-			  <div className="accordion-item" id="lFor">
+
+
+			       <div className="accordion-item" id="vFor">
                 <h2 className="accordion-header" id="accordion8">
                   <button
                     className="accordion-button collapsed"
                     type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target="#faccordian12"
+                    data-bs-target="#faccordian22"
                     aria-expanded="false"
                     aria-controls="faccordian12"
                   >
@@ -760,7 +782,7 @@ const DesignerView = () => {
                   </button>
                 </h2>
                 <div
-                  id="faccordian12"
+                  id="faccordian22"
                   className="accordion-collapse collapse"
                   aria-labelledby="faccordian11"
                   data-bs-parent="#accordionFlushExample"
@@ -774,13 +796,15 @@ const DesignerView = () => {
                   </div>
                 </div>
               </div>
-			  <div className="accordion-item" id="lFor">
+
+
+			        <div className="accordion-item" id="wFor">
                 <h2 className="accordion-header" id="accordion8">
                   <button
                     className="accordion-button collapsed"
                     type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target="#faccordian12"
+                    data-bs-target="#faccordian23"
                     aria-expanded="false"
                     aria-controls="faccordian12"
                   >
@@ -788,7 +812,7 @@ const DesignerView = () => {
                   </button>
                 </h2>
                 <div
-                  id="faccordian12"
+                  id="faccordian23"
                   className="accordion-collapse collapse"
                   aria-labelledby="faccordian11"
                   data-bs-parent="#accordionFlushExample"
@@ -802,13 +826,15 @@ const DesignerView = () => {
                   </div>
                 </div>
               </div>
-			  <div className="accordion-item" id="lFor">
+
+
+			      <div className="accordion-item" id="xFor">
                 <h2 className="accordion-header" id="accordion8">
                   <button
                     className="accordion-button collapsed"
                     type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target="#faccordian12"
+                    data-bs-target="#faccordian24"
                     aria-expanded="false"
                     aria-controls="faccordian12"
                   >
@@ -816,7 +842,7 @@ const DesignerView = () => {
                   </button>
                 </h2>
                 <div
-                  id="faccordian12"
+                  id="faccordian24"
                   className="accordion-collapse collapse"
                   aria-labelledby="faccordian11"
                   data-bs-parent="#accordionFlushExample"
@@ -832,13 +858,15 @@ const DesignerView = () => {
                   </div>
                 </div>
               </div>
-			  <div className="accordion-item" id="lFor">
+
+
+			      <div className="accordion-item" id="yFor">
                 <h2 className="accordion-header" id="accordion8">
                   <button
                     className="accordion-button collapsed"
                     type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target="#faccordian12"
+                    data-bs-target="#faccordian25"
                     aria-expanded="false"
                     aria-controls="faccordian12"
                   >
@@ -846,7 +874,7 @@ const DesignerView = () => {
                   </button>
                 </h2>
                 <div
-                  id="faccordian12"
+                  id="faccordian25"
                   className="accordion-collapse collapse"
                   aria-labelledby="faccordian11"
                   data-bs-parent="#accordionFlushExample"
@@ -862,13 +890,15 @@ const DesignerView = () => {
                   </div>
                 </div>
               </div>
-			  <div className="accordion-item" id="lFor">
+
+
+			      <div className="accordion-item" id="zFor">
                 <h2 className="accordion-header" id="accordion8">
                   <button
                     className="accordion-button collapsed"
                     type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target="#faccordian12"
+                    data-bs-target="#faccordian26"
                     aria-expanded="false"
                     aria-controls="faccordian12"
                   >
@@ -876,7 +906,7 @@ const DesignerView = () => {
                   </button>
                 </h2>
                 <div
-                  id="faccordian12"
+                  id="faccordian26"
                   className="accordion-collapse collapse"
                   aria-labelledby="faccordian11"
                   data-bs-parent="#accordionFlushExample"
