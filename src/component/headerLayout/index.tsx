@@ -50,9 +50,10 @@ const Header = () => {
     cartListData,
     isLoadingCartList,
     handleCart,
-    handleOpenForgetPasswordPopup,
     isOpenResetPassEmail,
     setIsOpenResetPassEmail,
+    resetPassEmailFormik,
+    isOpenResetPassCode,
   } = HeaderController();
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -1237,14 +1238,14 @@ const Header = () => {
         }}
         modalHeader={isOpenResetPassEmail ? "Forget Password" : "Login"}
       >
-        {isOpenResetPassEmail ? (
-          <Form onSubmit={loginFormik?.handleSubmit}>
+        {isOpenResetPassCode ? "" : isOpenResetPassEmail ? (
+          <Form onSubmit={resetPassEmailFormik?.handleSubmit}>
             <InputField
               label={"Email"}
-              onChange={loginFormik.handleChange}
+              onChange={resetPassEmailFormik.handleChange}
               name="email"
               type="name"
-              placeholder="Enter email or phone number"
+              placeholder="Enter email"
               required={true}
               onKeyDown={removeSpaceOnly}
             />

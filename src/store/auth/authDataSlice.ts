@@ -58,6 +58,25 @@ export const signUpPost = createAsyncThunk("post/signup", async (userData: any, 
     }
 });
 
+export const resetPassSendCodePost = createAsyncThunk("post/reset/password/code",
+  async (userData: any, thunkApi: any) => {
+    try {
+      const response: any = await authService.resetPassSendCodeApi(userData?.payload);
+      if (response?.result===true) {
+        userData?.closePopup(false);
+        userData?.openPopup(true);
+      } else {
+        toast.error(response.message[0]);
+        throw new Error(response);
+      }
+      return response;
+    } catch (error: any) {
+      const message: any = getErrorMessage(error);
+      return thunkApi.rejectWithValue(message);
+    }
+  }
+);
+
 // Logout slice
 export const logoutPost = createAsyncThunk("post/logout", async (_, thunkApi) => {
     try {
@@ -131,8 +150,17 @@ export const authDataReducer = createSlice({
           })
           .addCase(setOpenSignPopup.fulfilled, (state: any, action) => {
             state.isOpenSignupPopup = action.payload;
+          })
+          .addCase(resetPassSendCodePost.pending, (state: any, _: any) => {
+            state.isAuthLoginLoading = true;
+            state.isSuccess = false;
+          })
+          .addCase(resetPassSendCodePost.fulfilled, (state: any, action: any) => {
+            state.isAuthLoginLoading = false;
+          })
+          .addCase(resetPassSendCodePost.rejected, (state: any) => {
+            state.isAuthLoginLoading = false;
           });
-            
     }
 
 });

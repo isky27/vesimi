@@ -3,13 +3,15 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "store/redux.hooks";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { currencyChange, loginPost, logoutPost, setOpenLoginPopup, setOpenSignPopup, signUpPost } from "store/auth/authDataSlice";
+import { currencyChange, loginPost, logoutPost, resetPassSendCodePost, setOpenLoginPopup, setOpenSignPopup, signUpPost } from "store/auth/authDataSlice";
 import { emailRegex, phoneRegex, priceRange } from "constant";
 
 const HeaderController = () => {
   const [searchParams] = useSearchParams();
   const [searchInput,setSearchInput] = useState(searchParams.get("name") ?? "");
   const [isOpenResetPassEmail, setIsOpenResetPassEmail] = useState(false)
+  const [isOpenResetPassCode, setIsOpenResetPassCode] = useState(false);
+
   const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
@@ -35,30 +37,48 @@ const HeaderController = () => {
     passowrd_confirmation: ""
   };
 
-  const loginFormik = useFormik({
-    initialValues: loginInitialValues,
+  const resetPassEmailFormik = useFormik({
+    initialValues: { email : ""},
     validationSchema: Yup.object({
       email: Yup.string()
-      .required("Email or phone is required")
-      .test("email-or-phone", "Invalid email or phone number", function (value) {
-        return emailRegex.test(value) || phoneRegex.test(value);
-      }),
-      password: Yup.string()
-        .min(6, "Must be 6 characters or more")
-        .required("Password is required"),
+        .required("Email is required")
+        .test(
+          "email-or-phone",
+          "Invalid email or phone number",
+          function (value) {
+            return emailRegex.test(value);
+          }
+        )
     }),
     onSubmit: (values) => {
-      handleLogin(values);
+      handleResetPassSendCode(values);
     },
   });
+
+   const loginFormik = useFormik({
+     initialValues: loginInitialValues,
+     validationSchema: Yup.object({
+       email: Yup.string()
+         .required("Email is required")
+         .test(
+           "email-or-phone",
+           "Invalid email or phone number",
+           function (value) {
+             return emailRegex.test(value);
+           }
+         ),
+       password: Yup.string()
+         .min(6, "Must be 6 characters or more")
+         .required("Password is required"),
+     }),
+     onSubmit: (values) => {
+       handleLogin(values);
+     },
+   });
 
   const handleOpenLoginPopup = (state: boolean) => {
     dispatch(setOpenLoginPopup(state))
   }
-
-  const handleOpenForgetPasswordPopup = (state: boolean) => {
-    // dispatch(setOpenForgetPasswordPopup(state));
-  };
 
   const handleOpenSignupPopup = (state: boolean) => {
     dispatch(setOpenSignPopup(state))
@@ -70,8 +90,8 @@ const HeaderController = () => {
       name : Yup.string().required("Name is required"),
       email_or_phone: Yup.string()
       .required("Email or phone is required")
-      .test("email-or-phone", "Invalid email or phone number", function (value) {
-        return emailRegex.test(value) || phoneRegex.test(value);
+      .test("email-or-phone", "Invalid email", function (value) {
+        return emailRegex.test(value);
       }),
       password: Yup.string()
         .min(6, "Must be 6 characters or more")
@@ -85,6 +105,25 @@ const HeaderController = () => {
     },
   });
 
+  const handleResetPassSendCode = (values: any) => {
+    let login_by = "";
+    if (values.email && emailRegex.test(values.email)) {
+      login_by = "email";
+    }
+    if (values.email && phoneRegex.test(values.email)) {
+      login_by = "phone";
+    }
+    dispatch(
+      resetPassSendCodePost({
+        payload: {
+          email_or_phone: values.email,
+          send_code_by: login_by,
+        },
+        openPopup: setIsOpenResetPassCode,
+        closePopup: setIsOpenResetPassEmail
+      })
+    );
+  };
 
   const handleLogin = (values: any) => {
     let login_by= ""
@@ -173,9 +212,10 @@ const HeaderController = () => {
     cartListData,
     isLoadingCartList,
     handleCart,
-    handleOpenForgetPasswordPopup,
     isOpenResetPassEmail,
     setIsOpenResetPassEmail,
+    resetPassEmailFormik,
+    isOpenResetPassCode,
   };
 };
 
