@@ -29,10 +29,21 @@ const resetPassSendCodeApi = async (userData: any): Promise<ApiResponse> => {
     throw error;
   }
 };
+
+const confirmPassCodeApi=  async (userData: any): Promise<ApiResponse> => {
+  try {
+    const response: ApiResponse = await axios.post("auth/password/confirm_reset", userData);
+    return response;
+  } catch (error: any) {
+    throw error;
+  }
+};
+
 const authService = {
   authLoginPost,
   authSignUpPost,
   resetPassSendCodeApi,
+  confirmPassCodeApi
 };
 
 export default authService;

@@ -3,8 +3,9 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "store/redux.hooks";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { currencyChange, loginPost, logoutPost, resetPassSendCodePost, setOpenLoginPopup, setOpenSignPopup, signUpPost } from "store/auth/authDataSlice";
+import { confirmPassSendPost, currencyChange, loginPost, logoutPost, resetPassSendCodePost, setOpenLoginPopup, setOpenSignPopup, signUpPost } from "store/auth/authDataSlice";
 import { emailRegex, phoneRegex, priceRange } from "constant";
+import { toast } from "react-toastify";
 
 const HeaderController = () => {
   const [searchParams] = useSearchParams();
@@ -55,26 +56,43 @@ const HeaderController = () => {
     },
   });
 
-   const loginFormik = useFormik({
-     initialValues: loginInitialValues,
-     validationSchema: Yup.object({
-       email: Yup.string()
-         .required("Email is required")
-         .test(
-           "email-or-phone",
-           "Invalid email or phone number",
-           function (value) {
-             return emailRegex.test(value);
-           }
-         ),
-       password: Yup.string()
-         .min(6, "Must be 6 characters or more")
-         .required("Password is required"),
-     }),
-     onSubmit: (values) => {
-       handleLogin(values);
-     },
-   });
+  const loginFormik = useFormik({
+    initialValues: loginInitialValues,
+    validationSchema: Yup.object({
+      email: Yup.string()
+        .required("Email is required")
+        .test(
+          "email-or-phone",
+          "Invalid email or phone number",
+          function (value) {
+            return emailRegex.test(value);
+          }
+        ),
+      password: Yup.string()
+        .min(6, "Must be 6 characters or more")
+        .required("Password is required"),
+    }),
+    onSubmit: (values) => {
+      handleLogin(values);
+    },
+  });
+
+  const confirmResetPassFormik = useFormik({
+    initialValues: signupInitialValues,
+    validationSchema: Yup.object({
+      verification_code: Yup.number()
+        .required("Verification code is required"),
+      password: Yup.string()
+        .min(6, "Must be 6 characters or more")
+        .required("Password is required"),
+      passowrd_confirmation: Yup.string()
+        .oneOf([Yup.ref("password"), ""], "Passwords must match")
+        .required("Confirm password is required"),
+    }),
+    onSubmit: (values) => {
+      handleConfirmPassSendCode(values);
+    },
+  });
 
   const handleOpenLoginPopup = (state: boolean) => {
     dispatch(setOpenLoginPopup(state))
@@ -123,6 +141,22 @@ const HeaderController = () => {
         closePopup: setIsOpenResetPassEmail
       })
     );
+  };
+
+  const handleConfirmPassSendCode = (values: any) => {
+     dispatch(
+       confirmPassSendPost({
+           verification_code: values?.verification_code,
+           password: values.password,
+       })
+     ).unwrap().then(()=>{
+         setIsOpenResetPassCode(false)
+         setIsOpenResetPassEmail(false)
+         handleOpenLoginPopup(false);
+     }).catch((error)=>{
+          toast.error(error.message[0]);
+          throw new Error(error);
+     })
   };
 
   const handleLogin = (values: any) => {
@@ -216,6 +250,7 @@ const HeaderController = () => {
     setIsOpenResetPassEmail,
     resetPassEmailFormik,
     isOpenResetPassCode,
+    confirmResetPassFormik,
   };
 };
 

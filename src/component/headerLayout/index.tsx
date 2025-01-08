@@ -54,6 +54,7 @@ const Header = () => {
     setIsOpenResetPassEmail,
     resetPassEmailFormik,
     isOpenResetPassCode,
+    confirmResetPassFormik
   } = HeaderController();
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -1236,9 +1237,57 @@ const Header = () => {
           handleOpenLoginPopup(false);
           setIsOpenResetPassEmail(false);
         }}
-        modalHeader={isOpenResetPassEmail ? "Forget Password" : "Login"}
+        modalHeader={
+          isOpenResetPassCode || isOpenResetPassEmail
+            ? "Forget Password"
+            : "Login"
+        }
       >
-        {isOpenResetPassCode ? "" : isOpenResetPassEmail ? (
+        {isOpenResetPassCode ? (
+          <Form onSubmit={confirmResetPassFormik?.handleSubmit}>
+            <InputField
+              label={"Verification Code"}
+              onChange={confirmResetPassFormik.handleChange}
+              name="verification_code"
+              type="number"
+              placeholder="Enter verification code"
+              required={true}
+              onKeyDown={removeSpaceOnly}
+            />
+            <InputField
+              label={"Password"}
+              onChange={confirmResetPassFormik.handleChange}
+              name="password"
+              type="password"
+              placeholder="Enter password"
+              required={true}
+              onKeyDown={removeSpaceOnly}
+            />
+            <InputField
+              label={"Confirm Password"}
+              onChange={confirmResetPassFormik.handleChange}
+              name="passowrd_confirmation"
+              type="passowrd"
+              placeholder="Enter confirm password"
+              required={true}
+              onKeyDown={removeSpaceOnly}
+            />
+            <div className="d-flex justify-content-end gap-2 mt-3">
+              <Button
+                className="font-14 w-100 themeCancelBtn"
+                onClick={() => {
+                  handleOpenLoginPopup(false);
+                  setIsOpenResetPassEmail(false);
+                }}
+              >
+                Cancel
+              </Button>
+              <Button className="font-14 w-100 themePrimaryBtn" type="submit">
+                Send Code
+              </Button>
+            </div>
+          </Form>
+        ) : isOpenResetPassEmail ? (
           <Form onSubmit={resetPassEmailFormik?.handleSubmit}>
             <InputField
               label={"Email"}

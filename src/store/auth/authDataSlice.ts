@@ -77,6 +77,18 @@ export const resetPassSendCodePost = createAsyncThunk("post/reset/password/code"
   }
 );
 
+export const confirmPassSendPost = createAsyncThunk("post/reset/confirm/password",
+  async (userData: any, thunkApi: any) => {
+    try {
+      const response: any = await authService.confirmPassCodeApi(userData);
+      return response;
+    } catch (error: any) {
+      const message: any = getErrorMessage(error);
+      return thunkApi.rejectWithValue(message);
+    }
+  }
+);
+
 // Logout slice
 export const logoutPost = createAsyncThunk("post/logout", async (_, thunkApi) => {
     try {
