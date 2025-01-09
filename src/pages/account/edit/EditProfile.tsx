@@ -46,7 +46,7 @@ const EditProfile = () => {
             {editEmail && <Form.Group controlId="formCurrentPassword">
               <Form.Label>Email *</Form.Label>
               <Form.Control
-                type="email"
+                type="text"
                 placeholder="Enter Email"
                 disabled={!editEmail}
                 value={user?.email}

@@ -54,7 +54,8 @@ const Header = () => {
     setIsOpenResetPassEmail,
     resetPassEmailFormik,
     isOpenResetPassCode,
-    confirmResetPassFormik
+    confirmResetPassFormik,
+    setIsOpenResetPassCode,
   } = HeaderController();
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -1236,6 +1237,7 @@ const Header = () => {
         handleClose={() => {
           handleOpenLoginPopup(false);
           setIsOpenResetPassEmail(false);
+          setIsOpenResetPassCode(false)
         }}
         modalHeader={
           isOpenResetPassCode || isOpenResetPassEmail
@@ -1249,7 +1251,7 @@ const Header = () => {
               label={"Verification Code"}
               onChange={confirmResetPassFormik.handleChange}
               name="verification_code"
-              type="number"
+              type="text"
               placeholder="Enter verification code"
               required={true}
               onKeyDown={removeSpaceOnly}
@@ -1299,7 +1301,7 @@ const Header = () => {
               label={"Email"}
               onChange={resetPassEmailFormik.handleChange}
               name="email"
-              type="email"
+              type="text"
               placeholder="Enter email"
               required={true}
               onKeyDown={removeSpaceOnly}
@@ -1400,7 +1402,7 @@ const Header = () => {
             label={"Email"}
             onChange={signupFormik.handleChange}
             name="email_or_phone"
-            type="email"
+            type="text"
             placeholder="Enter email or Contact number"
             required={true}
             onKeyDown={removeSpaceOnly}

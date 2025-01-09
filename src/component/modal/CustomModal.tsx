@@ -14,7 +14,7 @@ const CustomModal = ({ show, handleClose, modalClass, handleSubmit }: any) => {
               <Input type="tel" placeholder="Mobile Number" />
             </Col>
             <Col>
-              <Input type="email" placeholder="Email" />
+              <Input type="text" placeholder="Email" />
             </Col>
           </Row>
           <Row md={12}>
