@@ -44,8 +44,8 @@ const HeaderController = () => {
       email: Yup.string()
         .required("Email is required")
         .test(
-          "email-or-phone",
-          "Invalid email or phone number",
+          "email",
+          "Invalid email",
           function (value) {
             return emailRegex.test(value);
           }
@@ -78,10 +78,13 @@ const HeaderController = () => {
   });
 
   const confirmResetPassFormik = useFormik({
-    initialValues: signupInitialValues,
+    initialValues: {
+      verification_code:0,
+      password: "",
+      passowrd_confirmation: "",
+    },
     validationSchema: Yup.object({
-      verification_code: Yup.number()
-        .required("Verification code is required"),
+      verification_code: Yup.number().required("Verification code is required"),
       password: Yup.string()
         .min(6, "Must be 6 characters or more")
         .required("Password is required"),
@@ -103,7 +106,7 @@ const HeaderController = () => {
   }
   
   const signupFormik = useFormik({
-    initialValues: signupInitialValues,
+    initialValues: {signupInitialValues},
     validationSchema: Yup.object({
       name : Yup.string().required("Name is required"),
       email_or_phone: Yup.string()
@@ -153,6 +156,7 @@ const HeaderController = () => {
          setIsOpenResetPassCode(false)
          setIsOpenResetPassEmail(false)
          handleOpenLoginPopup(false);
+         toast.success("Password reset successfully.")
      }).catch((error)=>{
           toast.error(error.message[0]);
           throw new Error(error);

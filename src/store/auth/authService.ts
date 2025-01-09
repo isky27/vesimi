@@ -39,11 +39,21 @@ const confirmPassCodeApi=  async (userData: any): Promise<ApiResponse> => {
   }
 };
 
+const newsLetterSubsApi=  async (userData: any): Promise<ApiResponse> => {
+  try {
+    const response: ApiResponse = await axios.post("subscribe-email", userData);
+    return response;
+  } catch (error: any) {
+    throw error;
+  }
+};
+
 const authService = {
   authLoginPost,
   authSignUpPost,
   resetPassSendCodeApi,
-  confirmPassCodeApi
+  confirmPassCodeApi,
+  newsLetterSubsApi,
 };
 
 export default authService;

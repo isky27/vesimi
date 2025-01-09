@@ -13,5 +13,6 @@ export interface AuthDataInterface {
   selectedCurrency: string;
   isOpenLoginPopup: boolean;
   isOpenSignupPopup: boolean;
+  isLoadingNewsSubscribe: boolean
 }
 
