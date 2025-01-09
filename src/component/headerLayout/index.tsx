@@ -1253,6 +1253,8 @@ const Header = () => {
               placeholder="Enter verification code"
               required={true}
               onKeyDown={removeSpaceOnly}
+              touched={confirmResetPassFormik.touched.verification_code}
+              errors={confirmResetPassFormik.errors.verification_code}
             />
             <InputField
               label={"Password"}
@@ -1262,6 +1264,8 @@ const Header = () => {
               placeholder="Enter password"
               required={true}
               onKeyDown={removeSpaceOnly}
+              touched={confirmResetPassFormik.touched.password}
+              errors={confirmResetPassFormik.errors.password}
             />
             <InputField
               label={"Confirm Password"}
@@ -1271,6 +1275,8 @@ const Header = () => {
               placeholder="Enter confirm password"
               required={true}
               onKeyDown={removeSpaceOnly}
+              touched={confirmResetPassFormik.touched.passowrd_confirmation}
+              errors={confirmResetPassFormik.errors.passowrd_confirmation}
             />
             <div className="d-flex justify-content-end gap-2 mt-3">
               <Button
@@ -1293,10 +1299,12 @@ const Header = () => {
               label={"Email"}
               onChange={resetPassEmailFormik.handleChange}
               name="email"
-              type="name"
+              type="email"
               placeholder="Enter email"
               required={true}
               onKeyDown={removeSpaceOnly}
+              touched={resetPassEmailFormik.touched.email}
+              errors={resetPassEmailFormik.errors.email}
             />
             <div className="d-flex justify-content-end gap-2 mt-3">
               <Button
@@ -1323,6 +1331,8 @@ const Header = () => {
               placeholder="Enter email or phone number"
               required={true}
               onKeyDown={removeSpaceOnly}
+              touched={loginFormik.touched.email}
+              errors={loginFormik.errors.email}
             />
             <InputField
               label={"Password"}
@@ -1332,6 +1342,8 @@ const Header = () => {
               placeholder="Enter password"
               required={true}
               onKeyDown={removeSpaceOnly}
+              touched={loginFormik.touched.password}
+              errors={loginFormik.errors.password}
             />
             <div className="mt-3 d-flex justify-content-between forgot-remember">
               <Button
@@ -1377,19 +1389,23 @@ const Header = () => {
             label={"Name"}
             onChange={signupFormik.handleChange}
             name="name"
-            type="name"
+            type="text"
             placeholder="Enter name"
             required={true}
             onKeyDown={removeSpaceOnly}
+            touched={signupFormik.touched.name}
+            errors={signupFormik.errors.name}
           />
           <InputField
             label={"Email"}
             onChange={signupFormik.handleChange}
             name="email_or_phone"
-            type="name"
+            type="email"
             placeholder="Enter email or Contact number"
             required={true}
             onKeyDown={removeSpaceOnly}
+            touched={signupFormik.touched.email_or_phone}
+            errors={signupFormik.errors.email_or_phone}
           />
           <InputField
             label={"Password"}
@@ -1399,6 +1415,8 @@ const Header = () => {
             placeholder="Enter password"
             required={true}
             onKeyDown={removeSpaceOnly}
+            touched={signupFormik.touched.password}
+            errors={signupFormik.errors.password}
           />
           <InputField
             label={"Confirm Password"}
@@ -1408,6 +1426,8 @@ const Header = () => {
             placeholder="Enter confirm password"
             required={true}
             onKeyDown={removeSpaceOnly}
+            touched={signupFormik.touched.passowrd_confirmation}
+            errors={signupFormik.errors.passowrd_confirmation}
           />
 
           <div className="mt-3 d-flex justify-content-center">

@@ -106,7 +106,7 @@ const HeaderController = () => {
   }
   
   const signupFormik = useFormik({
-    initialValues: {signupInitialValues},
+    initialValues: signupInitialValues,
     validationSchema: Yup.object({
       name : Yup.string().required("Name is required"),
       email_or_phone: Yup.string()

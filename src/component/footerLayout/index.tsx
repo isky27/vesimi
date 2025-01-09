@@ -116,7 +116,12 @@ const Footer = () => {
                 </button>
               </Form>
             </div>
-
+            {subscribeNewsFormik.touched.email &&
+              subscribeNewsFormik.errors.email && (
+                <span style={{ color: "red", fontSize: "12px" }}>
+                  {subscribeNewsFormik.errors.email}
+                </span>
+              )}
             <div className="acceptCard mt-2 pt-1">
               <Link
                 to={"/"}
