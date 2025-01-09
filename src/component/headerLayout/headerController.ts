@@ -51,8 +51,9 @@ const HeaderController = () => {
           }
         )
     }),
-    onSubmit: (values) => {
+    onSubmit: (values, {resetForm}) => {
       handleResetPassSendCode(values);
+      resetForm();
     },
   });
 
@@ -72,28 +73,30 @@ const HeaderController = () => {
         .min(6, "Must be 6 characters or more")
         .required("Password is required"),
     }),
-    onSubmit: (values) => {
+    onSubmit: (values, { resetForm }) => {
       handleLogin(values);
+      resetForm()
     },
   });
 
   const confirmResetPassFormik = useFormik({
     initialValues: {
-      verification_code: "",
-      password: "",
+      code: "",
+      reset_password: "",
       passowrd_confirmation: "",
     },
     validationSchema: Yup.object({
-      verification_code: Yup.string().required("Verification code is required"),
-      password: Yup.string()
+      code: Yup.string().required("Verification code is required"),
+      reset_password: Yup.string()
         .min(6, "Must be 6 characters or more")
         .required("Password is required"),
       passowrd_confirmation: Yup.string()
-        .oneOf([Yup.ref("password"), ""], "Passwords must match")
+        .oneOf([Yup.ref("reset_password"), ""], "Passwords must match")
         .required("Confirm password is required"),
     }),
-    onSubmit: (values) => {
+    onSubmit: (values, {resetForm}) => {
       handleConfirmPassSendCode(values);
+      resetForm();
     },
   });
 
@@ -121,8 +124,9 @@ const HeaderController = () => {
         .oneOf([Yup.ref('password'), ''], 'Passwords must match')
         .required("Confirm password is required"),
     }),
-    onSubmit: (values) => {
+    onSubmit: (values,  {resetForm}) => {
       handleSignup(values);
+      resetForm()
     },
   });
 
@@ -149,15 +153,15 @@ const HeaderController = () => {
   const handleConfirmPassSendCode = (values: any) => {
     dispatch(
       confirmPassSendPost({
-        verification_code: values?.verification_code,
-        password: values.password,
+        verification_code: values?.code,
+        password: values.reset_password,
       })
     ).unwrap().then((res) => {
-      if (res.status === true) {
+      if (res.result == true) {
         setIsOpenResetPassCode(false);
         setIsOpenResetPassEmail(false);
         handleOpenLoginPopup(false);
-        toast.success("Password reset successfully.");
+        toast.success(res?.message);
       } else {
         toast.error(res.message);
       }
@@ -214,12 +218,12 @@ const HeaderController = () => {
   const handleSearch = (e: any) => {
     e.preventDefault();
     if (searchInput) {
-      navigate(`/search/category/6?min=${priceRange[0]}&max=${priceRange[1]}&name=${searchInput}`)
+      navigate(`/search/category/6?sub-category=6&min=${priceRange[0]}&max=${priceRange[1]}&name=${searchInput}`)
     }
   }
 
   useEffect(() => {
-    if (!searchParams.get("name")) {
+    if (!(searchParams.get("name"))) {
       setSearchInput("")
     }
   }, [searchParams])

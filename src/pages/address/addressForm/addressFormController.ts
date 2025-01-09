@@ -46,7 +46,7 @@ const AddressController = ({isEdit, handleAfterSuccess }: any) => {
       }).required("City is required"),
       zip_code: Yup.string().required("Zip code is required"),
     }),
-    onSubmit: (values: any) => {
+    onSubmit: (values: any, {resetForm}) => {
       dispatch(addAddress(
         {
           "user_id": loginDetails?.user?.id,
@@ -58,6 +58,7 @@ const AddressController = ({isEdit, handleAfterSuccess }: any) => {
           "phone": values?.phone
         })).unwrap().then(() => {
           handleAfterSuccess()
+          resetForm();
         }).catch((error) => {
           console.log(error?.message);
         })

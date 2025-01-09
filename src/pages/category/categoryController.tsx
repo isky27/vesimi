@@ -65,7 +65,7 @@ const CategoryController = () => {
   }, [filterSize, filterColor, filterDesigner, filterPrice]);
 
   useEffect(() => {
-    if(filterCategory!==categoryId){
+    if (filterCategory.values().next().value != categoryId) {
       let selectedCategory = filterCategory.values().next().value;
       navigate(getCategoryUrl(selectedCategory));
     }

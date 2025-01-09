@@ -1237,7 +1237,7 @@ const Header = () => {
         handleClose={() => {
           handleOpenLoginPopup(false);
           setIsOpenResetPassEmail(false);
-          setIsOpenResetPassCode(false)
+          setIsOpenResetPassCode(false);
         }}
         modalHeader={
           isOpenResetPassCode || isOpenResetPassEmail
@@ -1250,28 +1250,31 @@ const Header = () => {
             <InputField
               label={"Verification Code"}
               onChange={confirmResetPassFormik.handleChange}
-              name="verification_code"
+              value={confirmResetPassFormik.values.code}
+              name="code"
               type="text"
               placeholder="Enter verification code"
               required={true}
               onKeyDown={removeSpaceOnly}
-              touched={confirmResetPassFormik.touched.verification_code}
-              errors={confirmResetPassFormik.errors.verification_code}
+              touched={confirmResetPassFormik.touched.code}
+              errors={confirmResetPassFormik.errors.code}
             />
             <InputField
               label={"Password"}
               onChange={confirmResetPassFormik.handleChange}
-              name="password"
+              value={confirmResetPassFormik.values.reset_password}
+              name="reset_password"
               type="password"
               placeholder="Enter password"
               required={true}
               onKeyDown={removeSpaceOnly}
-              touched={confirmResetPassFormik.touched.password}
-              errors={confirmResetPassFormik.errors.password}
+              touched={confirmResetPassFormik.touched.reset_password}
+              errors={confirmResetPassFormik.errors.reset_password}
             />
             <InputField
               label={"Confirm Password"}
               onChange={confirmResetPassFormik.handleChange}
+              value={confirmResetPassFormik.values.passowrd_confirmation}
               name="passowrd_confirmation"
               type="passowrd"
               placeholder="Enter confirm password"
@@ -1300,6 +1303,7 @@ const Header = () => {
             <InputField
               label={"Email"}
               onChange={resetPassEmailFormik.handleChange}
+              value={resetPassEmailFormik.values.email}
               name="email"
               type="text"
               placeholder="Enter email"
@@ -1328,6 +1332,7 @@ const Header = () => {
             <InputField
               label={"Email"}
               onChange={loginFormik.handleChange}
+              value={loginFormik.values.email}
               name="email"
               type="name"
               placeholder="Enter email or phone number"
@@ -1339,6 +1344,7 @@ const Header = () => {
             <InputField
               label={"Password"}
               onChange={loginFormik.handleChange}
+              value={loginFormik.values.password}
               name="password"
               type="password"
               placeholder="Enter password"
@@ -1390,6 +1396,7 @@ const Header = () => {
           <InputField
             label={"Name"}
             onChange={signupFormik.handleChange}
+            value={signupFormik.values.name}
             name="name"
             type="text"
             placeholder="Enter name"
@@ -1401,6 +1408,7 @@ const Header = () => {
           <InputField
             label={"Email"}
             onChange={signupFormik.handleChange}
+            value={signupFormik.values.email_or_phone}
             name="email_or_phone"
             type="text"
             placeholder="Enter email or Contact number"
@@ -1412,6 +1420,7 @@ const Header = () => {
           <InputField
             label={"Password"}
             onChange={signupFormik.handleChange}
+            value={signupFormik.values.password}
             name="password"
             type="password"
             placeholder="Enter password"
@@ -1423,6 +1432,7 @@ const Header = () => {
           <InputField
             label={"Confirm Password"}
             onChange={signupFormik.handleChange}
+            value={signupFormik.values.passowrd_confirmation}
             name="passowrd_confirmation"
             type="passowrd"
             placeholder="Enter confirm password"

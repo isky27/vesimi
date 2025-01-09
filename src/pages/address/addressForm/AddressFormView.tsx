@@ -22,6 +22,7 @@ const AddressFormView = ({isEdit, handleAfterSuccess }: any) => {
           <InputField
             label="Name"
             onChange={addressFormik.handleChange}
+            value={addressFormik.values.name}
             name="name"
             type="name"
             placeholder="Enter name"
@@ -35,6 +36,7 @@ const AddressFormView = ({isEdit, handleAfterSuccess }: any) => {
           <InputField
             label="Phone Number"
             onChange={addressFormik.handleChange}
+            value={addressFormik.values.phone}
             name="phone"
             type="name"
             placeholder="Phone Number"
@@ -48,6 +50,7 @@ const AddressFormView = ({isEdit, handleAfterSuccess }: any) => {
           <InputField
             label={"Address"}
             onChange={addressFormik.handleChange}
+            value={addressFormik.values.address}
             name="address"
             type="name"
             placeholder="Enter Address"
@@ -126,6 +129,7 @@ const AddressFormView = ({isEdit, handleAfterSuccess }: any) => {
           <InputField
             label={"Zip/Postal Code"}
             onChange={addressFormik.handleChange}
+            value={addressFormik.values.zip_code}
             name="zip_code"
             type="name"
             placeholder="Postal Code"

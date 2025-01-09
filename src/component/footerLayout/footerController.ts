@@ -17,20 +17,17 @@ const FooterController = () => {
   }
 
     const subscribeNewsFormik = useFormik({
-      initialValues: { email : ""},
+      initialValues: { email: "" },
       validationSchema: Yup.object({
         email: Yup.string()
           .required("Email is required")
-          .test(
-            "email",
-            "Invalid email",
-            function (value) {
-              return emailRegex.test(value);
-            }
-          )
+          .test("email", "Invalid email", function (value) {
+            return emailRegex.test(value);
+          }),
       }),
-      onSubmit: (values) => {
+      onSubmit: (values, {resetForm}) => {
         handleSubscribeNews(values);
+        resetForm();
       },
     });
   

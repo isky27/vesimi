@@ -75,6 +75,7 @@ export const resetPassSendCodePost = createAsyncThunk(
       if (response?.result === true) {
         userData?.closePopup(false);
         userData?.openPopup(true);
+        toast.success(response?.message)
       } else {
         toast.error(response.message[0]);
         throw new Error(response);
@@ -105,7 +106,9 @@ export const newsLetterSubscribe = createAsyncThunk(
   async (userData: any, thunkApi: any) => {
     try {
       const response: any = await authService.newsLetterSubsApi(userData);
-      return response;
+      if (response?.result == true){
+        toast.success(response?.message)
+      } return response;
     } catch (error: any) {
       const message: any = getErrorMessage(error);
       return thunkApi.rejectWithValue(message);
