@@ -36,7 +36,8 @@ const CartView = () => {
                                             <figcaption>
                                                 <Link className="text-dark text-decoration-none" to={`/products/${item?.product_id}`}>
                                                     {item?.product_name && <p className="mb-1" style={{ fontSize: "11px" }}>{item?.product_name}</p>}
-                                                    {Object.entries(JSON.parse(item?.option_json))?.map((atr: any) => {
+                                                    {item?.option_json && Object.entries(JSON.parse(item?.option_json))?.map((atr: any) => {
+                                                           if(att[1]){
                                                             return (
                                                               <div
                                                                 className="d-flex gap-1 align-items-top"
@@ -45,7 +46,7 @@ const CartView = () => {
                                                                 <p style={{textTransform:"capitalize"}}>{atr[0]} : </p>
                                                                 <p>{atr[1]}</p>
                                                               </div>
-                                                            );
+                                                            );}
                                                             }
                                                     )}
                                                     {item?.price && <div className="mb-1">Price: {getPrice(item?.price, selectedCurrency)}
