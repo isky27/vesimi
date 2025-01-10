@@ -247,21 +247,19 @@ const CheckoutView = () => {
                               {item?.product_name}
                             </p>
                           )}
-                          {Object.entries(JSON.parse(item?.option_json))?.map(
-                            (atr: any) => {
-                              return (
-                                <div
-                                  className="d-flex gap-1 align-items-top"
-                                  key={atr[0]}
-                                >
-                                  <p style={{ textTransform: "capitalize" }}>
-                                    {atr[0]} :{" "}
-                                  </p>
-                                  <p>{atr[1]}</p>
-                                </div>
-                              );
-                            }
-                          )}
+                          {item?.option_json && (Object.entries(JSON.parse(item?.option_json))?.map((atr: any) => {
+                                                           if(atr?.[0] && atr?.[1]){
+                                                            return (
+                                                              <div
+                                                                className="d-flex gap-1 align-items-top"
+                                                                key={atr[0]}
+                                                              >
+                                                                <p style={{textTransform:"capitalize"}}>{atr[0]} : </p>
+                                                                <p>{atr[1]}</p>
+                                                              </div>
+                                                            )};
+                                                            }
+                                                    ))}
                           {item?.price && (
                             <div className="mb-1">
                               Price: {getPrice(item?.price, selectedCurrency)}
