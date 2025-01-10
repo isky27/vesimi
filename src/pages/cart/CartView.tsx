@@ -37,7 +37,7 @@ const CartView = () => {
                                                 <Link className="text-dark text-decoration-none" to={`/products/${item?.product_id}`}>
                                                     {item?.product_name && <p className="mb-1" style={{ fontSize: "11px" }}>{item?.product_name}</p>}
                                                     {item?.option_json && (Object.entries(JSON.parse(item?.option_json))?.map((atr: any) => {
-                                                           if(atr?.[0] && att?.[1]){
+                                                           if(atr?.[0] && atr?.[1]){
                                                             return (
                                                               <div
                                                                 className="d-flex gap-1 align-items-top"
