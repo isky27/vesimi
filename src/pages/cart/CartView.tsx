@@ -46,7 +46,7 @@ const CartView = () => {
                                                                 <p style={{textTransform:"capitalize"}}>{atr[0]} : </p>
                                                                 <p>{atr[1]}</p>
                                                               </div>
-                                                            );}
+                                                            )};
                                                             }
                                                     )}
                                                     {item?.price && <div className="mb-1">Price: {getPrice(item?.price, selectedCurrency)}
