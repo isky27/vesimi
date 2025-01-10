@@ -36,8 +36,8 @@ const CartView = () => {
                                             <figcaption>
                                                 <Link className="text-dark text-decoration-none" to={`/products/${item?.product_id}`}>
                                                     {item?.product_name && <p className="mb-1" style={{ fontSize: "11px" }}>{item?.product_name}</p>}
-                                                    {item?.option_json && Object.entries(JSON.parse(item?.option_json))?.map((atr: any) => {
-                                                           if(att[1]){
+                                                    {item?.option_json && (Object.entries(JSON.parse(item?.option_json))?.map((atr: any) => {
+                                                           if(atr?.[0] && att?.[1]){
                                                             return (
                                                               <div
                                                                 className="d-flex gap-1 align-items-top"
@@ -48,7 +48,7 @@ const CartView = () => {
                                                               </div>
                                                             )};
                                                             }
-                                                    )}
+                                                    ))}
                                                     {item?.price && <div className="mb-1">Price: {getPrice(item?.price, selectedCurrency)}
                                                         {/* <strong className="ms-2">₹ 17,600</strong>
                                                 <span className="ms-2" style={{ color: "#388e3c" }}>(20% off)</span> */}
