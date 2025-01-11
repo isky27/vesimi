@@ -18,6 +18,7 @@ const initialState: ProductInterface = {
     isLoadingRelatedProducts: false,
     relatedProductsData : null,
     isLoadingAddToCart: false,
+    isLoadingWishList: false
 }
 
 // Async Thunks
@@ -53,6 +54,19 @@ export const addToCart = createAsyncThunk("add/to/cart", async (userData:any,thu
         thunkApi.dispatch(cartListDataApi({
             user_id:userData?.user_id
         }))
+        return response;
+    } catch (error: any) {
+        const message: any = getErrorMessage(error)
+        return thunkApi.rejectWithValue(message);
+    }
+});
+
+export const addWishList = createAsyncThunk("add/product/wishlist", async (userData:any,thunkApi: any) => {
+    try {
+        const response:any = await productService.addWishListProductApi(userData);
+        if(response?.result){
+            toast.success(response?.message)
+        }
         return response;
     } catch (error: any) {
         const message: any = getErrorMessage(error)
@@ -109,6 +123,15 @@ export const productReducer = createSlice({
             .addCase(addToCart.rejected, (state: any) => {
                 state.isLoadingAddToCart = false;
                 state.isSuccess = false;
+            })
+            .addCase(addWishList.pending, (state: any, _: any) => {
+                state.isLoadingWishList = true;
+            })
+            .addCase(addWishList.fulfilled, (state: any, action: any) => {
+                state.isLoadingWishList = false;
+            })
+            .addCase(addWishList.rejected, (state: any) => {
+                state.isLoadingWishList = false;
             })
     }
 

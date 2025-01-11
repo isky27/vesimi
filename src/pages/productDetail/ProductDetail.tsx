@@ -22,10 +22,11 @@ const ProductDetail = () => {
     handleAddToCart,
     selectedDesigner, setSelectedDesigner,
     isLoadingAddToCart,
-    isOpenSizeChart, setIsOpenSizeChart
+    isOpenSizeChart, setIsOpenSizeChart,
+    addToWishList
   } = ProductDetailController()
 
-  const {selectedCurrency} = useAppSelector((state:any)=>state.auth)
+  const { selectedCurrency } = useAppSelector((state: any) => state.auth)
 
   const productDetails = productDetailData?.data[0];
 
@@ -55,8 +56,7 @@ const ProductDetail = () => {
                           key={index}
                           src={image?.path}
                           alt={`Thumbnail ${index + 1}`}
-                          className={`thumbnail ${
-                            selectedImage === image.path ? "selected" : ""
+                          className={`thumbnail ${selectedImage === image.path ? "selected" : ""
                           }`}
                           onClick={() => setSelectedImage(image.path)}
                         />
@@ -138,8 +138,7 @@ const ProductDetail = () => {
                     )?.map((elem: string) => {
                       return (
                         <button
-                          className={`sizeBtn ${
-                            selectedSize === elem ? "selected" : ""
+                            className={`sizeBtn ${selectedSize === elem ? "selected" : ""
                           }`}
                           onClick={() => setSelectedSize(elem)}
                           key={elem}
@@ -165,8 +164,7 @@ const ProductDetail = () => {
                       ?.options?.map((elem: string) => {
                         return (
                           <button
-                            className={`designerBtn ${
-                              selectedDesigner === elem ? "selected" : ""
+                              className={`designerBtn ${selectedDesigner === elem ? "selected" : ""
                             }`}
                             onClick={() => setSelectedDesigner(elem)}
                             key={elem}
@@ -242,6 +240,7 @@ const ProductDetail = () => {
                     color: "#333333",
                     padding: "12px 20px",
                   }}
+                  onClick={() => addToWishList(productDetails?.id)}
                 >
                   WISHLIST
                 </button>

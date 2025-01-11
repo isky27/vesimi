@@ -8,5 +8,6 @@ export interface ProductInterface {
     isLoadingRelatedProducts: boolean;
     relatedProductsData: any | null;
     isLoadingAddToCart: boolean;
+    isLoadingWishList: boolean;
 }
 

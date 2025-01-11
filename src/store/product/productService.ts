@@ -20,7 +20,16 @@ const relatedProductApi = async (userData: any): Promise<ApiResponse> => {
 
 const addToCartApi = async (userData: any): Promise<ApiResponse> => {
   try {
-    const response: ApiResponse = (await axios.post("/carts/add", userData ));
+    const response: ApiResponse = (await axios.post("carts/add", userData ));
+    return response;
+  } catch (error: any) {
+    throw error;
+  }
+};
+
+const addWishListProductApi = async (userData: any): Promise<ApiResponse> => {
+  try {
+    const response: ApiResponse = (await axios.post("wishlists", userData ));
     return response;
   } catch (error: any) {
     throw error;
@@ -30,7 +39,8 @@ const addToCartApi = async (userData: any): Promise<ApiResponse> => {
 const productService = {
   productDetailApi,
   relatedProductApi,
-  addToCartApi
+  addToCartApi,
+  addWishListProductApi
 };
 
 export default productService;

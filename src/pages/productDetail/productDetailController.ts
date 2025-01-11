@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { setOpenLoginPopup } from "store/auth/authDataSlice"
-import { addToCart, getProductDetails, getRealtedProducts } from "store/product/productSlice"
+import { addToCart, addWishList, getProductDetails, getRealtedProducts } from "store/product/productSlice"
 import { useAppDispatch, useAppSelector } from "store/redux.hooks"
 
 const ProductDetailController = () => {
@@ -36,6 +36,18 @@ const ProductDetailController = () => {
         })
     }, [productDetailData])
 
+
+    const addToWishList = (productId:any) => {
+        if(loginDetails?.access_token){
+            dispatch(addWishList({
+                user_id: loginDetails?.user?.id ,
+                product_id: productId
+            }))
+        }else{
+            dispatch(setOpenLoginPopup(true))
+        }
+    }
+
     const handleAddToCart = () => {
         const varient = selectedSize+"-"+selectedDesigner.split(" ").join("")
         if(loginDetails?.access_token){
@@ -65,7 +77,8 @@ const ProductDetailController = () => {
         selectedDesigner, setSelectedDesigner,
         isLoadingAddToCart,
         isOpenSizeChart, 
-        setIsOpenSizeChart
+        setIsOpenSizeChart,
+        addToWishList
     }
 }
 

@@ -86,7 +86,7 @@ const Header = () => {
                 className="MobileNavToggle bg-image d-block d-lg-none "
                 style={{ backgroundPosition: "-260px -158px" }}
               ></button>
-              <img src={LogoImage} onClick={() => navigate("/")} />
+              <img className="cursorPointer" src={LogoImage} onClick={() => navigate("/")} />
               <div className="dropdown">
                 <button
                   className="btn dropdown-toggle bg-transparent border-0"
@@ -98,7 +98,7 @@ const Header = () => {
                   <span className="text-sm me-2">
                     {countryOptions[selectedCurrency]?.country}
                   </span>
-                  <span className="pl-1 text-sm cursor-pointer">
+                  <span className="pl-1 text-sm cursorPointer">
                     ({countryOptions[selectedCurrency]?.currency})
                   </span>
                 </button>
