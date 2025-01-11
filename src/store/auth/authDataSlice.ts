@@ -106,8 +106,10 @@ export const newsLetterSubscribe = createAsyncThunk(
   async (userData: any, thunkApi: any) => {
     try {
       const response: any = await authService.newsLetterSubsApi(userData);
-      if (response?.result == true){
+      if (response?.success == true){
         toast.success(response?.message)
+      }else{
+        toast.error(response?.message)
       } return response;
     } catch (error: any) {
       const message: any = getErrorMessage(error);

@@ -1,0 +1,289 @@
+[
+    {
+      "label": "Home",
+      "path": "/",
+      "subNav": null
+    },
+    {
+      "label": "What's New",
+      "path": "/category/5",
+      "subNav": {
+        "categories": [
+          {"label": "Women", "path": "/category/358"},
+          {"label": "Men", "path": "/category/1342"},
+          {"label": "Jewellery", "path": "/category/1424"},
+          {"label": "Accessories", "path": "/category/1407"},
+          {"label": "Kids", "path": "/category/1389"}
+        ],
+        "designers": [
+          {"label": "Masaba", "path": "/category/28"},
+          {"label": "Vvani by Vani Vats", "path": "/category/180"},
+          {"label": "Vannikaa Malik", "path": "/category/1508"},
+          {"label": "Krisha Sunny Ramani", "path": "/category/359"},
+          {"label": "Redpine Designs", "path": "/category/527"},
+          {"label": "Kudi Pataka", "path": "/category/1171"},
+          {"label": "Rooh by Ridhimaa", "path": "/category/1562"},
+          {"label": "Deme by Gabriella", "path": "/category/981"},
+          {"label": "Tyohar", "path": "/category/1484"}
+        ],
+        "productDemos": [
+          {"label": "Masaba", "path": "/category/28", "image": "MasabaImg"},
+          {"label": "Ridhimaa Gupta", "path": "/category/1540", "image": "RidhimaImg"},
+          {"label": "Kalighata", "path": "/category/714", "image": "Kalighata"}
+        ]
+      }
+    },
+    {
+      "label": "Designers",
+      "path": "/category/6",
+      "subNav": {
+        "sale": [
+          {"label": "Kovet", "path": "/category/392"},
+          {"label": "Khushboo & Pankaj", "path": "/category/836"},
+          {"label": "Lil Drama", "path": "/category/1079"}
+        ],
+        "featured": [
+          {"label": "Amka India", "path": "/category/706"},
+          {"label": "Amrit Dawani", "path": "/category/760"},
+          {"label": "Ease", "path": "/category/510"},
+          {"label": "Inder Clothing Studio", "path": "/category/389"},
+          {"label": "Masumi Mewawalla", "path": "/category/76"},
+          {"label": "Monisha Jaising", "path": "/category/206"},
+          {"label": "Nikita Vishakha", "path": "/category/216"},
+          {"label": "Pink City by Sarika", "path": "/category/327"},
+          {"label": "Neeta Lulla", "path": "/category/242"},
+          {"label": "Mala And Kinnary", "path": "/category/158"}
+        ],
+        "trending": [
+          {"label": "Ahi Clothing", "path": "/category/1139"},
+          {"label": "Vvani by Vani Vats", "path": "/category/180"},
+          {"label": "Vannikaa Malik", "path": "/category/1508"},
+          {"label": "Krisha Sunny Ramani", "path": "/category/359"},
+          {"label": "Bhanuni by Jyoti", "path": "/category/678"},
+          {"label": "Enness Studio", "path": "/category/774"},
+          {"label": "Deme By Gabriella", "path": "/category/981"},
+          {"label": "Mona & Vishu", "path": "/category/693"},
+          {"label": "Jigar & Nikita", "path": "/category/877"},
+          {"label": "Masaba", "path": "/category/28"}
+        ],
+        "productDemos": [
+          {"label": "Moledro", "path": "/category/593", "image": "MoleradoImg"},
+          {"label": "Weaver Story", "path": "/category/348", "image": "WaverImg"},
+          {"label": "One Knot One", "path": "/category/739", "image": "OneKnot"}
+        ]
+      }
+    },
+    {
+      "label": "Woman",
+      "path": null,
+      "subNav": {
+        "categories1": [
+          {"label": "Lehengas", "path": "/category/69"},
+          {"label": "Dresses", "path": "/category/49"},
+          {"label": "Gowns", "path": "/category/62"},
+          {"label": "Blouses", "path": "/category/119"},
+          {"label": "Dupattas", "path": "/category/106"},
+          {"label": "Sarees", "path": "/category/13"},
+          {"label": "Crop Tops", "path": "/category/288"},
+          {"label": "Anarkali Set", "path": "/category/54"},
+          {"label": "Sharara Set", "path": "/category/165"},
+          {"label": "Lehenga Set", "path": "/category/118"}
+        ],
+        "categories2": [
+          {"label": "Kurta Sets", "path": "/category/24"},
+          {"label": "Palazzo Set", "path": "/category/53"},
+          {"label": "Skirt Sets", "path": "/category/124"},
+          {"label": "Pant Sets", "path": "/category/15"},
+          {"label": "Blazer Set", "path": "/category/23"},
+          {"label": "Jackets", "path": "/category/91"},
+          {"label": "Jumpsuits", "path": "/category/155"},
+          {"label": "Trousers", "path": "/category/264"},
+          {"label": "Kaftans", "path": "/category/12"},
+          {"label": "Tops", "path": "/category/118"},
+          {"label": "Co-Ord Set", "path": "/category/212"}
+        ],
+        "designers": [
+          {"label": "Ahi Clothing", "path": "/category/1139"},
+          {"label": "Vvani by Vani Vats", "path": "/category/180"},
+          {"label": "Vannikaa Malik", "path": "/category/1508"},
+          {"label": "Krisha Sunny Ramani", "path": "/category/359"},
+          {"label": "Bhanuni by Jyoti", "path": "/category/678"},
+          {"label": "Enness Studio", "path": "/category/774"},
+          {"label": "Deme By Gabriella", "path": "/category/981"},
+          {"label": "Moledro", "path": "/category/593"},
+          {"label": "Jigar & Nikita", "path": "/category/877"},
+          {"label": "Masaba", "path": "/category/28"}
+        ],
+        "productDemos": [
+          {"label": "Ahi Clothing", "path": "/category/1139", "image": "AhiiImg"},
+          {"label": "Kudi Pataka", "path": "/category/1171", "image": "KupkImg"},
+          {"label": "Masaba", "path": "/category/28", "image": "MsbImg"}
+        ]
+      }
+    },
+    {
+      "label": "Man",
+      "path": null,
+      "subNav": {
+        "categories1": [
+          {"label": "Kurta Sets", "path": "/category/24"},
+          {"label": "Kurtas", "path": "/category/136"},
+          {"label": "Kurta Pyjamas", "path": "/category/31"},
+          {"label": "Sherwanis", "path": "/category/140"},
+          {"label": "Nehru Jacket & Sets", "path": "/category/592"},
+          {"label": "Bandhgalas", "path": "/category/141"},
+          {"label": "Shirts", "path": "/category/30"},
+        {"label": "Footwear", "path": "/category/425"},
+        {"label": "Bottoms", "path": "/category/138"},
+        {"label": "Jackets", "path": "/category/91"}
+      ],
+      "categories2": [
+        {"label": "Tuxedo Set", "path": "/category/763"},
+        {"label": "Shorts", "path": "/category/269"},
+        {"label": "Tuxedo", "path": "/category/466"},
+        {"label": "Ethnic Wear", "path": "/category/1325"},
+        {"label": "Trousers", "path": "/category/264"},
+        {"label": "Waistcoat", "path": "/category/261"},
+        {"label": "Shrug Set", "path": "/category/468"},
+        {"label": "Pashmina Shawl", "path": "/category/462"},
+        {"label": "Jodhpuris", "path": "/category/764"},
+        {"label": "Bandi Set", "path": "/category/10"}
+      ],
+      "designers": [
+        {"label": "Inder Clothing Studio", "path": "/category/389"},
+        {"label": "Jenjum Gadi", "path": "/category/131"},
+        {"label": "Kalista", "path": "/category/426"},
+        {"label": "Krisha Sunny Ramani", "path": "/category/359"},
+        {"label": "Masaba", "path": "/category/28"},
+        {"label": "S&N by Shantnu Nikhil", "path": "/category/254"},
+        {"label": "Jatin Malik Couture", "path": "/category/459"},
+        {"label": "Khushboo & Pankaj", "path": "/category/836"},
+        {"label": "Jigar & Nikita", "path": "/category/877"},
+        {"label": "Rey & I", "path": "/category/997"}
+      ],
+      "productDemos": [
+        {"label": "SHANTNU & NIKHIL", "path": "/category/254", "image": "Man1Img"},
+        {"label": "KRISHA SUNNY RAMANI", "path": "/category/359", "image": "Man2Img"},
+        {"label": "JATIN MALIK COUTURE", "path": "/category/459", "image": "Man3Img"}
+      ]
+    }
+  },
+  {
+    "label": "Kids",
+    "path": null,
+    "subNav": {
+      "boys": [
+        {"label": "Shorts", "path": "/category/269"},
+        {"label": "Kurta Sets", "path": "/category/24"},
+        {"label": "Kurtas", "path": "/category/136"},
+        {"label": "Jackets", "path": "/category/91"},
+        {"label": "Sherwanis", "path": "/category/140"},
+        {"label": "Suits & Tuxedos", "path": "/category/1170"}
+      ],
+      "girls": [
+        {"label": "Dresses"},
+        {"label": "Kurta Sets"},
+        {"label": "Pant Sets"},
+        {"label": "Lehengas"},
+        {"label": "Jumpsuits"},
+        {"label": "Skirt Sets"},
+        {"label": "Tunics & Kurtis"},
+        {"label": "Gowns"},
+        {"label": "Sarees"}
+      ],
+      "designers": [
+        {"label": "Rey&I"},
+        {"label": "LittleCheer"},
+        {"label": "Lil Drama"},
+        {"label": "Fayyon Kids"}
+      ],
+      "productDemos": [
+        {"label": "FAYYON KIDS", "path": "/category/1155", "image": "Kids1Img"},
+        {"label": "LITTLE CHEER", "path": "/category/1028", "image": "Kids2Img"},
+        {"label": "LIL DRAMA", "path": "/category/1079", "image": "Kids3Img"}
+      ]
+    }
+  },
+  {
+    "label": "Accessories",
+    "path": null,
+    "subNav": {
+      "categories": [
+        {"label": "Bags"},
+        {"label": "Belts"},
+        {"label": "Gloves"},
+        {"label": "Brooches"},
+        {"label": "Clutch"},
+        {"label": "Potli"},
+        {"label": "Purse"},
+        {"label": "Pocket Squares"},
+        {"label": "Mens Footwear"},
+        {"label": "Womens Footwear"}
+      ],
+      "designers": [
+        {"label": "Clutch'D"},
+        {"label": "Devina juneja"},
+        {"label": "Torani"},
+        {"label": "Veruschka"},
+        {"label": "S&N by Shantnu Nikhil"},
+        {"label": "Jatin Malik Couture"},
+        {"label": "Plode"},
+        {"label": "Amrit Dawani"},
+        {"label": "Bijoux by Priya Chandna"}
+      ],
+      "productDemos": [
+        {"label": "TORANI", "image": "ToraniImg"},
+        {"label": "PLODE", "image": "PlodImg"},
+        {"label": "AMRIT DAWANI", "image": "AmrtiImg"}
+      ]
+    }
+  },
+  {
+    "label": "Jewellery",
+    "path": null,
+    "subNav": {
+      "categories": [
+        {"label": "Earrings"},
+        {"label": "Bracelet"},
+        {"label": "Bangle"},
+        {"label": "Neckpiece"},
+        {"label": "Mala"},
+        {"label": "Kalgi"},
+        {"label": "Rings"},
+        {"label": "Necklaces"},
+        {"label": "Pendants"},
+        {"label": "Hair Accessories"},
+        {"label": "Chains"}
+      ],
+      "designers": [
+        {"label": "Juwelen"},
+        {"label": "Jatin Malik Couture"},
+        {"label": "Mozaati"},
+        {"label": "Tesoro by Bhavika"},
+        {"label": "Twyla Treasures"},
+        {"label": "Bijoux by Priya Chandna"}
+      ],
+      "productDemos": [
+        {"label": "BIJOUX BY PRIYA CHANDNA", "image": "Jewellery1Img"},
+        {"label": "JUWELEN", "image": "Jewellery2Img"},
+        {"label": "JATIN MALIK COUTURE", "image": "Jewellery3Img"}
+      ]
+    }
+  },
+  {
+    "label": "The Vesimi Voice",
+    "path": null,
+    "subNav": null
+  },
+  {
+    "label": "Gift card",
+    "path": null,
+    "subNav": null
+  },
+  {
+    "label": "Sale",
+    "path": null,
+    "subNav": null,
+    "className": "textred"
+  }
+]
