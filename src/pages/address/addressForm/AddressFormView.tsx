@@ -2,19 +2,41 @@ import React from 'react'
 import AddressController from './addressFormController'
 import { Form } from 'reactstrap';
 import InputField from 'component/forms/InputField';
-import { removeSpaceOnly } from 'utils';
+import { normalizedList, removeSpaceOnly } from 'utils';
 import Select from 'react-select'
+import Loader from 'component/Loader';
 
-const AddressFormView = ({isEdit, handleAfterSuccess }: any) => {
+const AddressFormView = ({ isEdit, handleAfterSuccess }: any) => {
 
-    const { 
-        addressFormik, 
-        countriesData, 
-        statesData, 
-        citiesData 
-    } = AddressController({isEdit, handleAfterSuccess })
+  const {
+    addressFormik,
+    countriesData,
+    statesData,
+    citiesData,
+    isLoadingUserAddress
+  } = AddressController({ isEdit, handleAfterSuccess })
 
-    return (
+  const countyOptions = normalizedList(countriesData?.data?.map(
+    (country: { name: string; id: number }) => {
+      return { label: country?.name, value: country?.id };
+    }
+  ))
+
+  const stateOptions = normalizedList(statesData?.data?.map(
+    (state: { name: string; id: number }) => {
+      return { label: state?.name, value: state?.id };
+    }
+  ))
+
+  const cityOptions = normalizedList(citiesData?.data?.map(
+    (city: { name: string; id: number }) => {
+      return { label: city?.name, value: city?.id };
+    }
+  ))
+
+  return (
+    <>
+      <Loader isLoading={[isLoadingUserAddress]}/>
       <Form className="row g-3" onSubmit={addressFormik.handleSubmit}>
         {/* Contact Information Section */}
 
@@ -68,17 +90,13 @@ const AddressFormView = ({isEdit, handleAfterSuccess }: any) => {
             required
             name="country"
             placeholder="Select Country"
-            value={addressFormik?.values?.country}
+            value={countyOptions?.find((el:any)=>el.value==addressFormik?.values?.country)}
             onChange={(selectedOption) => {
               addressFormik.setFieldValue("state", null);
               addressFormik.setFieldValue("city", null);
-              addressFormik.setFieldValue("country", selectedOption);
+              addressFormik.setFieldValue("country", selectedOption?.value);
             }}
-            options={countriesData?.data?.map(
-              (country: { name: string; id: number }) => {
-                return { label: country?.name, value: country?.id };
-              }
-            )}
+            options={countyOptions}
           />
         </div>
 
@@ -90,17 +108,13 @@ const AddressFormView = ({isEdit, handleAfterSuccess }: any) => {
             required
             name="state"
             placeholder="Select State"
-            value={addressFormik?.values?.state}
+            value={stateOptions?.find((el:any)=>el.value==addressFormik?.values?.state)}
             isDisabled={!addressFormik?.values?.country}
             onChange={(selectedOption) => {
-              addressFormik.setFieldValue("state", selectedOption);
+              addressFormik.setFieldValue("state", selectedOption?.value);
               addressFormik.setFieldValue("city", null);
             }}
-            options={statesData?.data?.map(
-              (state: { name: string; id: number }) => {
-                return { label: state?.name, value: state?.id };
-              }
-            )}
+            options={stateOptions}
           />
         </div>
 
@@ -112,16 +126,12 @@ const AddressFormView = ({isEdit, handleAfterSuccess }: any) => {
             required
             name="city"
             placeholder="Select City"
-            value={addressFormik?.values?.city}
+            value={cityOptions.find((el:any)=>el.value==addressFormik?.values?.city)}
             isDisabled={!addressFormik?.values?.state}
             onChange={(selectedOption) =>
-              addressFormik.setFieldValue("city", selectedOption)
+              addressFormik.setFieldValue("city", selectedOption?.value)
             }
-            options={citiesData?.data?.map(
-              (city: { name: string; id: number }) => {
-                return { label: city?.name, value: city?.id };
-              }
-            )}
+            options={cityOptions}
           />
         </div>
 
@@ -142,11 +152,13 @@ const AddressFormView = ({isEdit, handleAfterSuccess }: any) => {
         {/* Save Button */}
         <div className="col-12 mt-4">
           <button type="submit" className="themeBtnCart">
-            Save Address
+            {`${isEdit? "Edit":"Save"} Address`}
           </button>
         </div>
       </Form>
-    );
+    </>
+
+  );
 }
 
 export default AddressFormView

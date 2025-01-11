@@ -64,7 +64,7 @@ const AccountView = () => {
                                     <p>{`${elem?.state_name},${elem?.country_name}, ${elem?.postal_code}`}</p>
                                     <p>{elem?.phone}</p>
                                 <div className="d-flex infoAction">
-                                    <Link to={userAddressData?.data?.[0] ? "/edit-address" : "/add-address" }>{userAddressData?.data?.[0] ? "Edit" : "Add"} Address</Link>
+                                    <Link to={userAddressData?.data?.[0] ? `/edit-address/${elem?.id}` : "/add-address" }>{userAddressData?.data?.[0] ? "Edit" : "Add"} Address</Link>
                                 </div>
                                     </> }) : 
                                     <h4>You have not set a default address.</h4>}

@@ -28,7 +28,7 @@ const searchProductApi = async (userData: any): Promise<ApiResponse> => {
     }
 
     if(userData?.color){
-      searchQuery +=`&selected_attribute_values[]=${userData?.color}` 
+      searchQuery +=`&color=${userData?.color}` 
     }
 
     if(userData?.category){

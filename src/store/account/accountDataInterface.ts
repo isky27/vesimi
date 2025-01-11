@@ -7,6 +7,7 @@ export interface AccountDataInterface {
     countriesData: any;
     statesData: any;
     citiesData: any;
-    isLoadingDeleteAddress: boolean
+    isLoadingDeleteAddress: boolean,
+    singleAddressDetails: any
 }
 
