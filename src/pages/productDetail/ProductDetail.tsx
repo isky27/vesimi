@@ -23,7 +23,8 @@ const ProductDetail = () => {
     selectedDesigner, setSelectedDesigner,
     isLoadingAddToCart,
     isOpenSizeChart, setIsOpenSizeChart,
-    addToWishList
+    addToWishList,
+    isLoadingWishList
   } = ProductDetailController()
 
   const { selectedCurrency } = useAppSelector((state: any) => state.auth)
@@ -37,6 +38,7 @@ const ProductDetail = () => {
           isLoadingProductDetail,
           isLoadingRelatedProducts,
           isLoadingAddToCart,
+          isLoadingWishList
         ]}
       />
 

@@ -12,7 +12,7 @@ const ProductDetailController = () => {
     const [selectedSize, setSelectedSize] = useState("")
     const [selectedDesigner, setSelectedDesigner] = useState("")
     const [selectedColor, setSelectedColor] = useState("")
-    const { isLoadingProductDetail, productDetailData, isLoadingRelatedProducts, relatedProductsData, isLoadingAddToCart } = useAppSelector((state: any) => state.product);
+    const { isLoadingProductDetail, productDetailData, isLoadingRelatedProducts, relatedProductsData, isLoadingAddToCart, isLoadingWishList } = useAppSelector((state: any) => state.product);
     const { loginDetails } = useAppSelector((state: any) => state.auth);
     const [ isOpenSizeChart, setIsOpenSizeChart ] = useState(false)
 
@@ -78,7 +78,8 @@ const ProductDetailController = () => {
         isLoadingAddToCart,
         isOpenSizeChart, 
         setIsOpenSizeChart,
-        addToWishList
+        addToWishList,
+        isLoadingWishList
     }
 }
 

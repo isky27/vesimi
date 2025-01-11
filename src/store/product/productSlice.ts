@@ -64,7 +64,7 @@ export const addToCart = createAsyncThunk("add/to/cart", async (userData:any,thu
 export const addWishList = createAsyncThunk("add/product/wishlist", async (userData:any,thunkApi: any) => {
     try {
         const response:any = await productService.addWishListProductApi(userData);
-        if(response?.result){
+        if(response?.message){
             toast.success(response?.message)
         }
         return response;
