@@ -12,6 +12,8 @@ import RefundCancellation from "pages/staticPages/RefundCancellation";
 import CartView from "pages/cart/CartView";
 import CheckoutView from "pages/checkout/CheckoutView";
 import DesignerView from "pages/designer/DesignerView";
+import WishlistPage from "pages/staticPages/WishlistPage";
+ 
 
 
 const ContactUs = lazy(() => import("../pages/staticPages/ContactUs"));
@@ -426,6 +428,13 @@ const CustomRoute = () => {
             }
           />
         </Route>
+
+
+      
+
+
+
+
       </Routes>
     </Router>
   );
