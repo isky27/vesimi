@@ -12,7 +12,8 @@ import RefundCancellation from "pages/staticPages/RefundCancellation";
 import CartView from "pages/cart/CartView";
 import CheckoutView from "pages/checkout/CheckoutView";
 import DesignerView from "pages/designer/DesignerView";
-import WishlistPage from "pages/staticPages/WishlistPage";
+import WishlistPage from "pages/wishlist/WishlistPage";
+import Blog from "pages/blog/Blog";
  
 
 
@@ -407,6 +408,40 @@ const CustomRoute = () => {
                 }
               >
                 <EditAddressView />
+              </Suspense>
+            }
+          />
+
+        <Route
+            path="/wishlist"
+            element={
+              <Suspense
+                fallback={
+                  <div className="graph-loader  d-flex justify-content-center align-items-center">
+                    <div className="spinner-border  spinner-ui d-flex justify-content-center align-items-center">
+                      <span className="visually-hidden"></span>
+                    </div>
+                  </div>
+                }
+              >
+                <WishlistPage />
+              </Suspense>
+            }
+          />
+
+          <Route
+            path="/blog"
+            element={
+              <Suspense
+                fallback={
+                  <div className="graph-loader  d-flex justify-content-center align-items-center">
+                    <div className="spinner-border  spinner-ui d-flex justify-content-center align-items-center">
+                      <span className="visually-hidden"></span>
+                    </div>
+                  </div>
+                }
+              >
+                <Blog />
               </Suspense>
             }
           />
