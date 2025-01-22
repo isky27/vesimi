@@ -1225,7 +1225,7 @@ const Header = () => {
               <li>
                 <span>The Vesimi Voice</span>{" "}
               </li>
-              <li>
+              <li onClick={() => navigate(getCategoryUrl(471))}>
                 <span>Gift card</span>
               </li>
               <li className="textred">
