@@ -218,7 +218,7 @@ const HeaderController = () => {
   const handleSearch = (e: any) => {
     e.preventDefault();
     if (searchInput) {
-      navigate(`/search/category/6?sub-category=6&min=${priceRange[0]}&max=${priceRange[1]}&name=${searchInput}`)
+      navigate(`/search/category/4?sub-category=4&min=${priceRange[0]}&max=${priceRange[1]}&name=${searchInput}`)
     }
   }
 
@@ -236,6 +236,14 @@ const HeaderController = () => {
   const handleCart = () => {
     if (loginDetails?.access_token) {
       navigate("/cart")
+    } else {
+      dispatch(setOpenLoginPopup(true))
+    }
+  }
+
+  const handleWishList = () =>{
+    if (loginDetails?.access_token) {
+      navigate("/wishlist")
     } else {
       dispatch(setOpenLoginPopup(true))
     }
@@ -259,6 +267,7 @@ const HeaderController = () => {
     cartListData,
     isLoadingCartList,
     handleCart,
+    handleWishList,
     isOpenResetPassEmail,
     setIsOpenResetPassEmail,
     resetPassEmailFormik,

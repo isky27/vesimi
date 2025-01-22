@@ -50,6 +50,7 @@ const Header = () => {
     cartListData,
     isLoadingCartList,
     handleCart,
+    handleWishList,
     isOpenResetPassEmail,
     setIsOpenResetPassEmail,
     resetPassEmailFormik,
@@ -176,7 +177,10 @@ const Header = () => {
                     </ul>
                   )}
                 </li>
-                <li className="wishList">
+                <li className="wishList" onClick={handleWishList}>
+                  <Badge className="cartCount" bg="danger" pill>
+                    {cartListData?.data?.[0]?.cart_items?.length}
+                  </Badge>
                   <span
                     className="profileIcon bg-image w-6 h-6 d-block"
                     style={{ backgroundPosition: "-291px -132px" }}
