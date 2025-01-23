@@ -25,7 +25,7 @@ const HeaderController = () => {
   } = useAppSelector((state: any) => state.auth);
 
   const { cartListData, isLoadingCartList } = useAppSelector((state: any) => state.order)
-
+  const { isLoadingWishList, wishListData } = useAppSelector((state: any) => state.product)
   const loginInitialValues = {
     email: "",
     password: ""
@@ -274,6 +274,8 @@ const HeaderController = () => {
     isOpenResetPassCode,
     confirmResetPassFormik,
     setIsOpenResetPassCode,
+    isLoadingWishList,
+    wishListData,
   };
 };
 
