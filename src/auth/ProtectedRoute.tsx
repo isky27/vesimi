@@ -55,7 +55,7 @@ export const HomeRoute = () => {
 };
 
 const ProtectedRoute = () => {
-  const { loginDetails } = useAppSelector((state) => state.auth);
+  const { loginDetails } = useAppSelector((state:any) => state.auth);
   const dispatch = useAppDispatch();
 
   if (!loginDetails?.access_token) {
