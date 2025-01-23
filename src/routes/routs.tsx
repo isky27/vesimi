@@ -13,9 +13,7 @@ import CartView from "pages/cart/CartView";
 import CheckoutView from "pages/checkout/CheckoutView";
 import DesignerView from "pages/designer/DesignerView";
 import WishlistView from "pages/wishlist/WishlistView";
-import Blog from "pages/blog/Blog";
- 
-
+import BlogView from "pages/blog/BlogView";
 
 const ContactUs = lazy(() => import("../pages/staticPages/ContactUs"));
 const ErrorPage = lazy(() => import("../pages/error/ErrorView"));
@@ -274,6 +272,22 @@ const CustomRoute = () => {
           />
 
           <Route
+            path="/blog"
+            element={
+              <Suspense
+                fallback={
+                  <div className="graph-loader  d-flex justify-content-center align-items-center">
+                    <div className="spinner-border  spinner-ui d-flex justify-content-center align-items-center">
+                      <span className="visually-hidden"></span>
+                    </div>
+                  </div>
+                }
+              >
+                <BlogView />
+              </Suspense>
+            }
+          />
+          <Route
             path="*"
             element={
               <Suspense
@@ -442,23 +456,6 @@ const CustomRoute = () => {
                 }
               >
                 <WishlistView />
-              </Suspense>
-            }
-          />
-
-          <Route
-            path="/blog"
-            element={
-              <Suspense
-                fallback={
-                  <div className="graph-loader  d-flex justify-content-center align-items-center">
-                    <div className="spinner-border  spinner-ui d-flex justify-content-center align-items-center">
-                      <span className="visually-hidden"></span>
-                    </div>
-                  </div>
-                }
-              >
-                <Blog />
               </Suspense>
             }
           />

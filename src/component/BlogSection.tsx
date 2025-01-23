@@ -1,4 +1,5 @@
 import OwlCarousel from "react-owl-carousel";
+import { Link } from "react-router-dom";
 
 const BlogSection = ({ data }: any) => {
   return (
@@ -35,12 +36,12 @@ const BlogSection = ({ data }: any) => {
                   <div className="py-2">
                     <h3 className="text-md-dark fs-7 my-2">{blog?.title} </h3>
                     <p>{blog?.short_description}</p>
-                    <a
-                      href="/"
+                    {/* <Link
+                      to="/"
                       className="font-semibold text-md-dark fs-7 fw-light text-decoration-none"
                     >
                       Read More
-                    </a>
+                    </Link> */}
                   </div>
                 </div>
               ))}
@@ -50,14 +51,13 @@ const BlogSection = ({ data }: any) => {
       </div>
 
       <div className="text-center pt-4">
-        {" "}
-        <a
-          href="/"
+        <Link
+          to="/blog"
           className="bg-themered px-5 py-2 text-decoration-none text-white"
           style={{ fontSize: "12px" }}
         >
           GO TO BLOG
-        </a>
+        </Link>
       </div>
     </section>
   );

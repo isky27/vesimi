@@ -1228,8 +1228,8 @@ const Header = () => {
                 </div>
               </li>
               {/* <!-- The Vesimi Voice --> */}
-              <li>
-                <span>The Vesimi Voice</span>{" "}
+              <li onClick={() => navigate("/blog")}>
+                <span>The Vesimi Voice</span>
               </li>
               <li onClick={() => navigate(getCategoryUrl(471))}>
                 <span>Gift card</span>
