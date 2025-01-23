@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/redux.hooks";
-import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { getSearchProducts, getSubCategories } from "store/category/category.slice";
 import { priceRange } from "constant";
 import { getCategoryUrl } from "utils";
@@ -22,12 +22,13 @@ const CategoryController = () => {
 
   // Import data from auth selectora
   const dispatch = useAppDispatch();
-  const navigate = useNavigate()
+  const location = useLocation(); // React Router's location hook
+  const navigate = useNavigate();
   const {
     isLoadingSubCategories,
     subCategoryData,
     isLoadingSearchProduct,
-    searchProductData
+    searchProductData,
   } = useAppSelector((state: any) => state.category);
 
   useEffect(() => {
@@ -52,17 +53,22 @@ const CategoryController = () => {
     let minPrice = priceLimit.next().value;
     let maxPrice = priceLimit.next().value;
     //    // Update 'color' and 'designer' parameters using the helper function
-    updateSearchParams('size', selectedSize);
-    updateSearchParams('color', selectedColor);
-    updateSearchParams('designer', selectedDesigner);
-    updateSearchParams('min', minPrice);
-    updateSearchParams('max', maxPrice);
-    setCurrentPage(1)
+    updateSearchParams("size", selectedSize);
+    updateSearchParams("color", selectedColor);
+    updateSearchParams("designer", selectedDesigner);
+    updateSearchParams("min", minPrice);
+    updateSearchParams("max", maxPrice);
+    setCurrentPage(1);
     // Check if newSearchParams has any keys
     const hasParams = Object.keys(newSearchParams).length > 0;
     // Update searchParams state
     setSearchParams(hasParams ? newSearchParams : {});
   }, [filterSize, filterColor, filterDesigner, filterPrice]);
+
+  // Reset currentPage to 1 on initial load or navigation
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [location.key]); // location.key changes with every navigation
 
   useEffect(() => {
     if (filterCategory.values().next().value != categoryId) {
@@ -77,32 +83,35 @@ const CategoryController = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    dispatch(getSearchProducts({
-      color: searchParams.get("color"),
-      category: searchParams.get("sub-category"),
-      size: searchParams.get("size"),
-      designer: searchParams.get("designer"),
-      min: searchParams.get("min"),
-      max: searchParams.get("max"),
-      name: searchParams.get("name") || "",
-      page: currentPage
-    }));
-  }, [dispatch, currentPage, searchParams])
+    dispatch(
+      getSearchProducts({
+        color: searchParams.get("color"),
+        category: searchParams.get("sub-category"),
+        size: searchParams.get("size"),
+        designer: searchParams.get("designer"),
+        min: searchParams.get("min"),
+        max: searchParams.get("max"),
+        name: searchParams.get("name") || "",
+        page: currentPage,
+      })
+    );
+  }, [dispatch, currentPage, searchParams]);
 
   const handlePriceChange = (newRange: any) => {
     setFilterPrice([newRange[0].toString(), newRange[1].toString()]);
   };
+
   const handlePriceReset = () => {
     setFilterPrice(priceRange);
-  }
+  };
 
   const handelClearFilter = () => {
     setFilterDesigner(new Set());
     setFilterSize(new Set());
     setFilterColor(new Set());
     setFilterPrice(priceRange);
-    setCurrentPage(1)
-  }
+    setCurrentPage(1);
+  };
 
   // All the state and function return to LoginView
   return {
