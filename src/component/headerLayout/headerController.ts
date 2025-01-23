@@ -25,7 +25,7 @@ const HeaderController = () => {
   } = useAppSelector((state: any) => state.auth);
 
   const { cartListData, isLoadingCartList } = useAppSelector((state: any) => state.order)
-
+  const { isLoadingWishList, wishListData } = useAppSelector((state: any) => state.product)
   const loginInitialValues = {
     email: "",
     password: ""
@@ -218,7 +218,7 @@ const HeaderController = () => {
   const handleSearch = (e: any) => {
     e.preventDefault();
     if (searchInput) {
-      navigate(`/search/category/6?sub-category=6&min=${priceRange[0]}&max=${priceRange[1]}&name=${searchInput}`)
+      navigate(`/search/category/4?sub-category=4&min=${priceRange[0]}&max=${priceRange[1]}&name=${searchInput}`)
     }
   }
 
@@ -236,6 +236,14 @@ const HeaderController = () => {
   const handleCart = () => {
     if (loginDetails?.access_token) {
       navigate("/cart")
+    } else {
+      dispatch(setOpenLoginPopup(true))
+    }
+  }
+
+  const handleWishList = () =>{
+    if (loginDetails?.access_token) {
+      navigate("/wishlist")
     } else {
       dispatch(setOpenLoginPopup(true))
     }
@@ -259,12 +267,15 @@ const HeaderController = () => {
     cartListData,
     isLoadingCartList,
     handleCart,
+    handleWishList,
     isOpenResetPassEmail,
     setIsOpenResetPassEmail,
     resetPassEmailFormik,
     isOpenResetPassCode,
     confirmResetPassFormik,
     setIsOpenResetPassCode,
+    isLoadingWishList,
+    wishListData,
   };
 };
 

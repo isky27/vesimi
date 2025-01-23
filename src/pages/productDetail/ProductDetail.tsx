@@ -59,7 +59,7 @@ const ProductDetail = () => {
                           src={image?.path}
                           alt={`Thumbnail ${index + 1}`}
                           className={`thumbnail ${selectedImage === image.path ? "selected" : ""
-                          }`}
+                            }`}
                           onClick={() => setSelectedImage(image.path)}
                         />
                       )
@@ -123,61 +123,61 @@ const ProductDetail = () => {
               {productDetails?.choice_options?.find(
                 (el: any) => el.title === "Size"
               )?.options && (
-                <div className="sizePart">
-                  <div className="sizeGuide">
-                    <h4>
-                      {!productDetails?.is_price_hide ? "SELECT" : ""} SIZE{" "}
-                    </h4>
-                    <button onClick={() => setIsOpenSizeChart(true)}>
-                      Size Guide
-                    </button>
-                  </div>
-                  <div className="sizePartTabs d-flex flex-wrap gap-1 gap-md-3">
-                    {sortSizes(
-                      productDetails?.choice_options?.find(
-                        (el: any) => el.title === "Size"
-                      )?.options
-                    )?.map((elem: string) => {
-                      return (
-                        <button
-                            className={`sizeBtn ${selectedSize === elem ? "selected" : ""
-                          }`}
-                          onClick={() => setSelectedSize(elem)}
-                          key={elem}
-                        >
-                          {elem}
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-
-              {productDetails?.choice_options?.find(
-                (el: any) => el.title === "Designer"
-              )?.options && (
-                <div className="mb-3">
-                  <div className="sizeGuide">
-                    <h4>DESIGNER </h4>
-                  </div>
-                  <div className="sizePartTabs d-flex flex-wrap gap-1 gap-md-3">
-                    {productDetails?.choice_options
-                      ?.find((el: any) => el.title === "Designer")
-                      ?.options?.map((elem: string) => {
+                  <div className="sizePart">
+                    <div className="sizeGuide">
+                      <h4>
+                        {!productDetails?.is_price_hide ? "SELECT" : ""} SIZE{" "}
+                      </h4>
+                      <button onClick={() => setIsOpenSizeChart(true)}>
+                        Size Guide
+                      </button>
+                    </div>
+                    <div className="sizePartTabs d-flex flex-wrap gap-1 gap-md-3">
+                      {sortSizes(
+                        productDetails?.choice_options?.find(
+                          (el: any) => el.title === "Size"
+                        )?.options
+                      )?.map((elem: string) => {
                         return (
                           <button
-                              className={`designerBtn ${selectedDesigner === elem ? "selected" : ""
-                            }`}
-                            onClick={() => setSelectedDesigner(elem)}
+                            className={`sizeBtn ${selectedSize === elem ? "selected" : ""
+                              }`}
+                            onClick={() => setSelectedSize(elem)}
                             key={elem}
                           >
                             {elem}
                           </button>
                         );
                       })}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
+
+              {productDetails?.choice_options?.find(
+                (el: any) => el.title === "Designer"
+              )?.options && (
+                  <div className="mb-3">
+                    <div className="sizeGuide">
+                      <h4>DESIGNER </h4>
+                    </div>
+                    <div className="sizePartTabs d-flex flex-wrap gap-1 gap-md-3">
+                      {productDetails?.choice_options
+                        ?.find((el: any) => el.title === "Designer")
+                        ?.options?.map((elem: string) => {
+                          return (
+                            <button
+                              className={`designerBtn ${selectedDesigner === elem ? "selected" : ""
+                                }`}
+                              onClick={() => setSelectedDesigner(elem)}
+                              key={elem}
+                            >
+                              {elem}
+                            </button>
+                          );
+                        })}
+                    </div>
+                  </div>
+                )}
 
               <div className="ButtonTabsAction">
                 {productDetails?.is_price_hide ? (
@@ -261,7 +261,7 @@ const ProductDetail = () => {
                       Object.entries(productDetails?.other_attribute)?.map(
                         (atr: any) => {
                           return (
-                           atr[1] && <div className="d-flex gap-1" key={atr[0]}>
+                            atr[1] && <div className="d-flex gap-1" key={atr[0]}>
                               <p>{atr[0]}</p>
                               <p>:</p>
                               <p>{atr[1]}</p>

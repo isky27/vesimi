@@ -12,7 +12,7 @@ import RefundCancellation from "pages/staticPages/RefundCancellation";
 import CartView from "pages/cart/CartView";
 import CheckoutView from "pages/checkout/CheckoutView";
 import DesignerView from "pages/designer/DesignerView";
-import WishlistPage from "pages/wishlist/WishlistPage";
+import WishlistView from "pages/wishlist/WishlistView";
 import Blog from "pages/blog/Blog";
  
 
@@ -274,7 +274,7 @@ const CustomRoute = () => {
           />
 
           <Route
-            path="/"
+            path="*"
             element={
               <Suspense
                 fallback={
@@ -323,6 +323,23 @@ const CustomRoute = () => {
                 }
               >
                 <CartView />
+              </Suspense>
+            }
+          />
+
+          <Route
+            path="/wishlist"
+            element={
+              <Suspense
+                fallback={
+                  <div className="graph-loader  d-flex justify-content-center align-items-center">
+                    <div className="spinner-border  spinner-ui d-flex justify-content-center align-items-center">
+                      <span className="visually-hidden"></span>
+                    </div>
+                  </div>
+                }
+              >
+                <WishlistView />
               </Suspense>
             }
           />
@@ -412,7 +429,7 @@ const CustomRoute = () => {
             }
           />
 
-        <Route
+          <Route
             path="/wishlist"
             element={
               <Suspense
@@ -424,7 +441,7 @@ const CustomRoute = () => {
                   </div>
                 }
               >
-                <WishlistPage />
+                <WishlistView />
               </Suspense>
             }
           />
@@ -463,13 +480,6 @@ const CustomRoute = () => {
             }
           />
         </Route>
-
-
-      
-
-
-
-
       </Routes>
     </Router>
   );

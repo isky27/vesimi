@@ -42,13 +42,11 @@ const Interceptors = (store:any) => {
     },
     (error) => {
       if (error?.response?.data?.authorized === false) {
-
         for (const [key] of Object.entries(currentExecutingRequests)) {
             const source = currentExecutingRequests[key];
             delete currentExecutingRequests[key];
             source.cancel();
         }
-
         store.dispatch(logoutPost())
     }
       return Promise.reject(error);

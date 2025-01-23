@@ -36,11 +36,32 @@ const addWishListProductApi = async (userData: any): Promise<ApiResponse> => {
   }
 };
 
+
+const getWishListProductApi = async (userData: any): Promise<ApiResponse> => {
+  try {
+    const response: ApiResponse = await axios.get(`wishlists/${userData?.userId}`);
+    return response;
+  } catch (error: any) {
+    throw error;
+  }
+};
+
+const removeWishlistApi =  async (userData: any): Promise<ApiResponse> => {
+  try {
+    const response: ApiResponse = await axios.get(`wishlists-remove-product?product_id=${userData?.productId}&user_id=${userData?.userId}`);
+    return response;
+  } catch (error: any) {
+    throw error;
+  }
+};
+
 const productService = {
   productDetailApi,
   relatedProductApi,
   addToCartApi,
-  addWishListProductApi
+  addWishListProductApi,
+  getWishListProductApi,
+  removeWishlistApi
 };
 
 export default productService;

@@ -5,6 +5,7 @@ import Header from "component/headerLayout";
 import Footer from "component/footerLayout";
 import { cartListDataApi } from "store/order/orderSlice";
 import ScrollToTop from "component/ScrollToTop";
+import { getWishList } from "store/product/productSlice";
 
 // Returns Is user is logged in or not
 export const useAuth = () => {
@@ -40,6 +41,7 @@ export const HomeRoute = () => {
   const dispatch = useAppDispatch();
   if (loginDetails?.access_token) {
     dispatch(cartListDataApi({ user_id: loginDetails?.user?.id }));
+    dispatch(getWishList({ userId: loginDetails?.user?.id }));
   }
 
   return (
@@ -60,7 +62,7 @@ const ProtectedRoute = () => {
     return <Navigate to="/" />;
   }
   dispatch(cartListDataApi({ user_id: loginDetails?.user?.id }));
-
+  dispatch(getWishList({ userId: loginDetails?.user?.id }));
   return (
     <>
       <ScrollToTop /> {/* Ensures scroll to top on route change */}

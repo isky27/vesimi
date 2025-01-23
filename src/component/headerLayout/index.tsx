@@ -50,12 +50,15 @@ const Header = () => {
     cartListData,
     isLoadingCartList,
     handleCart,
+    handleWishList,
     isOpenResetPassEmail,
     setIsOpenResetPassEmail,
     resetPassEmailFormik,
     isOpenResetPassCode,
     confirmResetPassFormik,
     setIsOpenResetPassCode,
+    isLoadingWishList,
+    wishListData
   } = HeaderController();
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -76,7 +79,7 @@ const Header = () => {
 
   return (
     <header>
-      <Loader isLoading={[isLoadingCartList]} />
+      <Loader isLoading={[isLoadingCartList, isLoadingWishList]} />
       <div className="headerTopRow">
         <div className="container">
           <div className="headerTop">
@@ -86,7 +89,11 @@ const Header = () => {
                 className="MobileNavToggle bg-image d-block d-lg-none "
                 style={{ backgroundPosition: "-260px -158px" }}
               ></button>
-              <img className="cursorPointer" src={LogoImage} onClick={() => navigate("/")} />
+              <img
+                className="cursorPointer"
+                src={LogoImage}
+                onClick={() => navigate("/")}
+              />
               <div className="dropdown">
                 <button
                   className="btn dropdown-toggle bg-transparent border-0"
@@ -176,7 +183,10 @@ const Header = () => {
                     </ul>
                   )}
                 </li>
-                <li className="wishList">
+                <li className="Cart" onClick={handleWishList}>
+                  <Badge className="cartCount" bg="danger" pill>
+                    {wishListData?.data?.length}
+                  </Badge>
                   <span
                     className="profileIcon bg-image w-6 h-6 d-block"
                     style={{ backgroundPosition: "-291px -132px" }}

@@ -198,7 +198,6 @@ const CategoryView = () => {
               className="d-md-none filterSidebarToggle"
               onClick={handleToggleSidebar}
             >
-              {" "}
               <img src={filterIcon} />
             </button>
             {/* product Bar */}
