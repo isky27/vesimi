@@ -83,19 +83,30 @@ export const getPrice = (price: any, selectedPrice: string = "INR") =>{
   return countryOptions[selectedPrice]["symbol"]+ (Math.round(Number(extractNumber(price))/currencyPrice[selectedPrice] * 100) / 100)
 }
 
-export function extractNumber(text: string): number {
+export const getVarient = (entries:object) => {
+  return Object.values(entries)
+    .filter((value) => value) // Remove empty or falsy values
+    .join("-");
+}
+
+export function extractNumber(input: string | number): number {
+  // If the input is already a number, return it as is
+  if (typeof input === "number") {
+    return input;
+  }
   // Remove all non-numeric characters except for decimal points and commas
-  let cleanedText = text?.replace(/[^0-9.,]/g, '');
-  
+  let cleanedText = input?.replace(/[^0-9.,]/g, "");
+
   // Remove commas (used in Indian currency format)
-  cleanedText = cleanedText?.replace(/,/g, '');
-  
+  cleanedText = cleanedText?.replace(/,/g, "");
+
   // Convert the cleaned string to a float
   const number = parseFloat(cleanedText);
-  
+
   // Return the extracted number
   return isNaN(number) ? 0 : number;
 }
+
 
 export const sortSizes = (newArray:[])=> {
   // Create a map with size as the key and its index in the predefined sequence as value
