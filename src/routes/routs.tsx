@@ -25,7 +25,8 @@ const ShippingInfo = lazy(() => import("../pages/staticPages/ShippingInfo"));
 const AccountView = lazy(() => import("../pages/account/AccountView"));
 const CareerView = lazy(() => import("../pages/staticPages/CareerView"));
 const EditProfile = lazy(() => import("pages/account/edit/EditProfile"));
-
+const OrderHistoryView = lazy(()=> import("pages/orderHistory/OrderHistoryView"));
+const OrderDetailsView = lazy(()=> import("pages/orderDetails/OrderDetailsView"));
 
 
 /**
@@ -473,6 +474,40 @@ const CustomRoute = () => {
                 }
               >
                 <EditAddressView />
+              </Suspense>
+            }
+          />
+
+          <Route
+            path="/order-history"
+            element={
+              <Suspense
+                fallback={
+                  <div className="graph-loader  d-flex justify-content-center align-items-center">
+                    <div className="spinner-border  spinner-ui d-flex justify-content-center align-items-center">
+                      <span className="visually-hidden"></span>
+                    </div>
+                  </div>
+                }
+              >
+                <OrderHistoryView />
+              </Suspense>
+            }
+          />
+
+          <Route
+            path="/order-details/:orderId"
+            element={
+              <Suspense
+                fallback={
+                  <div className="graph-loader  d-flex justify-content-center align-items-center">
+                    <div className="spinner-border  spinner-ui d-flex justify-content-center align-items-center">
+                      <span className="visually-hidden"></span>
+                    </div>
+                  </div>
+                }
+              >
+                <OrderDetailsView />
               </Suspense>
             }
           />

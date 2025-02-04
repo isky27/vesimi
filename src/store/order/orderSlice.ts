@@ -18,7 +18,11 @@ const initialState: OrderDataInterface = {
     saveOrderData : null,
     isLoadingUpdateCart: false,
     updateCartData: null,
-    isLoadingDeleteCartProduct: false
+    isLoadingDeleteCartProduct: false,
+    isLoadingOrderHistory: false,
+    orderHistoryData: null,
+    isLoadingOrderDetails: false,
+    orderDetailsData: null
 }
 
 // Async Thunks
@@ -84,6 +88,26 @@ export const deleteCartProductApi = createAsyncThunk("delete/cart/product", asyn
     }
 });
 
+export const getOrderHistory = createAsyncThunk("get/order/history", async (userData:any,thunkApi: any) => {
+    try {
+        const response: any = await orderService.orderHistoryApi(userData);
+        return response;
+    } catch (error: any) {
+        const message: any = getErrorMessage(error)
+        return thunkApi.rejectWithValue(message);
+    }
+});
+
+export const getOrderDetails = createAsyncThunk("get/order/details", async (userData:any,thunkApi: any) => {
+    try {
+        const response: any = await orderService.orderDetailsApi(userData);
+        return response;
+    } catch (error: any) {
+        const message: any = getErrorMessage(error)
+        return thunkApi.rejectWithValue(message);
+    }
+});
+
 // Account Reducer
 export const orderDataReducer = createSlice({
     name: "order-section",
@@ -93,75 +117,102 @@ export const orderDataReducer = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(updateOrderAddress.pending, (state: any, _: any) => {
-                state.isLoadingOrderAddress = true;
-            })
-            .addCase(updateOrderAddress.fulfilled, (state: any, action: any) => {
-                state.isLoadingOrderAddress = false;
-            })
-            .addCase(updateOrderAddress.rejected, (state: any) => {
-                state.isLoadingOrderAddress = false;
-            })
-            .addCase(cartListDataApi.pending, (state: any, _: any) => {
-                state.isLoadingCartList = true;
-                state.cartListData =  null
-                state.isSuccess = false;
-            })
-            .addCase(cartListDataApi.fulfilled, (state: any, action: any) => {
-                state.isLoadingCartList = false;
-                state.cartListData = action.payload
-                state.isSuccess = true;
-            })
-            .addCase(cartListDataApi.rejected, (state: any) => {
-                state.isLoadingCartList = false;
-                state.cartListData = null
-                state.isSuccess = false;
-            })
-            .addCase(cartSummaryDataApi.pending, (state: any, _: any) => {
-                state.isLoadingCartSummary = true;
-                state.cartSummaryData =  null
-            })
-            .addCase(cartSummaryDataApi.fulfilled, (state: any, action: any) => {
-                state.isLoadingCartSummary = false;
-                state.cartSummaryData = action.payload
-            })
-            .addCase(cartSummaryDataApi.rejected, (state: any) => {
-                state.isLoadingCartSummary = false;
-                state.cartSummaryData = null
-            })
-            .addCase(orderSaveaApi.pending, (state: any, _: any) => {
-                state.isLoadingSaveOrder = true;
-                state.saveOrderData =  null
-            })
-            .addCase(orderSaveaApi.fulfilled, (state: any, action: any) => {
-                state.isLoadingSaveOrder = false;
-                state.saveOrderData = action.payload
-            })
-            .addCase(orderSaveaApi.rejected, (state: any) => {
-                state.isLoadingSaveOrder = false;
-                state.saveOrderData = null
-            })
-            .addCase(updateCartApi.pending, (state: any, _: any) => {
-                state.isLoadingUpdateCart = true;
-                state.updateCartData =  null
-            })
-            .addCase(updateCartApi.fulfilled, (state: any, action: any) => {
-                state.isLoadingUpdateCart = false;
-                state.updateCartData = action.payload
-            })
-            .addCase(updateCartApi.rejected, (state: any) => {
-                state.isLoadingUpdateCart = false;
-                state.updateCartData = null
-            })
-            .addCase(deleteCartProductApi.pending, (state: any, _: any) => {
-                state.isLoadingDeleteCartProduct = true;
-            })
-            .addCase(deleteCartProductApi.fulfilled, (state: any, action: any) => {
-                state.isLoadingDeleteCartProduct = false;
-            })
-            .addCase(deleteCartProductApi.rejected, (state: any) => {
-                state.isLoadingDeleteCartProduct = false;
-            })
+          .addCase(updateOrderAddress.pending, (state: any, _: any) => {
+            state.isLoadingOrderAddress = true;
+          })
+          .addCase(updateOrderAddress.fulfilled, (state: any, action: any) => {
+            state.isLoadingOrderAddress = false;
+          })
+          .addCase(updateOrderAddress.rejected, (state: any) => {
+            state.isLoadingOrderAddress = false;
+          })
+          .addCase(cartListDataApi.pending, (state: any, _: any) => {
+            state.isLoadingCartList = true;
+            state.cartListData = null;
+            state.isSuccess = false;
+          })
+          .addCase(cartListDataApi.fulfilled, (state: any, action: any) => {
+            state.isLoadingCartList = false;
+            state.cartListData = action.payload;
+            state.isSuccess = true;
+          })
+          .addCase(cartListDataApi.rejected, (state: any) => {
+            state.isLoadingCartList = false;
+            state.cartListData = null;
+            state.isSuccess = false;
+          })
+          .addCase(cartSummaryDataApi.pending, (state: any, _: any) => {
+            state.isLoadingCartSummary = true;
+            state.cartSummaryData = null;
+          })
+          .addCase(cartSummaryDataApi.fulfilled, (state: any, action: any) => {
+            state.isLoadingCartSummary = false;
+            state.cartSummaryData = action.payload;
+          })
+          .addCase(cartSummaryDataApi.rejected, (state: any) => {
+            state.isLoadingCartSummary = false;
+            state.cartSummaryData = null;
+          })
+          .addCase(orderSaveaApi.pending, (state: any, _: any) => {
+            state.isLoadingSaveOrder = true;
+            state.saveOrderData = null;
+          })
+          .addCase(orderSaveaApi.fulfilled, (state: any, action: any) => {
+            state.isLoadingSaveOrder = false;
+            state.saveOrderData = action.payload;
+          })
+          .addCase(orderSaveaApi.rejected, (state: any) => {
+            state.isLoadingSaveOrder = false;
+            state.saveOrderData = null;
+          })
+          .addCase(updateCartApi.pending, (state: any, _: any) => {
+            state.isLoadingUpdateCart = true;
+            state.updateCartData = null;
+          })
+          .addCase(updateCartApi.fulfilled, (state: any, action: any) => {
+            state.isLoadingUpdateCart = false;
+            state.updateCartData = action.payload;
+          })
+          .addCase(updateCartApi.rejected, (state: any) => {
+            state.isLoadingUpdateCart = false;
+            state.updateCartData = null;
+          })
+          .addCase(deleteCartProductApi.pending, (state: any, _: any) => {
+            state.isLoadingDeleteCartProduct = true;
+          })
+          .addCase(
+            deleteCartProductApi.fulfilled,
+            (state: any, action: any) => {
+              state.isLoadingDeleteCartProduct = false;
+            }
+          )
+          .addCase(deleteCartProductApi.rejected, (state: any) => {
+            state.isLoadingDeleteCartProduct = false;
+          })
+          .addCase(getOrderHistory.pending, (state: any, _: any) => {
+            state.isLoadingOrderHistory = true;
+            state.orderHistoryData = null;
+          })
+          .addCase(getOrderHistory.fulfilled, (state: any, action: any) => {
+            state.isLoadingOrderHistory = false;
+            state.orderHistoryData = action.payload;
+          })
+          .addCase(getOrderHistory.rejected, (state: any) => {
+            state.isLoadingOrderHistory = false;
+            state.orderHistoryData = null;
+          })
+          .addCase(getOrderDetails.pending, (state: any, _: any) => {
+            state.isLoadingOrderDetails = true;
+            state.orderDetailsData = null;
+          })
+          .addCase(getOrderDetails.fulfilled, (state: any, action: any) => {
+            state.isLoadingOrderDetails = false;
+            state.orderDetailsData = action.payload;
+          })
+          .addCase(getOrderDetails.rejected, (state: any) => {
+            state.isLoadingOrderDetails = false;
+            state.orderDetailsData = null;
+          });
     }
 });
 

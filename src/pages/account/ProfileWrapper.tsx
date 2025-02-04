@@ -24,7 +24,7 @@ const ProfileWrapper = ({ children }: any) => {
                         <ul className="sidebarNav">
                             <li><Link to={"/account"}>Account Dashboard</Link></li>
                             <li><Link to={"/address"}>Address Book</Link></li>
-                            <li><Link to={"/"}>My Order</Link></li>
+                            <li><Link to={"/order-history"}>My Order</Link></li>
                             <li><Link to={"/"}>My Product Review</Link></li>
                         </ul>
                     </div>

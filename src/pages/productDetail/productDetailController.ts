@@ -34,7 +34,7 @@ const ProductDetailController = () => {
 
         let price =
           productDetailData?.data[0].variant.find(
-            (el: any) => el?.sku === varient
+            (el: any) => el?.sku?.toLowerCase() === varient?.toLowerCase()
           )?.price || productDetailData?.data[0]?.main_price;
         setSelectedPrice(price);
       }

@@ -19,44 +19,62 @@ const cartListApi = async (userData: any): Promise<ApiResponse> => {
     }
   };
 
-  const updateCart = async (userData: any, userToken: { headers: { Authorization: string } }): Promise<ApiResponse> => {
-    try {
-      const response: ApiResponse = (await axios.post("/carts/process", userData, userToken ));
-      return response;
-    } catch (error: any) {
-      throw error;
-    }
-  };
+const updateCart = async (userData: any, userToken: { headers: { Authorization: string } }): Promise<ApiResponse> => {
+  try {
+    const response: ApiResponse = (await axios.post("/carts/process", userData, userToken ));
+    return response;
+  } catch (error: any) {
+    throw error;
+  }
+};
   
-  const cartSummaryApi = async (userData: any): Promise<ApiResponse> => {
-    try {
-      const response: ApiResponse = (await axios.get(`/cart-summary/${userData?.user_id}`));
-      return response;
-    } catch (error: any) {
-      throw error;
-    }
-  };
+const cartSummaryApi = async (userData: any): Promise<ApiResponse> => {
+  try {
+    const response: ApiResponse = (await axios.get(`/cart-summary/${userData?.user_id}`));
+    return response;
+  } catch (error: any) {
+    throw error;
+  }
+};
 
-  const saveOrderApi = async (userData: any): Promise<ApiResponse> => {
-    try {
-      const response: ApiResponse = (await axios.post(`/order/store`, userData));
+const saveOrderApi = async (userData: any): Promise<ApiResponse> => {
+  try {
+    const response: ApiResponse = (await axios.post(`/order/store`, userData));
 
-      toast.success("Your order has been placed successfully.")
-      return response;
-    } catch (error: any) {
-      throw error;
-    }
-  };
+    toast.success("Your order has been placed successfully.")
+    return response;
+  } catch (error: any) {
+    throw error;
+  }
+};
 
-  const deleteCartProduct = async (userData: any): Promise<ApiResponse> => {
-    try {
-      const response: ApiResponse = (await axios.delete(`carts/${userData?.cartId}`));
-      toast.success(response?.message)
-      return response;
-    } catch (error: any) {
-      throw error;
-    }
-  };
+const deleteCartProduct = async (userData: any): Promise<ApiResponse> => {
+  try {
+    const response: ApiResponse = (await axios.delete(`carts/${userData?.cartId}`));
+    toast.success(response?.message)
+    return response;
+  } catch (error: any) {
+    throw error;
+  }
+};
+
+const orderHistoryApi = async (userData: any): Promise<ApiResponse> => {
+   try {
+     const response: ApiResponse = await axios.get(`purchase-history/${userData?.user_id}`);
+     return response;
+   } catch (error: any) {
+     throw error;
+   }
+};
+
+const orderDetailsApi = async (userData: any): Promise<ApiResponse> => {
+   try {
+     const response: ApiResponse = await axios.get(`purchase-history-details/${userData?.orderId}`);
+     return response;
+   } catch (error: any) {
+     throw error;
+   }
+}
 
 const orderService = {
   updateOrderAddressApi,
@@ -64,7 +82,9 @@ const orderService = {
   cartSummaryApi,
   saveOrderApi,
   updateCart,
-  deleteCartProduct
+  deleteCartProduct,
+  orderHistoryApi,
+  orderDetailsApi
 };
 
 export default orderService;
