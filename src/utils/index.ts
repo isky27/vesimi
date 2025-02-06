@@ -81,7 +81,7 @@ export const getCategoryUrl=(categId:number | string)=>{
 
 export const getPrice = (price: any, selectedPrice: string = "INR") => {
   return (
-    countryOptions[selectedPrice]["symbol"] +
+    countryOptions[selectedPrice]["symbol"] +" "+
     (Math.round((Number(extractNumber(price)) / currencyPrice[selectedPrice]) * 100) / 100).toFixed(2)
   );
 }
