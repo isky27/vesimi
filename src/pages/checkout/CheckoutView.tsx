@@ -213,15 +213,12 @@ const CheckoutView = () => {
                       <li>
                         <span>TOTAL PAYABLE </span>
                         <strong>
-                          {getPrice(
-                            cartSummaryData?.sub_total,
-                            selectedCurrency
-                          )}
+                          {getPrice(cartSummaryData?.sub_total, selectedCurrency)}
                         </strong>
                       </li>
                       <li className="text-green">
                         <span>YOUR TOTAL SAVINGS </span>
-                        <strong>{cartSummaryData?.discount}</strong>
+                        <strong>{getPrice(cartSummaryData?.discount, selectedCurrency)}</strong>
                       </li>
                     </ul>
                   </div>
