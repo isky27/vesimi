@@ -60,7 +60,7 @@ const deleteCartProduct = async (userData: any): Promise<ApiResponse> => {
 
 const orderHistoryApi = async (userData: any): Promise<ApiResponse> => {
    try {
-     const response: ApiResponse = await axios.get(`purchase-history/${userData?.user_id}`);
+     const response: ApiResponse = await axios.get(`purchase-history/${userData?.user_id}?page=${userData?.page}`);
      return response;
    } catch (error: any) {
      throw error;

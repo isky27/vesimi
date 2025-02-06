@@ -4,15 +4,21 @@ import { getPrice, normalizedList } from "utils";
 import Loader from "component/Loader";
 import { Link } from "react-router-dom";
 import ProfileWrapper from "pages/account/ProfileWrapper";
+import Pagination from "component/Pagination";
 
 const OrderHistoryView = () => {
-  const { isLoadingOrderHistory, orderHistoryData } = OrderHistoryController();
+  const {
+    isLoadingOrderHistory,
+    orderHistoryData,
+    currentPage,
+    setCurrentPage,
+  } = OrderHistoryController();
 
   return (
     <ProfileWrapper>
       <Loader isLoading={[isLoadingOrderHistory]} />
       <div className="myAccountMain">
-        <h1 className="mb-4 h1">Order List</h1>
+        <h1 className="mb-4 h2">Order List</h1>
         <table className="table table-striped table-bordered">
           <thead className="table-dark">
             <tr>
@@ -42,6 +48,14 @@ const OrderHistoryView = () => {
             ))}
           </tbody>
         </table>
+        {orderHistoryData?.meta?.total > 0 && (
+          <Pagination
+            total={orderHistoryData?.meta?.total}
+            pageSize={orderHistoryData?.meta?.per_page}
+            currentPage={currentPage}
+            handleClick={setCurrentPage}
+          />
+        )}
       </div>
     </ProfileWrapper>
   );

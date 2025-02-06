@@ -9,7 +9,7 @@ const OrderDetailsView = () => {
     <ProfileWrapper>
       <Loader isLoading={[isLoadingOrderDetails]} />
       <div className="myAccountMain">
-        <h1 className="mb-4 h1">Order Detail</h1>
+        <h1 className="mb-4 h2">Order Detail</h1>
 
       </div>
     </ProfileWrapper>
