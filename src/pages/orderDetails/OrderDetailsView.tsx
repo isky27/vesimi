@@ -1,21 +1,19 @@
-import React from 'react'
-import OrderDetailController from './orderDetailController'
-import Loader from 'component/Loader'
+import React from "react";
+import OrderDetailController from "./orderDetailController";
+import Loader from "component/Loader";
+import ProfileWrapper from "pages/account/ProfileWrapper";
 
 const OrderDetailsView = () => {
-
-    const { isLoadingOrderDetails, orderDetailsData } = OrderDetailController();
-
-    console.log(orderDetailsData, "orderDetailsDataorderDetailsData");
-
+  const { isLoadingOrderDetails, orderDetailsData } = OrderDetailController();
   return (
-    <section className="pageMain">
+    <ProfileWrapper>
       <Loader isLoading={[isLoadingOrderDetails]} />
-      <div className="container mt-4">
+      <div className="myAccountMain">
         <h1 className="mb-4 h1">Order Detail</h1>
-      </div>
-    </section>
-  );
-}
 
-export default OrderDetailsView
+      </div>
+    </ProfileWrapper>
+  );
+};
+
+export default OrderDetailsView;

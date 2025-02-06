@@ -69,7 +69,7 @@ const orderHistoryApi = async (userData: any): Promise<ApiResponse> => {
 
 const orderDetailsApi = async (userData: any): Promise<ApiResponse> => {
    try {
-     const response: ApiResponse = await axios.get(`purchase-history-details/${userData?.orderId}`);
+     const response: ApiResponse = await axios.get(`purchase-history-items/${userData?.orderId}`);
      return response;
    } catch (error: any) {
      throw error;

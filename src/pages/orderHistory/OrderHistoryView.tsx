@@ -3,15 +3,15 @@ import OrderHistoryController from "./orderHistoryController";
 import { getPrice, normalizedList } from "utils";
 import Loader from "component/Loader";
 import { Link } from "react-router-dom";
+import ProfileWrapper from "pages/account/ProfileWrapper";
 
 const OrderHistoryView = () => {
-    
   const { isLoadingOrderHistory, orderHistoryData } = OrderHistoryController();
 
   return (
-    <section className="pageMain">
+    <ProfileWrapper>
       <Loader isLoading={[isLoadingOrderHistory]} />
-      <div className="container mt-4">
+      <div className="myAccountMain">
         <h1 className="mb-4 h1">Order List</h1>
         <table className="table table-striped table-bordered">
           <thead className="table-dark">
@@ -31,7 +31,10 @@ const OrderHistoryView = () => {
                 <td>{getPrice(order.grand_total)}</td>
                 <td>{order.delivery_status_string}</td>
                 <td>
-                  <Link to={`/order-details/${order.id}`} className="btn btn-primary btn-sm">
+                  <Link
+                    to={`/order-details/${order.id}`}
+                    className="btn btn-primary btn-sm"
+                  >
                     View Order
                   </Link>
                 </td>
@@ -40,7 +43,7 @@ const OrderHistoryView = () => {
           </tbody>
         </table>
       </div>
-    </section>
+    </ProfileWrapper>
   );
 };
 
