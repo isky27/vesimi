@@ -108,7 +108,11 @@ const CheckoutView = () => {
                 <Accordion.Item eventKey="1">
                   <Accordion.Header
                     className={isShippingMethodDisabled ? "disabled" : ""}
-                    style={{cursor: isShippingMethodDisabled ? "not-allowed" : "pointer"}}
+                    style={{
+                      cursor: isShippingMethodDisabled
+                        ? "not-allowed"
+                        : "pointer",
+                    }}
                   >
                     Shipping Methods
                   </Accordion.Header>
@@ -124,7 +128,15 @@ const CheckoutView = () => {
                         <div className="row">
                           <div className="col-md-12 mb-3">
                             <input type="radio" checked={true} />{" "}
-                            <label>Shipping Cost : {isShippingMethodDisabled ? 'Calculated at checkout' : getPrice(cartSummaryData?.shipping_cost, selectedCurrency)}</label>
+                            <label>
+                              Shipping Cost :{" "}
+                              {isShippingMethodDisabled
+                                ? "Calculated at checkout"
+                                : getPrice(
+                                    cartSummaryData?.shipping_cost,
+                                    selectedCurrency
+                                  )}
+                            </label>
                           </div>
                         </div>
                         <button type="submit" className="themeBtnCart">
@@ -180,23 +192,31 @@ const CheckoutView = () => {
                     <li>
                       Order Total{" "}
                       <strong>
-                        {getPrice(cartSummaryData?.grand_total, selectedCurrency)}
+                        {getPrice(
+                          cartSummaryData?.grand_total,
+                          selectedCurrency
+                        )}
                       </strong>
                     </li>
-                    <li>
+                   {!isShippingMethodDisabled && <li>
                       <p>
                         Shipping & Duties
                         <small>( Apply Coupon Codes on payments page )</small>
                       </p>{" "}
-                      <strong>{isShippingMethodDisabled ? 'Calculated at checkout' : getPrice(cartSummaryData?.shipping_cost, selectedCurrency)}</strong>
-                    </li>
+                      <strong>
+                        {getPrice(cartSummaryData?.shipping_cost, selectedCurrency)}
+                      </strong>
+                    </li>}
                   </ul>
                   <div className="cartRightInner">
                     <ul>
                       <li>
                         <span>TOTAL PAYABLE </span>
                         <strong>
-                          {getPrice(cartSummaryData?.sub_total, selectedCurrency)}
+                          {getPrice(
+                            cartSummaryData?.sub_total,
+                            selectedCurrency
+                          )}
                         </strong>
                       </li>
                       <li className="text-green">
@@ -236,21 +256,28 @@ const CheckoutView = () => {
                               {item?.product_name}
                             </p>
                           )}
-                          {item?.option_json && (Object.entries(JSON.parse(item?.option_json))?.map((atr: any) => {
-                                                           if(atr?.[0] && atr?.[1]){
-                                                            return (
-                                                              <div
-                                                                className="d-flex gap-1 align-items-top"
-                                                                key={atr[0]}
-                                                              >
-                                                                <p style={{textTransform:"capitalize"}}>{atr[0]} : </p>
-                                                                <p>{atr[1]}</p>
-                                                              </div>
-                                                            )}else{
-                                                              return <div></div>
-                                                            };
-                                                            }
-                                                    ))}
+                          {item?.option_json &&
+                            Object.entries(JSON.parse(item?.option_json))?.map(
+                              (atr: any) => {
+                                if (atr?.[0] && atr?.[1]) {
+                                  return (
+                                    <div
+                                      className="d-flex gap-1 align-items-top"
+                                      key={atr[0]}
+                                    >
+                                      <p
+                                        style={{ textTransform: "capitalize" }}
+                                      >
+                                        {atr[0]} :{" "}
+                                      </p>
+                                      <p>{atr[1]}</p>
+                                    </div>
+                                  );
+                                } else {
+                                  return <div></div>;
+                                }
+                              }
+                            )}
                           {item?.price && (
                             <div className="mb-1">
                               Price: {getPrice(item?.price, selectedCurrency)}
