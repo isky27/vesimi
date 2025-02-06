@@ -108,11 +108,7 @@ const CheckoutView = () => {
                 <Accordion.Item eventKey="1">
                   <Accordion.Header
                     className={isShippingMethodDisabled ? "disabled" : ""}
-                    style={{
-                      cursor: isShippingMethodDisabled
-                        ? "not-allowed"
-                        : "pointer",
-                    }}
+                    style={{cursor: isShippingMethodDisabled ? "not-allowed" : "pointer"}}
                   >
                     Shipping Methods
                   </Accordion.Header>
@@ -128,7 +124,7 @@ const CheckoutView = () => {
                         <div className="row">
                           <div className="col-md-12 mb-3">
                             <input type="radio" checked={true} />{" "}
-                            <label>Free Shipping</label>
+                            <label>Shipping Cost : {isShippingMethodDisabled ? 'Calculated at checkout' : getPrice(cartSummaryData?.shipping_cost, selectedCurrency)}</label>
                           </div>
                         </div>
                         <button type="submit" className="themeBtnCart">
@@ -163,10 +159,9 @@ const CheckoutView = () => {
                           <label>Cash on delivery</label>
                         </div>
                         {/* <div className="col-md-12 mb-3">
-
-                                                        <label className="form-label">Card Number</label>
-                                                        <input type="text" className="form-control" />
-                                                    </div> */}
+                            <label className="form-label">Card Number</label>
+                            <input type="text" className="form-control" />
+                        </div> */}
                       </div>
                       {/* Add remaining form fields */}
                       <button type="submit" className="themeBtnCart">
@@ -183,12 +178,9 @@ const CheckoutView = () => {
                 <div className="cartRightInner">
                   <ul>
                     <li>
-                      ORDER Total{" "}
+                      Order Total{" "}
                       <strong>
-                        {getPrice(
-                          cartSummaryData?.grand_total,
-                          selectedCurrency
-                        )}
+                        {getPrice(cartSummaryData?.grand_total, selectedCurrency)}
                       </strong>
                     </li>
                     <li>
@@ -196,7 +188,7 @@ const CheckoutView = () => {
                         Shipping & Duties
                         <small>( Apply Coupon Codes on payments page )</small>
                       </p>{" "}
-                      <strong>Calculated at checkout </strong>
+                      <strong>{isShippingMethodDisabled ? 'Calculated at checkout' : getPrice(cartSummaryData?.shipping_cost, selectedCurrency)}</strong>
                     </li>
                   </ul>
                   <div className="cartRightInner">
@@ -204,10 +196,7 @@ const CheckoutView = () => {
                       <li>
                         <span>TOTAL PAYABLE </span>
                         <strong>
-                          {getPrice(
-                            cartSummaryData?.sub_total,
-                            selectedCurrency
-                          )}
+                          {getPrice(cartSummaryData?.sub_total, selectedCurrency)}
                         </strong>
                       </li>
                       <li className="text-green">
@@ -257,7 +246,9 @@ const CheckoutView = () => {
                                                                 <p style={{textTransform:"capitalize"}}>{atr[0]} : </p>
                                                                 <p>{atr[1]}</p>
                                                               </div>
-                                                            )};
+                                                            )}else{
+                                                              return <div></div>
+                                                            };
                                                             }
                                                     ))}
                           {item?.price && (

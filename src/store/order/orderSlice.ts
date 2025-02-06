@@ -22,7 +22,9 @@ const initialState: OrderDataInterface = {
     isLoadingOrderHistory: false,
     orderHistoryData: null,
     isLoadingOrderDetails: false,
-    orderDetailsData: null
+    orderDetailsData: null,
+    isLoadingShippingCost: false,
+    shippingPriceData: null
 }
 
 // Async Thunks
@@ -30,7 +32,12 @@ const initialState: OrderDataInterface = {
 // Address slice
 export const updateOrderAddress = createAsyncThunk("update/order/address", async (userData: any, thunkApi: any) => {
     try {
-        const response: any = await orderService.updateOrderAddressApi(userData, getTokenHeader());
+        const response: any = await orderService.updateOrderAddressApi(
+          userData?.addressPayload,
+          getTokenHeader()
+        );
+        await thunkApi.dispatch(addShippindCostApi(userData?.shippingPayload))
+        await thunkApi.dispatch(cartSummaryDataApi(userData?.shippingPayload));
         return response;
     } catch (error: any) {
         const message: any = getErrorMessage(error)
@@ -81,6 +88,16 @@ export const updateCartApi = createAsyncThunk("update/cart", async (userData:any
 export const deleteCartProductApi = createAsyncThunk("delete/cart/product", async (userData:any,thunkApi: any) => {
     try {
         const response:any = await orderService.deleteCartProduct(userData);
+        return response;
+    } catch (error: any) {
+        const message: any = getErrorMessage(error)
+        return thunkApi.rejectWithValue(message);
+    }
+});
+
+export const addShippindCostApi = createAsyncThunk("add/shipping/cost", async (userData:any,thunkApi: any) => {
+    try {
+        const response: any = await orderService.addShippingPrice(userData);
         return response;
     } catch (error: any) {
         const message: any = getErrorMessage(error)
@@ -212,6 +229,18 @@ export const orderDataReducer = createSlice({
           .addCase(getOrderDetails.rejected, (state: any) => {
             state.isLoadingOrderDetails = false;
             state.orderDetailsData = null;
+          })
+          .addCase(addShippindCostApi.pending, (state: any, _: any) => {
+            state.isLoadingShippingCost = true;
+            state.shippingPriceData = null;
+          })
+          .addCase(addShippindCostApi.fulfilled, (state: any, action: any) => {
+            state.isLoadingShippingCost = false;
+            state.shippingPriceData = action.payload;
+          })
+          .addCase(addShippindCostApi.rejected, (state: any) => {
+            state.isLoadingShippingCost = false;
+            state.shippingPriceData = null;
           });
     }
 });

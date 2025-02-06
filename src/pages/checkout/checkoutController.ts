@@ -39,15 +39,26 @@ const CheckoutController = () => {
 
   const handleChooseAddress = ()=>{
     if(selectedAddress?.id){
-      dispatch(updateOrderAddress({
-        user_id:loginDetails?.user?.id,
-        address_id:selectedAddress?.id
-      })).unwrap().then(()=>{
-        setIsShippingMethodDisabled(false)
-        handleNext("1")
-      }).catch((error:any)=>{
-        console.log(error.message);
-      })
+      dispatch(
+        updateOrderAddress({
+          addressPayload: {
+            user_id: loginDetails?.user?.id,
+            address_id: selectedAddress?.id,
+          },
+          shippingPayload: {
+            user_id: loginDetails?.user?.id,
+            city_id: selectedAddress?.city_id,
+          },
+        })
+      ).unwrap()
+        .then(() => {
+          setIsShippingMethodDisabled(false);
+          handleNext("1");
+        })
+        .catch((error: any) => {
+          console.log(error.message);
+          toast.error("Something went wrong. Please try again.");
+        });
     }else{
       toast.error("Select a address first.")
     }

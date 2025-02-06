@@ -46,7 +46,9 @@ const CartView = () => {
                                                                 <p style={{textTransform:"capitalize"}}>{atr[0]} : </p>
                                                                 <p>{atr[1]}</p>
                                                               </div>
-                                                            )};
+                                                            )}else{
+                                                                <div></div>
+                                                            };
                                                             }
                                                     ))}
                                                     {item?.price && <div className="mb-1">Price: {getPrice(item?.price, selectedCurrency)}
@@ -72,7 +74,7 @@ const CartView = () => {
                                 <h2>PRICE DETAILS </h2>
                                 <div className="cartRightInner">
                                     <ul>
-                                        <li>ORDER Total <strong>{getPrice(cartSummaryData?.grand_total, selectedCurrency)}</strong></li>
+                                        <li>Order Total <strong>{getPrice(cartSummaryData?.grand_total, selectedCurrency)}</strong></li>
                                         <li><p>Shipping & Duties<small>( Apply Coupon Codes on payments page )
                                         </small></p> <strong>Calculated at checkout </strong></li>
                                     </ul>

@@ -58,6 +58,15 @@ const deleteCartProduct = async (userData: any): Promise<ApiResponse> => {
   }
 };
 
+const addShippingPrice = async (userData: any): Promise<ApiResponse> => {
+  try {
+    const response: ApiResponse = await axios.post("/shipping_cost", userData);
+    return response;
+  } catch (error: any) {
+    throw error;
+  }
+};
+
 const orderHistoryApi = async (userData: any): Promise<ApiResponse> => {
    try {
      const response: ApiResponse = await axios.get(`purchase-history/${userData?.user_id}?page=${userData?.page}`);
@@ -84,7 +93,8 @@ const orderService = {
   updateCart,
   deleteCartProduct,
   orderHistoryApi,
-  orderDetailsApi
+  orderDetailsApi,
+  addShippingPrice
 };
 
 export default orderService;
