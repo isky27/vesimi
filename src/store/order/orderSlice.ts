@@ -24,7 +24,9 @@ const initialState: OrderDataInterface = {
     isLoadingOrderDetails: false,
     orderDetailsData: null,
     isLoadingShippingCost: false,
-    shippingPriceData: null
+    shippingPriceData: null,
+    isLoadingOrderItems: false,
+    orderItemeData: null
 }
 
 // Async Thunks
@@ -125,6 +127,16 @@ export const getOrderDetails = createAsyncThunk("get/order/details", async (user
     }
 });
 
+export const getOrderItems = createAsyncThunk("get/order/Items", async (userData:any,thunkApi: any) => {
+    try {
+        const response: any = await orderService.orderHistoryItemsApi(userData);
+        return response;
+    } catch (error: any) {
+        const message: any = getErrorMessage(error)
+        return thunkApi.rejectWithValue(message);
+    }
+});
+
 // Account Reducer
 export const orderDataReducer = createSlice({
     name: "order-section",
@@ -197,12 +209,9 @@ export const orderDataReducer = createSlice({
           .addCase(deleteCartProductApi.pending, (state: any, _: any) => {
             state.isLoadingDeleteCartProduct = true;
           })
-          .addCase(
-            deleteCartProductApi.fulfilled,
-            (state: any, action: any) => {
+          .addCase(deleteCartProductApi.fulfilled, (state: any, action: any) => {
               state.isLoadingDeleteCartProduct = false;
-            }
-          )
+           })
           .addCase(deleteCartProductApi.rejected, (state: any) => {
             state.isLoadingDeleteCartProduct = false;
           })
@@ -241,6 +250,18 @@ export const orderDataReducer = createSlice({
           .addCase(addShippindCostApi.rejected, (state: any) => {
             state.isLoadingShippingCost = false;
             state.shippingPriceData = null;
+          })
+          .addCase(getOrderItems.pending, (state: any, _: any) => {
+            state.isLoadingOrderItems = true;
+            state.orderItemeData = null;
+          })
+          .addCase(getOrderItems.fulfilled, (state: any, action: any) => {
+            state.isLoadingOrderItems = false;
+            state.orderItemeData = action.payload;
+          })
+          .addCase(getOrderItems.rejected, (state: any) => {
+            state.isLoadingOrderItems = false;
+            state.orderItemeData = null;
           });
     }
 });

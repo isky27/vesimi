@@ -78,6 +78,15 @@ const orderHistoryApi = async (userData: any): Promise<ApiResponse> => {
 
 const orderDetailsApi = async (userData: any): Promise<ApiResponse> => {
    try {
+     const response: ApiResponse = await axios.get(`purchase-history-details/${userData?.orderId}`);
+     return response;
+   } catch (error: any) {
+     throw error;
+   }
+}
+
+const orderHistoryItemsApi = async (userData: any): Promise<ApiResponse> => {
+   try {
      const response: ApiResponse = await axios.get(`purchase-history-items/${userData?.orderId}`);
      return response;
    } catch (error: any) {
@@ -94,7 +103,8 @@ const orderService = {
   deleteCartProduct,
   orderHistoryApi,
   orderDetailsApi,
-  addShippingPrice
+  addShippingPrice,
+  orderHistoryItemsApi
 };
 
 export default orderService;

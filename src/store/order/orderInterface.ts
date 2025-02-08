@@ -17,5 +17,7 @@ export interface OrderDataInterface {
   orderDetailsData: any;
   isLoadingShippingCost: boolean;
   shippingPriceData: any;
+  isLoadingOrderItems: boolean;
+  orderItemeData: any
 }
 
