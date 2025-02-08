@@ -13,21 +13,6 @@ const OrderDetailsView = () => {
     orderItemeData,
   } = OrderDetailController();
 
-  console.log(
-    orderDetailsData?.data?.[0],
-    {shipping_address : {
-    "name": "Mr. Customer",
-    "email": "customer@example.com",
-    "address": "Now or never",
-    "country": "Afghanistan",
-    "state": "Andaman and Nicobar Islands",
-    "city": "Sed ea dolore offici",
-    "postal_code": "64643213456",
-    "phone": "8765461215464"
-}},
-    "orderDetailsDataorderDetailsDataorderDetailsData"
-  );
-
   return (
     <ProfileWrapper>
       <Loader isLoading={[isLoadingOrderDetails, isLoadingOrderItems]} />
