@@ -1546,3 +1546,7 @@ span.appOnly {
 .order-Name strong {
   margin-right: 6px;
 }
+
+.order-Name {
+  width: 50%;
+}

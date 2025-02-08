@@ -8,7 +8,7 @@ const OrderDetailController = () => {
     const {orderId} = useParams();
 
     const { isLoadingOrderDetails, orderDetailsData } = useAppSelector((state) => state.order);
-
+    const { selectedCurrency } = useAppSelector((state: any) => state.auth);
     const dispatch = useAppDispatch();
 
     useEffect(() => {
@@ -20,7 +20,8 @@ const OrderDetailController = () => {
 
   return {
     isLoadingOrderDetails,
-    orderDetailsData
+    orderDetailsData,
+    selectedCurrency,
   };
 }
 

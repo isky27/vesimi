@@ -13,7 +13,7 @@
 .myAccountMain {
     flex: 0 0 100%;
     padding-left: 20px;
-    max-width: calc(100% - 300px);
+    max-width: calc(100% - 250px);
 }
 
 .accountSidebar h1 {
