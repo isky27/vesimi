@@ -79,9 +79,10 @@ export const getCategoryUrl=(categId:number | string)=>{
   return `/search/category/${categId}?sub-category=${categId}&min=${priceRange[0]}&max=${priceRange[1]}`
 };
 
-export const getPrice = (price: any, selectedPrice: string = "INR") =>{
-  return countryOptions[selectedPrice]["symbol"]+ (Math.round(Number(extractNumber(price))/currencyPrice[selectedPrice] * 100) / 100)
-}
+export const getPrice = (price: any, selectedPrice: string = "INR") => {
+  const convertedPrice = Number(extractNumber(price)) / currencyPrice[selectedPrice];
+  return countryOptions[selectedPrice]["symbol"] + convertedPrice.toFixed(2);
+};
 
 export const getVarient = (entries:object) => {
   return Object.values(entries)

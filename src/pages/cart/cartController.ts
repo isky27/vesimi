@@ -5,7 +5,14 @@ import { useAppDispatch, useAppSelector } from "store/redux.hooks"
 
 const CartController = () => {
 
-  const { isLoadingCartList, cartListData, isLoadingCartSummary, cartSummaryData, isLoadingDeleteCartProduct } = useAppSelector((state) => state.order)
+  const {
+    isLoadingCartList,
+    cartListData,
+    isLoadingCartSummary,
+    cartSummaryData,
+    isLoadingDeleteCartProduct,
+    isLoadingUpdateCart,
+  } = useAppSelector((state) => state.order);
   const { loginDetails } = useAppSelector((state:any) => state.auth);
 
   const dispatch = useAppDispatch()
@@ -40,6 +47,28 @@ const CartController = () => {
     dispatch(cartSummaryDataApi({ user_id: userId }));
   };
 
+const updateCartQuantity = (e: any, item: any, change: number) => {
+  e.stopPropagation();
+
+  const newQuantity = Number(item.quantity) + change;
+  if (newQuantity < 1) return; // Prevents quantity from going below 1
+
+  const userId = loginDetails?.user?.id;
+
+  dispatch(
+    updateCartApi({
+      cart_ids: item.id,
+      cart_quantities: newQuantity,
+    })
+  )
+    .unwrap()
+    .finally(() => refreshCartData(userId));
+};
+
+const handleDecrease = (e: any, item: any) => updateCartQuantity(e, item, -1);
+const handleIncrease = (e: any, item: any) => updateCartQuantity(e, item, 1);
+
+
   return {
     isLoadingCartList,
     cartListData,
@@ -47,8 +76,12 @@ const CartController = () => {
     cartSummaryData,
     handleProceed,
     handleRemoveItem,
-    isLoadingDeleteCartProduct
-  }
+    isLoadingDeleteCartProduct,
+    handleDecrease,
+    handleIncrease,
+    navigate,
+    isLoadingUpdateCart,
+  };
 }
 
 export default CartController

@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import orderService from "./orderService";
 import { OrderDataInterface } from "./orderInterface";
 import { getErrorMessage, getTokenHeader } from "utils";
+import { toast } from "react-toastify";
 
 /**
  * Initial state for the account
@@ -80,6 +81,10 @@ export const orderSaveaApi = createAsyncThunk("save/order", async (userData:any,
 export const updateCartApi = createAsyncThunk("update/cart", async (userData:any,thunkApi: any) => {
     try {
         const response:any = await orderService.updateCart(userData, getTokenHeader());
+        console.log(response, "sfjhhdjfksmhs")
+        if (!response?.result){
+          toast.error(response?.message)
+        } 
         return response;
     } catch (error: any) {
         const message: any = getErrorMessage(error)
