@@ -13,7 +13,9 @@ const CartController = () => {
     isLoadingDeleteCartProduct,
     isLoadingUpdateCart,
   } = useAppSelector((state) => state.order);
-  const { loginDetails } = useAppSelector((state:any) => state.auth);
+  const { loginDetails, selectedCurrency } = useAppSelector(
+    (state: any) => state.auth
+  );
 
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
@@ -81,6 +83,7 @@ const handleIncrease = (e: any, item: any) => updateCartQuantity(e, item, 1);
     handleIncrease,
     navigate,
     isLoadingUpdateCart,
+    selectedCurrency,
   };
 }
 

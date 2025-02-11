@@ -3,7 +3,6 @@ import CartController from './cartController'
 import "../../scss/cart.css";
 import Loader from 'component/Loader';
 import { getPrice } from 'utils';
-import { useAppSelector } from 'store/redux.hooks';
 
 const CartView = () => {
 
@@ -19,9 +18,8 @@ const CartView = () => {
       handleDecrease,
       handleIncrease,
       isLoadingUpdateCart,
+      selectedCurrency,
     } = CartController();
-
-  const {selectedCurrency} = useAppSelector((state:any)=>state.auth)
 
     return (
       <section className="pageMain">
