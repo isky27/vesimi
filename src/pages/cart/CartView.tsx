@@ -2,7 +2,7 @@ import React from 'react'
 import CartController from './cartController'
 import "../../scss/cart.css";
 import Loader from 'component/Loader';
-import { getPrice } from 'utils';
+import { extractNumber, getPrice } from 'utils';
 
 const CartView = () => {
 
@@ -168,7 +168,11 @@ const CartView = () => {
                               ( Apply Coupon Codes on payments page )
                             </small>
                           </p>{" "}
-                          <strong>Calculated at checkout </strong>
+                          <strong>
+                            {Number(extractNumber(cartSummaryData?.shipping_cost)) > 0
+                              ? getPrice(cartSummaryData?.shipping_cost, selectedCurrency)
+                              : "Calculated at checkout"}
+                          </strong>
                         </li>
                       </ul>
                       <div className="cartRightInner">

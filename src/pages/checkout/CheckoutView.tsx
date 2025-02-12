@@ -192,33 +192,41 @@ const CheckoutView = () => {
                     <li>
                       Order Total{" "}
                       <strong>
-                        {getPrice(
-                          cartSummaryData?.grand_total,
-                          selectedCurrency
-                        )}
+                        {getPrice(cartSummaryData?.sub_total, selectedCurrency)}
                       </strong>
                     </li>
-                   {!isShippingMethodDisabled && <li>
+                    <li>
                       <p>
                         Shipping & Duties
                         <small>( Apply Coupon Codes on payments page )</small>
                       </p>{" "}
                       <strong>
-                        {getPrice(cartSummaryData?.shipping_cost, selectedCurrency)}
+                        {getPrice(
+                          cartSummaryData?.shipping_cost,
+                          selectedCurrency
+                        )}
                       </strong>
-                    </li>}
+                    </li>
                   </ul>
                   <div className="cartRightInner">
                     <ul>
                       <li>
                         <span>TOTAL PAYABLE </span>
                         <strong>
-                          {getPrice(cartSummaryData?.sub_total, selectedCurrency)}
+                          {getPrice(
+                            cartSummaryData?.grand_total,
+                            selectedCurrency
+                          )}
                         </strong>
                       </li>
                       <li className="text-green">
                         <span>YOUR TOTAL SAVINGS </span>
-                        <strong>{getPrice(cartSummaryData?.discount, selectedCurrency)}</strong>
+                        <strong>
+                          {getPrice(
+                            cartSummaryData?.discount,
+                            selectedCurrency
+                          )}
+                        </strong>
                       </li>
                     </ul>
                   </div>
