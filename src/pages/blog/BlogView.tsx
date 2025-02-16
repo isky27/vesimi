@@ -20,7 +20,7 @@ const BlogView = () => {
                   </figure>
                   <figcaption>
                     <h3 className="text-md-dark fs-7 my-2">{blog?.title} </h3>
-                    <p>{blog?.short_description}</p>
+                    <div dangerouslySetInnerHTML={{ __html: `<p>${blog?.short_description}</p>` }}></div>
                   </figcaption>
                 </div>
               </Col>

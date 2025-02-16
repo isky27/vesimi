@@ -117,14 +117,26 @@ const CartView = () => {
                                 className="form-control text-center mx-2"
                                 value={cartQuantity[item?.id]}
                                 style={{ width: "50px" }}
+                                min="1"
                                 onClick={(e) => e.stopPropagation()}
-                                onChange={(el: any) => {
-                                  el.stopPropagation();
+                                onChange={(e: any) => {
+                                  e.stopPropagation();
                                   setIsCartUpdated(true);
+                                  const value = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
                                   setCartQuantity((prev: any) => ({
-                                    ...prev,
-                                    [item?.id]: el.target.value,
+                                    ...prev, [item?.id]: value ? Math.max(1, Number(value)) : 1,
                                   }));
+                                }}
+                                onBlur={(e) => {
+                                  if (
+                                    !e.target.value ||
+                                    Number(e.target.value) < 1
+                                  ) {
+                                    setCartQuantity((prev: any) => ({
+                                      ...prev, [item?.id]: 1, // Reset to 1 if empty or less than 1
+                                    }));
+                                    setIsCartUpdated(true);
+                                  }
                                 }}
                               />
                               <button
@@ -151,11 +163,16 @@ const CartView = () => {
                       </div>
                     ))}
                   </div>
-                 {isCartUpdated && <div className="sticky-bottom bg-white p-3 border text-end">
-                    <button onClick={handleUpdateCart} className="themeBtnCart">
-                      Update Cart
-                    </button>
-                  </div>}
+                  {isCartUpdated && (
+                    <div className="sticky-bottom bg-white p-3 border text-end">
+                      <button
+                        onClick={handleUpdateCart}
+                        className="themeBtnCart"
+                      >
+                        Update Cart
+                      </button>
+                    </div>
+                  )}
                 </div>
 
                 <div className="cartRight">

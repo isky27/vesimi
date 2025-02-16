@@ -29,13 +29,13 @@ const BlogSection = ({ data }: any) => {
               }}
             >
                {data?.map((blog: any) => (
-                <div className="productCols position-relative">
+                <div className="position-relative">
                   <picture>
                     <img src={blog?.banner} alt="" />
                   </picture>
                   <div className="py-2">
                     <h3 className="text-md-dark fs-7 my-2">{blog?.title} </h3>
-                    <p>{blog?.short_description}</p>
+                    <div dangerouslySetInnerHTML={{ __html: `<p>${blog?.short_description}</p>` }}></div>
                     {/* <Link
                       to="/"
                       className="font-semibold text-md-dark fs-7 fw-light text-decoration-none"
@@ -56,7 +56,7 @@ const BlogSection = ({ data }: any) => {
           className="bg-themered px-5 py-2 text-decoration-none text-white"
           style={{ fontSize: "12px" }}
         >
-          GO TO BLOG
+          GO TO BLOGS
         </Link>
       </div>
     </section>
