@@ -1,40 +1,48 @@
-import React from 'react'
-import CartController from './cartController'
+import React from "react";
+import CartController from "./cartController";
 import "../../scss/cart.css";
-import Loader from 'component/Loader';
-import { extractNumber, getPrice } from 'utils';
+import Loader from "component/Loader";
+import { extractNumber, getPrice } from "utils";
 
 const CartView = () => {
+  const {
+    isLoadingCartList,
+    cartListData,
+    isLoadingCartSummary,
+    cartSummaryData,
+    handleProceed,
+    handleRemoveItem,
+    isLoadingDeleteCartProduct,
+    navigate,
+    handleDecrease,
+    handleIncrease,
+    isLoadingUpdateCart,
+    selectedCurrency,
+    handleUpdateCart,
+    cartQuantity,
+    setCartQuantity,
+    isCartUpdated,
+    setIsCartUpdated,
+  } = CartController();
 
-    const {
-      isLoadingCartList,
-      cartListData,
-      isLoadingCartSummary,
-      cartSummaryData,
-      handleProceed,
-      handleRemoveItem,
-      isLoadingDeleteCartProduct,
-      navigate,
-      handleDecrease,
-      handleIncrease,
-      isLoadingUpdateCart,
-      selectedCurrency,
-    } = CartController();
-
-    return (
-      <section className="pageMain">
-        <Loader
-          isLoading={[
-            isLoadingCartList,
-            isLoadingCartSummary,
-            isLoadingDeleteCartProduct,
-            isLoadingUpdateCart,
-          ]}
-        />
-        <div className="container py-3">
-          <h1 className="h3 mb-3">Cart Items</h1>
-          {!(isLoadingCartList || isLoadingCartSummary) &&
-            (cartListData?.data[0]?.cart_items?.length > 0 ? (
+  return (
+    <section
+      className="parent d-flex flex-column border p-3"
+      style={{ height: "100%" }}
+    >
+      <Loader
+        isLoading={[
+          isLoadingCartList,
+          isLoadingCartSummary,
+          isLoadingDeleteCartProduct,
+          isLoadingUpdateCart,
+        ]}
+      />
+      <div className="container py-3">
+        <h1 className="h3 mb-3">Cart Items</h1>
+        {!(isLoadingCartList || isLoadingCartSummary) &&
+          (cartListData?.data[0]?.cart_items?.length > 0 ? (
+            <div>
               <div className="cartRow">
                 <div className="cartleft">
                   <div className="cartlistingWrap">
@@ -61,12 +69,8 @@ const CartView = () => {
                             )}
                           </figure>
                           <figcaption>
-                            {/* <Link
-                              className="text-dark text-decoration-none"
-                              to={`/products/${item?.product_id}`}
-                            > */}
                             {item?.product_name && (
-                              <p className="mb-1" style={{ fontSize: "11px" }}>
+                              <p className="mb-1" style={{ fontSize: "16px" }}>
                                 {item?.product_name}
                               </p>
                             )}
@@ -104,17 +108,24 @@ const CartView = () => {
                             <div className="d-flex align-items-center">
                               <button
                                 className="btn btn-outline-secondary"
-                                // disabled={item.quantity<=1}
                                 onClick={(e: any) => handleDecrease(e, item)}
                               >
                                 −
                               </button>
                               <input
-                                type="text"
+                                type="number"
                                 className="form-control text-center mx-2"
-                                value={item?.quantity}
-                                readOnly
+                                value={cartQuantity[item?.id]}
                                 style={{ width: "50px" }}
+                                onClick={(e) => e.stopPropagation()}
+                                onChange={(el: any) => {
+                                  el.stopPropagation();
+                                  setIsCartUpdated(true);
+                                  setCartQuantity((prev: any) => ({
+                                    ...prev,
+                                    [item?.id]: el.target.value,
+                                  }));
+                                }}
                               />
                               <button
                                 className="btn btn-outline-secondary"
@@ -123,11 +134,6 @@ const CartView = () => {
                                 +
                               </button>
                             </div>
-                            {/* <div className="mb-1">
-                                                <a href="#" className="assuedDelivary"> <span className=" d-inline-block "><i className="fa-regular fa-circle-check"></i></span>Assured Delivery </a>
-                                                <span className="d-inline-block">by 20th November 2024 </span>
-                                            </div> */}
-                            {/* </Link> */}
                           </figcaption>
                           <button
                             className="cartDelete"
@@ -145,6 +151,11 @@ const CartView = () => {
                       </div>
                     ))}
                   </div>
+                 {isCartUpdated && <div className="sticky-bottom bg-white p-3 border text-end">
+                    <button onClick={handleUpdateCart} className="themeBtnCart">
+                      Update Cart
+                    </button>
+                  </div>}
                 </div>
 
                 <div className="cartRight">
@@ -156,7 +167,7 @@ const CartView = () => {
                           Order Total{" "}
                           <strong>
                             {getPrice(
-                              cartSummaryData?.grand_total,
+                              cartSummaryData?.sub_total,
                               selectedCurrency
                             )}
                           </strong>
@@ -169,8 +180,13 @@ const CartView = () => {
                             </small>
                           </p>{" "}
                           <strong>
-                            {Number(extractNumber(cartSummaryData?.shipping_cost)) > 0
-                              ? getPrice(cartSummaryData?.shipping_cost, selectedCurrency)
+                            {Number(
+                              extractNumber(cartSummaryData?.shipping_cost)
+                            ) > 0
+                              ? getPrice(
+                                  cartSummaryData?.shipping_cost,
+                                  selectedCurrency
+                                )
                               : "Calculated at checkout"}
                           </strong>
                         </li>
@@ -181,7 +197,7 @@ const CartView = () => {
                             <span>TOTAL PAYABLE </span>
                             <strong>
                               {getPrice(
-                                cartSummaryData?.sub_total,
+                                cartSummaryData?.grand_total,
                                 selectedCurrency
                               )}
                             </strong>
@@ -193,18 +209,22 @@ const CartView = () => {
                         </ul>
                       </div>
                     </div>
-                    <button onClick={handleProceed} className="themeBtnCart">
+                    <button
+                      onClick={handleProceed}
+                      className="themeBtnCart flex-right"
+                    >
                       PROCEED TO CHECKOUT
                     </button>
                   </div>
                 </div>
               </div>
-            ) : (
-              <div className="py-5 my-5 text-center">Your cart is empty.</div>
-            ))}
-        </div>
-      </section>
-    );
-}
+            </div>
+          ) : (
+            <div className="py-5 my-5 text-center">Your cart is empty.</div>
+          ))}
+      </div>
+    </section>
+  );
+};
 
-export default CartView
+export default CartView;
