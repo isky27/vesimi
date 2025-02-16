@@ -124,7 +124,8 @@ const CartView = () => {
                                   setIsCartUpdated(true);
                                   const value = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
                                   setCartQuantity((prev: any) => ({
-                                    ...prev, [item?.id]: value ? Math.max(1, Number(value)) : 1,
+                                    ...prev,
+                                    [item?.id]: value ? Math.max(1, Number(value)) : "",
                                   }));
                                 }}
                                 onBlur={(e) => {
@@ -133,7 +134,8 @@ const CartView = () => {
                                     Number(e.target.value) < 1
                                   ) {
                                     setCartQuantity((prev: any) => ({
-                                      ...prev, [item?.id]: 1, // Reset to 1 if empty or less than 1
+                                      ...prev,
+                                      [item?.id]: "1", // Reset to 1 if empty or less than 1
                                     }));
                                     setIsCartUpdated(true);
                                   }

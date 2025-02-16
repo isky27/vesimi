@@ -124,29 +124,39 @@ const Footer = () => {
               )}
             <div className="acceptCard mt-2 pt-1">
               <Link
-                to={"/"}
+                target="_blank"
+                rel="noopener noreferrer"
+                to={"https://www.instagram.com/vesimi/#"}
                 className="w-6 h-6 d-inline-block bg-image instaSocial"
                 style={{ backgroundPosition: "-47px -158px" }}
               ></Link>
               <Link
-                to={"/"}
+                target="_blank"
+                rel="noopener noreferrer"
+                to={"https://www.threads.net/@vesimi"}
                 className="w-6 h-6 d-inline-block bg-image threadSocial"
                 style={{ backgroundPosition: "-73px -211px" }}
               ></Link>
               <Link
-                to={"/"}
+                target="_blank"
+                rel="noopener noreferrer"
+                to={"https://www.facebook.com/VESIMI"}
                 className="w-6 h-6 d-inline-block bg-image facebookSocial"
                 style={{ backgroundPosition: "-72px -158px" }}
               ></Link>
               <Link
-                to={"/"}
-                className="w-6 h-6 d-inline-block bg-image youtubeSocial"
-                style={{ backgroundPosition: "-97px -158px" }}
-              ></Link>
-              <Link
-                to={"/"}
+                target="_blank"
+                rel="noopener noreferrer"
+                to={"https://x.com/_VESIMI"}
                 className="w-6 h-6 d-inline-block bg-image twitterSocial"
                 style={{ backgroundPosition: "-101px -211px" }}
+              ></Link>
+              <Link
+                target="_blank"
+                rel="noopener noreferrer"
+                to={"https://in.pinterest.com/VESIMIFashion/"}
+                className="w-6 h-6 d-inline-block bg-image pinterestSocial"
+                style={{ backgroundPosition: "0px -271px", backgroundSize: "810px 295px" }}
               ></Link>
             </div>
             <h5 className="mb-2">COMPLETELY SAFE AND SECURE PAYMENT METHOD</h5>
