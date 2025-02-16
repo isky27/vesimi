@@ -7,6 +7,7 @@ import InnerImageZoom from 'react-inner-image-zoom';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
 import CustomPopup from 'component/modal/CustomPopup';
 import { useAppSelector } from 'store/redux.hooks';
+// import ShareButtons from './ShareView';
 
 
 const ProductDetail = () => {
@@ -33,8 +34,8 @@ const ProductDetail = () => {
   } = ProductDetailController();
 
   const { selectedCurrency } = useAppSelector((state: any) => state.auth)
-
   const productDetails = productDetailData?.data[0];
+  const productLink = `${process.env.REACT_APP_FRONTEND_URL}/products/${productDetails?.id}`;
 
   return (
     <section className="pageMain">
@@ -149,7 +150,7 @@ const ProductDetail = () => {
                           onClick={() => {
                             setSelectedSize(elem);
                             // setSelectedPrice()
-                          }}  
+                          }}
                           key={elem}
                         >
                           {elem}
@@ -380,24 +381,61 @@ const ProductDetail = () => {
           </a>
         </div>
 
-        <div className=" socialTabs">
+        <div className="socialTabs mb-3">
           <h4>SHARE</h4>
+          {/* <ShareButtons productDetails={productDetails} />/ */}
           <div className="d-flex pt-2">
-            <a href="/" className="" style={{ textDecoration: "none" }}>
+            {/* WhatsApp */}
+            <a
+              href={`https://api.whatsapp.com/send?text=Check%20this%20out:%20${productLink}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none" }}
+            >
               <i className="fab fa-whatsapp"></i>
             </a>
-            <a href="/" className="" style={{ textDecoration: "none" }}>
-              <i className="fab fa-facebook-f"></i>
+
+            {/* Facebook Messenger */}
+            <a
+              href="https://www.messenger.com/share?link=https://example.com?message=Hello%20there!%20Check%20this%20out!"
+              // href={`https://www.messenger.com/share?link=${productLink}`}
+              // href={`https://www.facebook.com/sharer/sharer.php?u=${productLink}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none" }}
+            >
+              <i className="fab fa-facebook-messenger"></i>
             </a>
-            <a href="/" className="" style={{ textDecoration: "none" }}>
-              <i className="fab fa-twitter"></i>
+
+            {/* Telegram */}
+            <a
+              href={`https://t.me/share/url?url=${productLink}&text=Check%20this%20out!`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none" }}
+            >
+              <i className="fab fa-telegram-plane"></i>
             </a>
-            <a href="/" className="" style={{ textDecoration: "none" }}>
-              <i className="far fa-envelope-open"></i>
+
+            {/* Email */}
+            <a
+              href={`mailto:?subject=Check%20this%20out&body=Here's%20a%20great%20link:%20${productLink}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none" }}
+            >
+              <i className="far fa-envelope"></i>
             </a>
-            <a href="/" className="" style={{ textDecoration: "none" }}>
-              <i className="fab fa-pinterest"></i>
-            </a>
+
+            {/* SMS */}
+            {/* <a
+              href={`sms:?body=Check%20this%20out:%20${productLink}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none" }}
+            >
+              <i className="fas fa-sms"></i>
+            </a> */}
           </div>
         </div>
       </div>

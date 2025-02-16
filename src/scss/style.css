@@ -1375,7 +1375,7 @@ span.appOnly {
 
 .thumbnail:hover,
 .thumbnail.selected {
-  border: 2px solid #ff6347; /* Highlight border for selected image */
+  border: 3px solid #ff6347; /* Highlight border for selected image */
 }
 
 .main-image-wrapper {
@@ -1446,9 +1446,10 @@ span.appOnly {
   border-radius:12px;
   box-shadow:0 0 12px rgba(0,0,0,.1);
 }
- 
+
 .detailImgThumbrow {
     display: flex;
+    gap: 5px; /* Adjust spacing */
 }
 
 .detailImgThumb {
