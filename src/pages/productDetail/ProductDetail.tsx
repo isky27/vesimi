@@ -257,6 +257,65 @@ const ProductDetail = () => {
                 </button>
               </div>
 
+              <div className="socialTabs my-3">
+                <h4>SHARE</h4>
+                {/* <ShareButtons productDetails={productDetails} />/ */}
+                <div className="d-flex pt-2">
+                  {/* WhatsApp */}
+                  <a
+                    href={`https://api.whatsapp.com/send?text=Check%20this%20out:%20${productLink}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ textDecoration: "none" }}
+                  >
+                    <i className="fab fa-whatsapp"></i>
+                  </a>
+
+                  {/* Facebook Messenger */}
+                  <a
+                    // href="https://www.messenger.com/share?link=https://example.com?message=Hello%20there!%20Check%20this%20out!"
+                    // href={`https://www.messenger.com/share?link=${productLink}`}
+                    href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+                      productLink + "?message=Check%20this%20out!"
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ textDecoration: "none" }}
+                  >
+                    <i className="fab fa-facebook-messenger"></i>
+                  </a>
+
+                  {/* Telegram */}
+                  <a
+                    href={`https://t.me/share/url?url=${productLink}&text=Check%20this%20out!`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ textDecoration: "none" }}
+                  >
+                    <i className="fab fa-telegram-plane"></i>
+                  </a>
+                  {/* Twitter */}
+                  <a
+                    href={`https://twitter.com/intent/tweet?text=Check%20this%20out! ${productLink}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ textDecoration: "none" }}
+                  >
+                    <i className="fa-brands fa-x-twitter"></i>
+                  </a>
+
+                  {/* Email */}
+                  <a
+                    href={`https://mail.google.com/mail/?view=cm&fs=1&su=Check%20this%20out!&body=Hey,%20I%20found%20this%20amazing%20link:%20${productLink}`}
+                    // href={`mailto:?subject=Check%20this%20out!&body=Hey,%20I%20found%20this%20amazing%20link:%2020${productLink}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ textDecoration: "none" }}
+                  >
+                    <i className="far fa-envelope"></i>
+                  </a>
+                </div>
+              </div>
               <div className="AboutDetail">
                 <div id="profile-description">
                   <div className="">
@@ -379,64 +438,6 @@ const ProductDetail = () => {
             ></i>
             Mail us
           </a>
-        </div>
-
-        <div className="socialTabs mb-3">
-          <h4>SHARE</h4>
-          {/* <ShareButtons productDetails={productDetails} />/ */}
-          <div className="d-flex pt-2">
-            {/* WhatsApp */}
-            <a
-              href={`https://api.whatsapp.com/send?text=Check%20this%20out:%20${productLink}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ textDecoration: "none" }}
-            >
-              <i className="fab fa-whatsapp"></i>
-            </a>
-
-            {/* Facebook Messenger */}
-            <a
-              href="https://www.messenger.com/share?link=https://example.com?message=Hello%20there!%20Check%20this%20out!"
-              // href={`https://www.messenger.com/share?link=${productLink}`}
-              // href={`https://www.facebook.com/sharer/sharer.php?u=${productLink}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ textDecoration: "none" }}
-            >
-              <i className="fab fa-facebook-messenger"></i>
-            </a>
-
-            {/* Telegram */}
-            <a
-              href={`https://t.me/share/url?url=${productLink}&text=Check%20this%20out!`}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ textDecoration: "none" }}
-            >
-              <i className="fab fa-telegram-plane"></i>
-            </a>
-
-            {/* Email */}
-            <a
-              href={`mailto:?subject=Check%20this%20out&body=Here's%20a%20great%20link:%20${productLink}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ textDecoration: "none" }}
-            >
-              <i className="far fa-envelope"></i>
-            </a>
-
-            {/* SMS */}
-            {/* <a
-              href={`sms:?body=Check%20this%20out:%20${productLink}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ textDecoration: "none" }}
-            >
-              <i className="fas fa-sms"></i>
-            </a> */}
-          </div>
         </div>
       </div>
       <CustomPopup
