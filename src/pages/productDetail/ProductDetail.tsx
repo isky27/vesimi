@@ -343,6 +343,76 @@ const ProductDetail = () => {
                   {/* <div className="show-more">Show More</div> */}
                 </div>
               </div>
+              <div className="relatedTabs support">
+                <h4>CUSTOMER SUPPORT </h4>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://api.whatsapp.com/send?phone=919820082317"
+                  style={{ textDecoration: "none",  }}
+                >
+                  <i
+                    className="bg-image"
+                    style={{
+                      backgroundPosition: "-375px -199px",
+                      width: "24px",
+                      height: "24px",
+                    }}
+                  ></i>
+                  Chat With Us
+                </a>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="tel:+919820082317"
+                  className=""
+                  style={{ textDecoration: "none" }}
+                >
+                  <i
+                    className="bg-image"
+                    style={{
+                      backgroundPosition: "-342px -199px",
+                      width: "24px",
+                      height: "24px",
+                    }}
+                  ></i>
+                  India +91-9820082317
+                </a>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="tel:+971526929312"
+                  className=""
+                  style={{ textDecoration: "none" }}
+                >
+                  <i
+                    className="bg-image"
+                    style={{
+                      backgroundPosition: "-342px -199px",
+                      width: "24px",
+                      height: "24px",
+                    }}
+                  ></i>
+                  International +971-526929312
+                </a>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="mailto:info@vesimi.com"
+                  className=""
+                  style={{ textDecoration: "none" }}
+                >
+                  <i
+                    className="bg-image"
+                    style={{
+                      backgroundPosition: "-407px -199px",
+                      width: "24px",
+                      height: "24px",
+                    }}
+                  ></i>
+                  Mail us
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -368,77 +438,6 @@ const ProductDetail = () => {
             </div>
           </div>
         )}
-
-        <div className="relatedTabs support">
-          <h4>CUSTOMER SUPPORT </h4>
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href="https://api.whatsapp.com/send?phone=919820082317"
-            style={{ textDecoration: "none" }}
-          >
-            <i
-              className="bg-image"
-              style={{
-                backgroundPosition: "-375px -199px",
-                width: "24px",
-                height: "24px",
-              }}
-            ></i>
-            Chat With Us
-          </a>
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href="tel:+919820082317"
-            className=""
-            style={{ textDecoration: "none" }}
-          >
-            <i
-              className="bg-image"
-              style={{
-                backgroundPosition: "-342px -199px",
-                width: "24px",
-                height: "24px",
-              }}
-            ></i>
-            India +91-9820082317
-          </a>
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href="tel:+971526929312"
-            className=""
-            style={{ textDecoration: "none" }}
-          >
-            <i
-              className="bg-image"
-              style={{
-                backgroundPosition: "-342px -199px",
-                width: "24px",
-                height: "24px",
-              }}
-            ></i>
-            International +971-526929312
-          </a>
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href="mailto:info@vesimi.com"
-            className=""
-            style={{ textDecoration: "none" }}
-          >
-            <i
-              className="bg-image"
-              style={{
-                backgroundPosition: "-407px -199px",
-                width: "24px",
-                height: "24px",
-              }}
-            ></i>
-            Mail us
-          </a>
-        </div>
       </div>
       <CustomPopup
         modalClass="sizeModal"

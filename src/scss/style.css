@@ -1336,6 +1336,7 @@ span.appOnly {
   border-radius: 6px;
   margin-right: 10px;
   color: #333;
+  margin-bottom: 5px;
 }
 .socialTabs a{
   display: inline-block;
