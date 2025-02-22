@@ -711,10 +711,10 @@ header {
 .acceptCard a{margin-right:15px;}
 
 .webFooter {
-  background: #fbfbfb;
+  background:#282828;
   padding: 20px 0 36px 0;
 }
-
+.webFooter *,.webFooter a{color:#fff;}
 .footerRow {
   display: flex;
   flex-wrap: wrap;
