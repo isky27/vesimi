@@ -108,6 +108,10 @@ export function extractNumber(input: string | number): number {
   return isNaN(number) ? 0 : number;
 }
 
+export const getOrignalPrice = (price:any, discount:any, selectedCurrency:any) =>{
+ return getPrice(extractNumber(price)*100 / (100-extractNumber(discount)), selectedCurrency)
+}
+
 
 export const sortSizes = (newArray:[])=> {
   // Create a map with size as the key and its index in the predefined sequence as value

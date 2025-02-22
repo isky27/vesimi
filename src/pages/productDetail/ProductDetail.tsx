@@ -2,7 +2,7 @@ import ProductDetailController from './productDetailController'
 import Loader from 'component/Loader'
 import ProductCard from 'component/ProductCard';
 import ProductCarousal from 'component/ProductCarousal';
-import { extractNumber, getPrice, sortSizes } from 'utils';
+import { extractNumber, getOrignalPrice, getPrice, sortSizes } from 'utils';
 import InnerImageZoom from 'react-inner-image-zoom';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
 import CustomPopup from 'component/modal/CustomPopup';
@@ -110,16 +110,18 @@ const ProductDetail = () => {
                     <span className="leading-none tracking-tighter text-azaBlackShade3 fs-lg fs-lg-2xl fw-bold">
                       {getPrice(selectedPrice, selectedCurrency)}
                     </span>
-
-                    {extractNumber(productDetails?.discount) ? (
+                    {productDetails?.has_discount ? (
                       <span className="text-sm text-lg-base text-azaGreen_5">
-                        ({getPrice(productDetails?.discount, selectedCurrency)}
-                        OFF)
+                        ({productDetails?.discount} OFF)
                       </span>
                     ) : (
                       ""
                     )}
                   </p>
+                  {productDetails?.has_discount ? (
+                  <s>
+                    {getOrignalPrice(selectedPrice, productDetails?.discount, selectedCurrency)}
+                  </s>) : ""}
                   <p className="textSmallLight">(inclusive of all taxes)</p>
                 </div>
               )}
@@ -349,7 +351,7 @@ const ProductDetail = () => {
                   target="_blank"
                   rel="noreferrer"
                   href="https://api.whatsapp.com/send?phone=919820082317"
-                  style={{ textDecoration: "none",  }}
+                  style={{ textDecoration: "none" }}
                 >
                   <i
                     className="bg-image"

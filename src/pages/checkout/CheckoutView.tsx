@@ -219,15 +219,12 @@ const CheckoutView = () => {
                           )}
                         </strong>
                       </li>
-                      <li className="text-green">
+                      {/* <li className="text-green">
                         <span>YOUR TOTAL SAVINGS </span>
                         <strong>
-                          {getPrice(
-                            cartSummaryData?.discount,
-                            selectedCurrency
-                          )}
+                          {cartSummaryData?.discount}
                         </strong>
-                      </li>
+                      </li> */}
                     </ul>
                   </div>
                 </div>

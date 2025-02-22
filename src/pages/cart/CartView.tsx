@@ -47,7 +47,7 @@ const CartView = () => {
                 <div className="cartleft">
                   <div className="cartlistingWrap">
                     <h4>
-                      ORDER DETAILS -
+                      ORDER DETAILS -{" "}
                       <small>
                         {cartListData?.data[0]?.cart_items?.length} Item(s)
                       </small>{" "}
@@ -221,10 +221,10 @@ const CartView = () => {
                               )}
                             </strong>
                           </li>
-                          <li className="text-green">
+                          {/* <li className="text-green">
                             <span>YOUR TOTAL SAVINGS </span>
                             <strong>{cartSummaryData?.discount}</strong>
-                          </li>
+                          </li> */}
                         </ul>
                       </div>
                     </div>
