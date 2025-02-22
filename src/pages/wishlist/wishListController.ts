@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { getWishList, removeWishList } from "store/product/productSlice";
 import { useAppDispatch, useAppSelector } from "store/redux.hooks";
 

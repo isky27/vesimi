@@ -73,7 +73,11 @@ const CategoryController = () => {
   useEffect(() => {
     if (filterCategory.values().next().value != categoryId) {
       let selectedCategory = filterCategory.values().next().value;
-      navigate(getCategoryUrl(selectedCategory));
+      let url = getCategoryUrl(selectedCategory);
+      if (searchParams.get("sale")){
+        url = url + "?sale=1"
+      } 
+      navigate(url);
     }
   }, [filterCategory]);
 
