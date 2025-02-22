@@ -47,6 +47,9 @@ const searchProductApi = async (userData: any): Promise<ApiResponse> => {
       searchQuery += `&name=${userData?.name}`
     }
 
+    if (userData?.sale) {
+      searchQuery += `&sale=${userData?.sale}`;
+    }
 
     const response: ApiResponse = await axios.get(`/products/search?${searchQuery}&page=${userData?.page || 1}`);
     return response;

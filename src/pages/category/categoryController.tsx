@@ -93,6 +93,7 @@ const CategoryController = () => {
         max: searchParams.get("max"),
         name: searchParams.get("name") || "",
         page: currentPage,
+        sale: searchParams.get("sale") || "",
       })
     );
   }, [dispatch, currentPage, searchParams]);

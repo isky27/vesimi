@@ -1234,7 +1234,7 @@ const Header = () => {
               <li onClick={() => navigate(getCategoryUrl(471))}>
                 <span>Gift card</span>
               </li>
-              <li className="textred">
+              <li onClick={() => navigate(`${getCategoryUrl(4)}&sale=1`)} className="textred">
                 <span>Sale</span>
               </li>
             </ul>
