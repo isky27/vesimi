@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { getPrice } from "utils";
+import { extractNumber, getPrice } from "utils";
 import { Link } from "react-router-dom";
 import { useAppSelector } from "store/redux.hooks";
 
@@ -26,7 +26,13 @@ const ProductCard = React.memo(({ item, ...alt }: any) => {
           className="text-dark text-decoration-none"
         >
           <div className="position-relative">
-            <div className="value-pack">Flat 25% Off </div>
+            {extractNumber(item?.discount) > 0 ? (
+              <div className="value-pack">
+                Flat {extractNumber(item?.discount)}% Off{" "}
+              </div>
+            ) : (
+              ""
+            )}
             <picture>
               <img
                 src={imageSrc}
@@ -53,7 +59,9 @@ const ProductCard = React.memo(({ item, ...alt }: any) => {
                 </div>
               ) : item?.out_of_stock ? (
                 <div className="AddProductAction">
-                  <button disabled={true} style={{ color: "#bb3d1f" }}>Out of stock</button>
+                  <button disabled={true} style={{ color: "#bb3d1f" }}>
+                    Out of stock
+                  </button>
                 </div>
               ) : (
                 <div className="AddProductAction">
@@ -68,12 +76,17 @@ const ProductCard = React.memo(({ item, ...alt }: any) => {
           <div className="py-2">
             <h3 className="text-uppercase">{item?.designer}</h3>
             <p className="text-gray">{item?.name}</p>
-            {(item?.is_price_hide || item?.out_of_stock) ? (
+            {item?.is_price_hide || item?.out_of_stock ? (
               ""
             ) : (
-              <small className="font-semibold">
-                {getPrice(item?.main_price, selectedCurrency)}
-              </small>
+              <div>
+                <small className="fw-bold h6">
+                  {getPrice(item?.main_price, selectedCurrency)}{" "}
+                </small>
+                {extractNumber(item?.discount) > 0 ? (
+                  <s>{}{getPrice(item?.stroked_price, selectedCurrency)}</s>
+                ) : ""}
+              </div>
             )}
           </div>
         </Link>
