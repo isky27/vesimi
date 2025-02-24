@@ -26,6 +26,7 @@ const ProductCard = React.memo(({ item, ...alt }: any) => {
           className="text-dark text-decoration-none"
         >
           <div className="position-relative">
+            <div className="value-pack">Flat 25% Off </div>
             <picture>
               <img
                 src={imageSrc}

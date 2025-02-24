@@ -2,7 +2,7 @@ import OwlCarousel from "react-owl-carousel";
 
 const CelebritySection = ({ productData, navigate }: any) => {
   return (
-    <section className="productSection py-3 py-md-4 bg-light-yellow">
+    <section className="productSection py-3 py-md-4 bg-light">
       <div className="container">
         <div className="productHead d-flex align-items-center justify-content-between mb-3 mb-md-4">
           <h2 className="Playfair fs-2 fw-bold text-black">Celebrity Style </h2>

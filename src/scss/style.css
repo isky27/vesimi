@@ -1552,3 +1552,16 @@ span.appOnly {
 .order-Name {
   width: 50%;
 }
+
+.navBrand img {
+  max-height: 76px;
+  filter: brightness(0);
+}
+
+ .value-pack {
+  position: absolute;
+  z-index: 9;
+  color: #fff;
+  padding: 3px 10px;
+  background: #ff5000bd;
+  box-shadow: none;}
