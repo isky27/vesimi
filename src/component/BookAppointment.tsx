@@ -14,7 +14,7 @@ const BookAppointment = () => {
     }
 
   return (
-    <section className="bookAppointment py-3 py-md-5">
+    <section className="bookAppointment py-3 py-md-5 bg-light">
       <div className="container py-0">
         <Row className="align-items-center px-0 py-0">
           <Col md="8" className="px-0 py-0 m-0">
