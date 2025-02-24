@@ -1,0 +1,1045 @@
+{
+    "accessories": {
+        "B": [
+            {
+                "designer": "Bijoux by Priya Chandna",
+                "id": 2358
+            }
+        ],
+        "C": [
+            {
+                "designer": "Clutch'D",
+                "id": 488
+            }
+        ],
+        "D": [
+            {
+                "designer": "Devina Juneja",
+                "id": 405
+            }
+        ],
+        "J": [
+            {
+                "designer": "Jatin Malik Couture",
+                "id": 622
+            }
+        ],
+        "P": [
+            {
+                "designer": "Plode",
+                "id": 1541
+            }
+        ],
+        "T": [
+            {
+                "designer": "Torani",
+                "id": 402
+            }
+        ],
+        "V": [
+            {
+                "designer": "Veruschka",
+                "id": 610
+            }
+        ]
+    },
+    "all": {
+        "A": [
+            {
+                "designer": "Angry Owl",
+                "id": 401
+            },
+            {
+                "designer": "Anvita Jain",
+                "id": 616
+            },
+            {
+                "designer": "Amka India",
+                "id": 1683
+            },
+            {
+                "designer": "Amrit Dawani",
+                "id": 1780
+            },
+            {
+                "designer": "Ahi Clothing",
+                "id": 2511
+            },
+            {
+                "designer": "Aham-Vayam",
+                "id": 2578
+            }
+        ],
+        "B": [
+            {
+                "designer": "Baidehi",
+                "id": 2650
+            },
+            {
+                "designer": "Brime",
+                "id": 608
+            },
+            {
+                "designer": "Bijoux by Priya Chandna",
+                "id": 2358
+            },
+            {
+                "designer": "Bhanuni by Jyoti",
+                "id": 1649
+            }
+        ],
+        "C": [
+            {
+                "designer": "Clutch'D",
+                "id": 488
+            }
+        ],
+        "D": [
+            {
+                "designer": "Daatri by MK",
+                "id": 2129
+            },
+            {
+                "designer": "Diya Rajvvir",
+                "id": 201
+            },
+            {
+                "designer": "Devina Juneja",
+                "id": 405
+            },
+            {
+                "designer": "Deme by Gabriella",
+                "id": 2272
+            },
+            {
+                "designer": "Diermeiss by the Dragon Lady",
+                "id": 2400
+            }
+        ],
+        "E": [
+            {
+                "designer": "Ease",
+                "id": 1302
+            },
+            {
+                "designer": "Echo",
+                "id": 412
+            },
+            {
+                "designer": "Enness Studio",
+                "id": 1801
+            }
+        ],
+        "F": [
+            {
+                "designer": "Fayyon Kids",
+                "id": 2527
+            },
+            {
+                "designer": "Flamingo The Label",
+                "id": 2988
+            }
+        ],
+        "G": [],
+        "H": [
+            {
+                "designer": "Harsha Khatry",
+                "id": 1512
+            }
+        ],
+        "I": [
+            {
+                "designer": "Inder Clothing Studio",
+                "id": 594
+            },
+            {
+                "designer": "Isha Mittal",
+                "id": 1704
+            },
+            {
+                "designer": "Itrh",
+                "id": 2861
+            }
+        ],
+        "J": [
+            {
+                "designer": "Jatin Malik Couture",
+                "id": 622
+            },
+            {
+                "designer": "Jenjum Gadi",
+                "id": 404
+            },
+            {
+                "designer": "Jigar & Nikita",
+                "id": 2053
+            },
+            {
+                "designer": "Juwelen",
+                "id": 581
+            }
+        ],
+        "K": [
+            {
+                "designer": "Kacha Tanka",
+                "id": 539
+            },
+            {
+                "designer": "Kalista",
+                "id": 612
+            },
+            {
+                "designer": "Kalighata",
+                "id": 1693
+            },
+            {
+                "designer": "Kiran Gupta Label",
+                "id": 2089
+            },
+            {
+                "designer": "Komal Kothari",
+                "id": 2296
+            },
+            {
+                "designer": "Krisha Sunny Ramani",
+                "id": 587
+            },
+            {
+                "designer": "Khushboo & Pankaj",
+                "id": 1980
+            },
+            {
+                "designer": "Kudi Pataka",
+                "id": 2549
+            },
+            {
+                "designer": "Kay Kay by Kkhushi Sahaii",
+                "id": 2928
+            },
+            {
+                "designer": "Kovet",
+                "id": 601
+            }
+        ],
+        "L": [
+            {
+                "designer": "Label Deepika Nagpal",
+                "id": 2001
+            },
+            {
+                "designer": "Little Cheer",
+                "id": 2334
+            },
+            {
+                "designer": "Lil Drama",
+                "id": 2448
+            },
+            {
+                "designer": "Lacquer Embassy",
+                "id": 2888
+            }
+        ],
+        "M": [
+            {
+                "designer": "Mahek Rohra",
+                "id": 1469
+            },
+            {
+                "designer": "Masaba",
+                "id": 212
+            },
+            {
+                "designer": "Mavish",
+                "id": 2098
+            },
+            {
+                "designer": "Mayori",
+                "id": 1500
+            },
+            {
+                "designer": "Masumi Mewawalla",
+                "id": 373
+            },
+            {
+                "designer": "Menero",
+                "id": 2351
+            },
+            {
+                "designer": "Mozaati",
+                "id": 1674
+            },
+            {
+                "designer": "Modaesta",
+                "id": 2505
+            },
+            {
+                "designer": "Mirroir",
+                "id": 2315
+            },
+            {
+                "designer": "Mala and Kinnary",
+                "id": 443
+            },
+            {
+                "designer": "Merge Design",
+                "id": 653
+            },
+            {
+                "designer": "Monisha Jaising",
+                "id": 489
+            },
+            {
+                "designer": "Moledro",
+                "id": 1486
+            },
+            {
+                "designer": "Mona & Vishu",
+                "id": 1666
+            },
+            {
+                "designer": "Mulmul",
+                "id": 2572
+            },
+            {
+                "designer": "Majestic by Japnah",
+                "id": 2724
+            },
+            {
+                "designer": "Musal",
+                "id": 2731
+            },
+            {
+                "designer": "MiniMe Organics",
+                "id": 2818
+            }
+        ],
+        "N": [
+            {
+                "designer": "Nikita Vishakha",
+                "id": 492
+            },
+            {
+                "designer": "Nidhika Shekhar",
+                "id": 2460
+            },
+            {
+                "designer": "Neeta Lulla",
+                "id": 501
+            },
+            {
+                "designer": "Nirmooha",
+                "id": 3008
+            }
+        ],
+        "O": [
+            {
+                "designer": "Ohaila Khan",
+                "id": 1637
+            },
+            {
+                "designer": "One Knot One",
+                "id": 1757
+            },
+            {
+                "designer": "Origani",
+                "id": 2905
+            }
+        ],
+        "P": [
+            {
+                "designer": "Pallavi Jaipur",
+                "id": 1454
+            },
+            {
+                "designer": "Parshya",
+                "id": 2224
+            },
+            {
+                "designer": "Papa Don't Preach by Shubhika",
+                "id": 2489
+            },
+            {
+                "designer": "Pink City by Sarika",
+                "id": 561
+            },
+            {
+                "designer": "Plode",
+                "id": 1541
+            },
+            {
+                "designer": "Priti Sahni",
+                "id": 631
+            },
+            {
+                "designer": "Pooja Shroff",
+                "id": 1952
+            },
+            {
+                "designer": "Poppi Luxe",
+                "id": 2260
+            }
+        ],
+        "Q": [],
+        "R": [
+            {
+                "designer": "Redpine Designs",
+                "id": 1411
+            },
+            {
+                "designer": "Rey & I",
+                "id": 2287
+            },
+            {
+                "designer": "Rimi Nayak",
+                "id": 1554
+            },
+            {
+                "designer": "Ridhimaa Gupta",
+                "id": 2753
+            },
+            {
+                "designer": "Rooh by Ridhimaa",
+                "id": 2775
+            },
+            {
+                "designer": "Raaga Reddy",
+                "id": 2893
+            },
+            {
+                "designer": "Rirasa",
+                "id": 2938
+            },
+            {
+                "designer": "Ranian",
+                "id": 2965
+            }
+        ],
+        "S": [
+            {
+                "designer": "Sangeeta Swati",
+                "id": 2116
+            },
+            {
+                "designer": "Seven",
+                "id": 1975
+            },
+            {
+                "designer": "Sheetal Batra",
+                "id": 485
+            },
+            {
+                "designer": "Shreeka",
+                "id": 2408
+            },
+            {
+                "designer": "Sidhaarth and Disha",
+                "id": 1822
+            },
+            {
+                "designer": "Sil-Sila",
+                "id": 1993
+            },
+            {
+                "designer": "Sims Studio",
+                "id": 2476
+            }
+        ],
+        "T": [
+            {
+                "designer": "Tamaraa by Tahani",
+                "id": 1810
+            },
+            {
+                "designer": "The Aarya",
+                "id": 657
+            }
+        ],
+        "U": [],
+        "V": [
+            {
+                "designer": "Vannikaa Malik",
+                "id": 2702
+            },
+            {
+                "designer": "Vvani by Vani Vats",
+                "id": 421
+            },
+            {
+                "designer": "Veruschka",
+                "id": 610
+            }
+        ],
+        "W": [
+            {
+                "designer": "Weaver Story",
+                "id": 570
+            },
+            {
+                "designer": "White by Dinaaz",
+                "id": 2609
+            }
+        ],
+        "X": [],
+        "Y": [],
+        "Z": []
+    },
+    "clothing": {
+        "A": [
+            {
+                "designer": "Angry Owl",
+                "id": 401
+            },
+            {
+                "designer": "Anvita Jain",
+                "id": 616
+            },
+            {
+                "designer": "Amka India",
+                "id": 1683
+            },
+            {
+                "designer": "Amrit Dawani",
+                "id": 1780
+            },
+            {
+                "designer": "Ahi Clothing",
+                "id": 2511
+            },
+            {
+                "designer": "Aham-Vayam",
+                "id": 2578
+            }
+        ],
+        "B": [
+            {
+                "designer": "Baidehi",
+                "id": 2650
+            },
+            {
+                "designer": "Brime",
+                "id": 608
+            },
+            {
+                "designer": "Bhanuni by Jyoti",
+                "id": 1649
+            }
+        ],
+        "C": [],
+        "D": [
+            {
+                "designer": "Daatri by MK",
+                "id": 2129
+            },
+            {
+                "designer": "Diya Rajvvir",
+                "id": 201
+            },
+            {
+                "designer": "Devina Juneja",
+                "id": 405
+            },
+            {
+                "designer": "Deme by Gabriella",
+                "id": 2272
+            },
+            {
+                "designer": "Diermeiss by the Dragon Lady",
+                "id": 2400
+            }
+        ],
+        "E": [
+            {
+                "designer": "Ease",
+                "id": 1302
+            },
+            {
+                "designer": "Echo",
+                "id": 412
+            },
+            {
+                "designer": "Enness Studio",
+                "id": 1801
+            }
+        ],
+        "F": [
+            {
+                "designer": "Fayyon Kids",
+                "id": 2527
+            },
+            {
+                "designer": "Flamingo The Label",
+                "id": 2988
+            }
+        ],
+        "G": [],
+        "H": [
+            {
+                "designer": "Harsha Khatry",
+                "id": 1512
+            }
+        ],
+        "I": [
+            {
+                "designer": "Inder Clothing Studio",
+                "id": 594
+            },
+            {
+                "designer": "Isha Mittal",
+                "id": 1704
+            },
+            {
+                "designer": "Itrh",
+                "id": 2861
+            }
+        ],
+        "J": [
+            {
+                "designer": "Jatin Malik Couture",
+                "id": 622
+            },
+            {
+                "designer": "Jenjum Gadi",
+                "id": 404
+            },
+            {
+                "designer": "Jigar & Nikita",
+                "id": 2053
+            },
+            {
+                "designer": "Juwelen",
+                "id": 581
+            }
+        ],
+        "K": [
+            {
+                "designer": "Kacha Tanka",
+                "id": 539
+            },
+            {
+                "designer": "Kalista",
+                "id": 612
+            },
+            {
+                "designer": "Kalighata",
+                "id": 1693
+            },
+            {
+                "designer": "Kiran Gupta Label",
+                "id": 2089
+            },
+            {
+                "designer": "Komal Kothari",
+                "id": 2296
+            },
+            {
+                "designer": "Krisha Sunny Ramani",
+                "id": 587
+            },
+            {
+                "designer": "Khushboo & Pankaj",
+                "id": 1980
+            },
+            {
+                "designer": "Kudi Pataka",
+                "id": 2549
+            },
+            {
+                "designer": "Kay Kay by Kkhushi Sahaii",
+                "id": 2928
+            },
+            {
+                "designer": "Kovet",
+                "id": 601
+            }
+        ],
+        "L": [
+            {
+                "designer": "Label Deepika Nagpal",
+                "id": 2001
+            },
+            {
+                "designer": "Little Cheer",
+                "id": 2334
+            },
+            {
+                "designer": "Lil Drama",
+                "id": 2448
+            },
+            {
+                "designer": "Lacquer Embassy",
+                "id": 2888
+            }
+        ],
+        "M": [
+            {
+                "designer": "Mahek Rohra",
+                "id": 1469
+            },
+            {
+                "designer": "Masaba",
+                "id": 212
+            },
+            {
+                "designer": "Mavish",
+                "id": 2098
+            },
+            {
+                "designer": "Mayori",
+                "id": 1500
+            },
+            {
+                "designer": "Masumi Mewawalla",
+                "id": 373
+            },
+            {
+                "designer": "Menero",
+                "id": 2351
+            },
+            {
+                "designer": "Modaesta",
+                "id": 2505
+            },
+            {
+                "designer": "Mirroir",
+                "id": 2315
+            },
+            {
+                "designer": "Mala and Kinnary",
+                "id": 443
+            },
+            {
+                "designer": "Merge Design",
+                "id": 653
+            },
+            {
+                "designer": "Monisha Jaising",
+                "id": 489
+            },
+            {
+                "designer": "Moledro",
+                "id": 1486
+            },
+            {
+                "designer": "Mona & Vishu",
+                "id": 1666
+            },
+            {
+                "designer": "Mulmul",
+                "id": 2572
+            },
+            {
+                "designer": "Majestic by Japnah",
+                "id": 2724
+            },
+            {
+                "designer": "Musal",
+                "id": 2731
+            },
+            {
+                "designer": "MiniMe Organics",
+                "id": 2818
+            }
+        ],
+        "N": [
+            {
+                "designer": "Nikita Vishakha",
+                "id": 492
+            },
+            {
+                "designer": "Nidhika Shekhar",
+                "id": 2460
+            },
+            {
+                "designer": "Neeta Lulla",
+                "id": 501
+            },
+            {
+                "designer": "Nirmooha",
+                "id": 3008
+            }
+        ],
+        "O": [
+            {
+                "designer": "Ohaila Khan",
+                "id": 1637
+            },
+            {
+                "designer": "One Knot One",
+                "id": 1757
+            },
+            {
+                "designer": "Origani",
+                "id": 2905
+            }
+        ],
+        "P": [
+            {
+                "designer": "Pallavi Jaipur",
+                "id": 1454
+            },
+            {
+                "designer": "Parshya",
+                "id": 2224
+            },
+            {
+                "designer": "Papa Don't Preach by Shubhika",
+                "id": 2489
+            },
+            {
+                "designer": "Pink City by Sarika",
+                "id": 561
+            },
+            {
+                "designer": "Priti Sahni",
+                "id": 631
+            },
+            {
+                "designer": "Pooja Shroff",
+                "id": 1952
+            },
+            {
+                "designer": "Poppi Luxe",
+                "id": 2260
+            }
+        ],
+        "Q": [],
+        "R": [
+            {
+                "designer": "Redpine Designs",
+                "id": 1411
+            },
+            {
+                "designer": "Rey & I",
+                "id": 2287
+            }
+        ],
+        "S": [
+            {
+                "designer": "Sangeeta Swati",
+                "id": 2116
+            },
+            {
+                "designer": "Seven",
+                "id": 1975
+            }
+        ],
+        "T": [
+            {
+                "designer": "Tamaraa by Tahani",
+                "id": 1810
+            }
+        ],
+        "U": [],
+        "V": [],
+        "W": [],
+        "X": [],
+        "Y": [],
+        "Z": []
+    },
+    "jewellery": {
+        "B": [
+            {
+                "designer": "Bijoux by Priya Chandna",
+                "id": 2358
+            }
+        ],
+        "I": [
+            {
+                "designer": "Inder Clothing Studio",
+                "id": 594
+            }
+        ],
+        "J": [
+            {
+                "designer": "Jatin Malik Couture",
+                "id": 622
+            }
+        ],
+        "K": [
+            {
+                "designer": "Kovet",
+                "id": 601
+            }
+        ],
+        "M": [
+            {
+                "designer": "Mozaati",
+                "id": 1674
+            }
+        ],
+        "T": [
+            {
+                "designer": "Tesoro by Bhavika",
+                "id": 1773
+            },
+            {
+                "designer": "Twyla Treasures",
+                "id": 1843
+            }
+        ],
+        "W": [
+            {
+                "designer": "Weaver Story",
+                "id": 570
+            }
+        ]
+    },
+    "popular": {
+        "A": [
+            {
+                "designer": "Angry Owl",
+                "id": 401
+            },
+            {
+                "designer": "Anvita Jain",
+                "id": 616
+            }
+        ],
+        "B": [
+            {
+                "designer": "Brime",
+                "id": 608
+            }
+        ],
+        "C": [],
+        "D": [
+            {
+                "designer": "Diya Rajvvir",
+                "id": 201
+            },
+            {
+                "designer": "Devina Juneja",
+                "id": 405
+            }
+        ],
+        "E": [
+            {
+                "designer": "Ease",
+                "id": 1302
+            },
+            {
+                "designer": "Echo",
+                "id": 412
+            }
+        ],
+        "F": [],
+        "G": [],
+        "H": [],
+        "I": [
+            {
+                "designer": "Inder Clothing Studio",
+                "id": 594
+            }
+        ],
+        "J": [
+            {
+                "designer": "Jatin Malik Couture",
+                "id": 622
+            },
+            {
+                "designer": "Jenjum Gadi",
+                "id": 404
+            },
+            {
+                "designer": "Juwelen",
+                "id": 581
+            }
+        ],
+        "K": [
+            {
+                "designer": "Kalista",
+                "id": 612
+            },
+            {
+                "designer": "Kovet",
+                "id": 601
+            }
+        ],
+        "L": [],
+        "M": [
+            {
+                "designer": "Masaba",
+                "id": 212
+            },
+            {
+                "designer": "Masumi Mewawalla",
+                "id": 373
+            },
+            {
+                "designer": "Mala and Kinnary",
+                "id": 443
+            },
+            {
+                "designer": "Merge Design",
+                "id": 653
+            }
+        ],
+        "N": [],
+        "O": [
+            {
+                "designer": "Ohaila Khan",
+                "id": 1637
+            }
+        ],
+        "P": [
+            {
+                "designer": "Pallavi Jaipur",
+                "id": 1454
+            },
+            {
+                "designer": "Pink City by Sarika",
+                "id": 561
+            },
+            {
+                "designer": "Priti Sahni",
+                "id": 631
+            }
+        ],
+        "Q": [],
+        "R": [],
+        "S": [
+            {
+                "designer": "Sheetal Batra",
+                "id": 485
+            },
+            {
+                "designer": "S & N by Shantnu Nikhil",
+                "id": 522
+            }
+        ],
+        "T": [
+            {
+                "designer": "Tamaraa by Tahani",
+                "id": 1810
+            },
+            {
+                "designer": "The Aarya",
+                "id": 657
+            },
+            {
+                "designer": "Tisa Studio",
+                "id": 866
+            },
+            {
+                "designer": "Torani",
+                "id": 402
+            }
+        ],
+        "U": [],
+        "V": [
+            {
+                "designer": "Vvani by Vani Vats",
+                "id": 421
+            }
+        ],
+        "W": [
+            {
+                "designer": "Weaver Story",
+                "id": 570
+            }
+        ],
+        "X": [],
+        "Y": [],
+        "Z": []
+    }
+}

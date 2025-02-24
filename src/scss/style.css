@@ -832,13 +832,17 @@ header {
   flex-shrink:0;
 }
 
-.categoerySidebar li a {
+.categoerySidebar li {
   text-decoration: none;
   display: block;
   padding: 7px 0;
   font-size: 18px;
   color: rgba(53, 53, 53, 0.7);
-  font-weight:500;
+  font-weight: 500;
+}
+
+.categoerySidebar li.selected { 
+  color: rgba(0, 0, 0);
 }
 
 footer {
