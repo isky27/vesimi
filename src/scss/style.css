@@ -656,13 +656,14 @@ header {
 
 .bg-light-yellow{background-color:#feedd9;}
 .captionOverlay {
-  background: #feedd9;
-  width: calc(100% - 30px);
+  background: #ffffff;
   margin-left: 15px;
   margin-right: 15px;
   margin-top: -30px;
-  position: relative;
   padding: 10px;
+  position: relative;
+  width: calc(100% - 30px);
+  min-height: 100px;
 }
 
 .bg-themered{background-color:#bc3d19;}.serviceFeature ul {
