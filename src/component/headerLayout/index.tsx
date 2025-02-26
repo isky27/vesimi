@@ -102,11 +102,8 @@ const Header = () => {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  <span className="text-sm me-2">
-                    {countryOptions[selectedCurrency]?.country}
-                  </span>
                   <span className="pl-1 text-sm cursorPointer">
-                    ({countryOptions[selectedCurrency]?.currency})
+                    {countryOptions[selectedCurrency]?.currency}
                   </span>
                 </button>
                 <div
@@ -122,8 +119,7 @@ const Header = () => {
                             key={element?.currency}
                             onClick={() => handleCurrencyChange(element)}
                           >
-                            <span>{element.country}</span>
-                            <span>({element.currency})</span>
+                            <span>{element.currency}</span>
                           </li>
                         );
                       })}

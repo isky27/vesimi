@@ -16,6 +16,7 @@ import ProductCard from "component/ProductCard";
 import ProductCarousal from "component/ProductCarousal";
 import { getCategoryUrl, getPrice } from "utils";
 import { useAppSelector } from "store/redux.hooks";
+import { Link } from "react-router-dom";
 
 const HomeView = () => {
   const {
@@ -42,116 +43,119 @@ const HomeView = () => {
   const {selectedCurrency} = useAppSelector((state:any)=>state.auth)
 
   return (
-      <section>
-        <Loader
-          isLoading={[
-            isLoadingMainSlider,
-            isLoadingTopCategory,
-            isLoadingFeatureCategory,
-            isLoadingBestSellerProduct,
-            isLoadingCelebrityProduct,
-            isLoadingTabProduct,
-            isLoadingBlogs
-          ]}
-        />
-        <main className="pageMain">
-          {/*slider main banner */}
-          <div className="Mainslider">
-            {/* Carousal */}
-            {mainSliderData?.length > 0 && (
-              <div className="container mainSlider blogSection">
-                <Carousel
-                  data={mainSliderData?.map((item: any) => ({image:item?.photo, link: item?.link}))}
-                  isPath={true}
-                />
+    <section>
+      <Loader
+        isLoading={[
+          isLoadingMainSlider,
+          isLoadingTopCategory,
+          isLoadingFeatureCategory,
+          isLoadingBestSellerProduct,
+          isLoadingCelebrityProduct,
+          isLoadingTabProduct,
+          isLoadingBlogs,
+        ]}
+      />
+      <main className="pageMain">
+        {/*slider main banner */}
+        <div className="Mainslider">
+          {/* Carousal */}
+          {mainSliderData?.length > 0 && (
+            <div className="container mainSlider blogSection">
+              <Carousel
+                data={mainSliderData?.map((item: any) => ({
+                  image: item?.photo,
+                  link: item?.link,
+                }))}
+                isPath={true}
+              />
+            </div>
+          )}
+
+          {/* categoery section */}
+          {topCategoryData?.length > 0 && (
+            <section className="CTGCols mt-4">
+              <div className="container">
+                <div className="row">
+                  {topCategoryData?.map((item: any) => (
+                    <div key={item?.icon} className="col-6 col-lg-3">
+                      <CategeryCard
+                        bottomText={true}
+                        imageName={item?.icon}
+                        isPath={true}
+                        tag={item?.name}
+                        link={getCategoryUrl(item?.id)}
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
-            )}
+            </section>
+          )}
+          {/* END categoery section */}
 
-            {/* categoery section */}
-            {topCategoryData?.length > 0 && (
-              <section className="CTGCols mt-4">
-                <div className="container">
-                  <div className="row">
-                    {topCategoryData?.map((item: any) => (
-                      <div key={item?.icon} className="col-6 col-lg-3">
-                        <CategeryCard
-                          bottomText={true}
-                          imageName={item?.icon}
-                          isPath={true}
-                          tag={item?.name}
-                          link={getCategoryUrl(item?.id)}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </section>
-            )}
-            {/* END categoery section */}
-
-            {/* <!-- product section --> */}
-            {featureCategoryData?.length > 0 && (
-              <section className="productSection py-3 py-md-5">
-                <div className="container">
-                  <div className="productHead d-flex align-items-center justify-content-between mb-3 mb-md-4">
-                    <h2 className="Playfair">New Drops</h2>
-                  </div>
-                  <div className="productSliderWrap">
-                    <OwlCarousel
-                      className="owl-theme productSlider"
-                      loop
-                      margin={10}
-                      nav
-                      responsive={{
-                        0: {
-                          items: 2,
-                        },
-                        600: {
-                          items: 3,
-                        },
-                        1000: {
-                          items: 4,
-                        },
-                      }}
-                    >
-                      {featureCategoryData?.map((item: any) => {
-                        return (
-                          <div key={item?.icon} className="item">
-                            <CategeryCard
-                              bottomText={true}
-                              imageName={item?.icon}
-                              isPath={true}
-                              tag={item?.name}
-                              link={getCategoryUrl(item?.id)}
-                            />
-                          </div>
-                        );
-                      })}
-                    </OwlCarousel>
-                  </div>
-                </div>
-              </section>
-            )}
-
-            <section className="productSection py-3">
+          {/* <!-- product section --> */}
+          {featureCategoryData?.length > 0 && (
+            <section className="productSection py-3 py-md-5">
               <div className="container">
                 <div className="productHead d-flex align-items-center justify-content-between mb-3 mb-md-4">
-                  <h2 className="Playfair">Popular Styles </h2>
-                  {/* <Link
-                    to={`/search/category/${selectedPopularStyle}`}
-                    className="text-uparcase"
-                  >
-                    VIEW ALL
-                  </Link> */}
+                  <h2 className="Playfair">New Drops</h2>
                 </div>
+                <div className="productSliderWrap">
+                  <OwlCarousel
+                    className="owl-theme productSlider"
+                    loop
+                    margin={10}
+                    nav
+                    responsive={{
+                      0: {
+                        items: 2,
+                      },
+                      600: {
+                        items: 3,
+                      },
+                      1000: {
+                        items: 4,
+                      },
+                    }}
+                  >
+                    {featureCategoryData?.map((item: any) => {
+                      return (
+                        <div key={item?.icon} className="item">
+                          <CategeryCard
+                            bottomText={true}
+                            imageName={item?.icon}
+                            isPath={true}
+                            tag={item?.name}
+                            link={getCategoryUrl(item?.id)}
+                          />
+                        </div>
+                      );
+                    })}
+                  </OwlCarousel>
+                </div>
+              </div>
+            </section>
+          )}
+
+          <section className="productSection py-3">
+            <div className="container">
+              <div className="productHead d-flex align-items-center justify-content-between mb-3 mb-md-4">
+                <h2 className="Playfair">Popular Styles</h2>
+              </div>
 
               <div className="productSliderWrap">
-                <ul className="nav nav-tabs themeTabsStyle" id="myTab" role="tablist">
+                <ul
+                  className="nav nav-tabs themeTabsStyle"
+                  id="myTab"
+                  role="tablist"
+                >
                   {tabProductData &&
                     Object.keys(tabProductData).map((category: string) => (
                       <li className="nav-item" key={category}>
                         <button
-                          className={`nav-link ${activeTab === category ? "active" : ""}`}
+                          className={`nav-link ${
+                            activeTab === category ? "active" : ""
+                          }`}
                           id={category}
                           type="button"
                           role="tab"
@@ -172,7 +176,9 @@ const HomeView = () => {
                       return (
                         <div
                           key={category}
-                          className={`tab-pane fade ${activeTab === category ? "show active" : ""}`}
+                          className={`tab-pane fade ${
+                            activeTab === category ? "show active" : ""
+                          }`}
                           id={category}
                           role="tabpanel"
                           aria-labelledby={category}
@@ -183,7 +189,10 @@ const HomeView = () => {
                                 {dataArray.map((prod: any) => (
                                   <ProductCard
                                     key={prod.id}
-                                    price={getPrice(prod?.main_price, selectedCurrency)}
+                                    price={getPrice(
+                                      prod?.main_price,
+                                      selectedCurrency
+                                    )}
                                     imageName={prod?.thumbnail_image}
                                     isPath={true}
                                     tag={prod?.designer}
@@ -199,334 +208,332 @@ const HomeView = () => {
                     })}
                 </div>
               </div>
-              </div>
-            </section>
-
-            {exclusiveCollectionData?.length > 0 && (
-              <section className="productSection py-3 py-md-4">
-                <div className="container">
-                  <div className="productHead d-flex align-items-center justify-content-between mb-3 mb-md-4">
-                    <h2 className="Playfair">Exclusive Collections</h2>
-                    <a href="/" className="text-uparcase">
-                      VIEW ALL
-                    </a>
-                  </div>
-
-                  <div className="productSliderWrap">
-                    <OwlCarousel
-                      className="owl-theme productSlider"
-                      loop
-                      margin={10}
-                      nav
-                      responsive={{
-                        0: {
-                          items: 2,
-                        },
-                        600: {
-                          items: 3,
-                        },
-                        1000: {
-                          items: 4,
-                        },
-                      }}
-                    >
-                      {exclusiveCollectionData?.map((item: any) => {
-                        return (
-                          <div key={item?.id} className="item">
-                            <CategeryCard
-                              bottomText={true}
-                              imageName={item?.banner}
-                              isPath={true}
-                              tag={item?.name}
-                              link={getCategoryUrl(item?.id)}
-                            />
-                          </div>
-                        );
-                      })}
-                    </OwlCarousel>
-                  </div>
-                </div>
-              </section>
-            )}
-
-            {lovedCollectionData?.length > 0 && (
-              <section className="productSection py-3 py-md-4">
-                <div className="container">
-                  <div className="productHead d-flex align-items-center justify-content-between mb-3 mb-md-4">
-                    <h2 className="Playfair">Most Loved Collections</h2>
-                    <a href="/" className="text-uparcase">
-                      VIEW ALL
-                    </a>
-                  </div>
-                  <div className="productSliderWrap">
-                    <OwlCarousel
-                      className="owl-theme productSlider"
-                      loop
-                      margin={10}
-                      nav
-                      responsive={{
-                        0: {
-                          items: 2,
-                        },
-                        600: {
-                          items: 3,
-                        },
-                        1000: {
-                          items: 4,
-                        },
-                      }}
-                    >
-                      {lovedCollectionData?.map((item: any) => {
-                        return (
-                          <div className="item" key={item?.id}>
-                            <CategeryCard
-                              bottomText={true}
-                              imageName={item?.banner}
-                              isPath={true}
-                              tag={item?.name}
-                              link={getCategoryUrl(item?.id)}
-                            />
-                          </div>
-                        );
-                      })}
-                    </OwlCarousel>
-                  </div>
-                </div>
-              </section>
-            )}
-
-            {ownDesignerData?.length > 0 && (
-              <section className="productSection py-3 py-md-4">
-                <div className="container">
-                  <div className="productHead d-flex align-items-center justify-content-between mb-3 mb-md-4">
-                    <h2 className="Playfair">Must Own Designers</h2>
-                    <a href="/" className="text-uparcase">
-                      VIEW ALL
-                    </a>
-                  </div>
-
-                  <div className="productSliderWrap">
-                    <OwlCarousel
-                      className="owl-theme productSlider"
-                      loop
-                      margin={10}
-                      nav
-                      responsive={{
-                        0: {
-                          items: 2,
-                        },
-                        600: {
-                          items: 3,
-                        },
-                        1000: {
-                          items: 4,
-                        },
-                      }}
-                    >
-                      {ownDesignerData?.map((item: any) => {
-                        return (
-                          <div key={item?.id} className="item">
-                            <CategeryCard
-                              bottomText={true}
-                              imageName={item?.banner}
-                              isPath={true}
-                              tag={item?.name}
-                              link={getCategoryUrl(item?.id)}
-                            />
-                          </div>
-                        );
-                      })}
-                    </OwlCarousel>
-                  </div>
-                </div>
-              </section>
-            )}
-
-            <section className="productSection py-3 py-md-4">
-              <div className="container">
-                <picture>
-                  <a href="/">
-                    <img style={{width:"100%"}}
-                      src={require("assets/images/bannerShape1.jpeg")}
-                      alt=""
-                    />
-                  </a>
-                </picture>
-              </div>
-            </section>
-          </div>
-
-          {/* --------Celebrity Section */}
-          <CelebritySection
-            navigate={navigate}
-            productData={featureProductData}
-          />
-
-          <BlogSection data={blogsData}/>
-          {/* <!-- product section --> */}
-
-          <section className="productSection py-3 py-md-4">
-            <div className="container">
-              <div className="fullscreen fullwidth clearfix SocialSharing">
-                <div 
-                  style={{ width: "25%", float: "left", position: "relative" }}
-                >
-                  <a
-                    target="_blank"
-                    rel="noreferrer"
-                    title="twitter"
-                    href="https://twitter.com/_VESIMI/"
-                  >
-                    <img
-                      className="img img-responsive"
-                      style={{ width: "100%" }}
-                      title="twitter"
-                      src={twitterBack}
-                      alt="twitter"
-                    />
-                    <div
-                      style={{
-                        position: "absolute",
-                        left: "0",
-                        right: "0",
-                        top: "50%",
-                        textAlign: "center",
-                        // background: "#00B3CE",
-                        color: "#ffffff",
-                        fontWeight:"bold",
-                        fontVariant: "small-caps",
-                        transform: "translateY(-50%)",
-                        padding: "10px 0",
-                        opacity: ".8",
-                        fontSize: "20px",
-                      }}
-                    >
-                      Twitter
-                    </div>
-                  </a>
-                </div>
-                <div
-                  style={{ width: "25%", float: "left", position: "relative" }}
-                >
-                  <a
-                    target="_blank"
-                    rel="noreferrer"
-                    title="facebook"
-                    href="https://www.facebook.com/VESIMI/"
-                  >
-                    <img
-                      className="img img-responsive"
-                      style={{ width: "100%" }}
-                      title="facebook"
-                      src={facebookBack}
-                      alt="facebook"
-                    />
-                    <div
-                      style={{
-                        position: "absolute",
-                        left: "0",
-                        right: "0",
-                        top: "50%",
-                        textAlign: "center",
-                        // background: "#0D3B6B",
-                        color: "#ffffff",
-                        fontWeight:"bold",
-                        fontVariant: "small-caps",
-                        transform: "translateY(-50%)",
-                        padding: "10px 0",
-                        opacity: ".8",
-                        fontSize: "20px",
-                      }}
-                    >
-                      Facebook
-                    </div>
-                  </a>
-                </div>
-                <div
-                  style={{ width: "25%", float: "left", position: "relative" }}
-                >
-                  <a
-                    target="_blank"
-                    rel="noreferrer"
-                    title="instagram"
-                    href="https://www.instagram.com/vesimi/?hl=en"
-                  >
-                    <img
-                      className="img img-responsive"
-                      style={{ width: "100%" }}
-                      title="instagram"
-                      src={instagramBack}
-                      alt="instagram"
-                    />
-                    <div
-                      style={{
-                        position: "absolute",
-                        left: "0",
-                        right: "0",
-                        top: "50%",
-                        textAlign: "center",
-                        fontWeight:"bold",
-                        // background: "#E3488C",
-                        color: "#ffffff",
-                        fontVariant: "small-caps",
-                        transform: "translateY(-50%)",
-                        padding: "10px 0",
-                        opacity: ".8",
-                        fontSize: "20px",
-                      }}
-                    >
-                      Instagram
-                    </div>
-                  </a>
-                </div>
-                <div
-                  style={{ width: "25%", float: "left", position: "relative" }}
-                >
-                  <a
-                    target="_blank"
-                    rel="noreferrer"
-                    title="pinterest"
-                    href="https://www.pinterest.com/VESIMII/"
-                  >
-                    <img
-                      className="img img-responsive"
-                      style={{ width: "100%" }}
-                      title="pinterest"
-                      src={pinterestBack}
-                      alt="pinterest"
-                    />
-                    <div
-                      style={{
-                        position: "absolute",
-                        left: "0",
-                        right: "0",
-                        top: "50%",
-                        textAlign: "center",
-                        // background: "#bd081c",
-                        color: "#ffffff",
-                        fontWeight:"bold",
-                        fontVariant: "small-caps",
-                        transform: "translateY(-50%)",
-                        padding: "10px 0",
-                        opacity: ".8",
-                        fontSize: "20px",
-                      }}
-                    >
-                      Pinterest
-                    </div>
-                  </a>
-                </div>
-              </div>
             </div>
           </section>
 
-          <ServiceSection />
+          {exclusiveCollectionData?.length > 0 && (
+            <section className="productSection py-3 py-md-4">
+              <div className="container">
+                <div className="productHead d-flex align-items-center justify-content-between mb-3 mb-md-4">
+                  <h2 className="Playfair">Exclusive Collections</h2>
+                  <Link to={getCategoryUrl(3)} className="text-uparcase">
+                    VIEW ALL
+                  </Link>
+                </div>
 
-          <BookAppointment />
+                <div className="productSliderWrap">
+                  <OwlCarousel
+                    className="owl-theme productSlider"
+                    loop
+                    margin={10}
+                    nav
+                    responsive={{
+                      0: {
+                        items: 2,
+                      },
+                      600: {
+                        items: 3,
+                      },
+                      1000: {
+                        items: 4,
+                      },
+                    }}
+                  >
+                    {exclusiveCollectionData?.map((item: any) => {
+                      return (
+                        <div key={item?.id} className="item">
+                          <CategeryCard
+                            bottomText={true}
+                            imageName={item?.banner}
+                            isPath={true}
+                            tag={item?.name}
+                            link={getCategoryUrl(item?.id)}
+                          />
+                        </div>
+                      );
+                    })}
+                  </OwlCarousel>
+                </div>
+              </div>
+            </section>
+          )}
 
-          <ServiceInfo />
-        </main>
-      </section>
+          {lovedCollectionData?.length > 0 && (
+            <section className="productSection py-3 py-md-4">
+              <div className="container">
+                <div className="productHead d-flex align-items-center justify-content-between mb-3 mb-md-4">
+                  <h2 className="Playfair">Most Loved Collections</h2>
+                  <Link to={getCategoryUrl(6)} className="text-uparcase">
+                    VIEW ALL
+                  </Link>
+                </div>
+                <div className="productSliderWrap">
+                  <OwlCarousel
+                    className="owl-theme productSlider"
+                    loop
+                    margin={10}
+                    nav
+                    responsive={{
+                      0: {
+                        items: 2,
+                      },
+                      600: {
+                        items: 3,
+                      },
+                      1000: {
+                        items: 4,
+                      },
+                    }}
+                  >
+                    {lovedCollectionData?.map((item: any) => {
+                      return (
+                        <div className="item" key={item?.id}>
+                          <CategeryCard
+                            bottomText={true}
+                            imageName={item?.banner}
+                            isPath={true}
+                            tag={item?.name}
+                            link={getCategoryUrl(item?.id)}
+                          />
+                        </div>
+                      );
+                    })}
+                  </OwlCarousel>
+                </div>
+              </div>
+            </section>
+          )}
+
+          {ownDesignerData?.length > 0 && (
+            <section className="productSection py-3 py-md-4">
+              <div className="container">
+                <div className="productHead d-flex align-items-center justify-content-between mb-3 mb-md-4">
+                  <h2 className="Playfair">Must Own Designers</h2>
+                  <Link to={"/designer"} className="text-uparcase">
+                    VIEW ALL
+                  </Link>
+                </div>
+
+                <div className="productSliderWrap">
+                  <OwlCarousel
+                    className="owl-theme productSlider"
+                    loop
+                    margin={10}
+                    nav
+                    responsive={{
+                      0: {
+                        items: 2,
+                      },
+                      600: {
+                        items: 3,
+                      },
+                      1000: {
+                        items: 4,
+                      },
+                    }}
+                  >
+                    {ownDesignerData?.map((item: any) => {
+                      return (
+                        <div key={item?.id} className="item">
+                          <CategeryCard
+                            bottomText={true}
+                            imageName={item?.banner}
+                            isPath={true}
+                            tag={item?.name}
+                            link={getCategoryUrl(item?.id)}
+                          />
+                        </div>
+                      );
+                    })}
+                  </OwlCarousel>
+                </div>
+              </div>
+            </section>
+          )}
+
+          <section className="productSection py-3 py-md-4">
+            <div className="container">
+              <picture>
+                <a href="/">
+                  <img
+                    style={{ width: "100%" }}
+                    src={require("assets/images/bannerShape1.jpeg")}
+                    alt=""
+                  />
+                </a>
+              </picture>
+            </div>
+          </section>
+        </div>
+
+        {/* --------Celebrity Section */}
+        <CelebritySection
+          navigate={navigate}
+          productData={featureProductData}
+        />
+
+        <BlogSection data={blogsData} />
+        {/* <!-- product section --> */}
+
+        <section className="productSection py-3 py-md-4">
+          <div className="container">
+            <div className="fullscreen fullwidth clearfix SocialSharing">
+              <div
+                style={{ width: "25%", float: "left", position: "relative" }}
+              >
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  title="twitter"
+                  href="https://twitter.com/_VESIMI/"
+                >
+                  <img
+                    className="img img-responsive"
+                    style={{ width: "100%" }}
+                    title="twitter"
+                    src={twitterBack}
+                    alt="twitter"
+                  />
+                  <div
+                    style={{
+                      position: "absolute",
+                      left: "0",
+                      right: "0",
+                      top: "50%",
+                      textAlign: "center",
+                      // background: "#00B3CE",
+                      color: "#ffffff",
+                      fontWeight: "bold",
+                      fontVariant: "small-caps",
+                      transform: "translateY(-50%)",
+                      padding: "10px 0",
+                      fontSize: "24px",
+                    }}
+                  >
+                    Twitter
+                  </div>
+                </a>
+              </div>
+              <div
+                style={{ width: "25%", float: "left", position: "relative" }}
+              >
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  title="facebook"
+                  href="https://www.facebook.com/VESIMI/"
+                >
+                  <img
+                    className="img img-responsive"
+                    style={{ width: "100%" }}
+                    title="facebook"
+                    src={facebookBack}
+                    alt="facebook"
+                  />
+                  <div
+                    style={{
+                      position: "absolute",
+                      left: "0",
+                      right: "0",
+                      top: "50%",
+                      textAlign: "center",
+                      // background: "#0D3B6B",
+
+                      color: "#ffffff",
+                      fontWeight: "bold",
+                      fontVariant: "small-caps",
+                      transform: "translateY(-50%)",
+                      padding: "10px 0",
+                      fontSize: "24px",
+                    }}
+                  >
+                    Facebook
+                  </div>
+                </a>
+              </div>
+              <div
+                style={{ width: "25%", float: "left", position: "relative" }}
+              >
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  title="instagram"
+                  href="https://www.instagram.com/vesimi/?hl=en"
+                >
+                  <img
+                    className="img img-responsive"
+                    style={{ width: "100%" }}
+                    title="instagram"
+                    src={instagramBack}
+                    alt="instagram"
+                  />
+                  <div
+                    style={{
+                      position: "absolute",
+                      left: "0",
+                      right: "0",
+                      top: "50%",
+                      textAlign: "center",
+                      fontWeight: "bold",
+                      // background: "#E3488C",
+                      color: "#ffffff",
+                      fontVariant: "small-caps",
+                      transform: "translateY(-50%)",
+                      padding: "10px 0",
+                      fontSize: "24px",
+                    }}
+                  >
+                    Instagram
+                  </div>
+                </a>
+              </div>
+              <div
+                style={{ width: "25%", float: "left", position: "relative" }}
+              >
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  title="pinterest"
+                  href="https://www.pinterest.com/VESIMII/"
+                >
+                  <img
+                    className="img img-responsive"
+                    style={{ width: "100%" }}
+                    title="pinterest"
+                    src={pinterestBack}
+                    alt="pinterest"
+                  />
+                  <div
+                    style={{
+                      position: "absolute",
+                      left: "0",
+                      right: "0",
+                      top: "50%",
+                      textAlign: "center",
+                      // background: "#bd081c",
+                      color: "#ffffff",
+                      fontWeight: "bolder",
+                      fontVariant: "small-caps",
+                      transform: "translateY(-50%)",
+                      padding: "10px 0",
+                      fontSize: "24px",
+                    }}
+                  >
+                    Pinterest
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <ServiceSection />
+
+        <BookAppointment />
+
+        <ServiceInfo />
+      </main>
+    </section>
   );
 };
 
