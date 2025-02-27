@@ -270,30 +270,6 @@ const ProductDetail = () => {
                   >
                     <i className="fab fa-whatsapp"></i>
                   </a>
-
-                  {/* Facebook Messenger */}
-                  <a
-                    // href="https://www.messenger.com/share?link=https://example.com?message=Hello%20there!%20Check%20this%20out!"
-                    // href={`https://www.messenger.com/share?link=${productLink}`}
-                    href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-                      productLink + "?message=Check%20this%20out!"
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ textDecoration: "none" }}
-                  >
-                    <i className="fab fa-facebook-messenger"></i>
-                  </a>
-
-                  {/* Telegram */}
-                  <a
-                    href={`https://t.me/share/url?url=${productLink}&text=Check%20this%20out!`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ textDecoration: "none" }}
-                  >
-                    <i className="fab fa-telegram-plane"></i>
-                  </a>
                   {/* Twitter */}
                   <a
                     href={`https://twitter.com/intent/tweet?text=Check%20this%20out! ${productLink}`}

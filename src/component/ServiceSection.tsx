@@ -11,20 +11,18 @@ const ServiceSection = () => {
             <li className="text-center">
               <img src={COD} />
               <span className="text-md-dark fs-7 d-block">
-                100% Secure Payments COD Available{" "}
+                Pernia section of 24 X 7 Customer support{" "}
               </span>
             </li>
 
             <li className="text-center">
               <img src={FreeReturn} />
-              <span className="text-md-dark fs-7 d-block">
-                Hassle free return policy{" "}
-              </span>
+              <span className="text-md-dark fs-7 d-block">500+ Designers</span>
             </li>
 
             <li className="text-center">
               <img src={FreeShipping} />
-              <span className="text-md-dark fs-7 d-block">Free Shipping </span>
+              <span className="text-md-dark fs-7 d-block">Shipping Worldwide</span>
             </li>
           </ul>
         </div>
