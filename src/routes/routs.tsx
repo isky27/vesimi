@@ -14,6 +14,7 @@ import CheckoutView from "pages/checkout/CheckoutView";
 import DesignerView from "pages/designer/DesignerView";
 import WishlistView from "pages/wishlist/WishlistView";
 import BlogView from "pages/blog/BlogView";
+import Feedback from "pages/feedback/Feedback";
 
 const ContactUs = lazy(() => import("../pages/staticPages/ContactUs"));
 const ErrorPage = lazy(() => import("../pages/error/ErrorView"));
@@ -54,7 +55,22 @@ const CustomRoute = () => {
               </Suspense>
             }
           />
-
+          <Route
+            path="/feedback"
+            element={
+              <Suspense
+                fallback={
+                  <div className="graph-loader  d-flex justify-content-center align-items-center">
+                    <div className="spinner-border  spinner-ui d-flex justify-content-center align-items-center">
+                      <span className="visually-hidden"></span>
+                    </div>
+                  </div>
+                }
+              >
+                <Feedback/>
+              </Suspense>
+            }
+          />
           <Route
             path="/search/category/:categoryId?"
             element={
@@ -71,7 +87,6 @@ const CustomRoute = () => {
               </Suspense>
             }
           />
-
           <Route
             path="/designer"
             element={
@@ -88,7 +103,6 @@ const CustomRoute = () => {
               </Suspense>
             }
           />
-
           <Route
             path="/about-us"
             element={
@@ -137,7 +151,6 @@ const CustomRoute = () => {
               </Suspense>
             }
           />
-
           <Route
             path="/terms-conditions"
             element={
@@ -154,7 +167,6 @@ const CustomRoute = () => {
               </Suspense>
             }
           />
-
           <Route
             path="/faqs"
             element={
@@ -171,7 +183,6 @@ const CustomRoute = () => {
               </Suspense>
             }
           />
-
           <Route
             path="/privacy-policy"
             element={
@@ -188,7 +199,6 @@ const CustomRoute = () => {
               </Suspense>
             }
           />
-
           <Route
             path="/returns-and-exchange"
             element={
@@ -205,7 +215,6 @@ const CustomRoute = () => {
               </Suspense>
             }
           />
-
           <Route
             path="/refund-cancellation-policy"
             element={
@@ -238,7 +247,6 @@ const CustomRoute = () => {
               </Suspense>
             }
           />
-
           <Route
             path="/career"
             element={
@@ -271,7 +279,6 @@ const CustomRoute = () => {
               </Suspense>
             }
           />
-
           <Route
             path="/blog"
             element={

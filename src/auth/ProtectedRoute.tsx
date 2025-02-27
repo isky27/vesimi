@@ -1,4 +1,4 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "store/redux.hooks";
 import { getLocalStorage } from "utils";
 import Header from "component/headerLayout";
@@ -37,8 +37,9 @@ export const ProtectedRouteCheck = ({ children }: any) => {
 };
 
 export const HomeRoute = () => {
-  const { loginDetails } = useAppSelector((state) => state.auth);
+  const { loginDetails } = useAppSelector((state:any) => state.auth);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate()
   if (loginDetails?.access_token) {
     dispatch(cartListDataApi({ user_id: loginDetails?.user?.id }));
     dispatch(getWishList({ userId: loginDetails?.user?.id }));
@@ -46,6 +47,9 @@ export const HomeRoute = () => {
 
   return (
     <>
+      <button className="floating-feedback" onClick={() =>navigate("/feedback")}>
+        Feedback
+      </button>
       <ScrollToTop /> {/* Ensures scroll to top on route change */}
       <Header />
       <Outlet />
