@@ -180,6 +180,11 @@
 }
 .statickPageDesign h1 {
   font-size: 24px;}
+
+  .navBrand .MobileNavToggle {
+    margin-right: 10px;
+}
+
 }
 
 @media only screen and (max-width: 767px) {
@@ -400,6 +405,15 @@
 .statickPageDesign {
   margin-top: 20px;
 }
+.categoeryLink a {
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+
+.categoerySidebarMain{flex-direction:column;}
+.categoerySidebar{flex:0 0 100%; max-width:100%;}
+.categoeryRightBar{max-width: 100%; flex:0 0 100% ; padding:24px 0 0 0 ;}
+
 }
 
 @media only screen and (max-width: 575px) {
@@ -477,6 +491,36 @@ div.cartListing figure {
 
 .navBrand img {
     max-height: 36px;
+}
+
+.headerRight>ul>li{padding:0 6px;}
+
+.categoeryLink a {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.Playfair {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.categoerySidebar li {
+  padding: 5px 10px;
+  background: #f3f3f3;
+  margin: 0 10px 10px 0;
+  border-radius: 4px;
+}
+
+.TabRedirec a {
+  padding: 6px;
+  margin: 5px;
+  background: #eee;
+  border-radius: 4px;
+}
+
+.categoeryRightBar .accordion-body {
+  padding: 24px 0!important; 
 }
 
 }
