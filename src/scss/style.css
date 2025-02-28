@@ -738,7 +738,7 @@ header {
   background:#282828;
   padding: 20px 0 36px 0;
 }
-.webFooter *,.webFooter a{color:#fff;}
+.webFooter *,.webFooter a{color:#fff!important;}
 .footerRow {
   display: flex;
   flex-wrap: wrap;
@@ -1586,7 +1586,7 @@ span.appOnly {
 }
 
 .navBrand img {
-  max-height: 76px;
+  max-height: 54px;
   filter: brightness(0);
 }
 
