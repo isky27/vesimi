@@ -231,7 +231,7 @@ const Header = () => {
                 <span onClick={() => navigate(getCategoryUrl(3))}>
                   What's New
                 </span>
-                <div className="subNavPart">
+                <div className="subNavPart" onClick={handleCloseSidebar}>
                   <div className="container">
                     <div className="SubNavRow">
                       <div className="SubNavGrid">
@@ -352,7 +352,7 @@ const Header = () => {
               {/* <!-- Designers --> */}
               <li>
                 <span onClick={() => navigate("/designer")}>Designers</span>
-                <div className="subNavPart">
+                <div className="subNavPart" onClick={handleCloseSidebar}>
                   <div className="container">
                     <div className="SubNavRow">
                       <div className="SubNavGrid">
@@ -500,7 +500,7 @@ const Header = () => {
               {/* <!-- WOMEN --> */}
               <li>
                 <span onClick={() => navigate(getCategoryUrl(6))}>Women</span>
-                <div className="subNavPart">
+                <div className="subNavPart" onClick={handleCloseSidebar}>
                   <div className="container">
                     <div className="SubNavRow">
                       <div className="SubNavGrid">
@@ -671,7 +671,7 @@ const Header = () => {
               {/* <!-- Man --> */}
               <li>
                 <span onClick={() => navigate(getCategoryUrl(20))}>Men</span>
-                <div className="subNavPart">
+                <div className="subNavPart" onClick={handleCloseSidebar}>
                   <div className="container">
                     <div className="SubNavRow">
                       <div className="SubNavGrid">
@@ -841,7 +841,7 @@ const Header = () => {
               {/* <!-- Kids --> */}
               <li>
                 <span onClick={() => navigate(getCategoryUrl(2285))}>Kids</span>
-                <div className="subNavPart">
+                <div className="subNavPart" onClick={handleCloseSidebar}>
                   <div className="container">
                     <div className="SubNavRow">
                       <div className="SubNavGrid">
@@ -979,7 +979,7 @@ const Header = () => {
                 <span onClick={() => navigate(getCategoryUrl(121))}>
                   Accessories
                 </span>
-                <div className="subNavPart">
+                <div className="subNavPart" onClick={handleCloseSidebar}>
                   <div className="container">
                     <div className="SubNavRow">
                       <div className="SubNavGrid">
@@ -1102,7 +1102,7 @@ const Header = () => {
                 <span onClick={() => navigate(getCategoryUrl(366))}>
                   Jewellery
                 </span>
-                <div className="subNavPart">
+                <div className="subNavPart" onClick={handleCloseSidebar}>
                   <div className="container">
                     <div className="SubNavRow">
                       <div className="SubNavGrid">
@@ -1224,13 +1224,13 @@ const Header = () => {
                 </div>
               </li>
               {/* <!-- The Vesimi Voice --> */}
-              <li onClick={() => navigate("/blog")}>
+              <li onClick={() => {handleCloseSidebar(); navigate("/blog")}}>
                 <span>The Vesimi Voice</span>
               </li>
-              <li onClick={() => navigate(getCategoryUrl(471))}>
+              <li onClick={() => {handleCloseSidebar(); navigate(getCategoryUrl(471))}}>
                 <span>Gift card</span>
               </li>
-              <li onClick={() => navigate(`${getCategoryUrl(4)}&sale=1`)} className="textred">
+              <li onClick={() => {handleCloseSidebar(); navigate(`${getCategoryUrl(4)}&sale=1`)}} className="textred">
                 <span>Sale</span>
               </li>
             </ul>
