@@ -9,6 +9,7 @@ import { setOpenLoginPopup } from 'store/auth/authDataSlice';
 import Loader from 'component/Loader';
 import FooterController from './footerController';
 import { Form } from 'react-bootstrap';
+import { getCategoryUrl } from 'utils';
 
 
 const Footer = () => {
@@ -45,7 +46,7 @@ const Footer = () => {
 
           <div className="footerCols">
             <h5>BUYING GUIDE </h5>
-            <Link to={"/"} className="footerNavLink">
+            <Link to={`${getCategoryUrl(471)}`} className="footerNavLink">
               Gift Card
             </Link>
             <Link to={"/shipping"} className="footerNavLink">

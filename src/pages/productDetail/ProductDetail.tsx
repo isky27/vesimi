@@ -161,7 +161,7 @@ const ProductDetail = () => {
                 </div>
               )}
 
-              {productDetails?.choice_options?.find(
+              {/* {productDetails?.choice_options?.find(
                 (el: any) => el.title === "Designer"
               )?.options && (
                 <div className="mb-3">
@@ -186,7 +186,7 @@ const ProductDetail = () => {
                       })}
                   </div>
                 </div>
-              )}
+              )} */}
 
               <div className="ButtonTabsAction">
                 {productDetails?.is_price_hide ? (
