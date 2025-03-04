@@ -142,18 +142,6 @@ export const getOrderItems = createAsyncThunk("get/order/Items", async (userData
     }
 });
 
-export const paymentWithRazorPayApi = createAsyncThunk("payment/razoepay", async (userData:any,thunkApi: any) => {
-  try {
-      const response: any = await orderService.paymentWithRazorPay(userData);
-      return response;
-  } catch (error: any) {
-      const message: any = getErrorMessage(error)
-      return thunkApi.rejectWithValue(message);
-  }
-});
-
-
-
 // Account Reducer
 export const orderDataReducer = createSlice({
     name: "order-section",

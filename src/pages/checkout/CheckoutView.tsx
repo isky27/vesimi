@@ -161,9 +161,8 @@ const CheckoutView = () => {
                   <Accordion.Body>
                     <form
                       onSubmit={(e) => {
-                        console.log("shaskdjlwasls")
                         e.preventDefault();
-                        handleSaveOrder();
+                        // handleSaveOrder();
                       }}
                     >
                       <div className="row">
@@ -177,7 +176,7 @@ const CheckoutView = () => {
                         </div> */}
                       </div>
                       {/* Add remaining form fields */}
-                      <button type="submit" className="themeBtnCart">
+                      <button disabled={true} type="submit" className="themeBtnCart">
                         Continue Checkout
                       </button>
                     </form>
