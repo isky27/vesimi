@@ -92,16 +92,7 @@ const orderHistoryItemsApi = async (userData: any): Promise<ApiResponse> => {
    } catch (error: any) {
      throw error;
    }
-};
-
-const paymentWithRazorPay = async (userData: any): Promise<ApiResponse> => {
-  try {
-    const response: ApiResponse = await axios.post(`razorpay/pay-with-razorpay`, userData);
-    return response;
-  } catch (error: any) {
-    throw error;
-  }
-};
+}
 
 const orderService = {
   updateOrderAddressApi,
@@ -113,8 +104,7 @@ const orderService = {
   orderHistoryApi,
   orderDetailsApi,
   addShippingPrice,
-  orderHistoryItemsApi,
-  paymentWithRazorPay
+  orderHistoryItemsApi
 };
 
 export default orderService;
