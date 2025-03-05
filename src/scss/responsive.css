@@ -185,6 +185,8 @@
     margin-right: 10px;
 }
 
+.floating-feedback{top:240px;}
+
 }
 
 @media only screen and (max-width: 767px) {
