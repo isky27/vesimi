@@ -7,6 +7,7 @@ import InnerImageZoom from 'react-inner-image-zoom';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
 import CustomPopup from 'component/modal/CustomPopup';
 import { useAppSelector } from 'store/redux.hooks';
+import { useLocation } from 'react-router-dom';
 
 const ProductDetail = () => {
 
@@ -31,9 +32,10 @@ const ProductDetail = () => {
     setSelectedPrice,
   } = ProductDetailController();
 
+  const location = useLocation()
   const { selectedCurrency } = useAppSelector((state: any) => state.auth)
   const productDetails = productDetailData?.data[0];
-  const productLink = `${process.env.REACT_APP_FRONTEND_URL}/products/${productDetails?.id}`;
+  const productLink = `${window.location.origin}${location.pathname}${location.search}`;
 
   return (
     <section className="pageMain">

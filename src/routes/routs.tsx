@@ -1,21 +1,20 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ProtectedRoute, { HomeRoute } from "../auth/ProtectedRoute";
-import ProductDetail from "pages/productDetail/ProductDetail";
-import EditAddressView from "pages/address/editAddress/EditAddressView";
-import AddressView from "pages/address/AddressView";
-import TermsAndConditions from "pages/staticPages/TermsAndCondition";
-import Faq from "pages/staticPages/Faq";
-import PrivacyPolicy from "pages/staticPages/PrivacyPolicy";
-import ReturnExchange from "pages/staticPages/ReturnExchange";
-import RefundCancellation from "pages/staticPages/RefundCancellation";
-import CartView from "pages/cart/CartView";
-import CheckoutView from "pages/checkout/CheckoutView";
-import DesignerView from "pages/designer/DesignerView";
-import WishlistView from "pages/wishlist/WishlistView";
-import BlogView from "pages/blog/BlogView";
-import Feedback from "pages/feedback/Feedback";
-
+const ProductDetail = lazy(() => import("pages/productDetail/ProductDetail"));
+const EditAddressView = lazy(() => import("pages/address/editAddress/EditAddressView"));
+const AddressView = lazy(() => import("pages/address/AddressView"));
+const TermsAndConditions = lazy(() => import("pages/staticPages/TermsAndCondition"));
+const Faq = lazy(() => import("pages/staticPages/Faq"));
+const PrivacyPolicy = lazy(() => import("pages/staticPages/PrivacyPolicy"));
+const ReturnExchange = lazy(() => import("pages/staticPages/ReturnExchange"));
+const RefundCancellation = lazy(() => import("pages/staticPages/RefundCancellation"));
+const CartView = lazy(() => import("pages/cart/CartView"));
+const CheckoutView = lazy(() => import("pages/checkout/CheckoutView"));
+const DesignerView = lazy(() => import("pages/designer/DesignerView"));
+const WishlistView = lazy(() => import("pages/wishlist/WishlistView"));
+const BlogView = lazy(() => import("pages/blog/BlogView"));
+const Feedback = lazy(() => import("../pages/feedback/Feedback"));
 const ContactUs = lazy(() => import("../pages/staticPages/ContactUs"));
 const ErrorPage = lazy(() => import("../pages/error/ErrorView"));
 const HomePage = lazy(() => import("../pages/home/HomeView"));
@@ -26,15 +25,13 @@ const ShippingInfo = lazy(() => import("../pages/staticPages/ShippingInfo"));
 const AccountView = lazy(() => import("../pages/account/AccountView"));
 const CareerView = lazy(() => import("../pages/staticPages/CareerView"));
 const EditProfile = lazy(() => import("pages/account/edit/EditProfile"));
-const OrderHistoryView = lazy(()=> import("pages/orderHistory/OrderHistoryView"));
-const OrderDetailsView = lazy(()=> import("pages/orderDetails/OrderDetailsView"));
-
+const OrderHistoryView = lazy(() => import("pages/orderHistory/OrderHistoryView"));
+const OrderDetailsView = lazy(() => import("pages/orderDetails/OrderDetailsView"));
 
 /**
  * Component that defines all the routes for the website
  */
 const CustomRoute = () => {
-
   return (
     <Router basename="/">
       <Routes>
@@ -67,7 +64,7 @@ const CustomRoute = () => {
                   </div>
                 }
               >
-                <Feedback/>
+                <Feedback />
               </Suspense>
             }
           />
