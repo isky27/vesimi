@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { getUserAddress } from "store/account/accountDataSlice";
-import { cartListDataApi, cartSummaryDataApi, orderSaveaApi, updateOrderAddress } from "store/order/orderSlice";
+import { cartListDataApi, cartSummaryDataApi, orderSaveaApi, paymentWithRazorPayApi, updateOrderAddress } from "store/order/orderSlice";
 import { useAppDispatch, useAppSelector } from "store/redux.hooks";
 
 const CheckoutController = () => {
@@ -78,6 +78,12 @@ const CheckoutController = () => {
       "user_id":loginDetails?.user?.id,
       "payment_type": "stripe"
   })).then(()=>{
+    dispatch(paymentWithRazorPayApi({
+      payment_type: "cart_payment",
+      combined_order_id: "19",
+      user_id: "8",
+      amount: "100"
+    }))
     navigate("/")
   })
   }
