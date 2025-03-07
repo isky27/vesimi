@@ -72,21 +72,26 @@ const CheckoutController = () => {
       })
   }
 
-  const handleSaveOrder = () =>{
-    dispatch(orderSaveaApi({
-      "owner_id":1,
-      "user_id":loginDetails?.user?.id,
-      "payment_type": "stripe"
-  })).then(()=>{
-    dispatch(paymentWithRazorPayApi({
-      payment_type: "cart_payment",
-      combined_order_id: "19",
-      user_id: "8",
-      amount: "100"
-    }))
-    navigate("/")
-  })
-  }
+  const handleSaveOrder = () => {
+    dispatch(
+      paymentWithRazorPayApi({
+        payment_type: "cart_payment",
+        combined_order_id: "19",
+        user_id: "8",
+        amount: "100",
+      })
+    ).then(() => {
+      dispatch(
+        paymentWithRazorPayApi({
+          payment_type: "cart_payment",
+          combined_order_id: "19",
+          user_id: "8",
+          amount: "100",
+        })
+      );
+      navigate("/");
+    });
+  };
 
   return {
     isLoadingCartList, 
