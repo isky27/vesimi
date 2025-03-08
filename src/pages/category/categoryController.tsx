@@ -46,47 +46,6 @@ const CategoryController = () => {
     setSearchParams(newParams);
   };
 
-  useEffect(()=>{
-    let selectedSize = filterSize.values().next().value;
-    updateFilters("size", selectedSize);
-  },[filterSize]);
-
-
-  useEffect(()=>{
-    let selectedColor = filterColor.values().next().value;
-    updateFilters("color", selectedColor);
-  },[filterColor]);
-
-  useEffect(()=>{
-    let selectedDesigner = filterDesigner.values().next().value;
-    updateFilters("designer", selectedDesigner);
-  },[filterDesigner]);
-
-  useEffect(()=>{
-    let minPrice = finalPrice[0];
-    updateFilters("min", minPrice);
-  },[finalPrice[0]]);
-
-  useEffect(()=>{
-    let maxPrice = finalPrice[1];
-    updateFilters("max", maxPrice);
-  },[finalPrice[1]]);
-
-  useEffect(() => {
-    if (filterCategory.values().next().value != categoryId) {
-      let selectedCategory = filterCategory.values().next().value;
-      let url = getCategoryUrl(selectedCategory);
-      if (searchParams.get("sale")){
-        url = url + "&sale=1"
-      } 
-      navigate(url);
-    }
-  }, [filterCategory]);
-
-  useEffect(() => {
-    dispatch(getSubCategories({ categoryId }));
-  }, [dispatch, categoryId]);
-
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(
@@ -103,6 +62,57 @@ const CategoryController = () => {
       })
     );
   }, [dispatch, searchParams]);
+
+  useEffect(()=>{
+    let selectedSize = filterSize.values().next().value;
+    if(selectedSize!==searchParams.get("size")){
+      updateFilters("size", selectedSize);
+    }
+  },[filterSize]);
+
+
+  useEffect(()=>{
+    let selectedColor = filterColor.values().next().value;
+    if(selectedColor !== searchParams.get("color")){
+      updateFilters("color", selectedColor);
+    }
+  },[filterColor]);
+
+  useEffect(()=>{
+    let selectedDesigner = filterDesigner.values().next().value;
+    if(selectedDesigner!==searchParams.get("designer")){
+      updateFilters("designer", selectedDesigner);
+    }
+  },[filterDesigner]);
+
+  useEffect(()=>{
+    let minPrice = finalPrice[0];
+    if(minPrice!= searchParams.get("min")){
+      updateFilters("min", minPrice);
+    }
+  },[finalPrice[0]]);
+
+  useEffect(()=>{
+    let maxPrice = finalPrice[1];
+    if(maxPrice != searchParams.get("max")){
+      updateFilters("max", maxPrice);
+    }
+  },[finalPrice[1]]);
+
+  useEffect(() => {
+    if (filterCategory.values().next().value != categoryId) {
+      let selectedCategory = filterCategory.values().next().value;
+      let url = getCategoryUrl(selectedCategory);
+      if (searchParams.get("sale")){
+        url = url + "&sale=1"
+      } 
+      navigate(url);
+    }
+  }, [filterCategory]);
+
+  useEffect(() => {
+    dispatch(getSubCategories({ categoryId }));
+  }, [dispatch, categoryId]);
 
   const handlePriceChange = (newRange: any) => {
     setFilterPrice([newRange[0].toString(), newRange[1].toString()]);
