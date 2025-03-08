@@ -21,17 +21,21 @@ const CategoryView = () => {
     setFilterColor,
     filterPrice,
     setFilterPrice,
+    setFinalPrice,
     handlePriceChange,
     subCategoryData,
     isLoadingSearchProduct,
     searchProductData,
     isLoadingSubCategories,
-    currentPage,
-    setCurrentPage,
     handelClearFilter,
-    handlePriceReset
+    handlePriceReset,
+    searchParams,
+    updateFilters
   } = CategoryController();
 
+  const handleFinalRangeChange = (priceRange:any) => {
+    setFinalPrice([priceRange[0].toString(), priceRange[1].toString()]);
+  }
 
   const handleToggleSidebar = () => {
     document.body.classList.toggle("openfilterSidebar"); // Toggle the class on <body>
@@ -120,6 +124,7 @@ const CategoryView = () => {
                 max={priceRange[1]}
                 defaultValue={[Number(filterPrice[0]), Number(filterPrice[1])]}
                 onChange={handlePriceChange}
+                onChangeComplete={handleFinalRangeChange}
                 value={[Number(filterPrice[0]), Number(filterPrice[1])]}
               />
               {/* code for range slider */}
@@ -218,8 +223,8 @@ const CategoryView = () => {
                 <Pagination
                   total={searchProductData?.meta?.total}
                   pageSize={searchProductData?.meta?.per_page}
-                  currentPage={currentPage}
-                  handleClick={setCurrentPage}
+                  currentPage={Number(searchParams.get("page") ?? 1)}
+                  handleClick={(page:any)=>updateFilters("page", page)}
                 />
               )}
             </div>
