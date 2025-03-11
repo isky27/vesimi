@@ -1,10 +1,11 @@
-import { getPrice } from "utils";
+import { extractNumber, getPrice } from "utils";
 import CheckoutController from "./checkoutController";
 import { Accordion } from "react-bootstrap";
 import Loader from "component/Loader";
 import AddressFormView from "pages/address/addressForm/AddressFormView";
 import { Link } from "react-router-dom";
 import { useAppSelector } from "store/redux.hooks";
+import RazorpayPayment from "pages/payment/RazorPayment";
 
 const CheckoutView = () => {
   const {
@@ -22,7 +23,6 @@ const CheckoutView = () => {
     activeKey,
     setActiveKey,
     isShippingMethodDisabled,
-    setIsShippingMethodDisabled,
     isPaymentMethodDisabled,
     setIsPaymentMethodDisabled,
     isLoadingOrderAddress,
@@ -108,11 +108,7 @@ const CheckoutView = () => {
                 <Accordion.Item eventKey="1">
                   <Accordion.Header
                     className={isShippingMethodDisabled ? "disabled" : ""}
-                    style={{
-                      cursor: isShippingMethodDisabled
-                        ? "not-allowed"
-                        : "pointer",
-                    }}
+                    style={{cursor: isShippingMethodDisabled ? "not-allowed" : "pointer"}}
                   >
                     Shipping Methods
                   </Accordion.Header>
@@ -146,7 +142,6 @@ const CheckoutView = () => {
                     </div>
                   </Accordion.Body>
                 </Accordion.Item>
-
                 <Accordion.Item eventKey="2">
                   <Accordion.Header
                     className={isPaymentMethodDisabled ? "disabled" : ""}
@@ -159,28 +154,15 @@ const CheckoutView = () => {
                     Payment Method
                   </Accordion.Header>
                   <Accordion.Body>
-                    <form
-                      onSubmit={(e) => {
-                        console.log("shaskdjlwasls")
-                        e.preventDefault();
-                        handleSaveOrder();
-                      }}
-                    >
                       <div className="row">
                         <div className="col-md-12 mb-3">
                           <input type="radio" checked={true} />{" "}
-                          <label>Cash on delivery</label>
+                          <label>Razorpay</label>
                         </div>
-                        {/* <div className="col-md-12 mb-3">
-                            <label className="form-label">Card Number</label>
-                            <input type="text" className="form-control" />
-                        </div> */}
                       </div>
                       {/* Add remaining form fields */}
-                      <button type="submit" className="themeBtnCart">
-                        Continue Checkout
-                      </button>
-                    </form>
+                      <RazorpayPayment amount={extractNumber(cartSummaryData?.grand_total)} handleAfterPayment={handleSaveOrder}/>
+                    {/* </form> */}
                   </Accordion.Body>
                 </Accordion.Item>
               </Accordion>
@@ -238,8 +220,8 @@ const CheckoutView = () => {
                     {cartListData?.data[0]?.cart_items?.length}Item(s)
                   </small>{" "}
                 </h4>
-                {cartListData?.data[0]?.cart_items?.map((item: any) => (
-                  <div className="cartListingOuter">
+                {cartListData?.data[0]?.cart_items?.map((item: any, index:number) => (
+                  <div key={index} className="cartListingOuter">
                     <div className="cartListing">
                       <figure>
                         {item?.product_thumbnail_image && (

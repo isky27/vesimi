@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { getUserAddress } from "store/account/accountDataSlice";
-import { cartListDataApi, cartSummaryDataApi, orderSaveaApi, paymentWithRazorPayApi, updateOrderAddress } from "store/order/orderSlice";
+import { cartListDataApi, cartSummaryDataApi, orderSaveaApi, updateOrderAddress } from "store/order/orderSlice";
 import { useAppDispatch, useAppSelector } from "store/redux.hooks";
 
 const CheckoutController = () => {
@@ -73,45 +73,36 @@ const CheckoutController = () => {
   }
 
   const handleSaveOrder = () => {
-    dispatch(
-      paymentWithRazorPayApi({
-        payment_type: "cart_payment",
-        combined_order_id: "19",
-        user_id: "8",
-        amount: "100",
-      })
-    ).unwrap().then(() => {
       dispatch(orderSaveaApi({
         "owner_id":1,
         "user_id":loginDetails?.user?.id,
-        "payment_type": "stripe"
+        "payment_type": "razorpay"
     })).unwrap().then(()=>{
       navigate("/");
     })
-    });
   };
 
   return {
-    isLoadingCartList, 
+    isLoadingCartList,
     cartListData,
-    isLoadingCartSummary, 
+    isLoadingCartSummary,
     cartSummaryData,
     isLoadingUserAddress,
     userAddressData,
-    openAddressForm, 
+    openAddressForm,
     setOpenAddressForm,
-    selectedAddress, 
+    selectedAddress,
     setSelectedAddress,
     handleChooseAddress,
     activeKey,
     setActiveKey,
-    isShippingMethodDisabled, 
-    setIsShippingMethodDisabled,
-    isPaymentMethodDisabled, 
+    isShippingMethodDisabled,
+    isPaymentMethodDisabled,
     setIsPaymentMethodDisabled,
     isLoadingOrderAddress,
     handleAfterAddAddress,
-    handleSaveOrder, isLoadingSaveOrder
+    handleSaveOrder,
+    isLoadingSaveOrder,
   }
 }
 
