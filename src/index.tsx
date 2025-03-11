@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom/client";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
-import "../node_modules/bootstrap/scss/bootstrap.scss";
+import 'bootstrap/scss/bootstrap.scss';
 import 'owl.carousel/dist/assets/owl.carousel.css'; // Import Owl Carousel CSS
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import 'react-multi-carousel/lib/styles.css';

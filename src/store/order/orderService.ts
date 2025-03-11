@@ -40,8 +40,6 @@ const cartSummaryApi = async (userData: any): Promise<ApiResponse> => {
 const saveOrderApi = async (userData: any): Promise<ApiResponse> => {
   try {
     const response: ApiResponse = (await axios.post(`/order/store`, userData));
-
-    toast.success("Your order has been placed successfully.")
     return response;
   } catch (error: any) {
     throw error;
@@ -103,6 +101,15 @@ const paymentWithRazorPay = async (userData: any): Promise<ApiResponse> => {
   }
 };
 
+const razorPayConfirm = async (userData: any): Promise<ApiResponse> => {
+  try {
+    const response: ApiResponse = await axios.post(`razorpay/payment`, userData);
+    return response;
+  } catch (error: any) {
+    throw error;
+  }
+};
+
 const orderService = {
   updateOrderAddressApi,
   cartListApi,
@@ -114,7 +121,8 @@ const orderService = {
   orderDetailsApi,
   addShippingPrice,
   orderHistoryItemsApi,
-  paymentWithRazorPay
+  paymentWithRazorPay,
+  razorPayConfirm
 };
 
 export default orderService;

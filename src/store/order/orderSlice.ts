@@ -27,7 +27,8 @@ const initialState: OrderDataInterface = {
     isLoadingShippingCost: false,
     shippingPriceData: null,
     isLoadingOrderItems: false,
-    orderItemeData: null
+    orderItemeData: null,
+    isLoadingOrderWithRazorpay: false
 }
 
 // Async Thunks
@@ -142,7 +143,7 @@ export const getOrderItems = createAsyncThunk("get/order/Items", async (userData
     }
 });
 
-export const paymentWithRazorPayApi = createAsyncThunk("payment/razoepay", async (userData:any,thunkApi: any) => {
+export const paymentWithRazorPayApi = createAsyncThunk("payment/razorpay", async (userData:any,thunkApi: any) => {
   try {
       const response: any = await orderService.paymentWithRazorPay(userData);
       return response;
@@ -152,6 +153,15 @@ export const paymentWithRazorPayApi = createAsyncThunk("payment/razoepay", async
   }
 });
 
+export const paymentConfirmationRazorPayApi = createAsyncThunk("payment/confirm/razorpay", async (userData:any,thunkApi: any) => {
+  try {
+      const response: any = await orderService.razorPayConfirm(userData);
+      return response;
+  } catch (error: any) {
+      const message: any = getErrorMessage(error)
+      return thunkApi.rejectWithValue(message);
+  }
+});
 
 
 // Account Reducer
@@ -279,7 +289,25 @@ export const orderDataReducer = createSlice({
           .addCase(getOrderItems.rejected, (state: any) => {
             state.isLoadingOrderItems = false;
             state.orderItemeData = null;
-          });
+          })
+          .addCase(paymentWithRazorPayApi.pending, (state: any, _: any) => {
+            state.isLoadingOrderWithRazorpay = true;
+          })
+          .addCase(paymentWithRazorPayApi.fulfilled, (state: any, action: any) => {
+            state.isLoadingOrderWithRazorpay = false;
+          })
+          .addCase(paymentWithRazorPayApi.rejected, (state: any) => {
+            state.isLoadingOrderWithRazorpay = false;
+          })
+          .addCase(paymentConfirmationRazorPayApi.pending, (state: any, _: any) => {
+            state.isLoadingOrderWithRazorpay = true;
+          })
+          .addCase(paymentConfirmationRazorPayApi.fulfilled, (state: any, action: any) => {
+            state.isLoadingOrderWithRazorpay = false;
+          })
+          .addCase(paymentConfirmationRazorPayApi.rejected, (state: any) => {
+            state.isLoadingOrderWithRazorpay = false;
+          })
     }
 });
 

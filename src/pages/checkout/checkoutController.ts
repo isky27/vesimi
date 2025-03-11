@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { getUserAddress } from "store/account/accountDataSlice";
-import { cartListDataApi, cartSummaryDataApi, orderSaveaApi, updateOrderAddress } from "store/order/orderSlice";
+import { cartListDataApi, cartSummaryDataApi, paymentConfirmationRazorPayApi, updateOrderAddress } from "store/order/orderSlice";
 import { useAppDispatch, useAppSelector } from "store/redux.hooks";
 
 const CheckoutController = () => {
@@ -17,7 +17,7 @@ const CheckoutController = () => {
       setActiveKey(key);
   };
 
-  const {isLoadingOrderAddress, isLoadingCartList, cartListData, isLoadingCartSummary, cartSummaryData, isLoadingSaveOrder } = useAppSelector((state)=> state.order)
+  const {isLoadingOrderAddress, isLoadingCartList, cartListData, isLoadingCartSummary, cartSummaryData, isLoadingSaveOrder, isLoadingOrderWithRazorpay } = useAppSelector((state)=> state.order)
   const { loginDetails } = useAppSelector((state:any) => state.auth);
   const {isLoadingUserAddress, userAddressData} = useAppSelector((state)=>state.account)
 
@@ -35,7 +35,13 @@ const CheckoutController = () => {
       setOpenAddressForm(false)
       setSelectedAddress(userAddressData?.data?.[0])
     }
-  },[userAddressData])
+  },[userAddressData]);
+
+  useEffect(()=>{
+    if(cartListData && !cartListData?.data[0]?.cart_items){
+      navigate("/")
+    }
+  },[cartListData])
 
   const handleChooseAddress = ()=>{
     if(selectedAddress?.id){
@@ -72,13 +78,12 @@ const CheckoutController = () => {
       })
   }
 
-  const handleSaveOrder = () => {
-      dispatch(orderSaveaApi({
-        "owner_id":1,
-        "user_id":loginDetails?.user?.id,
-        "payment_type": "razorpay"
-    })).unwrap().then(()=>{
+  const handleSaveOrder = (payload:any) => {
+      dispatch(paymentConfirmationRazorPayApi(payload)).unwrap().then(()=>{
+      toast.success(`Order is successfull.`)
       navigate("/");
+    }).catch((error:any)=>{
+      toast.error("Something went wrong.")
     })
   };
 
@@ -103,6 +108,7 @@ const CheckoutController = () => {
     handleAfterAddAddress,
     handleSaveOrder,
     isLoadingSaveOrder,
+    isLoadingOrderWithRazorpay
   }
 }
 

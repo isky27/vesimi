@@ -29,6 +29,7 @@ const CheckoutView = () => {
     handleAfterAddAddress,
     handleSaveOrder,
     isLoadingSaveOrder,
+    isLoadingOrderWithRazorpay
   } = CheckoutController();
 
   const { selectedCurrency } = useAppSelector((state: any) => state.auth);
@@ -42,6 +43,7 @@ const CheckoutView = () => {
           isLoadingUserAddress,
           isLoadingOrderAddress,
           isLoadingSaveOrder,
+          isLoadingOrderWithRazorpay
         ]}
       />
       <div className="container">
@@ -91,7 +93,7 @@ const CheckoutView = () => {
                               Continue Checkout
                             </button>
                             <button
-                              className="themeBtnCart"
+                              className="themeBtnCart p-6"
                               onClick={() => {
                                 setOpenAddressForm(!openAddressForm);
                                 setSelectedAddress(null);
