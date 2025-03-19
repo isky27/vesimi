@@ -1355,7 +1355,9 @@ span.appOnly {
 
 #profile-description p {
   margin: 2px 0;
+  color:#363636;
 }
+#profile-description p strong{color:#000;}
 
 .relatedTabs button {
   margin-bottom: 10px;
@@ -1597,3 +1599,12 @@ span.appOnly {
   padding: 3px 10px;
   background: #ff5000bd;
   box-shadow: none;}
+
+  .detailPageContainer {position:sticky; top:154px;}
+
+
+  iframe[title="feedback"] {
+    min-height: calc(100vh + 250px);
+    max-height: max-content;
+    overflow: initial;
+}
