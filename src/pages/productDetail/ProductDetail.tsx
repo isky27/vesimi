@@ -308,7 +308,7 @@ const ProductDetail = () => {
                         (atr: any) => {
                           return (
                             atr[1] && (
-                              <div className="d-flex gap-1" key={atr[0]}>
+                              <div className="d-flex gap-1 mb-2" key={atr[0]}>
                                 <p><strong>{atr[0]}</strong></p>
                                 <p>:</p>
                                 <p>{atr[1]}</p>
