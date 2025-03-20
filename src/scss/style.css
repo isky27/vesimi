@@ -1357,7 +1357,7 @@ span.appOnly {
   margin: 2px 0;
   color:#363636;
 }
-#profile-description p strong{color:#000;}
+#profile-description p strong{color:#000; margin-right:6px;}
 
 .relatedTabs button {
   margin-bottom: 10px;
@@ -1607,4 +1607,12 @@ span.appOnly {
     min-height: calc(100vh + 250px);
     max-height: max-content;
     overflow: initial;
+}
+ 
+.productListinfWrap .productCols h3 {
+    font-weight: 400;
+}
+
+.productListinfWrap .productCols small.fw-bold.h6 {
+    font-weight: 400!important; 
 }
