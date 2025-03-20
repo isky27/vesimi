@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import ProtectedRoute, { HomeRoute } from "../auth/ProtectedRoute";
+import ProtectedRoute, { HomeRoute, StandalonePage } from "../auth/ProtectedRoute";
+const OrderSuccessView = lazy(() => import("pages/orderSuccess/OrderSuccessView"));
 const ProductDetail = lazy(() => import("pages/productDetail/ProductDetail"));
 const EditAddressView = lazy(() => import("pages/address/editAddress/EditAddressView"));
 const AddressView = lazy(() => import("pages/address/AddressView"));
@@ -512,6 +513,25 @@ const CustomRoute = () => {
                 }
               >
                 <OrderDetailsView />
+              </Suspense>
+            }
+          />
+        </Route>
+
+        <Route element={<StandalonePage/>}>
+          <Route
+            path="/order-success"
+            element={
+              <Suspense
+                fallback={
+                  <div className="graph-loader  d-flex justify-content-center align-items-center">
+                    <div className="spinner-border  spinner-ui d-flex justify-content-center align-items-center">
+                      <span className="visually-hidden"></span>
+                    </div>
+                  </div>
+                }
+              >
+                <OrderSuccessView />
               </Suspense>
             }
           />

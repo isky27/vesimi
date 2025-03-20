@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from "store/redux.hooks";
 import { getLocalStorage } from "utils";
 import Header from "component/headerLayout";
 import Footer from "component/footerLayout";
-import { cartListDataApi } from "store/order/orderSlice";
+import { cartListDataApi, resetOrderSuccess } from "store/order/orderSlice";
 import ScrollToTop from "component/ScrollToTop";
 import { getWishList } from "store/product/productSlice";
 
@@ -37,9 +37,9 @@ export const ProtectedRouteCheck = ({ children }: any) => {
 };
 
 export const HomeRoute = () => {
-  const { loginDetails } = useAppSelector((state:any) => state.auth);
+  const { loginDetails } = useAppSelector((state: any) => state.auth);
   const dispatch = useAppDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   if (loginDetails?.access_token) {
     dispatch(cartListDataApi({ user_id: loginDetails?.user?.id }));
     dispatch(getWishList({ userId: loginDetails?.user?.id }));
@@ -47,7 +47,10 @@ export const HomeRoute = () => {
 
   return (
     <>
-      <button className="floating-feedback" onClick={() =>navigate("/feedback")}>
+      <button
+        className="floating-feedback"
+        onClick={() => navigate("/feedback")}
+      >
         Feedback
       </button>
       <ScrollToTop /> {/* Ensures scroll to top on route change */}
@@ -58,8 +61,30 @@ export const HomeRoute = () => {
   );
 };
 
+export const StandalonePage = () => {
+  const { loginDetails } = useAppSelector((state: any) => state.auth);
+  const dispatch = useAppDispatch();
+  const { orderWithRazorpayData } = useAppSelector((state) => state.order);
+  if (orderWithRazorpayData) {
+    dispatch(resetOrderSuccess());
+  } else {
+    return <Navigate to="/" />;
+  }
+
+  if (!loginDetails?.access_token) {
+    return <Navigate to="/" />;
+  }
+
+  return (
+    <>
+      <ScrollToTop /> {/* Ensures scroll to top on route change */}
+      <Outlet />
+    </>
+  );
+};
+
 const ProtectedRoute = () => {
-  const { loginDetails } = useAppSelector((state:any) => state.auth);
+  const { loginDetails } = useAppSelector((state: any) => state.auth);
   const dispatch = useAppDispatch();
 
   if (!loginDetails?.access_token) {

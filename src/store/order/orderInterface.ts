@@ -19,6 +19,7 @@ export interface OrderDataInterface {
   shippingPriceData: any;
   isLoadingOrderItems: boolean;
   orderItemeData: any;
-  isLoadingOrderWithRazorpay: boolean
+  isLoadingOrderWithRazorpay: boolean;
+  orderWithRazorpayData: any;
 }
 

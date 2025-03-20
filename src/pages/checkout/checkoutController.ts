@@ -81,7 +81,7 @@ const CheckoutController = () => {
   const handleSaveOrder = (payload:any) => {
       dispatch(paymentConfirmationRazorPayApi(payload)).unwrap().then(()=>{
       toast.success(`Order is successfull.`)
-      navigate("/");
+      navigate("/order-success");
     }).catch((error:any)=>{
       toast.error("Something went wrong.")
     })

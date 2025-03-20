@@ -28,7 +28,8 @@ const initialState: OrderDataInterface = {
     shippingPriceData: null,
     isLoadingOrderItems: false,
     orderItemeData: null,
-    isLoadingOrderWithRazorpay: false
+    isLoadingOrderWithRazorpay: false,
+    orderWithRazorpayData: null,
 }
 
 // Async Thunks
@@ -169,7 +170,10 @@ export const orderDataReducer = createSlice({
     name: "order-section",
     initialState,
     reducers: {
-        resetOrder: () => initialState
+        resetOrder: () => initialState,
+        resetOrderSuccess: (state) => {
+            state.orderWithRazorpayData = null;
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -301,15 +305,18 @@ export const orderDataReducer = createSlice({
           })
           .addCase(paymentConfirmationRazorPayApi.pending, (state: any, _: any) => {
             state.isLoadingOrderWithRazorpay = true;
+            state.OrderWithRazorpayData = null;
           })
           .addCase(paymentConfirmationRazorPayApi.fulfilled, (state: any, action: any) => {
             state.isLoadingOrderWithRazorpay = false;
+            state.OrderWithRazorpayData = action.payload;
           })
           .addCase(paymentConfirmationRazorPayApi.rejected, (state: any) => {
             state.isLoadingOrderWithRazorpay = false;
+            state.OrderWithRazorpayData = null;
           })
     }
 });
 
-export const { resetOrder } = orderDataReducer.actions;
+export const { resetOrder, resetOrderSuccess } = orderDataReducer.actions;
 export default orderDataReducer.reducer;
