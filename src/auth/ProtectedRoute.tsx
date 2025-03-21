@@ -63,15 +63,9 @@ export const HomeRoute = () => {
 
 export const StandalonePage = () => {
   const { loginDetails } = useAppSelector((state: any) => state.auth);
-  const dispatch = useAppDispatch();
   const { orderWithRazorpayData } = useAppSelector((state) => state.order);
-  if (orderWithRazorpayData) {
-    dispatch(resetOrderSuccess());
-  } else {
-    return <Navigate to="/" />;
-  }
 
-  if (!loginDetails?.access_token) {
+  if (!loginDetails?.access_token || orderWithRazorpayData?.status !== 200) {
     return <Navigate to="/" />;
   }
 

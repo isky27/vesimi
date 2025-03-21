@@ -8,29 +8,29 @@ import { toast } from "react-toastify";
  * Initial state for the account
  */
 const initialState: OrderDataInterface = {
-    isError: false,
-    isSuccess: false,
-    isLoadingOrderAddress: false,
-    isLoadingCartList: false,
-    cartListData: null,
-    isLoadingCartSummary: false,
-    cartSummaryData: null,
-    isLoadingSaveOrder: false,
-    saveOrderData : null,
-    isLoadingUpdateCart: false,
-    updateCartData: null,
-    isLoadingDeleteCartProduct: false,
-    isLoadingOrderHistory: false,
-    orderHistoryData: null,
-    isLoadingOrderDetails: false,
-    orderDetailsData: null,
-    isLoadingShippingCost: false,
-    shippingPriceData: null,
-    isLoadingOrderItems: false,
-    orderItemeData: null,
-    isLoadingOrderWithRazorpay: false,
-    orderWithRazorpayData: null,
-}
+  isError: false,
+  isSuccess: false,
+  isLoadingOrderAddress: false,
+  isLoadingCartList: false,
+  cartListData: null,
+  isLoadingCartSummary: false,
+  cartSummaryData: null,
+  isLoadingSaveOrder: false,
+  saveOrderData: null,
+  isLoadingUpdateCart: false,
+  updateCartData: null,
+  isLoadingDeleteCartProduct: false,
+  isLoadingOrderHistory: false,
+  orderHistoryData: null,
+  isLoadingOrderDetails: false,
+  orderDetailsData: null,
+  isLoadingShippingCost: false,
+  shippingPriceData: null,
+  isLoadingOrderItems: false,
+  orderItemeData: null,
+  isLoadingOrderWithRazorpay: false,
+  orderWithRazorpayData: null,
+};
 
 // Async Thunks
 
@@ -305,15 +305,15 @@ export const orderDataReducer = createSlice({
           })
           .addCase(paymentConfirmationRazorPayApi.pending, (state: any, _: any) => {
             state.isLoadingOrderWithRazorpay = true;
-            state.OrderWithRazorpayData = null;
+            state.orderWithRazorpayData = null;
           })
           .addCase(paymentConfirmationRazorPayApi.fulfilled, (state: any, action: any) => {
             state.isLoadingOrderWithRazorpay = false;
-            state.OrderWithRazorpayData = action.payload;
+            state.orderWithRazorpayData = action.payload;
           })
           .addCase(paymentConfirmationRazorPayApi.rejected, (state: any) => {
             state.isLoadingOrderWithRazorpay = false;
-            state.OrderWithRazorpayData = null;
+            state.orderWithRazorpayData = null;
           })
     }
 });

@@ -1,8 +1,20 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import SuccessCircle from "../../assets/images/successCircleImg.jpg";
+import { resetOrderSuccess } from "store/order/orderSlice";
+import { useAppDispatch } from "store/redux.hooks";
 
 const OrderSuccessView = () => {
+  const dispatch = useAppDispatch();
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    return () => {
+      dispatch(resetOrderSuccess());
+    };
+  }, [navigate]);
+
   return (
     <div className="pageMain">
       <div className="order_success_main">
@@ -21,6 +33,6 @@ const OrderSuccessView = () => {
       </div>
     </div>
   );
-}
+};
 
-export default OrderSuccessView
+export default OrderSuccessView;
