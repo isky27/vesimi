@@ -13,7 +13,7 @@ const OrderSuccessView = () => {
     return () => {
       dispatch(resetOrderSuccess());
     };
-  }, [navigate]);
+  }, [dispatch, navigate]);
 
   return (
     <div className="pageMain">

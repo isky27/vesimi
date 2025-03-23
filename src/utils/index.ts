@@ -84,10 +84,10 @@ export const getPrice = (price: any, selectedPrice: string = "INR") => {
   return countryOptions[selectedPrice]["symbol"] + convertedPrice.toFixed(2);
 };
 
-export const getVarient = (entries:object) => {
-  return Object.values(entries)
-    .filter((value) => value) // Remove empty or falsy values
-    .join("-");
+export const getVarient = (entries:any) => {
+  return entries.map((obj: any) => Object.values(obj)[0]?.toString().split(" ").join(""))
+  .filter((value: any) => value !== undefined && value !== null && value !== '')
+  .join('-');
 }
 
 export function extractNumber(input: string | number): number {

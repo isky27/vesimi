@@ -18,18 +18,15 @@ const ProductDetail = () => {
     relatedProductsData,
     selectedImage,
     setSelectedImage,
-    selectedSize,
-    setSelectedSize,
     handleAddToCart,
-    selectedDesigner,
-    setSelectedDesigner,
     isLoadingAddToCart,
     isOpenSizeChart,
     setIsOpenSizeChart,
     addToWishList,
     isLoadingWishList,
     selectedPrice,
-    setSelectedPrice,
+    selectedChoice,
+    setChoice
   } = ProductDetailController();
 
   const location = useLocation()
@@ -64,9 +61,8 @@ const ProductDetail = () => {
                           key={index}
                           src={image?.path}
                           alt={`Thumbnail ${index + 1}`}
-                          className={`thumbnail ${
-                            selectedImage === image.path ? "selected" : ""
-                          }`}
+                          className={`thumbnail ${selectedImage === image.path ? "selected" : ""
+                            }`}
                           onClick={() => setSelectedImage(image.path)}
                         />
                       )
@@ -119,39 +115,30 @@ const ProductDetail = () => {
                     )}
                   </p>
                   {productDetails?.has_discount ? (
-                  <s>
-                    {getOrignalPrice(selectedPrice, productDetails?.discount, selectedCurrency)}
-                  </s>) : ""}
+                    <s>
+                      {getOrignalPrice(selectedPrice, productDetails?.discount, selectedCurrency)}
+                    </s>) : ""}
                   <p className="textSmallLight">(inclusive of all taxes)</p>
                 </div>
               )}
-
-              {productDetails?.choice_options?.find(
-                (el: any) => el.title === "Size"
-              )?.options && (
-                <div className="sizePart">
+              {productDetails?.choice_options?.filter(
+                (el: any) => el.title !== "Designer"
+              ).map((el: any) => (
+                <div key={el.title} className="sizePart">
                   <div className="sizeGuide">
                     <h4>
-                      {!productDetails?.is_price_hide ? "SELECT" : ""} SIZE{" "}
+                      {!productDetails?.is_price_hide ? "Select" : ""} {el.title}{" "}
                     </h4>
-                    <button onClick={() => setIsOpenSizeChart(true)}>
+                    {el?.title === "Size" && <button className='sizeGuideBtn' onClick={() => setIsOpenSizeChart(true)}>
                       Size Guide
-                    </button>
+                    </button>}
                   </div>
                   <div className="sizePartTabs d-flex flex-wrap gap-1 gap-md-3">
-                    {sortSizes(
-                      productDetails?.choice_options?.find(
-                        (el: any) => el.title === "Size"
-                      )?.options
-                    )?.map((elem: string) => {
+                    {(el?.title === "Size" ? sortSizes(el.options) : el.options)?.map((elem: string) => {
                       return (
-                        <button
-                          className={`sizeBtn ${
-                            selectedSize === elem ? "selected" : ""
-                          }`}
+                        <button className={`sizeBtn ${selectedChoice.find((item:any)=>Object.keys(item)[0]===el.title.toLowerCase())?.[el.title.toLowerCase()] === elem ? "selected" : ""}`}
                           onClick={() => {
-                            setSelectedSize(elem);
-                            // setSelectedPrice()
+                            setChoice(el?.title, elem);
                           }}
                           key={elem}
                         >
@@ -161,34 +148,7 @@ const ProductDetail = () => {
                     })}
                   </div>
                 </div>
-              )}
-
-              {/* {productDetails?.choice_options?.find(
-                (el: any) => el.title === "Designer"
-              )?.options && (
-                <div className="mb-3">
-                  <div className="sizeGuide">
-                    <h4>DESIGNER </h4>
-                  </div>
-                  <div className="sizePartTabs d-flex flex-wrap gap-1 gap-md-3">
-                    {productDetails?.choice_options
-                      ?.find((el: any) => el.title === "Designer")
-                      ?.options?.map((elem: string) => {
-                        return (
-                          <button
-                            className={`designerBtn ${
-                              selectedDesigner === elem ? "selected" : ""
-                            }`}
-                            onClick={() => setSelectedDesigner(elem)}
-                            key={elem}
-                          >
-                            {elem}
-                          </button>
-                        );
-                      })}
-                  </div>
-                </div>
-              )} */}
+              ))}
 
               <div className="ButtonTabsAction">
                 {productDetails?.is_price_hide ? (
@@ -233,11 +193,7 @@ const ProductDetail = () => {
                   </button>
                 ) : (
                   <button
-                    disabled={
-                      productDetails?.choice_options?.find(
-                        (el: any) => el.title === "Size"
-                      )?.options && !selectedSize
-                    }
+                    disabled={!selectedPrice}
                     className="addToCart"
                     onClick={handleAddToCart}
                   >
@@ -336,8 +292,7 @@ const ProductDetail = () => {
                       width: "24px",
                       height: "24px",
                     }}
-                  ></i>
-                  Chat With Us
+                  ></i>Chat With Us
                 </a>
                 <a
                   target="_blank"
@@ -353,8 +308,7 @@ const ProductDetail = () => {
                       width: "24px",
                       height: "24px",
                     }}
-                  ></i>
-                  India +91-9820082317
+                  ></i>India +91-9820082317
                 </a>
                 <a
                   target="_blank"
@@ -370,8 +324,7 @@ const ProductDetail = () => {
                       width: "24px",
                       height: "24px",
                     }}
-                  ></i>
-                  International +971-526929312
+                  ></i>International +971-526929312
                 </a>
                 <a
                   target="_blank"
@@ -387,8 +340,7 @@ const ProductDetail = () => {
                       width: "24px",
                       height: "24px",
                     }}
-                  ></i>
-                  Mail us
+                  ></i>Mail us
                 </a>
               </div>
             </div>
@@ -427,7 +379,7 @@ const ProductDetail = () => {
           setIsOpenSizeChart(!isOpenSizeChart);
         }}
       >
-        <img style={{ width: "60vw" }} src={productDetails?.size_chart} />
+        <img style={{ width: "60vw" }} alt='sizechart' src={productDetails?.size_chart} />
       </CustomPopup>
     </section>
   );

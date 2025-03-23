@@ -83,7 +83,6 @@ export const orderSaveaApi = createAsyncThunk("save/order", async (userData:any,
 export const updateCartApi = createAsyncThunk("update/cart", async (userData:any,thunkApi: any) => {
     try {
         const response:any = await orderService.updateCart(userData, getTokenHeader());
-        console.log(response, "sfjhhdjfksmhs")
         if (!response?.result){
           toast.error(response?.message)
         } 
