@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { setOpenLoginPopup } from "store/auth/authDataSlice"
-import { addToCart, addWishList, getProductDetails, getRealtedProducts } from "store/product/productSlice"
-import { useAppDispatch, useAppSelector } from "store/redux.hooks"
-import { extractNumber, getVarient } from "utils"
+import { setOpenLoginPopup } from "../../store/auth/authDataSlice"
+import { addToCart, addWishList, getProductDetails, getRealtedProducts } from "../../store/product/productSlice"
+import { useAppDispatch, useAppSelector } from "../../store/redux.hooks"
+import { extractNumber, getVarient } from "../../utils"
 
 const ProductDetailController = () => {
 

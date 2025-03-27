@@ -1,11 +1,11 @@
 import { Navigate, Outlet, useNavigate } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "store/redux.hooks";
-import { getLocalStorage } from "utils";
-import Header from "component/headerLayout";
-import Footer from "component/footerLayout";
-import { cartListDataApi, resetOrderSuccess } from "store/order/orderSlice";
-import ScrollToTop from "component/ScrollToTop";
-import { getWishList } from "store/product/productSlice";
+import { useAppDispatch, useAppSelector } from "../store/redux.hooks";
+import { getLocalStorage } from "../utils";
+import Header from "../component/headerLayout";
+import Footer from "../component/footerLayout";
+import { cartListDataApi } from "../store/order/orderSlice";
+import ScrollToTop from "../component/ScrollToTop";
+import { getWishList } from "../store/product/productSlice";
 
 // Returns Is user is logged in or not
 export const useAuth = () => {

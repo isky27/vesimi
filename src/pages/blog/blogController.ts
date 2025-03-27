@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { getBlogs } from "store/home/home.slice";
-import { useAppDispatch, useAppSelector } from "store/redux.hooks";
+import { getBlogs } from "../../store/home/home.slice";
+import { useAppDispatch, useAppSelector } from "../../store/redux.hooks";
 
 const BlogController = () => {
 

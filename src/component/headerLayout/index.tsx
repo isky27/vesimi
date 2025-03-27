@@ -22,14 +22,14 @@ import Jewellery1Img from "../../assets/images/bipc-pcbn.jpg";
 import Jewellery2Img from "../../assets/images/07_3.jpg";
 import Jewellery3Img from "../../assets/images/jm_ss22.png";
 import sidebarClose from "../../assets/images/sidebarClose.png";
-import CustomPopup from "component/modal/CustomPopup";
+import CustomPopup from "../modal/CustomPopup";
 import { Button, Form, Badge } from "react-bootstrap";
 import HeaderController from "./headerController";
-import InputField from "component/forms/InputField";
-import { getCategoryUrl, removeSpaceOnly } from "utils";
+import { getCategoryUrl, removeSpaceOnly } from "../../utils";
 import { Link } from "react-router-dom";
-import { countryOptions } from "constant";
-import Loader from "component/Loader";
+import { countryOptions } from "../../constant";
+import InputField from "../forms/InputField";
+import Loader from "../Loader";
 
 const Header = () => {
   const {

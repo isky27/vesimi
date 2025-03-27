@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import homeService from "./home.service";
 import { HomeInterface } from "./homeInterface";
-import { getErrorMessage } from "utils";
+import { getErrorMessage } from "../../utils";
 
 /**
  * Initial state for the authentication

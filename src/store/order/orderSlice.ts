@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import orderService from "./orderService";
 import { OrderDataInterface } from "./orderInterface";
-import { getErrorMessage, getTokenHeader } from "utils";
 import { toast } from "react-toastify";
+import { getErrorMessage, getTokenHeader } from "../../utils";
 
 /**
  * Initial state for the account

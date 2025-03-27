@@ -1,21 +1,21 @@
-import CategeryCard from "component/CategeryCard";
-import Carousel from "component/carousel";
+import CategeryCard from "../../component/CategeryCard";
+import Carousel from "../../component/carousel";
 import ServiceInfo from "./ServiceInfo";
 import HomeController from "./homeController";
 import OwlCarousel from "react-owl-carousel";
-import Loader from "component/Loader";
-import CelebritySection from "component/CelebritySection";
-import BlogSection from "component/BlogSection";
-import ServiceSection from "component/ServiceSection";
+import Loader from "../../component/Loader";
+import CelebritySection from "../../component/CelebritySection";
+import BlogSection from "../../component/BlogSection";
+import ServiceSection from "../../component/ServiceSection";
 import twitterBack from '../../assets/images/twitterBack.png';
 import facebookBack from '../../assets/images/facebookBack.png'
 import instagramBack from '../../assets/images/instagramBack.png';
 import pinterestBack from '../../assets/images/pinterestBack.png'
-import BookAppointment from "component/BookAppointment";
-import ProductCard from "component/ProductCard";
-import ProductCarousal from "component/ProductCarousal";
-import { getCategoryUrl, getPrice } from "utils";
-import { useAppSelector } from "store/redux.hooks";
+import BookAppointment from "../../component/BookAppointment";
+import ProductCard from "../../component/ProductCard";
+import ProductCarousal from "../../component/ProductCarousal";
+import { getCategoryUrl, getPrice } from "../../utils";
+import { useAppSelector } from "../../store/redux.hooks";
 import { Link } from "react-router-dom";
 
 const HomeView = () => {
@@ -357,7 +357,7 @@ const HomeView = () => {
                 <a href="/">
                   <img
                     style={{ width: "100%" }}
-                    src={require("assets/images/bannerShape1.jpeg")}
+                    src={require("../../assets/images/bannerShape1.jpeg")}
                     alt=""
                   />
                 </a>

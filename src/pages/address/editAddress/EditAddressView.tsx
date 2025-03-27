@@ -1,7 +1,7 @@
 import React from 'react'
-import ProfileWrapper from 'pages/account/ProfileWrapper';
 import AddressFormView from '../addressForm/AddressFormView';
 import { useNavigate, useParams } from 'react-router-dom';
+import ProfileWrapper from '../../account/ProfileWrapper';
 
 const EditAddressView = () => {
 

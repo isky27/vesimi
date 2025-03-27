@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { getUserAddress } from "store/account/accountDataSlice";
-import { useAppDispatch, useAppSelector } from "store/redux.hooks";
+import { getUserAddress } from "../../store/account/accountDataSlice";
+import { useAppDispatch, useAppSelector } from "../../store/redux.hooks";
 
 const AccountController = () => {
     const dispatch = useAppDispatch()

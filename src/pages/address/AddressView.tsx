@@ -1,10 +1,10 @@
 import React from 'react'
 import AddressController from './addressController'
-import ProfileWrapper from 'pages/account/ProfileWrapper'
-import CustomPopup from 'component/modal/CustomPopup';
-import Loader from 'component/Loader';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+import ProfileWrapper from '../account/ProfileWrapper';
+import Loader from '../../component/Loader';
+import CustomPopup from '../../component/modal/CustomPopup';
 
 const AddressView = () => {
 

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import SuccessCircle from "../../assets/images/successCircleImg.jpg";
-import { resetOrderSuccess } from "store/order/orderSlice";
-import { useAppDispatch } from "store/redux.hooks";
+import { resetOrderSuccess } from "../../store/order/orderSlice";
+import { useAppDispatch } from "../../store/redux.hooks";
 
 const OrderSuccessView = () => {
   const dispatch = useAppDispatch();

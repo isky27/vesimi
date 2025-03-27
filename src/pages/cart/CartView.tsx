@@ -1,8 +1,8 @@
 import React from "react";
 import CartController from "./cartController";
 import "../../scss/cart.css";
-import Loader from "component/Loader";
-import { extractNumber, getPrice } from "utils";
+import Loader from "../../component/Loader";
+import { extractNumber, getPrice } from "../../utils";
 
 const CartView = () => {
   const {

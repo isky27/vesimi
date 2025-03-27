@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { priceRange } from 'constant';
+import { priceRange } from '../../constant';
 
 const subcategoryApi = async (userData: any): Promise<ApiResponse> => {
   try {

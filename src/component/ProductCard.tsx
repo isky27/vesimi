@@ -6,7 +6,7 @@ const ProductCard = ({imageName, isPath, tag, link, price, subTag, arg}:any) => 
         <div {...arg} className="item">
             <div className="productCols position-relative">
                 <Link to={link ?? "/"} className="text-dark text-decoration-none">
-                    <picture><img src={isPath ? imageName : require(`assets/images/${imageName}`)} alt={imageName}/></picture>
+                    <picture><img src={isPath ? imageName : require(`../assets/images/${imageName}`)} alt={imageName}/></picture>
                     <div className="py-2">
                         <h3 className="text-uparcase">{tag}</h3>
                         <p className="text-gray ">{subTag}</p>

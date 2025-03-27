@@ -1,7 +1,7 @@
-import { emailRegex } from "constant";
+import { emailRegex } from "../../constant";
 import { useFormik } from "formik";
-import { newsLetterSubscribe } from "store/auth/authDataSlice";
-import { useAppDispatch, useAppSelector } from "store/redux.hooks";
+import { newsLetterSubscribe } from "../../store/auth/authDataSlice";
+import { useAppDispatch, useAppSelector } from "../../store/redux.hooks";
 import * as Yup from "yup";
 
 const FooterController = () => {

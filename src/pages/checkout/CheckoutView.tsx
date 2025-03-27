@@ -1,11 +1,11 @@
-import { extractNumber, getPrice } from "utils";
+import { extractNumber, getPrice } from "../../utils";
 import CheckoutController from "./checkoutController";
 import { Accordion } from "react-bootstrap";
-import Loader from "component/Loader";
-import AddressFormView from "pages/address/addressForm/AddressFormView";
+import Loader from "../../component/Loader";
+import AddressFormView from "../../pages/address/addressForm/AddressFormView";
 import { Link } from "react-router-dom";
-import { useAppSelector } from "store/redux.hooks";
-import RazorpayPayment from "pages/payment/RazorPayment";
+import { useAppSelector } from "../../store/redux.hooks";
+import RazorpayPayment from "../../pages/payment/RazorPayment";
 
 const CheckoutView = () => {
   const {

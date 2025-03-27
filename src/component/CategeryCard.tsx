@@ -9,7 +9,7 @@ const CategeryCard = ({ imageName, isPath, tag, link, subTag, bottomText }: any)
       <div className="productCols position-relative cursorPointer" onClick={() => link && navigate(link ?? "/")}>
           <picture>
             <img
-              src={isPath ? imageName : require(`assets/images/${imageName}`)}
+              src={isPath ? imageName : require(`../assets/images/${imageName}`)}
               alt={imageName}
             />
           </picture>

@@ -1,10 +1,10 @@
 import React from 'react'
 import AddressController from './addressFormController'
 import { Form } from 'reactstrap';
-import InputField from 'component/forms/InputField';
-import { normalizedList, removeSpaceOnly } from 'utils';
-import Select from 'react-select'
-import Loader from 'component/Loader';
+import { normalizedList, removeSpaceOnly } from '../../../utils';
+import InputField from '../../../component/forms/InputField';
+import Loader from '../../../component/Loader';
+import Select from "react-select";
 
 const AddressFormView = ({ isEdit, handleAfterSuccess }: any) => {
 

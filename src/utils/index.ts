@@ -3,7 +3,7 @@ import moment from "moment";
 import { AxiosError } from "axios";
 import { imageURL } from "./InterceptorApi";
 import { toast } from "react-toastify";
-import { countryOptions, currencyPrice, priceRange, sizeConst } from "constant";
+import { countryOptions, currencyPrice, priceRange, sizeConst } from "../constant";
 
 //Get value from local storage or default to an empty string
 export const getLocalStorage = (key: string) => {

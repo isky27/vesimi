@@ -1,9 +1,9 @@
-import Loader from 'component/Loader';
+import Loader from '../../component/Loader';
 import CategoryController from './categoryController'
 import MultiLevelCheckbox from './MultiLevelCheckbox'
 import Slider from 'rc-slider';
-import Pagination from 'component/Pagination';
-import { priceRange } from 'constant';
+import Pagination from '../../component/Pagination';
+import { priceRange } from '../../constant';
 import filterIcon from "../../assets/images/filterIcon.png";
 import sidebarClose from "../../assets/images/sidebarClose.png";
 import ProductCard from './ProductCard';

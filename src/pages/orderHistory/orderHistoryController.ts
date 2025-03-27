@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getOrderHistory } from "store/order/orderSlice";
-import { useAppDispatch, useAppSelector } from "store/redux.hooks";
+import { getOrderHistory } from "../../store/order/orderSlice";
+import { useAppDispatch, useAppSelector } from "../../store/redux.hooks";
 
 const OrderHistoryController = () => {
 

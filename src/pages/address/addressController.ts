@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import { deleteAddress, getUserAddress } from "store/account/accountDataSlice";
-import { useAppDispatch, useAppSelector } from "store/redux.hooks";
+import { deleteAddress, getUserAddress } from "../../store/account/accountDataSlice";
+import { useAppDispatch, useAppSelector } from "../../store/redux.hooks";
 
 const AddressController = () =>{
 

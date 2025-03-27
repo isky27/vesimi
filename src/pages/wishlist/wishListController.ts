@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { getWishList, removeWishList } from "store/product/productSlice";
-import { useAppDispatch, useAppSelector } from "store/redux.hooks";
+import { getWishList, removeWishList } from "../../store/product/productSlice";
+import { useAppDispatch, useAppSelector } from "../../store/redux.hooks";
 
 const WishListController = () => {
   const dispatch = useAppDispatch();

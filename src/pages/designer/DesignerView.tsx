@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { getCategoryUrl } from "utils";
+import { getCategoryUrl } from "../../utils";
 const designers:any = require("./designerOption.json")
 
 const DesignerView = () => {

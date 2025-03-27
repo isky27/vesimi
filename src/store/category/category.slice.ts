@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { getErrorMessage, isCancelRequest } from "utils";
 import { CategoryInterface } from "./categoryInterface";
 import categoryService from "./category.service";
+import { getErrorMessage, isCancelRequest } from "../../utils";
 
 /**
  * Initial state for the authentication

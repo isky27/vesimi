@@ -1,12 +1,12 @@
 import ProductDetailController from './productDetailController'
-import Loader from 'component/Loader'
-import ProductCard from 'component/ProductCard';
-import ProductCarousal from 'component/ProductCarousal';
-import { getOrignalPrice, getPrice, sortSizes } from 'utils';
+import Loader from '../../component/Loader'
+import ProductCard from "../../component/ProductCard";
+import ProductCarousal from "../../component/ProductCarousal";
+import { getOrignalPrice, getPrice, sortSizes } from "../../utils";
 import InnerImageZoom from 'react-inner-image-zoom';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
-import CustomPopup from 'component/modal/CustomPopup';
-import { useAppSelector } from 'store/redux.hooks';
+import CustomPopup from "../../component/modal/CustomPopup";
+import { useAppSelector } from "../../store/redux.hooks";
 import { useLocation } from 'react-router-dom';
 
 const ProductDetail = () => {

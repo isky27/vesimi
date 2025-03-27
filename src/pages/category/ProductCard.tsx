@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { extractNumber, getPrice } from "utils";
+import { extractNumber, getPrice } from "../../utils";
 import { Link } from "react-router-dom";
-import { useAppSelector } from "store/redux.hooks";
+import { useAppSelector } from "../../store/redux.hooks";
 
 const ProductCard = React.memo(({ item, ...alt }: any) => {
   const [imageSrc, setImageSrc] = useState(item?.thumbnail_image);

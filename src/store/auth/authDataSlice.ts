@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import authService from "./authService";
 import { AuthDataInterface } from "./authDataInterface";
-import { getErrorMessage } from "utils";
 import { toast } from "react-toastify";
+import { getErrorMessage } from "../../utils";
 
 /**
  * Initial state for the authentication

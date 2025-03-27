@@ -1,8 +1,8 @@
 import { Col, Row } from "reactstrap";
 import WishListController from "./wishListController";
-import Loader from "component/Loader";
 import { Link } from "react-router-dom";
-import { getPrice } from "utils";
+import Loader from "../../component/Loader";
+import { getPrice } from "../../utils";
 
 const WishlistView = () => {
   const {
@@ -61,10 +61,7 @@ const WishlistView = () => {
                           <h3 className="text-uparcase">{item?.product?.designer}</h3>
                           <p className="text-gray ">{item?.product?.name}</p>
                           <small className="font-semibold">
-                            {getPrice(
-                              item?.product?.base_price,
-                              selectedCurrency
-                            )}
+                            {getPrice(item?.product?.base_price, selectedCurrency)}
                           </small>
                         </div>
                       </Link>

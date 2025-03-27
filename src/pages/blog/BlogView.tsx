@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Row } from "reactstrap";
 import BlogController from "./blogController";
-import Loader from "component/Loader";
+import Loader from "../../component/Loader";
 
 const BlogView = () => {
   const { blogsData, isLoadingBlogs } = BlogController();

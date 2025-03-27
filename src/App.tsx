@@ -1,6 +1,6 @@
-import Loader from 'component/Loader';
+import Loader from './component/Loader';
 import CustomRoute from './routes/routs';
-import { useAppSelector } from 'store/redux.hooks';
+import { useAppSelector } from './store/redux.hooks';
 
 const App = () => {
 

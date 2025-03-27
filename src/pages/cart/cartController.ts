@@ -5,8 +5,8 @@ import {
   cartSummaryDataApi,
   deleteCartProductApi,
   updateCartApi,
-} from "store/order/orderSlice";
-import { useAppDispatch, useAppSelector } from "store/redux.hooks";
+} from "../../store/order/orderSlice";
+import { useAppDispatch, useAppSelector } from "../../store/redux.hooks";
 
 const CartController = () => {
 

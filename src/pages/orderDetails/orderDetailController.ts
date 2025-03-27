@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getOrderDetails, getOrderItems } from "store/order/orderSlice";
-import { useAppDispatch, useAppSelector } from "store/redux.hooks";
+import { getOrderDetails, getOrderItems } from "../../store/order/orderSlice";
+import { useAppDispatch, useAppSelector } from "../../store/redux.hooks";
 
 const OrderDetailController = () => {
 

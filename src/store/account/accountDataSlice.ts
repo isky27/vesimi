@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import accountService from "./accountService";
 import { AccountDataInterface } from "./accountDataInterface";
-import { getErrorMessage, getTokenHeader } from "utils";
+import { getErrorMessage, getTokenHeader } from "../../utils";
 
 /**
  * Initial state for the account

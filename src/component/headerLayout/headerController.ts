@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "store/redux.hooks";
+import { useAppDispatch, useAppSelector } from "../../store/redux.hooks";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { confirmPassSendPost, currencyChange, loginPost, logoutPost, resetPassSendCodePost, setOpenLoginPopup, setOpenSignPopup, signUpPost } from "store/auth/authDataSlice";
-import { emailRegex, phoneRegex, priceRange } from "constant";
+import { confirmPassSendPost, currencyChange, loginPost, logoutPost, resetPassSendCodePost, setOpenLoginPopup, setOpenSignPopup, signUpPost } from "../../store/auth/authDataSlice";
+import { emailRegex, phoneRegex, priceRange } from "../../constant";
 import { toast } from "react-toastify";
 
 const HeaderController = () => {

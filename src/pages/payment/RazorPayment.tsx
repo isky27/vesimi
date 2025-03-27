@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
-import { orderSaveaApi, paymentWithRazorPayApi } from "store/order/orderSlice";
-import { useAppDispatch, useAppSelector } from "store/redux.hooks";
+import { orderSaveaApi, paymentWithRazorPayApi } from "../../store/order/orderSlice";
+import { useAppDispatch, useAppSelector } from "../../store/redux.hooks";
 
 declare global {
     interface Window {

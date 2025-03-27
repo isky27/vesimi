@@ -1,10 +1,10 @@
 import React from "react";
 import OrderHistoryController from "./orderHistoryController";
-import { getPrice, normalizedList } from "utils";
-import Loader from "component/Loader";
+import { getPrice, normalizedList } from "../../utils";
+import Loader from "../../component/Loader";
 import { Link } from "react-router-dom";
-import ProfileWrapper from "pages/account/ProfileWrapper";
-import Pagination from "component/Pagination";
+import ProfileWrapper from "../../pages/account/ProfileWrapper";
+import Pagination from "../../component/Pagination";
 
 const OrderHistoryView = () => {
   const {

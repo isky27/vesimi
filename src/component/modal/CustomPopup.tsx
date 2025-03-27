@@ -1,6 +1,6 @@
 import { Modal, ModalBody, ModalHeader } from "reactstrap";
 import InputField from "../forms/InputField";
-import { removeSpaceOnly } from "utils";
+import { removeSpaceOnly } from "../../utils";
 import { Button } from "react-bootstrap";
 import "../../scss/customPopup.css";
 

@@ -5,11 +5,11 @@ import Paypal from "../../assets/images/paypal.svg";
 import AmericanExpress from "../../assets/images/american-express.svg";
 import LogoImage from "../../assets/images/VESIMI_new_logo-03.png"
 import { Link } from 'react-router-dom';
-import { setOpenLoginPopup } from 'store/auth/authDataSlice';
-import Loader from 'component/Loader';
+import { setOpenLoginPopup } from "../../store/auth/authDataSlice";
+import Loader from "../../component/Loader";
 import FooterController from './footerController';
 import { Form } from 'react-bootstrap';
-import { getCategoryUrl } from 'utils';
+import { getCategoryUrl } from "../../utils";
 
 
 const Footer = () => {

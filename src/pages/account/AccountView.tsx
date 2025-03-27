@@ -2,7 +2,7 @@ import React from 'react'
 import AccountController from './accountController';
 import { Link } from 'react-router-dom';
 import ProfileWrapper from './ProfileWrapper';
-import Loader from 'component/Loader';
+import Loader from "../../component/Loader";
 
 const AccountView = () => {
 

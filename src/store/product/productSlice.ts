@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { getErrorMessage } from "utils";
 import { ProductInterface } from "./productInterface";
 import productService from "./productService";
 import { toast } from "react-toastify";
-import { cartListDataApi } from "store/order/orderSlice";
+import { getErrorMessage } from "../../utils";
+import { cartListDataApi } from "../order/orderSlice";
 
 /**
  * Initial state for the authentication

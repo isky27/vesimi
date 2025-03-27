@@ -1,9 +1,9 @@
-import { phoneRegex } from "constant";
 import { useFormik } from "formik";
 import { useEffect } from "react";
-import { getCities, getCountries, getStates, addAddress, getSingleAddress, editAddress } from "store/account/accountDataSlice";
-import { useAppDispatch, useAppSelector } from "store/redux.hooks"
+import { getCities, getCountries, getStates, addAddress, getSingleAddress, editAddress } from "../../../store/account/accountDataSlice";
+import { useAppDispatch, useAppSelector } from "../../../store/redux.hooks";
 import * as Yup from "yup";
+import { phoneRegex } from "../../../constant";
 
 const AddressController = ({ isEdit, handleAfterSuccess }: any) => {
 

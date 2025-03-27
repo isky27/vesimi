@@ -1,8 +1,8 @@
 import React from "react";
 import OrderDetailController from "./orderDetailController";
-import Loader from "component/Loader";
-import ProfileWrapper from "pages/account/ProfileWrapper";
-import { getPrice } from "utils";
+import Loader from "../../component/Loader";
+import ProfileWrapper from "../account/ProfileWrapper";
+import { getPrice } from "../../utils";
 
 const OrderDetailsView = () => {
   const {
