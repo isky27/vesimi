@@ -288,10 +288,6 @@ const Header = () => {
                           <li onClick={() => navigate(getCategoryUrl(2775))}>
                             Rooh by Ridhimaa
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl(2272))}>
-                            Deme by Gabriella
-                          </li>
-
                           <li onClick={() => navigate(getCategoryUrl(2678))}>
                             Tyohar
                           </li>
