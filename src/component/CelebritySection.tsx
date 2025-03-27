@@ -1,4 +1,5 @@
 import OwlCarousel from "react-owl-carousel";
+import { getCategoryUrl } from "utils";
 
 const CelebritySection = ({ productData, navigate }: any) => {
   return (
@@ -6,9 +7,9 @@ const CelebritySection = ({ productData, navigate }: any) => {
       <div className="container">
         <div className="productHead d-flex align-items-center justify-content-between mb-3 mb-md-4">
           <h2 className="Playfair fs-2 fw-bold text-black">Celebrity Style </h2>
-          <a href="/" className="text-uparcase">
+          <div className="viewmore" onClick={() => navigate(getCategoryUrl(122))}>
             VIEW ALL
-          </a>
+          </div>
         </div>
 
         <div className="productSliderWrap">
