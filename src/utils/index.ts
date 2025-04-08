@@ -79,9 +79,25 @@ export const getCategoryUrl=(categId:number | string)=>{
   return `/search/category/${categId}?sub-category=${categId}&min=${priceRange[0]}&max=${priceRange[1]}&page=1`
 };
 
+function formatNumber(number: any, countryCode:any) {
+  let locale = "en-US"; // Default
+
+  if (countryCode === "IND") {
+    locale = "en-IN";
+  } else if (countryCode === "UAE") {
+    locale = "en-AE";
+  } else if (countryCode === "US") {
+    locale = "en-US";
+  }
+
+  return new Intl.NumberFormat(locale, {
+    maximumFractionDigits: 2,
+  }).format(number);
+}
+
 export const getPrice = (price: any, selectedPrice: string = "INR") => {
   const convertedPrice = Number(extractNumber(price)) / currencyPrice[selectedPrice];
-  return countryOptions[selectedPrice]["symbol"] + convertedPrice.toFixed(2);
+  return countryOptions[selectedPrice]["symbol"] + formatNumber(convertedPrice.toFixed(2), countryOptions[selectedPrice]["symbol"]);
 };
 
 export const getVarient = (entries:any) => {
