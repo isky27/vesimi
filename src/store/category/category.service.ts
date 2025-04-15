@@ -28,27 +28,27 @@ const searchProductApi = async (userData: any): Promise<ApiResponse> => {
     }
 
     if(userData?.color){
-      searchQuery +=`&color=${userData?.color}` 
+      searchQuery += `&color=${encodeURIComponent(userData?.color)}`; 
     }
 
     if(userData?.category){
-      searchQuery += `&categories=${userData?.category}`
+      searchQuery += `&categories=${encodeURIComponent(userData?.category)}`;
     }
 
     if(userData?.size){
-      searchQuery += `&selected_attribute_values[]=${userData?.size}`
+      searchQuery += `&selected_attribute_values[]=${encodeURIComponent(userData?.size)}`;
     }
 
     if(userData?.designer){
-      searchQuery +=`&selected_attribute_values[]=${userData?.designer}` 
+      searchQuery += `&selected_attribute_values[]=${encodeURIComponent(userData?.designer)}`; 
     }
 
     if(userData?.name){
-      searchQuery += `&name=${userData?.name}`
+      searchQuery += `&name=${encodeURIComponent(userData?.name)}`;
     }
 
     if (userData?.sale) {
-      searchQuery += `&sale=${userData?.sale}`;
+      searchQuery += `&sale=${encodeURIComponent(userData?.sale)}`;
     }
 
     const response: ApiResponse = await axios.get(`/products/search?${searchQuery}&page=${userData?.page || 1}`);

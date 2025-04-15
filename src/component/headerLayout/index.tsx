@@ -429,10 +429,6 @@ const Header = () => {
                           <li onClick={() => navigate(getCategoryUrl(1801))}>
                             Enness Studio
                           </li>
-
-                          <li onClick={() => navigate(getCategoryUrl(2272))}>
-                            Deme By Gabriella
-                          </li>
                           <li onClick={() => navigate(getCategoryUrl(1666))}>
                             Mona & Vishu
                           </li>
@@ -600,9 +596,6 @@ const Header = () => {
                           </li>
                           <li onClick={() => navigate(getCategoryUrl(1802))}>
                             Enness Studio
-                          </li>
-                          <li onClick={() => navigate(getCategoryUrl(2273))}>
-                            Deme By Gabriella
                           </li>
                           <li onClick={() => navigate(getCategoryUrl(1488))}>
                             Moledro
