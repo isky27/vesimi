@@ -25,7 +25,7 @@ const WishlistView = () => {
                   <Col sm={6} lg={3} key={item?.product?.id}>
                     <div className="productCols position-relative mb-2 mb-md-3">
                       <Link
-                        to={`/products/${item?.product?.id}`}
+                        to={`/products/${item?.product?.slug}`}
                         className="text-dark text-decoration-none"
                       >
                         <div className="position-relative">
