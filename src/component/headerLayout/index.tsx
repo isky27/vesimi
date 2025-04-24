@@ -877,61 +877,73 @@ const Header = () => {
                         <ul>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("kurta-sets"))
+                              navigate(getCategoryUrl("kurta-sets-31c54"))
                             }
                           >
                             Kurta Sets
                           </li>
                           <li
-                            onClick={() => navigate(getCategoryUrl("kurtas"))}
+                            onClick={() =>
+                              navigate(getCategoryUrl("kurtas-44fc9"))
+                            }
                           >
                             Kurtas
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("kurta-pyjamas"))
+                              navigate(getCategoryUrl("kurta-pyjamas-b1e1e"))
                             }
                           >
                             Kurta Pyjamas
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("sherwanis"))
+                              navigate(getCategoryUrl("sherwanis-859ae"))
                             }
                           >
                             Sherwanis
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("nehru-jacket--sets"))
+                              navigate(
+                                getCategoryUrl("nehru-jacket--sets-ed4e4")
+                              )
                             }
                           >
                             Nehru Jacket & Sets
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("bandhgalas"))
+                              navigate(getCategoryUrl("bandhgalas-4ca73"))
                             }
                           >
                             Bandhgalas
                           </li>
                           <li
-                            onClick={() => navigate(getCategoryUrl("shirts"))}
+                            onClick={() =>
+                              navigate(getCategoryUrl("shirts-3f7b0"))
+                            }
                           >
                             Shirts
                           </li>
                           <li
-                            onClick={() => navigate(getCategoryUrl("footwear"))}
+                            onClick={() =>
+                              navigate(getCategoryUrl("footwear-c4d56"))
+                            }
                           >
                             Footwear
                           </li>
                           <li
-                            onClick={() => navigate(getCategoryUrl("bottoms"))}
+                            onClick={() =>
+                              navigate(getCategoryUrl("bottoms-f4986"))
+                            }
                           >
                             Bottoms
                           </li>
                           <li
-                            onClick={() => navigate(getCategoryUrl("jackets"))}
+                            onClick={() =>
+                              navigate(getCategoryUrl("jackets-8e705"))
+                            }
                           >
                             Jackets
                           </li>
@@ -943,57 +955,63 @@ const Header = () => {
                         <ul>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("tuxedo-set"))
+                              navigate(getCategoryUrl("tuxedo-set-eca7b"))
                             }
                           >
                             Tuxedo Set
                           </li>
                           <li
-                            onClick={() => navigate(getCategoryUrl("shorts"))}
+                            onClick={() =>
+                              navigate(getCategoryUrl("shorts-ad66b"))
+                            }
                           >
                             Shorts
                           </li>
                           <li
-                            onClick={() => navigate(getCategoryUrl("tuxedo"))}
+                            onClick={() =>
+                              navigate(getCategoryUrl("tuxedo-d0052"))
+                            }
                           >
                             Tuxedo
                           </li>
                           <li
-                            onClick={() => navigate(getCategoryUrl("trousers"))}
+                            onClick={() =>
+                              navigate(getCategoryUrl("trousers-2f916"))
+                            }
                           >
                             Trousers
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("waistcoats"))
+                              navigate(getCategoryUrl("waistcoats-88bd0"))
                             }
                           >
                             Waistcoat
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("shrug-set"))
+                              navigate(getCategoryUrl("shrug-set-56a36"))
                             }
                           >
                             Shrug Set
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("pashmina-shawl"))
+                              navigate(getCategoryUrl("pashmina-shawl-eee74"))
                             }
                           >
                             Pashmina Shawl
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("jodhpuris"))
+                              navigate(getCategoryUrl("jodhpuris-31e7d"))
                             }
                           >
                             Jodhpuris
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("bandi-set"))
+                              navigate(getCategoryUrl("bandi-set-a1139"))
                             }
                           >
                             Bandi Set
@@ -1148,37 +1166,43 @@ const Header = () => {
                         <h4>BOYS</h4>
                         <ul>
                           <li
-                            onClick={() => navigate(getCategoryUrl("shorts"))}
+                            onClick={() =>
+                              navigate(getCategoryUrl("shorts-6caf7"))
+                            }
                           >
                             Shorts
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("kurta-sets"))
+                              navigate(getCategoryUrl("kurta-sets-2c5ec"))
                             }
                           >
                             Kurta Sets
                           </li>
                           <li
-                            onClick={() => navigate(getCategoryUrl("kurtas"))}
+                            onClick={() =>
+                              navigate(getCategoryUrl("kurtas-99ac8"))
+                            }
                           >
                             Kurtas
                           </li>
                           <li
-                            onClick={() => navigate(getCategoryUrl("jackets"))}
+                            onClick={() =>
+                              navigate(getCategoryUrl("jackets-57504"))
+                            }
                           >
                             Jackets
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("sherwanis"))
+                              navigate(getCategoryUrl("sherwanis-2a1a4"))
                             }
                           >
                             Sherwanis
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("suits--tuxedos"))
+                              navigate(getCategoryUrl("suits--tuxedos-367e5"))
                             }
                           >
                             Suits & Tuxedos
@@ -1196,55 +1220,65 @@ const Header = () => {
                         <h4>GIRLS</h4>
                         <ul>
                           <li
-                            onClick={() => navigate(getCategoryUrl("dresses"))}
+                            onClick={() =>
+                              navigate(getCategoryUrl("dresses-d51f3"))
+                            }
                           >
                             Dresses
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("kurta-sets"))
+                              navigate(getCategoryUrl("kurta-sets-8397a"))
                             }
                           >
                             Kurta Sets
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("pant-sets"))
+                              navigate(getCategoryUrl("pant-sets-d5cec"))
                             }
                           >
                             Pant Sets
                           </li>
                           <li
-                            onClick={() => navigate(getCategoryUrl("lehengas"))}
+                            onClick={() =>
+                              navigate(getCategoryUrl("lehengas-dc184"))
+                            }
                           >
                             Lehengas
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("jumpsuits"))
+                              navigate(getCategoryUrl("jumpsuits-f3db8"))
                             }
                           >
                             Jumpsuits
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("skirt-sets"))
+                              navigate(getCategoryUrl("skirt-sets-4c1ca"))
                             }
                           >
                             Skirt Sets
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("tunics--kurtis"))
+                              navigate(getCategoryUrl("tunics--kurtis-d3318"))
                             }
                           >
                             Tunics & Kurtis
                           </li>
-                          <li onClick={() => navigate(getCategoryUrl("gowns"))}>
+                          <li
+                            onClick={() =>
+                              navigate(getCategoryUrl("gowns-5ba6a"))
+                            }
+                          >
                             Gowns
                           </li>
                           <li
-                            onClick={() => navigate(getCategoryUrl("sarees"))}
+                            onClick={() =>
+                              navigate(getCategoryUrl("sarees-6a4ae"))
+                            }
                           >
                             Sarees
                           </li>
