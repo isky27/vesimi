@@ -1,6 +1,6 @@
 // Import necessary assets
 import moment from "moment";
-import { AxiosError } from "axios";
+import axios, { AxiosError } from "axios";
 import { imageURL } from "./InterceptorApi";
 import { toast } from "react-toastify";
 import { countryOptions, currencyPrice, priceRange, sizeConst } from "../constant";
@@ -145,4 +145,13 @@ const newArrayCopy = [...normalizedList(newArray)];
 
 export const normalizedList = (list: any) => {
   return Array.isArray(list) ? list : [];
+};
+
+export const getRequest = async (apiUrl: string) => {
+  try {
+    const response = await axios.get(apiUrl);
+    return response?.data;
+  } catch (error: any) {
+    throw error;
+  }
 };

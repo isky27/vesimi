@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getCategoryUrl } from "../../utils";
+import { useAppDispatch, useAppSelector } from "store/redux.hooks";
+import { getDesignersList } from "store/category/category.slice";
+import Loader from "component/Loader";
 const designers:any = require("./designerOption.json")
 
 const DesignerView = () => {
@@ -8,8 +11,17 @@ const DesignerView = () => {
   const [selectDesigner, setSelectDesigner] = useState<string>("all");
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
+  const dispatch = useAppDispatch()
+  const {isLoadingDesignerList, designerListData} = useAppSelector((state)=>state.category)
+  useEffect(()=>{
+    dispatch(getDesignersList())
+  },[dispatch])
+
+  console.log(designerListData, "designerListData");
+
   return (
     <main className="pageMain">
+      <Loader isLoading={[isLoadingDesignerList]} />
       <div className="container">
         <div className="pageHead">
           <nav aria-label="breadcrumb" className=" ">
@@ -111,9 +123,9 @@ const DesignerView = () => {
                   >
                     <div className="accordion-body">
                       <div className="categoeryLink">
-                        {designers[selectDesigner][letter] &&
-                        designers[selectDesigner][letter].length > 0 ? (
-                          designers[selectDesigner][letter].map(
+                        {designerListData?.[selectDesigner]?.[letter] &&
+                        designerListData?.[selectDesigner]?.[letter]?.length > 0 ? (
+                          designerListData?.[selectDesigner]?.[letter].map(
                             (designer: any) => (
                               <Link
                                 key={designer.id}

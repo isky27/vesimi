@@ -51,7 +51,7 @@ const CategoryController = () => {
     dispatch(
       getSearchProducts({
         color: searchParams.get("color"),
-        category: searchParams.get("sub-category"),
+        category: searchParams.get("sub-category") ?? categoryId,
         size: searchParams.get("size"),
         designer: searchParams.get("designer"),
         min: searchParams.get("min"),
