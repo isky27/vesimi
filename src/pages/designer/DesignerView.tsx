@@ -17,11 +17,9 @@ const DesignerView = () => {
     dispatch(getDesignersList())
   },[dispatch])
 
-  console.log(designerListData, "designerListData");
-
   return (
     <main className="pageMain">
-      <Loader isLoading={[isLoadingDesignerList]} />
+      <Loader isLoading={[isLoadingDesignerList]}/>
       <div className="container">
         <div className="pageHead">
           <nav aria-label="breadcrumb" className=" ">
@@ -123,9 +121,9 @@ const DesignerView = () => {
                   >
                     <div className="accordion-body">
                       <div className="categoeryLink">
-                        {designerListData?.[selectDesigner]?.[letter] &&
-                        designerListData?.[selectDesigner]?.[letter]?.length > 0 ? (
-                          designerListData?.[selectDesigner]?.[letter].map(
+                        {designers[selectDesigner][letter] &&
+                        designers[selectDesigner][letter].length > 0 ? (
+                          designers[selectDesigner][letter].map(
                             (designer: any) => (
                               <Link
                                 key={designer.id}
