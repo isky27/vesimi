@@ -20,14 +20,31 @@ const initialState: AuthDataInterface = {
   isLoadingNewsSubscribe: false,
 };
 
-// Async Thunks
-
 // Login slice
 export const loginPost = createAsyncThunk(
   "post/login",
   async (userData: any, thunkApi: any) => {
     try {
       const response: any = await authService.authLoginPost(userData?.payload);
+      if (response?.result) {
+        userData?.closePopup(false);
+        localStorage.setItem("loginDetails", JSON.stringify(response));
+        toast.success("User is successfully logged in");
+      } else {
+        toast.error(response.message[0]);
+        throw new Error(response);
+      }
+      return response;
+    } catch (error: any) {
+      const message: any = getErrorMessage(error);
+      return thunkApi.rejectWithValue(message);
+    }
+  }
+);
+
+export const socialLoginPost = createAsyncThunk("post/social/login", async (userData: any, thunkApi: any) => {
+    try {
+      const response: any = await authService.socialLoginApi(userData?.payload);
       if (response?.result) {
         userData?.closePopup(false);
         localStorage.setItem("loginDetails", JSON.stringify(response));
@@ -174,6 +191,20 @@ export const authDataReducer = createSlice({
         state.loginDetails = action.payload;
       })
       .addCase(loginPost.rejected, (state: any) => {
+        state.isAuthLoginLoading = false;
+        state.isSuccess = false;
+      })
+      .addCase(socialLoginPost.pending, (state: any, _: any) => {
+        state.isAuthLoginLoading = true;
+        state.isSuccess = false;
+      })
+      .addCase(socialLoginPost.fulfilled, (state: any, action: any) => {
+        state.isAuthLoginLoading = false;
+        state.isSuccess = true;
+        state.isOtp = action?.payload?.data?.otp || false;
+        state.loginDetails = action.payload;
+      })
+      .addCase(socialLoginPost.rejected, (state: any) => {
         state.isAuthLoginLoading = false;
         state.isSuccess = false;
       })
