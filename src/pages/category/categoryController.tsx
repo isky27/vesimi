@@ -33,8 +33,6 @@ const CategoryController = () => {
     searchProductData,
   } = useAppSelector((state: any) => state.category);
 
-  console.log(categoryId, "categoryIdcategoryIdcategoryId");
-
   const updateFilters = (key: string, value: any) => {
     const newParams = new URLSearchParams(searchParams);
 
@@ -106,12 +104,13 @@ const CategoryController = () => {
   },[finalPrice[1]]);
 
   useEffect(() => {
-    if (filterCategory.values().next().value != categoryId[0]) {
+    if (
+      filterCategory.values().next().value != categoryId[categoryId.length - 1]) {
       let selectedCategory = `${categoryPath}/${filterCategory.values().next().value}`;
       let url = getCategoryUrl(selectedCategory);
-      if (searchParams.get("sale")){
-        url = url + "&sale=1"
-      } 
+      if (searchParams.get("sale")) {
+        url = url + "&sale=1";
+      }
       navigate(url);
     }
   }, [filterCategory]);

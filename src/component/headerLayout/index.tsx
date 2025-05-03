@@ -30,6 +30,7 @@ import { Link } from "react-router-dom";
 import { countryOptions } from "../../constant";
 import InputField from "../forms/InputField";
 import Loader from "../Loader";
+import GoogleOauth from "./GoogleOauth";
 
 const Header = () => {
   const {
@@ -1975,14 +1976,11 @@ const Header = () => {
             </Button>
           </div>
         </Form>
-        <div className="mt-4 text-center">
-          {/* <GoogleOAuthProvider clientId="YOUR_GOOGLE_CLIENT_ID">
-            <GoogleLogin
-              onSuccess={()=>{}}
-              onError={()=>{}}
-            />
-          </GoogleOAuthProvider> */}
-        </div>
+  
+
+
+        <GoogleOauth/>
+
       </CustomPopup>
     </header>
   );

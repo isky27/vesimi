@@ -17,6 +17,7 @@ import store, { persistor } from "./store";
 import { Provider } from "react-redux";
 import InterceptorApi from "./utils/InterceptorApi";
 import { PersistGate } from 'redux-persist/integration/react';
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 InterceptorApi(store);
 
@@ -41,7 +42,9 @@ root.render(
     />
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <App />
+        <GoogleOAuthProvider clientId="752610385149-1j1iv6r66etr43c24oidt9odo6kqg3e7.apps.googleusercontent.com">
+          <App />
+        </GoogleOAuthProvider>
       </PersistGate>
     </Provider>
   </>
