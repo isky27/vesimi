@@ -1893,6 +1893,7 @@ const Header = () => {
                 Login
               </Button>
             </div>
+            <GoogleOauth />
           </Form>
         )}
       </CustomPopup>
@@ -1976,11 +1977,7 @@ const Header = () => {
             </Button>
           </div>
         </Form>
-  
-
-
-        <GoogleOauth/>
-
+        <GoogleOauth />
       </CustomPopup>
     </header>
   );
