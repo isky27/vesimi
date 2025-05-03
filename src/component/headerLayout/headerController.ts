@@ -218,7 +218,7 @@ const HeaderController = () => {
   const handleSearch = (e: any) => {
     e.preventDefault();
     if (searchInput) {
-      navigate(`/category/4?sub-category=4&min=${priceRange[0]}&max=${priceRange[1]}&name=${searchInput}`)
+      navigate(`/category/4?min=${priceRange[0]}&max=${priceRange[1]}&name=${searchInput}`)
     }
   }
 

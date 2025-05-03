@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/redux.hooks";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { getSearchProducts, getSubCategories } from "../../store/category/category.slice";
@@ -11,9 +11,13 @@ import { getCategoryUrl } from "../../utils";
  */
 
 const CategoryController = () => {
-  const { categoryId = "" } = useParams();
+  const { "*": categoryPath} = useParams();
+  const categoryId = useMemo(() => {
+    return categoryPath?.split("/") ?? [];
+  }, [categoryPath]);
+
   const [searchParams, setSearchParams] = useSearchParams();
-  const [filterCategory, setFilterCategory] = useState<any>(new Set([searchParams.get("sub-category") ?? categoryId]));
+  const [filterCategory, setFilterCategory] = useState<any>(new Set([categoryId[categoryId.length-1]?? ""]));
   const [filterDesigner, setFilterDesigner] = useState<any>(new Set([searchParams.get("designer")]));
   const [filterSize, setFilterSize] = useState<any>(new Set([searchParams.get("size")]));
   const [filterColor, setFilterColor] = useState<any>(new Set([searchParams.get("color")]));
@@ -28,6 +32,8 @@ const CategoryController = () => {
     isLoadingSearchProduct,
     searchProductData,
   } = useAppSelector((state: any) => state.category);
+
+  console.log(categoryId, "categoryIdcategoryIdcategoryId");
 
   const updateFilters = (key: string, value: any) => {
     const newParams = new URLSearchParams(searchParams);
@@ -51,7 +57,7 @@ const CategoryController = () => {
     dispatch(
       getSearchProducts({
         color: searchParams.get("color"),
-        category: searchParams.get("sub-category") ?? categoryId,
+        category: categoryId[categoryId.length-1]?? "",
         size: searchParams.get("size"),
         designer: searchParams.get("designer"),
         min: searchParams.get("min"),
@@ -100,8 +106,8 @@ const CategoryController = () => {
   },[finalPrice[1]]);
 
   useEffect(() => {
-    if (filterCategory.values().next().value != categoryId) {
-      let selectedCategory = filterCategory.values().next().value;
+    if (filterCategory.values().next().value != categoryId[0]) {
+      let selectedCategory = `${categoryPath}/${filterCategory.values().next().value}`;
       let url = getCategoryUrl(selectedCategory);
       if (searchParams.get("sale")){
         url = url + "&sale=1"
@@ -111,7 +117,7 @@ const CategoryController = () => {
   }, [filterCategory]);
 
   useEffect(() => {
-    dispatch(getSubCategories({ categoryId }));
+    dispatch(getSubCategories({ categoryId: categoryId[categoryId.length-1] ?? "" }));
   }, [dispatch, categoryId]);
 
   const handlePriceChange = (newRange: any) => {
