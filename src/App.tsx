@@ -7,7 +7,6 @@ import { setOpenLoginPopup, setOpenSignPopup, socialLoginPost } from "store/auth
 
 const App = () => {
   const { isAuthLoginLoading } = useAppSelector((state: any) => state.auth);
-
   const dispatch = useAppDispatch();
 
   const handleOpenLoginPopup = (state: boolean) => {
