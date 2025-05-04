@@ -17,7 +17,7 @@ const CategoryController = () => {
   }, [categoryPath]);
 
   const [searchParams, setSearchParams] = useSearchParams();
-  const [filterCategory, setFilterCategory] = useState<any>(new Set([categoryId[categoryId.length-1]?? ""]));
+  const [filterCategory, setFilterCategory] = useState<any>(new Set([]));
   const [filterDesigner, setFilterDesigner] = useState<any>(new Set([searchParams.get("designer")]));
   const [filterSize, setFilterSize] = useState<any>(new Set([searchParams.get("size")]));
   const [filterColor, setFilterColor] = useState<any>(new Set([searchParams.get("color")]));
@@ -55,7 +55,7 @@ const CategoryController = () => {
     dispatch(
       getSearchProducts({
         color: searchParams.get("color"),
-        category: categoryId[categoryId.length-1]?? "",
+        category: categoryId[categoryId.length - 1] ?? "",
         size: searchParams.get("size"),
         designer: searchParams.get("designer"),
         min: searchParams.get("min"),
@@ -65,7 +65,7 @@ const CategoryController = () => {
         sale: searchParams.get("sale") ?? "",
       })
     );
-  }, [dispatch, searchParams]);
+  }, [dispatch, searchParams, categoryId]);
 
   useEffect(()=>{
     let selectedSize = filterSize.values().next().value;
@@ -104,8 +104,7 @@ const CategoryController = () => {
   },[finalPrice[1]]);
 
   useEffect(() => {
-    if (
-      filterCategory.values().next().value != categoryId[categoryId.length - 1]) {
+    if (filterCategory.values().next().value) {
       let selectedCategory = `${categoryPath}/${filterCategory.values().next().value}`;
       let url = getCategoryUrl(selectedCategory);
       if (searchParams.get("sale")) {

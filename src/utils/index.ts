@@ -129,19 +129,20 @@ export const getOrignalPrice = (price:any, discount:any, selectedCurrency:any) =
 }
 
 
-export const sortSizes = (newArray:[])=> {
-  // Create a map with size as the key and its index in the predefined sequence as value
-  const sizeIndex = sizeConst?.reduce((map:any, size, index) => {
-    map[size] = index;
-    return map;
-  }, {});
-
-const newArrayCopy = [...normalizedList(newArray)];
-  // Sort the newArray based on the predefined size sequence
-  return newArrayCopy?.sort(
-    (a, b) => sizeIndex[a] - sizeIndex[b]
+export const normalizeAndSortSizes = (inputSizes: string[]): string[] => {
+  const sizeOrder = sizeConst.reduce(
+    (map: Record<string, number>, size, index) => {
+      map[size] = index;
+      return map;
+    },
+    {}
   );
-}
+
+  return inputSizes
+    .map((size) => size.toUpperCase()) // Convert to uppercase
+    .filter((size) => sizeOrder[size] !== undefined) // Keep only valid sizes
+    .sort((a, b) => sizeOrder[a] - sizeOrder[b]); // Sort by order
+};
 
 export const normalizedList = (list: any) => {
   return Array.isArray(list) ? list : [];
