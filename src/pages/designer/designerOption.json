@@ -46,12 +46,12 @@
     "all": {
         "A": [
             {
-                "designer": "Angry Owl",
-                "id": "angry-owl"
+                "designer": "Ahi Clothing",
+                "id": "ahi-clothing"
             },
             {
-                "designer": "Anvita Jain",
-                "id": "anvita-jain"
+                "designer": "Aham-Vayam",
+                "id": "aham-vayam"
             },
             {
                 "designer": "Amka India",
@@ -62,12 +62,16 @@
                 "id": "amrit-dawani"
             },
             {
-                "designer": "Ahi Clothing",
-                "id": "ahi-clothing"
+                "designer": "Angry Owl",
+                "id": "angry-owl"
             },
             {
-                "designer": "Aham-Vayam",
-                "id": "aham-vayam"
+                "designer": "Antithesi",
+                "id": "3157"
+            },
+            {
+                "designer": "Anvita Jain",
+                "id": "anvita-jain"
             },
             {
                 "designer": "Auruhfy",
@@ -570,12 +574,12 @@
     "clothing": {
         "A": [
             {
-                "designer": "Angry Owl",
-                "id": "angry-owl"
+                "designer": "Ahi Clothing",
+                "id": "ahi-clothing"
             },
             {
-                "designer": "Anvita Jain",
-                "id": "anvita-jain"
+                "designer": "Aham-Vayam",
+                "id": "Aham-Vayam"
             },
             {
                 "designer": "Amka India",
@@ -586,12 +590,16 @@
                 "id": "amrit-dawani"
             },
             {
-                "designer": "Ahi Clothing",
-                "id": "ahi-clothing"
+                "designer": "Angry Owl",
+                "id": "angry-owl"
             },
             {
-                "designer": "Aham-Vayam",
-                "id": "Aham-Vayam"
+                "designer": "Antithesi",
+                "id": "3157"
+            },
+            {
+                "designer": "Anvita Jain",
+                "id": "anvita-jain"
             },
             {
                 "designer": "Auruhfy",
