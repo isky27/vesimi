@@ -55,7 +55,7 @@ const ProductCard = React.memo(({ item, ...alt }: any) => {
             <div className="QuickView">
               {item?.is_price_hide ? (
                 <div className="AddProductAction">
-                  <button style={{ color: "#bb3d1f" }}>Request for price</button>
+                  <button style={{ color: "#bb3d1f" }}>Price on request</button>
                 </div>
               ) : item?.out_of_stock ? (
                 <div className="AddProductAction">
