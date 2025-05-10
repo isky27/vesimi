@@ -3,7 +3,7 @@ import moment from "moment";
 import axios, { AxiosError } from "axios";
 import { imageURL } from "./InterceptorApi";
 import { toast } from "react-toastify";
-import { countryOptions, currencyPrice, priceRange, sizeConst } from "../constant";
+import { countryOptions, currencyPrice, sizeConst } from "../constant";
 
 //Get value from local storage or default to an empty string
 export const getLocalStorage = (key: string) => {
@@ -76,7 +76,7 @@ export const removeSpaceOnly = (e: any) => {
 };
 
 export const getCategoryUrl=(categId:number | string)=>{
-  return `/category/${categId}?min=${priceRange[0]}&max=${priceRange[1]}&page=1`
+  return `/category/${categId}`
 };
 
 function formatNumber(number: any, countryCode:any) {

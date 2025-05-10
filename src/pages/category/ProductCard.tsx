@@ -76,9 +76,29 @@ const ProductCard = React.memo(({ item, ...alt }: any) => {
           <div className="py-2">
             <h3 className="text-uppercase">{item?.designer}</h3>
             <p className="text-gray">{item?.name}</p>
-            {item?.is_price_hide || item?.out_of_stock ? (
-              ""
-            ) : (
+            {item?.is_price_hide ? (
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href="https://api.whatsapp.com/send?phone=919820082317&text=Hello%20I%20need%20assistance"
+                    className="text-decoration-none"
+                  >
+                    <button
+                      style={{
+                        display: "flex",
+                        gap: "4px",
+                        backgroundColor: "#fff",
+                        border: "1px solid #cccccc",
+                        borderRadius: "6px",
+                        fontSize: "16px",
+                        color: "#333333",
+                        padding: "12px 20px",
+                        marginRight: "10px",
+                      }}
+                    >
+                      <i className="watsap bg-image ms-3"></i>Request for price
+                    </button>
+                  </a>) : item?.out_of_stock ? "" : (
               <div>
                 <small className="fw-bold h6">
                   {getPrice(item?.main_price, selectedCurrency)}{" "}

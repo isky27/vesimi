@@ -21,8 +21,8 @@ const CategoryController = () => {
   const [filterDesigner, setFilterDesigner] = useState<any>(new Set([searchParams.get("designer")]));
   const [filterSize, setFilterSize] = useState<any>(new Set([searchParams.get("size")]));
   const [filterColor, setFilterColor] = useState<any>(new Set([searchParams.get("color")]));
-  const [filterPrice, setFilterPrice] = useState<any>([searchParams.get("min") ?? priceRange[0], searchParams.get("max") ?? priceRange[1]]);
-  const [finalPrice, setFinalPrice] =  useState<any>([searchParams.get("min") ?? priceRange[0], searchParams.get("max") ?? priceRange[1]]);
+  const [filterPrice, setFilterPrice] = useState<any>([searchParams.get("min"), searchParams.get("max")]);
+  const [finalPrice, setFinalPrice] =  useState<any>([searchParams.get("min"), searchParams.get("max")]);
   // Import data from auth selectora
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -58,8 +58,8 @@ const CategoryController = () => {
         category: categoryId[categoryId.length - 1] ?? "",
         size: searchParams.get("size"),
         designer: searchParams.get("designer"),
-        min: searchParams.get("min"),
-        max: searchParams.get("max"),
+        min: searchParams.get("min") ?? "",
+        max: searchParams.get("max") ?? "",
         name: searchParams.get("name") ?? "",
         page: searchParams.get("page") ?? 1,
         sale: searchParams.get("sale") ?? "",

@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from "../../store/redux.hooks";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { confirmPassSendPost, currencyChange, loginPost, logoutPost, resetPassSendCodePost, setOpenLoginPopup, setOpenSignPopup, signUpPost } from "../../store/auth/authDataSlice";
-import { emailRegex, phoneRegex, priceRange } from "../../constant";
+import { emailRegex, phoneRegex } from "../../constant";
 import { toast } from "react-toastify";
 
 const HeaderController = () => {
@@ -218,7 +218,7 @@ const HeaderController = () => {
   const handleSearch = (e: any) => {
     e.preventDefault();
     if (searchInput) {
-      navigate(`/category/4?min=${priceRange[0]}&max=${priceRange[1]}&name=${searchInput}`)
+      navigate(`/category/4?name=${searchInput}`)
     }
   }
 
