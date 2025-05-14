@@ -1731,7 +1731,7 @@ const Header = () => {
               <li
                 onClick={() => {
                   handleCloseSidebar();
-                  navigate(`${getCategoryUrl(4)}&sale=1`);
+                  navigate(`${getCategoryUrl(4)}?sale=1`);
                 }}
                 className="textred"
               >

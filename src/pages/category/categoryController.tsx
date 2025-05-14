@@ -108,7 +108,7 @@ const CategoryController = () => {
       let selectedCategory = `${categoryPath}/${filterCategory.values().next().value}`;
       let url = getCategoryUrl(selectedCategory);
       if (searchParams.get("sale")) {
-        url = url + "&sale=1";
+        url = url + "?sale=1";
       }
       navigate(url);
     }
