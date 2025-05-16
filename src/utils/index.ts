@@ -1,7 +1,7 @@
 // Import necessary assets
 import moment from "moment";
 import axios, { AxiosError } from "axios";
-import { imageURL } from "./InterceptorApi";
+import { assetURL } from "./InterceptorApi";
 import { toast } from "react-toastify";
 import { countryOptions, currencyPrice, sizeConst } from "../constant";
 
@@ -39,7 +39,7 @@ export const getTokenHeader = () => {
 };
 
 export const getImageUrl = (imageName: string) => {
-  return imageURL + imageName
+  return assetURL + imageName
 }
 
 export const formatDate = (date: any) => {

@@ -1,7 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { CategoryInterface } from "./categoryInterface";
 import categoryService from "./category.service";
-import { getErrorMessage, getRequest, isCancelRequest } from "../../utils";
+import { getErrorMessage, isCancelRequest } from "../../utils";
+import { assetURL } from "utils/InterceptorApi";
+import axios from "axios";
 
 /**
  * Initial state for the authentication
@@ -55,7 +57,7 @@ export const getCategoryProducts = createAsyncThunk("get/category/product", asyn
 
 export const getDesignersList = createAsyncThunk("get/designer/list", async (_,thunkApi: any) => {
     try {
-        const response = await getRequest("https://vesimi.com/designerOption.json");
+        const response = await axios.get(assetURL+"designerOptionNew.json");
         return response;
     } catch (error: any) {
         const message: any = getErrorMessage(error)

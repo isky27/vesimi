@@ -1,7 +1,7 @@
 import axios from "axios";
 import { logoutPost } from "../store/auth/authDataSlice";
 export const baseURL = process.env.REACT_APP_BACKEND_URL;
-export const imageURL = process.env.REACT_APP_BASE_URL_ASSET;
+export const assetURL = process.env.REACT_APP_BASE_URL_ASSET;
 // const CryptoJS = require("crypto-js");
 const currentExecutingRequests: any = {};
 

@@ -4,7 +4,6 @@ import { getCategoryUrl } from "../../utils";
 import { useAppDispatch, useAppSelector } from "store/redux.hooks";
 import { getDesignersList } from "store/category/category.slice";
 import Loader from "component/Loader";
-const designers:any = require("./designerOption.json")
 
 const DesignerView = () => {
 
@@ -121,9 +120,9 @@ const DesignerView = () => {
                   >
                     <div className="accordion-body">
                       <div className="categoeryLink">
-                        {designers[selectDesigner][letter] &&
-                        designers[selectDesigner][letter].length > 0 ? (
-                          designers[selectDesigner][letter].map(
+                        {designerListData?.[selectDesigner]?.[letter] &&
+                        designerListData?.[selectDesigner]?.[letter].length > 0 ? (
+                          designerListData?.[selectDesigner]?.[letter].map(
                             (designer: any) => (
                               <Link
                                 key={designer.id}
