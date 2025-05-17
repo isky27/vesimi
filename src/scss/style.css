@@ -1373,7 +1373,7 @@ span.appOnly {
 }
 
 .sizePartTabs .sizeBtn {
-  width: 40px;
+  min-width: 40px;
   border: 1px solid #e6e6e6;
   background-color: white;
   min-height: 40px;

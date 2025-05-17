@@ -229,7 +229,7 @@ const Header = () => {
               </li>
               {/* <!-- what's new  --> */}
               <li>
-                <span onClick={() => navigate(getCategoryUrl("3"))}>
+                <span onClick={() => navigate(getCategoryUrl("what's-new"))}>
                   What's New
                 </span>
                 <div className="subNavPart" onClick={handleCloseSidebar}>
@@ -329,7 +329,7 @@ const Header = () => {
                           </li>
                         </ul>
                         <div
-                          onClick={() => navigate(getCategoryUrl("4"))}
+                          onClick={() => navigate("/designer")}
                           className="viewmore"
                         >
                           VIEW ALL
@@ -608,7 +608,7 @@ const Header = () => {
 
               {/* <!-- WOMEN --> */}
               <li>
-                <span onClick={() => navigate(getCategoryUrl("6"))}>Women</span>
+                <span onClick={() => navigate(getCategoryUrl("women"))}>Women</span>
                 <div className="subNavPart" onClick={handleCloseSidebar}>
                   <div className="container">
                     <div className="SubNavRow">
@@ -746,7 +746,7 @@ const Header = () => {
                           </li>
                         </ul>
                         <div
-                          onClick={() => navigate(getCategoryUrl("6"))}
+                          onClick={() => navigate(getCategoryUrl("women"))}
                           className="viewmore"
                         >
                           VIEW ALL
@@ -817,7 +817,7 @@ const Header = () => {
                           </li>
                         </ul>
                         <div
-                          onClick={() => navigate(getCategoryUrl("women"))}
+                          onClick={() => navigate("/designer")}
                           className="viewmore"
                         >
                           VIEW ALL
@@ -869,7 +869,7 @@ const Header = () => {
 
               {/* <!-- Man --> */}
               <li>
-                <span onClick={() => navigate(getCategoryUrl("20"))}>Men</span>
+                <span onClick={() => navigate(getCategoryUrl("men"))}>Men</span>
                 <div className="subNavPart" onClick={handleCloseSidebar}>
                   <div className="container">
                     <div className="SubNavRow">
@@ -885,21 +885,21 @@ const Header = () => {
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("kurtas-44fc9"))
+                              navigate(getCategoryUrl("men-kurtas"))
                             }
                           >
                             Kurtas
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("kurta-pyjamas-b1e1e"))
+                              navigate(getCategoryUrl("men-kurta-pyjamas"))
                             }
                           >
                             Kurta Pyjamas
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("sherwanis-859ae"))
+                              navigate(getCategoryUrl("men-sherwanis"))
                             }
                           >
                             Sherwanis
@@ -907,7 +907,7 @@ const Header = () => {
                           <li
                             onClick={() =>
                               navigate(
-                                getCategoryUrl("nehru-jacket--sets-ed4e4")
+                                getCategoryUrl("men-nehru-jacket-sets")
                               )
                             }
                           >
@@ -915,35 +915,35 @@ const Header = () => {
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("bandhgalas-4ca73"))
+                              navigate(getCategoryUrl("men-bandhgalas"))
                             }
                           >
                             Bandhgalas
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("shirts-3f7b0"))
+                              navigate(getCategoryUrl("men-shirts"))
                             }
                           >
                             Shirts
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("footwear-c4d56"))
+                              navigate(getCategoryUrl("men-footwear"))
                             }
                           >
                             Footwear
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("bottoms-f4986"))
+                              navigate(getCategoryUrl("men-bottoms"))
                             }
                           >
                             Bottoms
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("jackets-8e705"))
+                              navigate(getCategoryUrl("men-jackets"))
                             }
                           >
                             Jackets
@@ -956,63 +956,63 @@ const Header = () => {
                         <ul>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("tuxedo-set-eca7b"))
+                              navigate(getCategoryUrl("men-tuxedo-set"))
                             }
                           >
                             Tuxedo Set
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("shorts-ad66b"))
+                              navigate(getCategoryUrl("men-shorts"))
                             }
                           >
                             Shorts
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("tuxedo-d0052"))
+                              navigate(getCategoryUrl("men-tuxedo"))
                             }
                           >
                             Tuxedo
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("trousers-2f916"))
+                              navigate(getCategoryUrl("men-trousers"))
                             }
                           >
                             Trousers
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("waistcoats-88bd0"))
+                              navigate(getCategoryUrl("men-waistcoats"))
                             }
                           >
                             Waistcoat
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("shrug-set-56a36"))
+                              navigate(getCategoryUrl("men-shrug-set"))
                             }
                           >
                             Shrug Set
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("pashmina-shawl-eee74"))
+                              navigate(getCategoryUrl("men-pashmina-shawl"))
                             }
                           >
                             Pashmina Shawl
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("jodhpuris-31e7d"))
+                              navigate(getCategoryUrl("men-jodhpuris"))
                             }
                           >
                             Jodhpuris
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("bandi-set-a1139"))
+                              navigate(getCategoryUrl("men-bandi-set"))
                             }
                           >
                             Bandi Set
@@ -1095,7 +1095,7 @@ const Header = () => {
                           </li>
                         </ul>
                         <div
-                          onClick={() => navigate(getCategoryUrl("men"))}
+                          onClick={() => navigate("/designer")}
                           className="viewmore"
                         >
                           VIEW ALL
@@ -1168,7 +1168,7 @@ const Header = () => {
                         <ul>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("shorts-6caf7"))
+                              navigate(getCategoryUrl("kids-boys-shorts"))
                             }
                           >
                             Shorts
@@ -1182,28 +1182,28 @@ const Header = () => {
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("kurtas-99ac8"))
+                              navigate(getCategoryUrl("kids-boys-kurtas"))
                             }
                           >
                             Kurtas
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("jackets-57504"))
+                              navigate(getCategoryUrl("kids-boys-jackets"))
                             }
                           >
                             Jackets
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("sherwanis-2a1a4"))
+                              navigate(getCategoryUrl("kids-boys-sherwanis"))
                             }
                           >
                             Sherwanis
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("suits--tuxedos-367e5"))
+                              navigate(getCategoryUrl("kids-boys-suits-tuxedos"))
                             }
                           >
                             Suits & Tuxedos
@@ -1222,7 +1222,7 @@ const Header = () => {
                         <ul>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("dresses-d51f3"))
+                              navigate(getCategoryUrl("kids-girls-dresses"))
                             }
                           >
                             Dresses
@@ -1236,7 +1236,7 @@ const Header = () => {
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("pant-sets-d5cec"))
+                              navigate(getCategoryUrl("kids-girls-pant-sets"))
                             }
                           >
                             Pant Sets
@@ -1250,35 +1250,35 @@ const Header = () => {
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("jumpsuits-f3db8"))
+                              navigate(getCategoryUrl("kids-girls-jumpsuits"))
                             }
                           >
                             Jumpsuits
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("skirt-sets-4c1ca"))
+                              navigate(getCategoryUrl("kids-girls-skirt-sets"))
                             }
                           >
                             Skirt Sets
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("tunics--kurtis-d3318"))
+                              navigate(getCategoryUrl("kids-girls-tunics--kurtis"))
                             }
                           >
                             Tunics & Kurtis
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("gowns-5ba6a"))
+                              navigate(getCategoryUrl("kids-girls-gowns"))
                             }
                           >
                             Gowns
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("sarees-6a4ae"))
+                              navigate(getCategoryUrl("kids-girls-sarees"))
                             }
                           >
                             Sarees
@@ -1322,8 +1322,14 @@ const Header = () => {
                             Fayyon Kids
                           </li>
                         </ul>
-                        <div className="viewmore">VIEW ALL</div>
-                      </div>
+                        <div
+                          className="viewmore"
+                          onClick={() => navigate("/designer")}
+                        >
+                          VIEW ALL
+                        </div>
+                        </div>
+
 
                       <div
                         className="SubNavGrid ProductDemoGrid"
@@ -1370,7 +1376,7 @@ const Header = () => {
 
               {/* <!-- Accessories --> */}
               <li>
-                <span onClick={() => navigate(getCategoryUrl("121"))}>
+                <span onClick={() => navigate(getCategoryUrl("accessories"))}>
                   Accessories
                 </span>
                 <div className="subNavPart" onClick={handleCloseSidebar}>
@@ -1424,8 +1430,13 @@ const Header = () => {
                             Womens Footwear
                           </li>
                         </ul>
-                        <div className="viewmore">VIEW ALL</div>
-                      </div>
+                        <div
+                          className="viewmore"
+                          onClick={() => navigate(getCategoryUrl("accessories"))}
+                        >
+                          VIEW ALL
+                        </div>
+                        </div>
 
                       <div className="SubNavGrid">
                         <h4>DESIGNERS</h4>
@@ -1488,8 +1499,14 @@ const Header = () => {
                             Bijoux by Priya Chandna
                           </li>
                         </ul>
-                        <div className="viewmore">VIEW ALL</div>
-                      </div>
+                        <div
+                          className="viewmore"
+                          onClick={() => navigate("/designer")}
+                        >
+                          VIEW ALL
+                        </div>
+                        </div>
+
 
                       <div className="SubNavGrid ProductDemoGrid"></div>
 
@@ -1538,7 +1555,7 @@ const Header = () => {
 
               {/* <!-- Jewellery --> */}
               <li>
-                <span onClick={() => navigate(getCategoryUrl("366"))}>
+                <span onClick={() => navigate(getCategoryUrl("jewellery"))}>
                   Jewellery
                 </span>
                 <div className="subNavPart" onClick={handleCloseSidebar}>
@@ -1603,8 +1620,13 @@ const Header = () => {
                             Chains
                           </li>
                         </ul>
-                        <div className="viewmore">VIEW ALL</div>
-                      </div>
+                        <div
+                          className="viewmore"
+                          onClick={() => navigate(getCategoryUrl("jewellery"))}
+                        >
+                          VIEW ALL
+                        </div>
+                        </div>
 
                       <div className="SubNavGrid">
                         <h4>DESIGNERS</h4>
@@ -1723,7 +1745,7 @@ const Header = () => {
               <li
                 onClick={() => {
                   handleCloseSidebar();
-                  navigate(getCategoryUrl(471));
+                  navigate(getCategoryUrl("gift-card"));
                 }}
               >
                 <span>Gift card</span>

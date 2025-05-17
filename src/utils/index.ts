@@ -128,20 +128,22 @@ export const getOrignalPrice = (price:any, discount:any, selectedCurrency:any) =
  return getPrice(extractNumber(price)*100 / (100-extractNumber(discount)), selectedCurrency)
 }
 
-
 export const normalizeAndSortSizes = (inputSizes: string[]): string[] => {
   const sizeOrder = sizeConst.reduce(
     (map: Record<string, number>, size, index) => {
-      map[size] = index;
+      map[size.toUpperCase()] = index;
       return map;
     },
     {}
   );
 
   return inputSizes
-    .map((size) => size.toUpperCase()) // Convert to uppercase
-    .filter((size) => sizeOrder[size] !== undefined) // Keep only valid sizes
-    .sort((a, b) => sizeOrder[a] - sizeOrder[b]); // Sort by order
+    .map((size) => size.toUpperCase())
+    .sort((a, b) => {
+      const aOrder = sizeOrder[a] !== undefined ? sizeOrder[a] : Infinity;
+      const bOrder = sizeOrder[b] !== undefined ? sizeOrder[b] : Infinity;
+      return aOrder - bOrder;
+    });
 };
 
 export const normalizedList = (list: any) => {
