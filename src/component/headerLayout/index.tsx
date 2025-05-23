@@ -229,7 +229,7 @@ const Header = () => {
               </li>
               {/* <!-- what's new  --> */}
               <li>
-                <span onClick={() => navigate(getCategoryUrl("what's-new"))}>
+                <span onClick={() => navigate(getCategoryUrl("whats-new"))}>
                   What's New
                 </span>
                 <div className="subNavPart" onClick={handleCloseSidebar}>
@@ -878,7 +878,7 @@ const Header = () => {
                         <ul>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("kurta-sets-31c54"))
+                              navigate(getCategoryUrl("men-kurta-sets"))
                             }
                           >
                             Kurta Sets
@@ -1175,7 +1175,7 @@ const Header = () => {
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("kurta-sets-2c5ec"))
+                              navigate(getCategoryUrl("kids-boys-kurta-sets"))
                             }
                           >
                             Kurta Sets
@@ -1229,7 +1229,7 @@ const Header = () => {
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("kurta-sets-8397a"))
+                              navigate(getCategoryUrl("kids-girls-kurta-sets"))
                             }
                           >
                             Kurta Sets
@@ -1243,7 +1243,7 @@ const Header = () => {
                           </li>
                           <li
                             onClick={() =>
-                              navigate(getCategoryUrl("lehengas-dc184"))
+                              navigate(getCategoryUrl("kids-girls-lehengas"))
                             }
                           >
                             Lehengas
