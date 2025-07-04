@@ -379,7 +379,7 @@ const ProductDetail = () => {
           setIsOpenSizeChart(!isOpenSizeChart);
         }}
       >
-        <img style={{ width: "60vw" }} alt='sizechart' src={productDetails?.size_chart} />
+        <img style={{ width: "64vw" }} alt='sizechart' src={productDetails?.size_chart} />
       </CustomPopup>
     </section>
   );
