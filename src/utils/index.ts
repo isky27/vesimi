@@ -1,7 +1,6 @@
 // Import necessary assets
 import moment from "moment";
 import axios, { AxiosError } from "axios";
-import { assetURL } from "./InterceptorApi";
 import { toast } from "react-toastify";
 import { countryOptions, currencyPrice, sizeConst } from "../constant";
 
@@ -37,10 +36,6 @@ export const getTokenHeader = () => {
 
   };
 };
-
-export const getImageUrl = (imageName: string) => {
-  return assetURL + imageName
-}
 
 export const formatDate = (date: any) => {
   return moment(date).format("DD MMM YYYY");
