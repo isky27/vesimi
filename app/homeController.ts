@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../store/redux.hooks';
+import { useAppDispatch, useAppSelector } from '@/store/redux.hooks';
 import {
   homeTopCategory,
   homeMainSlider,
@@ -10,7 +10,7 @@ import {
   ownDesignerProduct,
   exclusiveCollectionProduct,
   getBlogs,
-} from "../../store/home/home.slice";
+} from "@/store/home/home.slice";
 import { useNavigate } from 'react-router-dom';
 
 /**

@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../store/redux.hooks";
-import { getBlogs } from "../store/blog/blog.slice";
+import { useAppDispatch, useAppSelector } from "@/store/redux.hooks";
+import { getBlogs } from "@/store/blog/blog.slice";
 
 const BlogController = () => {
   const dispatch = useAppDispatch();

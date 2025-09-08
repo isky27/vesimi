@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import { useAppDispatch, useAppSelector } from "../store/redux.hooks";
-import { deleteUserAddress, getUserAddress } from "../store/auth/authDataSlice";
+import { useAppDispatch, useAppSelector } from "@/store/redux.hooks";
+import { deleteUserAddress, getUserAddress } from "@/store/auth/authDataSlice";
 
 const AddressController = () => {
   const dispatch = useAppDispatch();

@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import { useAppDispatch, useAppSelector } from "../../store/redux.hooks";
-import { getCart, updateCart, deleteCartProduct } from "../../store/cart/cart.slice";
+import { useAppDispatch, useAppSelector } from "@/store/redux.hooks";
+import { getCart, updateCart, deleteCartProduct } from "@/store/cart/cart.slice";
 import { useRouter } from "next/navigation";
 
 const CartController = () => {
